@@ -1,0 +1,52 @@
+repository_type: pipeline
+
+nf_core_version: 3.5.2
+
+lint:
+  files_unchanged:
+    - .github/CONTRIBUTING.md
+    - .github/PULL_REQUEST_TEMPLATE.md
+    - .github/CONTRIBUTING.md
+    - assets/sendmail_template.txt
+    - CODE_OF_CONDUCT.md
+    - assets/nf-core-soillifeatlas_logo_light.png
+    - docs/images/nf-core-soillifeatlas_logo_light.png
+    - docs/images/nf-core-soillifeatlas_logo_dark.png
+    - .github/ISSUE_TEMPLATE/bug_report.yml
+    - .github/CONTRIBUTING.md
+    - .github/PULL_REQUEST_TEMPLATE.md
+    - assets/email_template.txt
+    - docs/README.md
+  nextflow_config: false
+  multiqc_config: false
+  files_exist:
+    - conf/igenomes.config
+    - conf/igenomes_ignored.config
+    - conf/test.config
+    - conf/test_full.config
+    - .github/workflows/nf-test.yml
+    - .github/actions/get-shards/action.yml
+    - .github/actions/nf-test/action.yml
+    - assets/multiqc_config.yml
+    - CODE_OF_CONDUCT.md
+    - assets/nf-core-soillifeatlas_logo_light.png
+    - docs/images/nf-core-soillifeatlas_logo_light.png
+    - docs/images/nf-core-soillifeatlas_logo_dark.png
+    - .github/ISSUE_TEMPLATE/config.yml
+    - .github/workflows/awstest.yml
+    - .github/workflows/awsfulltest.yml
+
+template:
+  org: soillifeatlas
+  name: soillifeatlas
+  description: Standardized Nextflow pipeline for cross-kingdom soil lipidomics decomposition
+  author: Rahul Samrat
+  version: 0.1.0dev
+  force: true
+  outdir: /Users/rahulsamrat/Desktop/Projects/soilfoodwebatlas/nf-core-soillifeatlas
+  skip_features:
+    - fastqc
+    - multiqc
+    - igenomes
+    - test_config
+  is_nfcore: false
