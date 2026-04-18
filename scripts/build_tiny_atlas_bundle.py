@@ -13,7 +13,12 @@ Artefacts laid out here:
                                         MGF-keyed variant)
   atlas_consensus.mgf                <- tiny_atlas.mgf
   consensus_aligned_table.parquet    <- tiny_atlas_intensity.parquet
-  consensus_unified_annotations.parquet <- tiny_annotation.csv (csv -> parquet)
+  consensus_unified_annotations.csv  <- tiny_annotation.csv
+                                        (kept as CSV for v0.1; downstream
+                                        apply_rie_correction.py reads CSV.
+                                        Renamed on the parquet/csv boundary
+                                        when the atlas publishing pipeline
+                                        switches format in v0.2+.)
   rie_table_s10.csv                  <- tiny_rie_table.csv
   equisplash_IS_masses_POS.csv       <- tiny_is_features.csv
   archlips_validated_features.csv    <- tiny_archlips_validated.csv
@@ -32,8 +37,6 @@ Re-run only if a fixture layout needs to change.
 from pathlib import Path
 import shutil
 
-import pandas as pd
-
 
 FIXTURES = Path(__file__).resolve().parents[1] / "tests" / "fixtures" / "tiny"
 BUNDLE = FIXTURES / "tiny_atlas_bundle"
@@ -43,6 +46,7 @@ DIRECT_COPIES = [
     ("tiny_simper_atlas.parquet",               "simper_fingerprint_atlas.parquet"),
     ("tiny_atlas.mgf",                          "atlas_consensus.mgf"),
     ("tiny_atlas_intensity.parquet",            "consensus_aligned_table.parquet"),
+    ("tiny_annotation.csv",                     "consensus_unified_annotations.csv"),
     ("tiny_rie_table.csv",                      "rie_table_s10.csv"),
     ("tiny_is_features.csv",                    "equisplash_IS_masses_POS.csv"),
     ("tiny_archlips_validated.csv",             "archlips_validated_features.csv"),
@@ -67,13 +71,6 @@ def main() -> None:
         if not src_path.exists():
             raise FileNotFoundError(f"missing source fixture: {src_path}")
         shutil.copy(src_path, dst_path)
-
-    # Annotation ships as parquet in a real atlas; convert the CSV tiny fixture.
-    annotation_csv = FIXTURES / "tiny_annotation.csv"
-    if not annotation_csv.exists():
-        raise FileNotFoundError(f"missing source fixture: {annotation_csv}")
-    annotation_df = pd.read_csv(annotation_csv)
-    annotation_df.to_parquet(BUNDLE / "consensus_unified_annotations.parquet")
 
     print(f"tiny atlas bundle assembled at: {BUNDLE}")
     for f in sorted(BUNDLE.iterdir()):
