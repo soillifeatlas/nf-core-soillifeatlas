@@ -36,6 +36,9 @@ jobs:
             sleep 20
           done
           tar -xzf /tmp/nf-test-0.9.5.tar.gz -C /tmp
+          # Place the JAR where the wrapper expects it
+          mkdir -p "$HOME/.nf-test"
+          mv /tmp/nf-test.jar "$HOME/.nf-test/"
           sudo mv /tmp/nf-test /usr/local/bin/
           nf-test version
       - name: Run APPLY workflow end-to-end on tiny fixtures
