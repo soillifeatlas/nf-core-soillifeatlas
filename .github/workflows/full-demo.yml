@@ -24,10 +24,20 @@ jobs:
         uses: nf-core/setup-nextflow@v2
         with:
           version: '25.10.4'
-      - name: Install nf-test
+      - name: Install nf-test (via gh CLI for CDN-resilient download)
+        env:
+          GH_TOKEN: ${{ github.token }}
         run: |
-          curl -fsSL https://code.askimed.com/install/nf-test | bash
-          sudo mv nf-test /usr/local/bin/
+          for i in 1 2 3; do
+            if gh release download v0.9.5 --repo askimed/nf-test --pattern 'nf-test-0.9.5.tar.gz' --dir /tmp --clobber; then
+              break
+            fi
+            echo "gh download attempt $i failed, sleeping 20s..."
+            sleep 20
+          done
+          tar -xzf /tmp/nf-test-0.9.5.tar.gz -C /tmp
+          sudo mv /tmp/nf-test /usr/local/bin/
+          nf-test version
       - name: Run APPLY workflow end-to-end on tiny fixtures
         # v0.1 LITE: uses tiny-fixture atlas bundle.
         # Post-v0.1.0 release (when real Zenodo DOI is minted):
