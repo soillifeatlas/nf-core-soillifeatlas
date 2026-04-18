@@ -1,0 +1,25 @@
+nextflow_process {
+    name "Test EVAL_PLAUSIBILITY"
+    script "modules/local/eval_plausibility.nf"
+    process "EVAL_PLAUSIBILITY"
+    profile "local"
+
+    test("scores a kingdom composition against the expected reference") {
+        when {
+            process {
+                """
+                input[0] = [
+                    'fc_weighted_bc',
+                    file("${projectDir}/tests/fixtures/tiny/tiny_kingdom_composition.parquet")
+                ]
+                input[1] = file("${projectDir}/tests/fixtures/tiny/tiny_expected_kingdom_composition.csv")
+                """
+            }
+        }
+        then {
+            assert process.success
+            assert path(process.out.tsv[0][1]).exists()
+            assert path(process.out.versions[0]).exists()
+        }
+    }
+}
