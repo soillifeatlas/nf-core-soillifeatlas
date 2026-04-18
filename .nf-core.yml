@@ -2,6 +2,21 @@ repository_type: pipeline
 
 nf_core_version: 3.5.2
 
+# Lint skips — each entry is an architectural decision for v0.1-dev, not a
+# "will fix later" sweep-under-the-rug. Rationales:
+#
+#  * nf-core template features we deliberately skipped at scaffolding time
+#    (fastqc, multiqc, igenomes, test_config) leak a handful of expected-file
+#    lint checks — these stay skipped in v0.1.
+#  * `files_unchanged` items below have been customised on purpose to reflect
+#    the soillifeatlas project's specifics (soillifeatlas org, Stage-7 story,
+#    MIT license, Rahul Samrat as sole author).
+#  * nf-core logo PNGs (double-prefixed paths `nf-core-nf-core-soillifeatlas_*`)
+#    are a scaffolder artefact; we committed plain `nf-core-soillifeatlas_*` paths.
+#    Lint won't discover those without a template resync, deferred to v0.2.
+#  * Custom-scientific params (RIE_floor, IS_*, atlas_*, decomposition_methods,
+#    mode, skip_*, enable_neg) ARE documented in `nextflow_schema.json` as of
+#    Phase 10 — the schema_params lint now passes on those.
 lint:
   files_unchanged:
     - .github/CONTRIBUTING.md
@@ -13,10 +28,14 @@ lint:
     - docs/images/nf-core-soillifeatlas_logo_light.png
     - docs/images/nf-core-soillifeatlas_logo_dark.png
     - .github/ISSUE_TEMPLATE/bug_report.yml
+    - .github/ISSUE_TEMPLATE/feature_request.yml
     - .github/CONTRIBUTING.md
     - .github/PULL_REQUEST_TEMPLATE.md
+    - .github/workflows/branch.yml
     - assets/email_template.txt
+    - assets/email_template.html
     - docs/README.md
+    - .gitignore
   nextflow_config: false
   multiqc_config: false
   files_exist:
@@ -32,6 +51,9 @@ lint:
     - assets/nf-core-soillifeatlas_logo_light.png
     - docs/images/nf-core-soillifeatlas_logo_light.png
     - docs/images/nf-core-soillifeatlas_logo_dark.png
+    - assets/nf-core-nf-core-soillifeatlas_logo_light.png
+    - docs/images/nf-core-nf-core-soillifeatlas_logo_light.png
+    - docs/images/nf-core-nf-core-soillifeatlas_logo_dark.png
     - .github/ISSUE_TEMPLATE/config.yml
     - .github/workflows/awstest.yml
     - .github/workflows/awsfulltest.yml

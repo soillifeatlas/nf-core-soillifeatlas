@@ -86,6 +86,137 @@
                 }
             }
         },
+        "pipeline_mode_options": {
+            "title": "Pipeline mode",
+            "type": "object",
+            "fa_icon": "fas fa-code-branch",
+            "description": "Top-level dispatch — which side of the train/apply split to run.",
+            "properties": {
+                "mode": {
+                    "type": "string",
+                    "default": "apply",
+                    "enum": ["apply", "train"],
+                    "description": "Which workflow to run. v0.1 ships `apply` end-to-end; `train` is scaffolded and lands in v0.2+.",
+                    "fa_icon": "fas fa-route"
+                }
+            }
+        },
+        "atlas_options": {
+            "title": "Reference atlas",
+            "type": "object",
+            "fa_icon": "fas fa-book",
+            "description": "Reference SIMPER fingerprint + biomarker atlas (published on Zenodo with SHA256 verification).",
+            "properties": {
+                "atlas_version": {
+                    "type": "string",
+                    "default": "v0.1.0",
+                    "description": "Atlas release version tag.",
+                    "fa_icon": "fas fa-tag"
+                },
+                "atlas_doi": {
+                    "type": "string",
+                    "default": "10.5281/zenodo.XXXXXXX",
+                    "description": "Zenodo DOI of the reference atlas bundle (filled in at v0.1.0 deposition).",
+                    "fa_icon": "fas fa-link"
+                },
+                "atlas_sha256": {
+                    "type": "string",
+                    "description": "Pinned SHA256 of the atlas tarball — runtime-asserted by FETCH_ATLAS. Empty until v0.1.0 deposition.",
+                    "fa_icon": "fas fa-fingerprint"
+                },
+                "atlas_path": {
+                    "type": "string",
+                    "format": "directory-path",
+                    "description": "Local path to a pre-extracted atlas directory, bypasses the Zenodo fetch (useful for offline/air-gapped runs).",
+                    "fa_icon": "fas fa-folder"
+                }
+            }
+        },
+        "correction_options": {
+            "title": "Quantification correction (analysis-19 recommended config, iter3a_floor020)",
+            "type": "object",
+            "fa_icon": "fas fa-sliders-h",
+            "description": "Scientific constants pinned for Samrat 2025 reproduction. Do not change without also updating the PINNED_ATLAS_SHA256 assertion in tests/.",
+            "properties": {
+                "IS_reference_compound": {
+                    "type": "string",
+                    "default": "LPE_18d7",
+                    "description": "Internal standard used for L2 IS normalization.",
+                    "fa_icon": "fas fa-flask"
+                },
+                "IS_spiked_pmol": {
+                    "type": "number",
+                    "default": 100.0,
+                    "description": "Internal standard spike amount in pmol.",
+                    "fa_icon": "fas fa-balance-scale"
+                },
+                "RIE_floor": {
+                    "type": "number",
+                    "default": 0.20,
+                    "description": "Lower bound on RIE correction factor to prevent over-amplification of low-intensity features (L3).",
+                    "fa_icon": "fas fa-shield-alt"
+                },
+                "restrict_archaea_to_archlips": {
+                    "type": "boolean",
+                    "default": true,
+                    "description": "Apply L5 Archaea reference-quality filter (restrict Archaea features to ArchLips-validated set).",
+                    "fa_icon": "fas fa-filter"
+                },
+                "simper_top_n": {
+                    "type": "integer",
+                    "default": 3000,
+                    "description": "Top N SIMPER features retained per phylum when building the fingerprint atlas (train-mode only).",
+                    "fa_icon": "fas fa-sort-numeric-down"
+                }
+            }
+        },
+        "decomposition_options": {
+            "title": "Decomposition",
+            "type": "object",
+            "fa_icon": "fas fa-object-ungroup",
+            "description": "Decomposition methods run in parallel to estimate kingdom-level composition.",
+            "properties": {
+                "decomposition_methods": {
+                    "type": "string",
+                    "default": "nnls,std_bc,enriched_bc,fc_weighted_bc",
+                    "description": "Comma-separated list of decomposition methods to run in parallel (also accepts a list in `nextflow.config`).",
+                    "fa_icon": "fas fa-layer-group"
+                },
+                "primary_method": {
+                    "type": "string",
+                    "default": "fc_weighted_bc",
+                    "enum": ["nnls", "std_bc", "enriched_bc", "fc_weighted_bc"],
+                    "description": "Primary decomposition method reported in the final composition vector (others kept as sensitivity checks).",
+                    "fa_icon": "fas fa-star"
+                }
+            }
+        },
+        "feature_toggles": {
+            "title": "Runtime feature toggles",
+            "type": "object",
+            "fa_icon": "fas fa-toggle-on",
+            "description": "Opt-out of optional subworkflows to stay off the critical path.",
+            "properties": {
+                "skip_gnps": {
+                    "type": "boolean",
+                    "default": false,
+                    "description": "Skip the GNPS2 REST API call in MOLNET and use matchms local fallback (faster, CI-friendly).",
+                    "fa_icon": "fas fa-ban"
+                },
+                "skip_annotate": {
+                    "type": "boolean",
+                    "default": true,
+                    "description": "Skip the ANNOTATE subworkflow (demo default — annotation is parallel enrichment, not a gate for decomposition).",
+                    "fa_icon": "fas fa-ban"
+                },
+                "enable_neg": {
+                    "type": "boolean",
+                    "default": false,
+                    "description": "Enable negative-mode processing. Out of scope for v0.1 (blocked by missing soil IS); set explicitly to override.",
+                    "fa_icon": "fas fa-minus-circle"
+                }
+            }
+        },
         "generic_options": {
             "title": "Generic options",
             "type": "object",
@@ -166,6 +297,21 @@
     "allOf": [
         {
             "$ref": "#/$defs/input_output_options"
+        },
+        {
+            "$ref": "#/$defs/pipeline_mode_options"
+        },
+        {
+            "$ref": "#/$defs/atlas_options"
+        },
+        {
+            "$ref": "#/$defs/correction_options"
+        },
+        {
+            "$ref": "#/$defs/decomposition_options"
+        },
+        {
+            "$ref": "#/$defs/feature_toggles"
         },
         {
             "$ref": "#/$defs/institutional_config_options"
