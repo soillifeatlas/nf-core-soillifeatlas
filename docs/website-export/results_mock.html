@@ -1,0 +1,410 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Pipeline Run: climgrass-demo-12 — Soil Life Atlas</title>
+
+  <!--
+    Standalone results page — matches the design tokens used across
+    pipeline.soillifeatlas.org. No external dependencies, no custom fonts
+    beyond the standard Google font stack (degrades to system sans/serif
+    when those don't load). Template for the website's /results-demo route.
+  -->
+
+  <style>
+    /* --- design tokens ------------------------------------------------- */
+    /* (inlined as literal hex per spec; this file must render standalone) */
+
+    *, *::before, *::after { box-sizing: border-box; }
+
+    html { font-size: 16px; }
+    body {
+      margin: 0;
+      background: #faf8f4;
+      color: #1a1a1f;
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, "Segoe UI",
+                   Roboto, "Helvetica Neue", Arial, sans-serif;
+      font-size: 16px;
+      line-height: 1.55;
+    }
+    h1, h2, h3 {
+      font-family: Fraunces, ui-serif, Georgia, "Times New Roman", serif;
+      font-weight: 500;
+      color: #1a1a1f;
+      margin: 0 0 0.4em;
+    }
+    h1 { font-size: 2.25rem; letter-spacing: -0.01em; }
+    h2 { font-size: 1.5rem; margin-top: 2.5rem; }
+    h3 { font-size: 1.125rem; margin-top: 1.5rem; }
+
+    code, .mono {
+      font-family: "JetBrains Mono", ui-monospace, "SFMono-Regular",
+                   Menlo, Consolas, monospace;
+      font-size: 0.9em;
+    }
+
+    a { color: #2856d6; text-decoration: none; border-bottom: 1px solid rgba(40, 86, 214, 0.25); }
+    a:hover { border-bottom-color: #2856d6; }
+
+    .wrap { max-width: 880px; margin: 0 auto; padding: 48px 28px 96px; }
+
+    /* --- header -------------------------------------------------------- */
+    .header {
+      display: flex; flex-wrap: wrap; align-items: baseline; gap: 16px 24px;
+      padding-bottom: 20px; border-bottom: 1px solid rgba(26, 26, 31, 0.1);
+    }
+    .header h1 { margin: 0; }
+    .eyebrow {
+      font-family: "JetBrains Mono", ui-monospace, monospace;
+      font-size: 0.72rem; letter-spacing: 0.15em; text-transform: uppercase;
+      color: #2856d6;
+    }
+    .timestamp { color: #6b6860; font-size: 0.9rem; }
+    .badge {
+      display: inline-block;
+      padding: 4px 10px; border: 1px solid #2856d6; color: #2856d6;
+      border-radius: 999px;
+      font-family: "JetBrains Mono", ui-monospace, monospace;
+      font-size: 0.7rem; letter-spacing: 0.12em; text-transform: uppercase;
+    }
+
+    .summary {
+      margin-top: 18px;
+      color: #6b6860; font-size: 0.95rem;
+    }
+    .summary .dot { margin: 0 10px; color: rgba(107, 104, 96, 0.5); }
+
+    /* --- tables -------------------------------------------------------- */
+    table { width: 100%; border-collapse: collapse; margin-top: 8px; }
+    th, td { text-align: left; padding: 10px 8px; vertical-align: middle; }
+    th {
+      font-family: "JetBrains Mono", ui-monospace, monospace;
+      font-size: 0.7rem; letter-spacing: 0.15em; text-transform: uppercase;
+      color: #6b6860; font-weight: 500;
+      border-bottom: 1px solid rgba(26, 26, 31, 0.12);
+    }
+    td { border-bottom: 1px solid rgba(26, 26, 31, 0.06); font-size: 0.95rem; }
+
+    .kingdom-name { font-weight: 500; }
+    .num {
+      font-family: Fraunces, ui-serif, serif;
+      font-feature-settings: "tnum";
+      color: #1a1a1f;
+    }
+    .uncertainty { color: #6b6860; font-size: 0.85rem; }
+
+    /* --- composition bar ---------------------------------------------- */
+    .bar {
+      position: relative;
+      width: 100%; height: 8px; border-radius: 4px;
+      background: rgba(26, 26, 31, 0.06);
+      overflow: hidden;
+    }
+    .bar > span {
+      display: block; height: 100%;
+      background: #2856d6;
+      border-radius: 4px;
+    }
+    .bar.bacteria > span { background: #2856d6; }
+    .bar.fungi    > span { background: #4a3728; }
+    .bar.plantae  > span { background: #2f4a3a; }
+    .bar.archaea  > span { background: #5a4b8a; }
+    .bar.animalia > span { background: #a6502b; }
+    .bar.protozoa > span { background: #6b6860; }
+
+    /* --- plausibility gauge -------------------------------------------- */
+    .gauge {
+      position: relative; margin-top: 10px;
+      height: 18px;
+      background: linear-gradient(
+        to right,
+        rgba(47, 74, 58, 0.18) 0%,
+        rgba(47, 74, 58, 0.18) 50%,
+        rgba(166, 80, 43, 0.22) 50%,
+        rgba(166, 80, 43, 0.22) 100%);
+      border-radius: 9px;
+      border: 1px solid rgba(26, 26, 31, 0.08);
+    }
+    .gauge .tick {
+      position: absolute; top: -4px; bottom: -4px;
+      width: 2px; background: #6b6860;
+    }
+    .gauge .marker {
+      position: absolute; top: -6px;
+      width: 12px; height: 30px;
+      margin-left: -6px;
+      background: #2856d6;
+      border-radius: 3px;
+    }
+    .gauge-legend {
+      display: flex; justify-content: space-between;
+      font-family: "JetBrains Mono", ui-monospace, monospace;
+      font-size: 0.7rem; color: #6b6860; letter-spacing: 0.08em;
+      margin-top: 8px;
+    }
+    .plausibility-caption {
+      margin-top: 14px;
+      color: #2f4a3a; font-size: 0.9rem; font-style: italic;
+    }
+
+    /* --- treatment effects: direction arrows -------------------------- */
+    .arrow-up, .arrow-down {
+      font-family: "JetBrains Mono", ui-monospace, monospace;
+      font-weight: 600;
+    }
+    .arrow-up   { color: #a6502b; }
+    .arrow-down { color: #2f4a3a; }
+
+    /* --- download list (dimmed) --------------------------------------- */
+    .downloads {
+      list-style: none; padding: 0; margin: 0;
+      border: 1px dashed rgba(26, 26, 31, 0.2);
+      border-radius: 8px; padding: 18px 22px;
+      background: rgba(26, 26, 31, 0.015);
+    }
+    .downloads .dim-caption {
+      font-size: 0.82rem; color: #6b6860; font-style: italic;
+      display: block; margin-bottom: 10px;
+    }
+    .downloads li {
+      padding: 6px 0; display: flex; align-items: center; gap: 12px;
+    }
+    .downloads li + li { border-top: 1px solid rgba(26, 26, 31, 0.05); }
+    .downloads .fname {
+      font-family: "JetBrains Mono", ui-monospace, monospace;
+      font-size: 0.88rem;
+      color: rgba(26, 26, 31, 0.7);
+    }
+    .downloads .ftype {
+      color: #6b6860; font-size: 0.78rem;
+      letter-spacing: 0.08em; text-transform: uppercase;
+    }
+
+    /* --- footer -------------------------------------------------------- */
+    .footer {
+      margin-top: 64px; padding-top: 22px;
+      border-top: 1px solid rgba(26, 26, 31, 0.1);
+      color: #6b6860; font-size: 0.85rem;
+    }
+  </style>
+</head>
+<body>
+  <main class="wrap" aria-label="Pipeline run results">
+    <!-- ========================== HEADER ========================== -->
+    <header class="header">
+      <div>
+        <div class="eyebrow">Pipeline run</div>
+        <h1>climgrass-demo-12</h1>
+      </div>
+      <div style="margin-left: auto; display: flex; gap: 10px; align-items: center;">
+        <span class="timestamp mono">2026-04-18 · 14:02 UTC</span>
+        <span class="badge">Demo preview</span>
+      </div>
+    </header>
+
+    <p class="summary">
+      <span>12 samples</span><span class="dot">·</span>
+      <span>POS mode</span><span class="dot">·</span>
+      <span class="mono">iter3a_floor020</span><span class="dot">·</span>
+      <span>atlas <span class="mono">v0.1.0</span></span><span class="dot">·</span>
+      <span>primary method <span class="mono">fc_weighted_bc</span></span>
+    </p>
+
+    <!-- ================== KINGDOM COMPOSITION ================== -->
+    <section aria-labelledby="kingdom-heading">
+      <h2 id="kingdom-heading">Kingdom composition</h2>
+      <p class="summary" style="margin-top:4px;">
+        Relative abundance across six kingdoms, bootstrap mean ± 1 SD over 1,000 resamples.
+      </p>
+
+      <table>
+        <thead>
+          <tr>
+            <th style="width: 18%;">Kingdom</th>
+            <th style="width: 12%;">Mean</th>
+            <th style="width: 10%;">SD</th>
+            <th>Distribution</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td class="kingdom-name">Bacteria</td>
+            <td class="num">35.7%</td>
+            <td class="uncertainty">±1.71</td>
+            <td>
+              <div class="bar bacteria" role="img" aria-label="35.7 percent"><span style="width: 35.7%;"></span></div>
+            </td>
+          </tr>
+          <tr>
+            <td class="kingdom-name">Fungi</td>
+            <td class="num">29.6%</td>
+            <td class="uncertainty">±2.81</td>
+            <td>
+              <div class="bar fungi" role="img" aria-label="29.6 percent"><span style="width: 29.6%;"></span></div>
+            </td>
+          </tr>
+          <tr>
+            <td class="kingdom-name">Plantae</td>
+            <td class="num">19.0%</td>
+            <td class="uncertainty">±1.60</td>
+            <td>
+              <div class="bar plantae" role="img" aria-label="19.0 percent"><span style="width: 19.0%;"></span></div>
+            </td>
+          </tr>
+          <tr>
+            <td class="kingdom-name">Archaea</td>
+            <td class="num">9.1%</td>
+            <td class="uncertainty">±2.62</td>
+            <td>
+              <div class="bar archaea" role="img" aria-label="9.1 percent"><span style="width: 9.1%;"></span></div>
+            </td>
+          </tr>
+          <tr>
+            <td class="kingdom-name">Protozoa</td>
+            <td class="num">3.5%</td>
+            <td class="uncertainty">±0.49</td>
+            <td>
+              <div class="bar protozoa" role="img" aria-label="3.5 percent"><span style="width: 3.5%;"></span></div>
+            </td>
+          </tr>
+          <tr>
+            <td class="kingdom-name">Animalia</td>
+            <td class="num">3.0%</td>
+            <td class="uncertainty">±0.86</td>
+            <td>
+              <div class="bar animalia" role="img" aria-label="3.0 percent"><span style="width: 3.0%;"></span></div>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </section>
+
+    <!-- ===================== PLAUSIBILITY ====================== -->
+    <section aria-labelledby="plaus-heading">
+      <h2 id="plaus-heading">Plausibility (BC vs expected)</h2>
+      <p class="summary" style="margin-top:4px;">
+        Bray-Curtis distance between the decomposed composition and the
+        expected kingdom profile derived from the reference atlas.
+      </p>
+
+      <div style="margin-top:16px;">
+        <div style="display:flex; align-items:baseline; gap:16px;">
+          <div class="num" style="font-size: 3rem; color: #2856d6; line-height: 1;">0.131</div>
+          <div class="uncertainty" style="font-size: 0.95rem;">BC distance · lower is better</div>
+        </div>
+
+        <div class="gauge" role="img" aria-label="Plausibility 0.131, below threshold 0.15">
+          <!-- threshold tick at 50% of the 0..0.3 range, i.e. 0.15 -->
+          <div class="tick" style="left: 50%;"></div>
+          <!-- marker at 0.131 / 0.30 = 43.7% -->
+          <div class="marker" style="left: 43.7%;"></div>
+        </div>
+        <div class="gauge-legend">
+          <span>0.00</span><span>0.15 (threshold)</span><span>0.30</span>
+        </div>
+
+        <p class="plausibility-caption">
+          Below threshold (0.15) — composition is consistent with the reference atlas.
+        </p>
+      </div>
+    </section>
+
+    <!-- ==================== TREATMENT EFFECTS =================== -->
+    <section aria-labelledby="te-heading">
+      <h2 id="te-heading">Treatment effects</h2>
+      <p class="summary" style="margin-top:4px;">
+        Mann-Whitney U per phylum × contrast on the primary decomposition
+        (<span class="mono">fc_weighted_bc</span>).
+      </p>
+
+      <table>
+        <thead>
+          <tr>
+            <th style="width: 30%;">Phylum</th>
+            <th style="width: 30%;">Contrast</th>
+            <th style="width: 10%;">Direction</th>
+            <th>Notes</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td class="kingdom-name">Actinomycetota</td>
+            <td>drought vs control</td>
+            <td><span class="arrow-up">↑</span></td>
+            <td class="uncertainty">Direction preserved from Samrat 2025.</td>
+          </tr>
+          <tr>
+            <td class="kingdom-name">Basidiomycota</td>
+            <td>drought vs control</td>
+            <td><span class="arrow-down">↓</span></td>
+            <td class="uncertainty">Amplified vs raw baseline.</td>
+          </tr>
+          <tr>
+            <td class="kingdom-name">Bacteria (kingdom)</td>
+            <td>warming vs ambient</td>
+            <td><span class="arrow-down">↓</span></td>
+            <td class="uncertainty">Newly revealed after L3 RIE correction.</td>
+          </tr>
+          <tr>
+            <td class="kingdom-name">Fungi (kingdom)</td>
+            <td>warming vs ambient</td>
+            <td><span class="arrow-up">↑</span></td>
+            <td class="uncertainty">Newly revealed after L3 RIE correction.</td>
+          </tr>
+        </tbody>
+      </table>
+    </section>
+
+    <!-- ===================== DOWNLOADS =========================== -->
+    <section aria-labelledby="dl-heading">
+      <h2 id="dl-heading">Artefacts</h2>
+      <ul class="downloads" aria-label="Downloadable artefacts (preview)">
+        <li class="dim-caption">
+          In a full run these would be downloadable. This is a static preview.
+        </li>
+        <li>
+          <span class="fname">composition_fc_weighted_bc.parquet</span>
+          <span class="ftype">primary output</span>
+        </li>
+        <li>
+          <span class="fname">composition_nnls.parquet</span>
+          <span class="ftype">sensitivity check</span>
+        </li>
+        <li>
+          <span class="fname">composition_std_bc.parquet</span>
+          <span class="ftype">sensitivity check</span>
+        </li>
+        <li>
+          <span class="fname">composition_enriched_bc.parquet</span>
+          <span class="ftype">sensitivity check</span>
+        </li>
+        <li>
+          <span class="fname">plausibility.tsv</span>
+          <span class="ftype">per method</span>
+        </li>
+        <li>
+          <span class="fname">treatment_effects.tsv</span>
+          <span class="ftype">per phylum × contrast</span>
+        </li>
+        <li>
+          <span class="fname">diagnostic.tsv</span>
+          <span class="ftype">top features per phylum</span>
+        </li>
+        <li>
+          <span class="fname">multiqc_report.html</span>
+          <span class="ftype">rendered report</span>
+        </li>
+      </ul>
+    </section>
+
+    <!-- ======================= FOOTER ============================ -->
+    <footer class="footer">
+      Full pipeline details:
+      <a href="https://github.com/soillifeatlas/nf-core-soillifeatlas">github.com/soillifeatlas/nf-core-soillifeatlas</a>
+      · Samrat et al. 2025
+      <a href="https://doi.org/10.1016/j.soilbio.2025.109892">doi:10.1016/j.soilbio.2025.109892</a>
+    </footer>
+  </main>
+</body>
+</html>

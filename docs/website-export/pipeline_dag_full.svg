@@ -1,0 +1,554 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg"
+     viewBox="0 0 1200 1400"
+     width="1200" height="1400"
+     preserveAspectRatio="xMidYMid meet"
+     role="img"
+     aria-labelledby="title desc">
+  <title id="title">Soil Life Atlas pipeline — technical DAG (APPLY workflow, v0.1.0-dev)</title>
+  <desc id="desc">
+    Per-process DAG for the APPLY workflow. Shows PREPROC subworkflow,
+    FETCH_ATLAS, DECOMPOSE_APPLY subworkflow (SIMPER_MATCH, three correction
+    layers, 4 parallel decompositions, three evaluation modules), and REPORT.
+    ANNOTATE runs as a dimmed parallel branch off the critical path.
+  </desc>
+
+  <!--
+    Design tokens:
+      ink      #1a1a1f (primary text, primary strokes)
+      paper    #faf8f4 (page background)
+      soil     #4a3728 (sparse accent)
+      moss     #2f4a3a (atlas / side-channel)
+      spectral #2856d6 (data / critical path highlight)
+      muted    #6b6860 (captions, secondary strokes)
+
+    Layout:
+      Vertical, 1200 wide, 1400 tall.
+      Three columns by role:
+        - Atlas column (left,  cx=160)  — reference inputs
+        - Main column  (center, cx=600) — critical path
+        - Annotate col (right,  cx=1040) — dimmed optional branch
+      Box: 260 w x 60 h unless noted. Row height ~90.
+  -->
+
+  <defs>
+    <filter id="cardShadow" x="-10%" y="-20%" width="120%" height="140%">
+      <feDropShadow dx="0" dy="1.5" stdDeviation="2.5"
+                    flood-color="#1a1a1f" flood-opacity="0.07"/>
+    </filter>
+
+    <marker id="arrow" viewBox="0 0 10 10" refX="8" refY="5"
+            markerUnits="userSpaceOnUse" markerWidth="10" markerHeight="10"
+            orient="auto-start-reverse">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#6b6860"/>
+    </marker>
+
+    <marker id="arrowSpectral" viewBox="0 0 10 10" refX="8" refY="5"
+            markerUnits="userSpaceOnUse" markerWidth="10" markerHeight="10"
+            orient="auto-start-reverse">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#2856d6"/>
+    </marker>
+
+    <marker id="arrowMoss" viewBox="0 0 10 10" refX="8" refY="5"
+            markerUnits="userSpaceOnUse" markerWidth="10" markerHeight="10"
+            orient="auto-start-reverse">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#2f4a3a"/>
+    </marker>
+
+    <!-- reusable box style: fill=paper overlay, stroke varies -->
+  </defs>
+
+  <!-- paper background -->
+  <rect width="1200" height="1400" fill="#faf8f4"/>
+
+  <!-- =======================================================================
+       HEADER
+       ======================================================================= -->
+  <text x="600" y="50" text-anchor="middle"
+        font-family="'Fraunces', ui-serif, Georgia, serif"
+        font-size="30" font-weight="500" fill="#1a1a1f">
+    APPLY workflow — technical DAG
+  </text>
+  <text x="600" y="78" text-anchor="middle"
+        font-family="'Inter', ui-sans-serif, system-ui, sans-serif"
+        font-size="13" font-style="italic" fill="#6b6860">
+    v0.1.0-dev · POS mode · iter3a_floor020 · primary method fc_weighted_bc
+  </text>
+
+  <!-- column labels -->
+  <g font-family="'JetBrains Mono', ui-monospace, 'SFMono-Regular', monospace"
+     font-size="10" letter-spacing="0.15em" fill="#6b6860" text-anchor="middle">
+    <text x="160" y="118">ATLAS (REF)</text>
+    <text x="600" y="118">CRITICAL PATH</text>
+    <text x="1040" y="118">ANNOTATE (OPTIONAL)</text>
+  </g>
+
+  <!-- separator rules under column labels -->
+  <g stroke="#1a1a1f" stroke-width="0.5" opacity="0.12">
+    <line x1="60" y1="128" x2="260" y2="128"/>
+    <line x1="470" y1="128" x2="730" y2="128"/>
+    <line x1="920" y1="128" x2="1160" y2="128"/>
+  </g>
+
+  <!-- =======================================================================
+       ROW 1 — INGEST (y ~ 150-210)
+       User-provided inputs go straight into PREPROC. INGEST is a conditional
+       raw→mzML step; only fires for .raw uploads.
+       ======================================================================= -->
+  <g transform="translate(470, 150)" filter="url(#cardShadow)">
+    <rect width="260" height="60" rx="8" ry="8"
+          fill="#ffffff" stroke="#1a1a1f" stroke-width="1.25"/>
+    <text x="130" y="27" text-anchor="middle"
+          font-family="'Fraunces', ui-serif, Georgia, serif"
+          font-size="16" font-weight="500" fill="#1a1a1f">INGEST</text>
+    <text x="130" y="47" text-anchor="middle"
+          font-family="'Inter', ui-sans-serif, system-ui, sans-serif"
+          font-size="11" fill="#6b6860">
+      conditional: .raw → .mzML
+    </text>
+  </g>
+
+  <!-- =======================================================================
+       ROW 2-4 — PREPROC subworkflow (y ~ 240-450)
+       ======================================================================= -->
+  <!-- container box for PREPROC -->
+  <rect x="430" y="235" width="340" height="230" rx="12" ry="12"
+        fill="none" stroke="#1a1a1f" stroke-width="1" stroke-dasharray="3 3" opacity="0.35"/>
+  <text x="600" y="253" text-anchor="middle"
+        font-family="'JetBrains Mono', ui-monospace, 'SFMono-Regular', monospace"
+        font-size="10" letter-spacing="0.15em" fill="#6b6860">
+    PREPROC SUBWORKFLOW
+  </text>
+
+  <g transform="translate(470, 270)" filter="url(#cardShadow)">
+    <rect width="260" height="50" rx="8" ry="8"
+          fill="#ffffff" stroke="#1a1a1f" stroke-width="1.25"/>
+    <text x="130" y="22" text-anchor="middle"
+          font-family="'Fraunces', ui-serif, Georgia, serif"
+          font-size="15" font-weight="500" fill="#1a1a1f">MZMINE_PP</text>
+    <text x="130" y="40" text-anchor="middle"
+          font-family="'Inter', ui-sans-serif, system-ui, sans-serif"
+          font-size="11" fill="#6b6860">
+      feature detection (MZmine 4.9.14 IIMN)
+    </text>
+  </g>
+
+  <g transform="translate(470, 335)" filter="url(#cardShadow)">
+    <rect width="260" height="50" rx="8" ry="8"
+          fill="#ffffff" stroke="#1a1a1f" stroke-width="1.25"/>
+    <text x="130" y="22" text-anchor="middle"
+          font-family="'Fraunces', ui-serif, Georgia, serif"
+          font-size="15" font-weight="500" fill="#1a1a1f">MOLNET</text>
+    <text x="130" y="40" text-anchor="middle"
+          font-family="'Inter', ui-sans-serif, system-ui, sans-serif"
+          font-size="11" fill="#6b6860">
+      GNPS2 FBMN · matchms fallback
+    </text>
+  </g>
+
+  <g transform="translate(470, 400)" filter="url(#cardShadow)">
+    <rect width="260" height="50" rx="8" ry="8"
+          fill="#ffffff" stroke="#1a1a1f" stroke-width="1.25"/>
+    <text x="130" y="22" text-anchor="middle"
+          font-family="'Fraunces', ui-serif, Georgia, serif"
+          font-size="15" font-weight="500" fill="#1a1a1f">ALIGN_LOESS</text>
+    <text x="130" y="40" text-anchor="middle"
+          font-family="'Inter', ui-sans-serif, system-ui, sans-serif"
+          font-size="11" fill="#6b6860">
+      3-stage cross-batch alignment
+    </text>
+  </g>
+
+  <!-- =======================================================================
+       ROW 5 — FETCH_ATLAS (left column, y ~ 485)
+       ======================================================================= -->
+  <g transform="translate(30, 485)" filter="url(#cardShadow)">
+    <rect width="260" height="65" rx="8" ry="8"
+          fill="#ffffff" stroke="#2f4a3a" stroke-width="1.5"/>
+    <text x="130" y="25" text-anchor="middle"
+          font-family="'Fraunces', ui-serif, Georgia, serif"
+          font-size="16" font-weight="500" fill="#2f4a3a">FETCH_ATLAS</text>
+    <text x="130" y="44" text-anchor="middle"
+          font-family="'Inter', ui-sans-serif, system-ui, sans-serif"
+          font-size="11" fill="#6b6860">
+      Zenodo DOI + SHA256 verify
+    </text>
+    <text x="130" y="58" text-anchor="middle"
+          font-family="'Inter', ui-sans-serif, system-ui, sans-serif"
+          font-size="10" font-style="italic" fill="#6b6860">
+      cached in NXF_CACHE_DIR
+    </text>
+  </g>
+
+  <!-- atlas artefacts list (small, under FETCH_ATLAS) -->
+  <g transform="translate(30, 565)"
+     font-family="'JetBrains Mono', ui-monospace, 'SFMono-Regular', monospace"
+     font-size="9" fill="#6b6860">
+    <text x="10" y="12">simper_fingerprint_atlas.parquet</text>
+    <text x="10" y="26">consensus_aligned_table.parquet</text>
+    <text x="10" y="40">atlas_consensus.mgf</text>
+    <text x="10" y="54">archlips_validated_features.csv</text>
+    <text x="10" y="68">equisplash_IS_masses_POS.csv</text>
+    <text x="10" y="82">rie_table_s10.csv</text>
+    <text x="10" y="96">expected_kingdom_composition.csv</text>
+    <text x="10" y="110">consensus_unified_annotations.csv</text>
+    <text x="10" y="124">sample_phylum_map.csv</text>
+  </g>
+
+  <!-- =======================================================================
+       ROW 6 — DECOMPOSE_APPLY container opens (y ~ 500)
+       The subworkflow is everything from SIMPER_MATCH through DIAGNOSTIC.
+       Outer container drawn as a dashed wrapper.
+       ======================================================================= -->
+  <rect x="300" y="488" width="600" height="720" rx="14" ry="14"
+        fill="none" stroke="#2856d6" stroke-width="1" stroke-dasharray="4 4" opacity="0.45"/>
+  <text x="600" y="508" text-anchor="middle"
+        font-family="'JetBrains Mono', ui-monospace, 'SFMono-Regular', monospace"
+        font-size="10" letter-spacing="0.15em" fill="#2856d6">
+    DECOMPOSE_APPLY SUBWORKFLOW
+  </text>
+
+  <!-- SIMPER_MATCH -->
+  <g transform="translate(470, 525)" filter="url(#cardShadow)">
+    <rect width="260" height="55" rx="8" ry="8"
+          fill="#ffffff" stroke="#2856d6" stroke-width="1.75"/>
+    <text x="130" y="24" text-anchor="middle"
+          font-family="'Fraunces', ui-serif, Georgia, serif"
+          font-size="15" font-weight="500" fill="#1a1a1f">SIMPER_MATCH</text>
+    <text x="130" y="44" text-anchor="middle"
+          font-family="'Inter', ui-sans-serif, system-ui, sans-serif"
+          font-size="11" fill="#6b6860">
+      soil × atlas (matchms, cos ≥ 0.7)
+    </text>
+  </g>
+
+  <!-- CORRECT_L2_IS -->
+  <g transform="translate(470, 598)" filter="url(#cardShadow)">
+    <rect width="260" height="55" rx="8" ry="8"
+          fill="#ffffff" stroke="#2856d6" stroke-width="1.75"/>
+    <text x="130" y="24" text-anchor="middle"
+          font-family="'Fraunces', ui-serif, Georgia, serif"
+          font-size="15" font-weight="500" fill="#1a1a1f">CORRECT_L2_IS</text>
+    <text x="130" y="44" text-anchor="middle"
+          font-family="'Inter', ui-sans-serif, system-ui, sans-serif"
+          font-size="11" fill="#6b6860">
+      IS normalization (LPE_18d7, 100 pmol)
+    </text>
+  </g>
+
+  <!-- CORRECT_L3_RIE -->
+  <g transform="translate(470, 671)" filter="url(#cardShadow)">
+    <rect width="260" height="55" rx="8" ry="8"
+          fill="#ffffff" stroke="#2856d6" stroke-width="1.75"/>
+    <text x="130" y="24" text-anchor="middle"
+          font-family="'Fraunces', ui-serif, Georgia, serif"
+          font-size="15" font-weight="500" fill="#1a1a1f">CORRECT_L3_RIE</text>
+    <text x="130" y="44" text-anchor="middle"
+          font-family="'Inter', ui-sans-serif, system-ui, sans-serif"
+          font-size="11" fill="#6b6860">
+      RIE correction (floor = 0.20)
+    </text>
+  </g>
+
+  <!-- CORRECT_L5_REF_FILTER -->
+  <g transform="translate(470, 744)" filter="url(#cardShadow)">
+    <rect width="260" height="55" rx="8" ry="8"
+          fill="#ffffff" stroke="#2856d6" stroke-width="1.75"/>
+    <text x="130" y="24" text-anchor="middle"
+          font-family="'Fraunces', ui-serif, Georgia, serif"
+          font-size="15" font-weight="500" fill="#1a1a1f">CORRECT_L5_REF_FILTER</text>
+    <text x="130" y="44" text-anchor="middle"
+          font-family="'Inter', ui-sans-serif, system-ui, sans-serif"
+          font-size="11" fill="#6b6860">
+      Archaea → ArchLips-validated only
+    </text>
+  </g>
+
+  <!-- Parallel-split bar for DECOMPOSE x 4 -->
+  <g transform="translate(330, 835)">
+    <line x1="0" y1="0" x2="540" y2="0" stroke="#2856d6" stroke-width="1.75"/>
+    <text x="270" y="-8" text-anchor="middle"
+          font-family="'JetBrains Mono', ui-monospace, 'SFMono-Regular', monospace"
+          font-size="10" letter-spacing="0.1em" fill="#2856d6">
+      DECOMPOSE × 4 (parallel via `each`)
+    </text>
+  </g>
+
+  <!-- 4 DECOMPOSE boxes, laid out horizontally -->
+  <g transform="translate(320, 855)">
+    <g>
+      <rect x="0"   y="0" width="125" height="48" rx="6" ry="6"
+            fill="#ffffff" stroke="#2856d6" stroke-width="1.25"/>
+      <text x="62.5" y="20" text-anchor="middle"
+            font-family="'JetBrains Mono', ui-monospace, 'SFMono-Regular', monospace"
+            font-size="12" font-weight="500" fill="#1a1a1f">nnls</text>
+      <text x="62.5" y="36" text-anchor="middle"
+            font-family="'Inter', ui-sans-serif, system-ui, sans-serif"
+            font-size="9" fill="#6b6860">non-negative LS</text>
+    </g>
+    <g transform="translate(140, 0)">
+      <rect x="0"   y="0" width="125" height="48" rx="6" ry="6"
+            fill="#ffffff" stroke="#2856d6" stroke-width="1.25"/>
+      <text x="62.5" y="20" text-anchor="middle"
+            font-family="'JetBrains Mono', ui-monospace, 'SFMono-Regular', monospace"
+            font-size="12" font-weight="500" fill="#1a1a1f">std_bc</text>
+      <text x="62.5" y="36" text-anchor="middle"
+            font-family="'Inter', ui-sans-serif, system-ui, sans-serif"
+            font-size="9" fill="#6b6860">standard BC</text>
+    </g>
+    <g transform="translate(280, 0)">
+      <rect x="0"   y="0" width="125" height="48" rx="6" ry="6"
+            fill="#ffffff" stroke="#2856d6" stroke-width="1.25"/>
+      <text x="62.5" y="20" text-anchor="middle"
+            font-family="'JetBrains Mono', ui-monospace, 'SFMono-Regular', monospace"
+            font-size="12" font-weight="500" fill="#1a1a1f">enriched_bc</text>
+      <text x="62.5" y="36" text-anchor="middle"
+            font-family="'Inter', ui-sans-serif, system-ui, sans-serif"
+            font-size="9" fill="#6b6860">IndVal-weighted</text>
+    </g>
+    <g transform="translate(420, 0)">
+      <rect x="0"   y="0" width="140" height="48" rx="6" ry="6"
+            fill="#ffffff" stroke="#2856d6" stroke-width="2"/>
+      <text x="70" y="20" text-anchor="middle"
+            font-family="'JetBrains Mono', ui-monospace, 'SFMono-Regular', monospace"
+            font-size="12" font-weight="500" fill="#2856d6">fc_weighted_bc ★</text>
+      <text x="70" y="36" text-anchor="middle"
+            font-family="'Inter', ui-sans-serif, system-ui, sans-serif"
+            font-size="9" fill="#6b6860">primary method</text>
+    </g>
+  </g>
+
+  <!-- Merge bar -->
+  <g transform="translate(330, 930)">
+    <line x1="0" y1="0" x2="540" y2="0" stroke="#2856d6" stroke-width="1.75"/>
+  </g>
+
+  <!-- 3 evaluation branches, parallel -->
+  <g transform="translate(310, 950)">
+    <g>
+      <rect x="0"  y="0" width="175" height="60" rx="8" ry="8"
+            fill="#ffffff" stroke="#2856d6" stroke-width="1.25"/>
+      <text x="87.5" y="24" text-anchor="middle"
+            font-family="'Fraunces', ui-serif, Georgia, serif"
+            font-size="13" font-weight="500" fill="#1a1a1f">EVAL_PLAUSIBILITY</text>
+      <text x="87.5" y="44" text-anchor="middle"
+            font-family="'Inter', ui-sans-serif, system-ui, sans-serif"
+            font-size="10" fill="#6b6860">
+        BC vs expected
+      </text>
+    </g>
+    <g transform="translate(200, 0)">
+      <rect x="0"  y="0" width="175" height="60" rx="8" ry="8"
+            fill="#ffffff" stroke="#2856d6" stroke-width="1.25"/>
+      <text x="87.5" y="24" text-anchor="middle"
+            font-family="'Fraunces', ui-serif, Georgia, serif"
+            font-size="13" font-weight="500" fill="#1a1a1f">EVAL_TREATMENT</text>
+      <text x="87.5" y="44" text-anchor="middle"
+            font-family="'Inter', ui-sans-serif, system-ui, sans-serif"
+            font-size="10" fill="#6b6860">
+        Mann-Whitney per phylum
+      </text>
+    </g>
+    <g transform="translate(400, 0)">
+      <rect x="0"  y="0" width="175" height="60" rx="8" ry="8"
+            fill="#ffffff" stroke="#2856d6" stroke-width="1.25"/>
+      <text x="87.5" y="22" text-anchor="middle"
+            font-family="'Fraunces', ui-serif, Georgia, serif"
+            font-size="13" font-weight="500" fill="#1a1a1f">DIAGNOSTIC_TOP_</text>
+      <text x="87.5" y="38" text-anchor="middle"
+            font-family="'Fraunces', ui-serif, Georgia, serif"
+            font-size="13" font-weight="500" fill="#1a1a1f">FEATURES</text>
+      <text x="87.5" y="54" text-anchor="middle"
+            font-family="'Inter', ui-sans-serif, system-ui, sans-serif"
+            font-size="10" fill="#6b6860">RIE over-amp guard</text>
+    </g>
+  </g>
+
+  <!-- Merge bar (bottom of DECOMPOSE_APPLY) -->
+  <g transform="translate(330, 1050)">
+    <line x1="0" y1="0" x2="540" y2="0" stroke="#2856d6" stroke-width="1.75"/>
+  </g>
+
+  <!-- =======================================================================
+       ROW — ANNOTATE subworkflow (right column, dimmed, optional)
+       ======================================================================= -->
+  <rect x="910" y="488" width="260" height="530" rx="12" ry="12"
+        fill="none" stroke="#4a3728" stroke-width="1" stroke-dasharray="4 4" opacity="0.35"/>
+  <text x="1040" y="508" text-anchor="middle"
+        font-family="'JetBrains Mono', ui-monospace, 'SFMono-Regular', monospace"
+        font-size="10" letter-spacing="0.15em" fill="#4a3728">
+    ANNOTATE (--skip_annotate default)
+  </text>
+
+  <g transform="translate(920, 530)" opacity="0.7">
+    <g filter="url(#cardShadow)">
+      <rect width="240" height="48" rx="6" ry="6"
+            fill="#ffffff" stroke="#4a3728" stroke-width="1" stroke-dasharray="3 3"/>
+      <text x="120" y="20" text-anchor="middle"
+            font-family="'Fraunces', ui-serif, Georgia, serif"
+            font-size="14" font-weight="500" fill="#1a1a1f">MS_DIAL</text>
+      <text x="120" y="36" text-anchor="middle"
+            font-family="'Inter', ui-sans-serif, system-ui, sans-serif"
+            font-size="10" fill="#6b6860">.msp spectral matching</text>
+    </g>
+    <g transform="translate(0, 68)" filter="url(#cardShadow)">
+      <rect width="240" height="48" rx="6" ry="6"
+            fill="#ffffff" stroke="#4a3728" stroke-width="1" stroke-dasharray="3 3"/>
+      <text x="120" y="20" text-anchor="middle"
+            font-family="'Fraunces', ui-serif, Georgia, serif"
+            font-size="14" font-weight="500" fill="#1a1a1f">SIRIUS</text>
+      <text x="120" y="36" text-anchor="middle"
+            font-family="'Inter', ui-sans-serif, system-ui, sans-serif"
+            font-size="10" fill="#6b6860">de novo structure + class</text>
+    </g>
+    <g transform="translate(0, 136)" filter="url(#cardShadow)">
+      <rect width="240" height="48" rx="6" ry="6"
+            fill="#ffffff" stroke="#4a3728" stroke-width="1" stroke-dasharray="3 3"/>
+      <text x="120" y="20" text-anchor="middle"
+            font-family="'Fraunces', ui-serif, Georgia, serif"
+            font-size="14" font-weight="500" fill="#1a1a1f">DIAG_ION</text>
+      <text x="120" y="36" text-anchor="middle"
+            font-family="'Inter', ui-sans-serif, system-ui, sans-serif"
+            font-size="10" fill="#6b6860">diagnostic-ion rules</text>
+    </g>
+    <g transform="translate(0, 204)" filter="url(#cardShadow)">
+      <rect width="240" height="48" rx="6" ry="6"
+            fill="#ffffff" stroke="#4a3728" stroke-width="1" stroke-dasharray="3 3"/>
+      <text x="120" y="20" text-anchor="middle"
+            font-family="'Fraunces', ui-serif, Georgia, serif"
+            font-size="14" font-weight="500" fill="#1a1a1f">ARCHLIPS</text>
+      <text x="120" y="36" text-anchor="middle"
+            font-family="'Inter', ui-sans-serif, system-ui, sans-serif"
+            font-size="10" fill="#6b6860">Archaea reference library</text>
+    </g>
+  </g>
+
+  <!-- =======================================================================
+       ROW — REPORT (center, y ~ 1100)
+       ======================================================================= -->
+  <g transform="translate(470, 1090)" filter="url(#cardShadow)">
+    <rect width="260" height="70" rx="10" ry="10"
+          fill="#ffffff" stroke="#1a1a1f" stroke-width="1.5"/>
+    <text x="130" y="28" text-anchor="middle"
+          font-family="'Fraunces', ui-serif, Georgia, serif"
+          font-size="18" font-weight="500" fill="#1a1a1f">REPORT</text>
+    <text x="130" y="48" text-anchor="middle"
+          font-family="'Inter', ui-sans-serif, system-ui, sans-serif"
+          font-size="11" fill="#6b6860">
+      MultiQC + custom panels
+    </text>
+    <text x="130" y="62" text-anchor="middle"
+          font-family="'Inter', ui-sans-serif, system-ui, sans-serif"
+          font-size="10" font-style="italic" fill="#6b6860">
+      soillifeatlas_report.html + provenance.yaml
+    </text>
+  </g>
+
+  <!-- =======================================================================
+       EDGES — critical path (spectral)
+       ======================================================================= -->
+  <g stroke="#2856d6" stroke-width="1.5" fill="none">
+    <!-- INGEST -> MZMINE_PP -->
+    <line x1="600" y1="210" x2="600" y2="269" marker-end="url(#arrowSpectral)"/>
+    <!-- MZMINE_PP -> MOLNET -->
+    <line x1="600" y1="320" x2="600" y2="334" marker-end="url(#arrowSpectral)"/>
+    <!-- MOLNET -> ALIGN_LOESS -->
+    <line x1="600" y1="385" x2="600" y2="399" marker-end="url(#arrowSpectral)"/>
+    <!-- ALIGN_LOESS -> SIMPER_MATCH -->
+    <line x1="600" y1="450" x2="600" y2="524" marker-end="url(#arrowSpectral)"/>
+    <!-- SIMPER_MATCH -> L2 -->
+    <line x1="600" y1="580" x2="600" y2="597" marker-end="url(#arrowSpectral)"/>
+    <!-- L2 -> L3 -->
+    <line x1="600" y1="653" x2="600" y2="670" marker-end="url(#arrowSpectral)"/>
+    <!-- L3 -> L5 -->
+    <line x1="600" y1="726" x2="600" y2="743" marker-end="url(#arrowSpectral)"/>
+    <!-- L5 -> fan-out bar -->
+    <line x1="600" y1="799" x2="600" y2="834" marker-end="url(#arrowSpectral)"/>
+    <!-- fan-out bar -> each decompose box (short drop) -->
+    <line x1="382" y1="836" x2="382" y2="854"/>
+    <line x1="522" y1="836" x2="522" y2="854"/>
+    <line x1="662" y1="836" x2="662" y2="854"/>
+    <line x1="810" y1="836" x2="810" y2="854"/>
+    <!-- decompose bottoms -> merge bar -->
+    <line x1="382" y1="903" x2="382" y2="929"/>
+    <line x1="522" y1="903" x2="522" y2="929"/>
+    <line x1="662" y1="903" x2="662" y2="929"/>
+    <line x1="810" y1="903" x2="810" y2="929"/>
+    <!-- merge bar -> 3 eval branches -->
+    <line x1="397" y1="931" x2="397" y2="949"/>
+    <line x1="597" y1="931" x2="597" y2="949"/>
+    <line x1="797" y1="931" x2="797" y2="949"/>
+    <!-- eval bottoms -> final merge bar -->
+    <line x1="397" y1="1010" x2="397" y2="1049"/>
+    <line x1="597" y1="1010" x2="597" y2="1049"/>
+    <line x1="797" y1="1010" x2="797" y2="1049"/>
+    <!-- final merge -> REPORT -->
+    <line x1="600" y1="1051" x2="600" y2="1089" marker-end="url(#arrowSpectral)"/>
+  </g>
+
+  <!-- =======================================================================
+       EDGES — FETCH_ATLAS → DECOMPOSE_APPLY (moss, side-input)
+       ======================================================================= -->
+  <g stroke="#2f4a3a" stroke-width="1.25" fill="none" stroke-dasharray="4 3">
+    <!-- curve from FETCH_ATLAS right edge to the decompose_apply container left -->
+    <path d="M 290 517 C 340 517 340 575 470 575" marker-end="url(#arrowMoss)"/>
+  </g>
+  <text x="310" y="560"
+        font-family="'Inter', ui-sans-serif, system-ui, sans-serif"
+        font-size="10" font-style="italic" fill="#2f4a3a">
+    atlas artefacts
+  </text>
+
+  <!-- =======================================================================
+       EDGES — ANNOTATE merges into REPORT (dimmed, non-blocking)
+       ======================================================================= -->
+  <g stroke="#4a3728" stroke-width="1" stroke-dasharray="3 3" fill="none" opacity="0.55">
+    <path d="M 1040 1020 C 1040 1070 900 1125 730 1125" marker-end="url(#arrow)"/>
+  </g>
+
+  <!-- =======================================================================
+       LEGEND
+       ======================================================================= -->
+  <g transform="translate(60, 1260)">
+    <text x="0" y="0"
+          font-family="'JetBrains Mono', ui-monospace, 'SFMono-Regular', monospace"
+          font-size="10" letter-spacing="0.15em" fill="#6b6860">LEGEND</text>
+
+    <g transform="translate(0, 20)">
+      <line x1="0" y1="8" x2="32" y2="8" stroke="#2856d6" stroke-width="1.75"/>
+      <text x="44" y="12"
+            font-family="'Inter', ui-sans-serif, system-ui, sans-serif"
+            font-size="12" fill="#1a1a1f">Critical path (v0.1 live)</text>
+    </g>
+    <g transform="translate(240, 20)">
+      <line x1="0" y1="8" x2="32" y2="8" stroke="#2f4a3a" stroke-width="1.25"
+            stroke-dasharray="4 3"/>
+      <text x="44" y="12"
+            font-family="'Inter', ui-sans-serif, system-ui, sans-serif"
+            font-size="12" fill="#1a1a1f">Atlas reference (side-input)</text>
+    </g>
+    <g transform="translate(480, 20)">
+      <line x1="0" y1="8" x2="32" y2="8" stroke="#4a3728" stroke-width="1"
+            stroke-dasharray="3 3" opacity="0.7"/>
+      <text x="44" y="12"
+            font-family="'Inter', ui-sans-serif, system-ui, sans-serif"
+            font-size="12" fill="#1a1a1f">Optional (--skip_annotate default)</text>
+    </g>
+    <g transform="translate(760, 20)">
+      <text x="0" y="12" font-family="'JetBrains Mono', ui-monospace, 'SFMono-Regular', monospace"
+            font-size="12" fill="#2856d6">★</text>
+      <text x="16" y="12"
+            font-family="'Inter', ui-sans-serif, system-ui, sans-serif"
+            font-size="12" fill="#1a1a1f">primary_method (default: fc_weighted_bc)</text>
+    </g>
+  </g>
+
+  <!-- =======================================================================
+       FOOTER
+       ======================================================================= -->
+  <text x="600" y="1370" text-anchor="middle"
+        font-family="'Inter', ui-sans-serif, system-ui, sans-serif"
+        font-size="11" fill="#6b6860">
+    github.com/soillifeatlas/nf-core-soillifeatlas · docs/ARCHITECTURE.md for full SOP traceability
+  </text>
+</svg>

@@ -1,0 +1,170 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg"
+     viewBox="0 0 1200 240"
+     width="1200" height="240"
+     preserveAspectRatio="xMidYMid meet"
+     role="img"
+     aria-labelledby="title desc">
+  <title id="title">Soil Life Atlas pipeline — 5-stage overview</title>
+  <desc id="desc">
+    Horizontal flow from ingest through match, correct, decompose, and report.
+    Hero diagram for pipeline.soillifeatlas.org.
+  </desc>
+
+  <!--
+    Design tokens (hard-coded for standalone rendering):
+      ink      #1a1a1f
+      paper    #faf8f4
+      soil     #4a3728
+      moss     #2f4a3a
+      spectral #2856d6
+      muted    #6b6860
+
+    Fonts are declared on each <text>; host page must load
+    Fraunces / Inter / JetBrains Mono (Google Fonts) for the intended look.
+    Generic fallbacks keep this legible in isolation.
+  -->
+
+  <defs>
+    <!-- subtle drop shadow on stage blocks -->
+    <filter id="cardShadow" x="-10%" y="-20%" width="120%" height="140%">
+      <feDropShadow dx="0" dy="2" stdDeviation="3" flood-color="#1a1a1f" flood-opacity="0.08"/>
+    </filter>
+
+    <!-- arrowhead -->
+    <marker id="arrow" viewBox="0 0 10 10" refX="8" refY="5"
+            markerUnits="userSpaceOnUse" markerWidth="10" markerHeight="10"
+            orient="auto-start-reverse">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#6b6860"/>
+    </marker>
+  </defs>
+
+  <!-- paper background (optional; page usually provides this) -->
+  <rect width="1200" height="240" fill="#faf8f4"/>
+
+  <!-- 5 stage blocks: 200 wide, 120 tall, 20px gap, starting x=20 -->
+  <!-- Arrows span the 20px gap between blocks -->
+
+  <!-- STAGE 01 — INGEST -->
+  <g transform="translate(20, 60)" filter="url(#cardShadow)">
+    <rect width="200" height="120" rx="10" ry="10"
+          fill="#ffffff" stroke="#1a1a1f" stroke-width="1.25"/>
+    <text x="20" y="34"
+          font-family="'JetBrains Mono', ui-monospace, 'SFMono-Regular', monospace"
+          font-size="12" font-weight="500" letter-spacing="0.12em"
+          fill="#6b6860">01</text>
+    <text x="20" y="70"
+          font-family="'Fraunces', ui-serif, Georgia, serif"
+          font-size="26" font-weight="500"
+          fill="#1a1a1f">Ingest</text>
+    <text x="20" y="98"
+          font-family="'Inter', ui-sans-serif, system-ui, sans-serif"
+          font-size="13" font-weight="400"
+          fill="#6b6860">
+      <tspan x="20" dy="0">Feature table +</tspan>
+      <tspan x="20" dy="16">MS2 spectra</tspan>
+    </text>
+  </g>
+
+  <!-- STAGE 02 — MATCH -->
+  <g transform="translate(240, 60)" filter="url(#cardShadow)">
+    <rect width="200" height="120" rx="10" ry="10"
+          fill="#ffffff" stroke="#1a1a1f" stroke-width="1.25"/>
+    <text x="20" y="34"
+          font-family="'JetBrains Mono', ui-monospace, 'SFMono-Regular', monospace"
+          font-size="12" font-weight="500" letter-spacing="0.12em"
+          fill="#6b6860">02</text>
+    <text x="20" y="70"
+          font-family="'Fraunces', ui-serif, Georgia, serif"
+          font-size="26" font-weight="500"
+          fill="#1a1a1f">Match</text>
+    <text x="20" y="98"
+          font-family="'Inter', ui-sans-serif, system-ui, sans-serif"
+          font-size="13" font-weight="400"
+          fill="#6b6860">
+      <tspan x="20" dy="0">SIMPER fingerprint</tspan>
+      <tspan x="20" dy="16">atlas</tspan>
+    </text>
+  </g>
+
+  <!-- STAGE 03 — CORRECT -->
+  <g transform="translate(460, 60)" filter="url(#cardShadow)">
+    <rect width="200" height="120" rx="10" ry="10"
+          fill="#ffffff" stroke="#1a1a1f" stroke-width="1.25"/>
+    <text x="20" y="34"
+          font-family="'JetBrains Mono', ui-monospace, 'SFMono-Regular', monospace"
+          font-size="12" font-weight="500" letter-spacing="0.12em"
+          fill="#6b6860">03</text>
+    <text x="20" y="70"
+          font-family="'Fraunces', ui-serif, Georgia, serif"
+          font-size="26" font-weight="500"
+          fill="#1a1a1f">Correct</text>
+    <text x="20" y="98"
+          font-family="'Inter', ui-sans-serif, system-ui, sans-serif"
+          font-size="13" font-weight="400"
+          fill="#6b6860">
+      <tspan x="20" dy="0">IS / RIE /</tspan>
+      <tspan x="20" dy="16">ref-filter</tspan>
+    </text>
+  </g>
+
+  <!-- STAGE 04 — DECOMPOSE (spectral-accented; this is the headline step) -->
+  <g transform="translate(680, 60)" filter="url(#cardShadow)">
+    <rect width="200" height="120" rx="10" ry="10"
+          fill="#ffffff" stroke="#2856d6" stroke-width="1.75"/>
+    <text x="20" y="34"
+          font-family="'JetBrains Mono', ui-monospace, 'SFMono-Regular', monospace"
+          font-size="12" font-weight="500" letter-spacing="0.12em"
+          fill="#2856d6">04</text>
+    <text x="20" y="70"
+          font-family="'Fraunces', ui-serif, Georgia, serif"
+          font-size="26" font-weight="500"
+          fill="#1a1a1f">Decompose</text>
+    <text x="20" y="98"
+          font-family="'Inter', ui-sans-serif, system-ui, sans-serif"
+          font-size="13" font-weight="400"
+          fill="#6b6860">
+      <tspan x="20" dy="0">4 methods</tspan>
+      <tspan x="20" dy="16">in parallel</tspan>
+    </text>
+  </g>
+
+  <!-- STAGE 05 — REPORT -->
+  <g transform="translate(900, 60)" filter="url(#cardShadow)">
+    <rect width="200" height="120" rx="10" ry="10"
+          fill="#ffffff" stroke="#1a1a1f" stroke-width="1.25"/>
+    <text x="20" y="34"
+          font-family="'JetBrains Mono', ui-monospace, 'SFMono-Regular', monospace"
+          font-size="12" font-weight="500" letter-spacing="0.12em"
+          fill="#6b6860">05</text>
+    <text x="20" y="70"
+          font-family="'Fraunces', ui-serif, Georgia, serif"
+          font-size="26" font-weight="500"
+          fill="#1a1a1f">Report</text>
+    <text x="20" y="98"
+          font-family="'Inter', ui-sans-serif, system-ui, sans-serif"
+          font-size="13" font-weight="400"
+          fill="#6b6860">
+      <tspan x="20" dy="0">Composition +</tspan>
+      <tspan x="20" dy="16">plausibility</tspan>
+    </text>
+  </g>
+
+  <!-- Connecting arrows (stage-to-stage, horizontal) -->
+  <!-- each arrow spans x = right_edge_N (e.g. 220) to x = left_edge_N+1 (240) -->
+  <g stroke="#6b6860" stroke-width="1.25" fill="none">
+    <line x1="221" y1="120" x2="239" y2="120" marker-end="url(#arrow)"/>
+    <line x1="441" y1="120" x2="459" y2="120" marker-end="url(#arrow)"/>
+    <line x1="661" y1="120" x2="679" y2="120" marker-end="url(#arrow)"/>
+    <line x1="881" y1="120" x2="899" y2="120" marker-end="url(#arrow)"/>
+  </g>
+
+  <!-- caption strip -->
+  <text x="600" y="220"
+        text-anchor="middle"
+        font-family="'Inter', ui-sans-serif, system-ui, sans-serif"
+        font-size="12" fill="#6b6860"
+        font-style="italic">
+    v0.1.0-dev · POS mode · iter3a_floor020 (RIE floor = 0.20) · primary method fc_weighted_bc
+  </text>
+</svg>

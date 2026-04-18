@@ -1,0 +1,189 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://pipeline.soillifeatlas.org/schemas/form-v0.1.0.json",
+  "title": "Soil Life Atlas Pipeline \u2014 Submission Form",
+  "description": "Form schema for generating a `nextflow run soillifeatlas/nf-core-soillifeatlas` command. Parameter names here map 1:1 to the real Nextflow params declared in nextflow.config / nextflow_schema.json of the v0.1.0-dev pipeline. The website renders this schema into a multi-step form; the `command_generator.js` module turns the validated form state into a ready-to-copy CLI string.",
+  "type": "object",
+  "x-form-version": "v0.1.0-dev",
+  "x-form-pipeline-revision": "v0.1.0-dev",
+  "x-form-steps": [
+    { "id": "upload", "title": "Upload data", "property": "upload" },
+    { "id": "instrument", "title": "Instrument & atlas", "property": "instrument" },
+    { "id": "advanced", "title": "Advanced (optional)", "property": "advanced" }
+  ],
+  "properties": {
+    "upload": {
+      "type": "object",
+      "title": "Upload data",
+      "description": "Your per-sample feature-intensity matrix, MS2 spectra, and (optional) treatment metadata. v0.1 uses explicit file paths rather than a samplesheet; samplesheet-driven runs land in v0.2.",
+      "x-form-step": 1,
+      "properties": {
+        "soil_intensity": {
+          "type": "string",
+          "title": "Soil intensity matrix",
+          "description": "Per-sample feature-intensity matrix from MZmine (one feature per row, one sample per column). Parquet preferred; CSV accepted. Feature IDs must match the MGF scan IDs.",
+          "x-form-widget": "file-upload",
+          "x-form-accept": ".parquet,.csv,.tsv",
+          "x-form-help-url": "https://github.com/soillifeatlas/nf-core-soillifeatlas/blob/main/docs/usage.md#soil_intensity",
+          "x-nextflow-param": "soil_intensity",
+          "format": "file-path"
+        },
+        "soil_mgf": {
+          "type": "string",
+          "title": "Soil MS2 spectra (MGF)",
+          "description": "GNPS-style MGF with consensus MS2 spectra per feature. Scan IDs in the MGF must correspond to feature IDs in the intensity matrix.",
+          "x-form-widget": "file-upload",
+          "x-form-accept": ".mgf",
+          "x-form-help-url": "https://github.com/soillifeatlas/nf-core-soillifeatlas/blob/main/docs/usage.md#soil_mgf",
+          "x-nextflow-param": "soil_mgf",
+          "format": "file-path"
+        },
+        "sample_metadata": {
+          "type": "string",
+          "title": "Sample metadata",
+          "description": "Optional. TSV or CSV with one row per sample and a `sample_id` column. Treatment columns (e.g. drought, climate) enable the treatment-effects readout. Without it, the pipeline still returns the composition table but skips EVAL_TREATMENT.",
+          "x-form-widget": "file-upload",
+          "x-form-accept": ".tsv,.csv",
+          "x-form-optional": true,
+          "x-form-help-url": "https://github.com/soillifeatlas/nf-core-soillifeatlas/blob/main/docs/usage.md#sample_metadata",
+          "x-nextflow-param": "sample_metadata",
+          "format": "file-path"
+        }
+      },
+      "required": ["soil_intensity", "soil_mgf"]
+    },
+    "instrument": {
+      "type": "object",
+      "title": "Instrument & atlas",
+      "description": "Instrument mode and reference-atlas choice. Defaults reproduce Samrat et al. 2025.",
+      "x-form-step": 2,
+      "properties": {
+        "ion_mode": {
+          "type": "string",
+          "title": "Ion mode",
+          "description": "Only positive mode is supported in v0.1. NEG-mode processing is blocked by missing soil IS coverage; lands in v0.2.",
+          "enum": ["positive"],
+          "default": "positive",
+          "x-form-widget": "radio",
+          "x-form-disabled-options": [],
+          "x-nextflow-param": "enable_neg",
+          "x-nextflow-value-map": { "positive": false }
+        },
+        "is_compound": {
+          "type": "string",
+          "title": "Internal standard reference compound",
+          "description": "Deuterated lipid used for L2 IS normalization. LPE_18d7 is the Samrat 2025 default (primary adduct [M+H]+, m/z 487.3525). The 13 EquiSPLASH standards are listed for forward compatibility; only LPE_18d7 is validated for v0.1.",
+          "enum": [
+            "LPE_18d7",
+            "PC_15-18d7",
+            "LPC_18d7",
+            "PE_15-18d7",
+            "PG_15-18d7",
+            "PI_15-18d7",
+            "PS_15-18d7",
+            "TG_15-18d7-15",
+            "DG_15-18d7",
+            "MG_18d7",
+            "CE_18d7",
+            "SM_d18-18d9",
+            "Cer_15d7"
+          ],
+          "default": "LPE_18d7",
+          "x-form-widget": "select",
+          "x-form-help-url": "https://github.com/soillifeatlas/nf-core-soillifeatlas/blob/main/docs/usage.md#IS_reference_compound",
+          "x-nextflow-param": "IS_reference_compound"
+        },
+        "is_spiked_pmol": {
+          "type": "number",
+          "title": "Internal standard spike (pmol)",
+          "description": "Amount of the internal standard spiked into each sample before extraction. 100 pmol is the Samrat 2025 default.",
+          "minimum": 0,
+          "default": 100,
+          "x-form-widget": "number",
+          "x-form-units": "pmol",
+          "x-nextflow-param": "IS_spiked_pmol"
+        },
+        "atlas_version": {
+          "type": "string",
+          "title": "Atlas version",
+          "description": "Reference atlas release to decompose against. v0.1.0 is the only published atlas; additional versions appear as new Zenodo deposits land.",
+          "enum": ["v0.1.0"],
+          "default": "v0.1.0",
+          "x-form-widget": "select",
+          "x-nextflow-param": "atlas_version"
+        }
+      },
+      "required": ["ion_mode", "is_compound", "is_spiked_pmol", "atlas_version"]
+    },
+    "advanced": {
+      "type": "object",
+      "title": "Advanced (optional)",
+      "description": "Scientific-constant overrides. Defaults reproduce the iter3a_floor020 configuration from Samrat 2025. Changes here break the pinned-atlas SHA256 guarantee, so keep defaults unless you know why you're changing them.",
+      "x-form-step": 3,
+      "x-form-collapsed-by-default": true,
+      "properties": {
+        "rie_floor": {
+          "type": "number",
+          "title": "RIE floor",
+          "description": "Lower bound on the RIE (Response/Ionization Efficiency) correction multiplier. Floor = 0.20 is the iter3a default and the critical fix for the original RIE over-amplification bug; at floor < 0.10 low-intensity features dominate the composition vector.",
+          "minimum": 0.05,
+          "maximum": 0.5,
+          "default": 0.20,
+          "x-form-widget": "slider",
+          "x-form-step": 0.01,
+          "x-form-help-url": "https://github.com/soillifeatlas/nf-core-soillifeatlas/blob/main/docs/usage.md#RIE_floor",
+          "x-nextflow-param": "RIE_floor"
+        },
+        "restrict_archaea_to_archlips": {
+          "type": "boolean",
+          "title": "Restrict Archaea to ArchLips reference features",
+          "description": "L5 correction: for the Archaea kingdom, only keep features that match the ArchLips-validated reference set. This is the Samrat 2025 reference-quality filter and is on by default.",
+          "default": true,
+          "x-form-widget": "toggle",
+          "x-nextflow-param": "restrict_archaea_to_archlips"
+        },
+        "decomposition_methods": {
+          "type": "array",
+          "title": "Decomposition methods",
+          "description": "Which decomposition methods to run. All 4 run in parallel by default; drop some to shave runtime. The primary method (selected below) must be in this list.",
+          "items": {
+            "type": "string",
+            "enum": ["nnls", "std_bc", "enriched_bc", "fc_weighted_bc"]
+          },
+          "default": ["nnls", "std_bc", "enriched_bc", "fc_weighted_bc"],
+          "minItems": 1,
+          "uniqueItems": true,
+          "x-form-widget": "checkbox-group",
+          "x-nextflow-param": "decomposition_methods",
+          "x-nextflow-value-format": "comma-string"
+        },
+        "primary_method": {
+          "type": "string",
+          "title": "Primary decomposition method",
+          "description": "Method reported as THE composition in the final report; others are kept as sensitivity checks. fc_weighted_bc is the Samrat 2025 best performer (BC = 0.131 vs expected on ClimGrass).",
+          "enum": ["nnls", "std_bc", "enriched_bc", "fc_weighted_bc"],
+          "default": "fc_weighted_bc",
+          "x-form-widget": "select",
+          "x-nextflow-param": "primary_method"
+        },
+        "skip_gnps": {
+          "type": "boolean",
+          "title": "Skip GNPS2 networking call",
+          "description": "Use matchms local fallback instead of the GNPS2 REST API for molecular networking. Faster and offline-friendly. Off by default.",
+          "default": false,
+          "x-form-widget": "toggle",
+          "x-nextflow-param": "skip_gnps"
+        },
+        "skip_annotate": {
+          "type": "boolean",
+          "title": "Skip annotation subworkflow",
+          "description": "The ANNOTATE subworkflow (MS-DIAL, SIRIUS, diag-ion, ArchLips) runs parallel enrichment and is NOT on the decomposition critical path. On by default (demo behavior).",
+          "default": true,
+          "x-form-widget": "toggle",
+          "x-nextflow-param": "skip_annotate"
+        }
+      }
+    }
+  },
+  "required": ["upload", "instrument"]
+}
