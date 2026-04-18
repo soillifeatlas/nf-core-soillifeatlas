@@ -1,4 +1,4 @@
-# soillifeatlas/soillifeatlas
+# soillifeatlas/nf-core-soillifeatlas
 
 [![Open in GitHub Codespaces](https://img.shields.io/badge/Open_In_GitHub_Codespaces-black?labelColor=grey&logo=github)](https://github.com/codespaces/new/soillifeatlas/soillifeatlas)
 [![GitHub Actions CI Status](https://github.com/soillifeatlas/soillifeatlas/actions/workflows/nf-test.yml/badge.svg)](https://github.com/soillifeatlas/soillifeatlas/actions/workflows/nf-test.yml)
@@ -14,7 +14,7 @@
 
 ## Introduction
 
-**soillifeatlas/soillifeatlas** is a bioinformatics pipeline that ...
+**soillifeatlas/nf-core-soillifeatlas** is a standardized Nextflow pipeline for cross-kingdom soil lipidomics decomposition.
 
 <!-- TODO nf-core:
    Complete this sentence with a 2-3 sentence summary of what types of data the pipeline ingests, a brief overview of the
