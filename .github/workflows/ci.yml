@@ -1,0 +1,76 @@
+name: CI
+
+on:
+  push:
+    branches: [main, dev]
+  pull_request:
+    branches: [main, dev]
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  pytest:
+    name: Python unit tests
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+          cache: 'pip'
+      - name: Install soillifeatlas package
+        run: pip install -e .
+      - name: Install test deps
+        run: pip install pytest pytest-cov
+      - name: Run pytest
+        run: pytest tests/unit -v --tb=short
+
+  nf-test-modules:
+    name: nf-test (modules + subworkflows + workflow)
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+          cache: 'pip'
+      - name: Install soillifeatlas package (required for bin/ scripts)
+        run: pip install -e .
+      - name: Install Nextflow
+        uses: nf-core/setup-nextflow@v2
+        with:
+          version: '25.10.4'
+      - name: Install nf-test
+        run: |
+          curl -fsSL https://code.askimed.com/install/nf-test | bash
+          sudo mv nf-test /usr/local/bin/
+          nf-test version
+      - name: Run nf-test (modules + subworkflows)
+        run: nf-test test tests/modules tests/subworkflows --profile local
+      - name: Run nf-test (workflow — end-to-end)
+        run: nf-test test tests/workflows --profile local
+      - name: Upload nf-test logs on failure
+        if: failure()
+        uses: actions/upload-artifact@v4
+        with:
+          name: nf-test-logs
+          path: .nf-test/
+
+  lint:
+    name: nf-core lint
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Install nf-core/tools
+        run: pip install nf-core
+      - name: Run nf-core lint
+        run: nf-core pipelines lint
+        continue-on-error: true  # v0.1 has known lint issues; don't block PRs yet
