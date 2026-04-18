@@ -1,0 +1,38 @@
+nextflow_workflow {
+    name "Test APPLY workflow end-to-end"
+    script "workflows/apply.nf"
+    workflow "APPLY"
+    profile "local"
+
+    test("end-to-end demo run on tiny fixtures produces all expected outputs") {
+        when {
+            params {
+                atlas_version            = 'v0.1.0'
+                atlas_doi                = '10.5281/zenodo.999999'
+                atlas_sha256             = ''
+                atlas_path               = "${projectDir}/tests/fixtures/tiny/tiny_atlas_bundle"
+                soil_intensity           = "${projectDir}/tests/fixtures/tiny/tiny_intensity.parquet"
+                soil_mgf                 = "${projectDir}/tests/fixtures/tiny/tiny_soil.mgf"
+                sample_metadata          = "${projectDir}/tests/fixtures/tiny/tiny_sample_metadata.tsv"
+                mode                     = 'apply'
+                // Loosened thresholds for the intentionally sparse tiny MGF
+                // fixtures (mirrors the DECOMPOSE_APPLY subworkflow test).
+                simper_min_cos           = 0.5
+                simper_min_matched_peaks = 2
+                treatment_contrast       = ['drought']
+            }
+        }
+        then {
+            assert workflow.success
+            // 4 decomposition methods produce 4 kingdom + 4 phylum compositions
+            assert workflow.out.compositions_kingdom.size() == 4
+            assert workflow.out.compositions_phylum.size()  == 4
+            // Plausibility runs once per method (4)
+            assert workflow.out.plausibility.size() >= 1
+            // Treatment effects only for the primary method
+            assert workflow.out.treatment.size()    == 1
+            // Single diagnostic TSV
+            assert workflow.out.diagnostic.size()   == 1
+        }
+    }
+}
