@@ -1,0 +1,7 @@
+kingdom,expected_min_pct,expected_max_pct,expected_midpoint_pct
+Bacteria,35.0,50,42.5
+Plantae,15.0,30,22.5
+Fungi,15.0,30,22.5
+Archaea,2.0,8,5.0
+Animalia,1.0,5,3.0
+Protozoa,0.1,1,0.5

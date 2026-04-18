@@ -77,4 +77,19 @@ simper_atlas = pd.DataFrame({
 })
 simper_atlas.to_parquet(FIXTURES / "tiny_simper_atlas.parquet")
 
+# ---------- Expected kingdom composition reference (grassland soil lit) ----------
+# Consumed by soillifeatlas.evaluation.plausibility_score to compute a
+# Bray-Curtis distance between observed mean composition and the midpoint of
+# these published ranges. Matches the schema expected_ref.set_index("kingdom")
+# with columns: expected_min_pct, expected_max_pct, expected_midpoint_pct.
+expected_kingdom = pd.DataFrame([
+    {"kingdom": "Bacteria",  "expected_min_pct": 35,  "expected_max_pct": 50, "expected_midpoint_pct": 42.5},
+    {"kingdom": "Plantae",   "expected_min_pct": 15,  "expected_max_pct": 30, "expected_midpoint_pct": 22.5},
+    {"kingdom": "Fungi",     "expected_min_pct": 15,  "expected_max_pct": 30, "expected_midpoint_pct": 22.5},
+    {"kingdom": "Archaea",   "expected_min_pct": 2,   "expected_max_pct": 8,  "expected_midpoint_pct": 5},
+    {"kingdom": "Animalia",  "expected_min_pct": 1,   "expected_max_pct": 5,  "expected_midpoint_pct": 3},
+    {"kingdom": "Protozoa",  "expected_min_pct": 0.1, "expected_max_pct": 1,  "expected_midpoint_pct": 0.5},
+])
+expected_kingdom.to_csv(FIXTURES / "tiny_expected_kingdom_composition.csv", index=False)
+
 print(f"Fixtures written to: {FIXTURES}")
