@@ -13,3 +13,8 @@ dist/
 null/
 .nf-test/
 .nf-test.log
+
+# FETCH_ATLAS writes fetch_manifest.json into its output_dir. In the
+# --atlas-path override branch that symlinks through to the source bundle,
+# which would otherwise pollute the committed fixture.
+tests/fixtures/tiny/tiny_atlas_bundle/fetch_manifest.json
