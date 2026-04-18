@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 700" width="900" height="700" font-family="system-ui, -apple-system, 'Helvetica Neue', sans-serif">
+  <!--
+    Placeholder DAG for soillifeatlas/nf-core-soillifeatlas v0.1-dev.
+    Shows the APPLY critical path (v0.1 live). The website session is
+    expected to replace this with a polished figure before the public
+    launch. Source ASCII art: docs/ARCHITECTURE.md §1.
+  -->
+  <defs>
+    <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#334155"/>
+    </marker>
+    <style>
+      .box { fill: #f1f5f9; stroke: #334155; stroke-width: 1.5; rx: 6; ry: 6; }
+      .apply { fill: #dbeafe; stroke: #1d4ed8; stroke-width: 2; }
+      .atlas { fill: #fef3c7; stroke: #92400e; stroke-width: 1.5; }
+      .report { fill: #dcfce7; stroke: #166534; stroke-width: 1.5; }
+      .label { font-size: 13px; fill: #0f172a; font-weight: 600; text-anchor: middle; }
+      .sublabel { font-size: 11px; fill: #475569; text-anchor: middle; }
+      .title { font-size: 16px; fill: #0f172a; font-weight: 700; text-anchor: middle; }
+      .edge { stroke: #334155; stroke-width: 1.5; fill: none; }
+    </style>
+  </defs>
+
+  <text x="450" y="30" class="title">soillifeatlas — APPLY workflow (v0.1 demo)</text>
+
+  <!-- Samplesheet input -->
+  <rect class="box" x="320" y="55" width="260" height="45"/>
+  <text x="450" y="75" class="label">samplesheet.csv</text>
+  <text x="450" y="92" class="sublabel">raw_path | ion_mode | batch | role</text>
+
+  <!-- PREPROC subworkflow -->
+  <rect class="box" x="320" y="125" width="260" height="90"/>
+  <text x="450" y="145" class="label">PREPROC subworkflow</text>
+  <text x="450" y="164" class="sublabel">INGEST → MZMINE_PP → MOLNET → ALIGN_LOESS</text>
+  <text x="450" y="180" class="sublabel">(aligned_feature_table + consensus MGF)</text>
+
+  <!-- FETCH_ATLAS -->
+  <rect class="atlas" x="40" y="245" width="220" height="65" rx="6" ry="6"/>
+  <text x="150" y="265" class="label">FETCH_ATLAS</text>
+  <text x="150" y="282" class="sublabel">Zenodo DOI + SHA256 verify</text>
+  <text x="150" y="298" class="sublabel">(cached in NXF_CACHE_DIR)</text>
+
+  <!-- SIMPER_MATCH -->
+  <rect class="apply" x="320" y="245" width="260" height="55"/>
+  <text x="450" y="265" class="label">SIMPER_MATCH</text>
+  <text x="450" y="283" class="sublabel">soil consensus × SIMPER atlas (matchms)</text>
+
+  <!-- DECOMPOSE_APPLY subworkflow -->
+  <rect class="apply" x="260" y="335" width="380" height="180"/>
+  <text x="450" y="355" class="label">DECOMPOSE_APPLY subworkflow</text>
+  <text x="450" y="378" class="sublabel">L2 IS normalization (LPE_18d7 ref)</text>
+  <text x="450" y="396" class="sublabel">L3 RIE correction (floor = 0.20)</text>
+  <text x="450" y="414" class="sublabel">L5 Archaea reference-quality filter</text>
+  <text x="450" y="436" class="sublabel">DECOMPOSE × 4 methods (parallel via each)</text>
+  <text x="450" y="452" class="sublabel">[nnls, std_bc, enriched_bc, fc_weighted_bc]</text>
+  <text x="450" y="474" class="sublabel">EVAL_PLAUSIBILITY (BC vs expected)</text>
+  <text x="450" y="490" class="sublabel">EVAL_TREATMENT (Mann-Whitney U)</text>
+  <text x="450" y="506" class="sublabel">DIAGNOSTIC_TOP_FEATURES (RIE over-amp guard)</text>
+
+  <!-- ANNOTATE (parallel, skip default) -->
+  <rect class="box" x="660" y="245" width="210" height="90" stroke-dasharray="5,3"/>
+  <text x="765" y="265" class="label">ANNOTATE (optional)</text>
+  <text x="765" y="283" class="sublabel">MS-DIAL · SIRIUS · diag-ion</text>
+  <text x="765" y="299" class="sublabel">.msp match · ArchLips</text>
+  <text x="765" y="320" class="sublabel">--skip_annotate default</text>
+
+  <!-- REPORT -->
+  <rect class="report" x="320" y="555" width="260" height="65"/>
+  <text x="450" y="577" class="label">REPORT</text>
+  <text x="450" y="595" class="sublabel">MultiQC + custom panels</text>
+  <text x="450" y="611" class="sublabel">→ soillifeatlas_report.html + provenance.yaml</text>
+
+  <!-- Edges -->
+  <path class="edge" d="M 450 100 L 450 125" marker-end="url(#arrow)"/>
+  <path class="edge" d="M 450 215 L 450 245" marker-end="url(#arrow)"/>
+  <path class="edge" d="M 260 278 L 320 272" marker-end="url(#arrow)"/>
+  <path class="edge" d="M 450 300 L 450 335" marker-end="url(#arrow)"/>
+  <path class="edge" d="M 660 290 L 580 272" marker-end="url(#arrow)"/>
+  <path class="edge" d="M 450 515 L 450 555" marker-end="url(#arrow)"/>
+  <path class="edge" d="M 660 335 Q 660 540 580 580" marker-end="url(#arrow)"/>
+
+  <text x="450" y="660" class="sublabel">v0.1 live path shown in blue · Atlas fetch in amber · Report in green</text>
+  <text x="450" y="680" class="sublabel">Annotation (dashed) runs in parallel and is skipped by default</text>
+</svg>
