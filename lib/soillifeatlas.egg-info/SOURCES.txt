@@ -1,0 +1,12 @@
+LICENSE
+README.md
+pyproject.toml
+lib/soillifeatlas/__init__.py
+lib/soillifeatlas/corrections.py
+lib/soillifeatlas/decomposition.py
+lib/soillifeatlas/evaluation.py
+lib/soillifeatlas.egg-info/PKG-INFO
+lib/soillifeatlas.egg-info/SOURCES.txt
+lib/soillifeatlas.egg-info/dependency_links.txt
+lib/soillifeatlas.egg-info/requires.txt
+lib/soillifeatlas.egg-info/top_level.txt
