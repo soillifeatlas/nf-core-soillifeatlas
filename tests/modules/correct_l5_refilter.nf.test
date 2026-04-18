@@ -1,0 +1,22 @@
+nextflow_process {
+    name "Test CORRECT_L5_REF_FILTER"
+    script "modules/local/correct_l5_refilter.nf"
+    process "CORRECT_L5_REF_FILTER"
+    profile "local"
+
+    test("restricts Archaea rows to ArchLips-validated features") {
+        when {
+            process {
+                """
+                input[0] = file("${projectDir}/tests/fixtures/tiny/tiny_simper_atlas.parquet")
+                input[1] = file("${projectDir}/tests/fixtures/tiny/tiny_archlips_validated.csv")
+                """
+            }
+        }
+        then {
+            assert process.success
+            assert path(process.out.filtered[0]).exists()
+            assert path(process.out.versions[0]).exists()
+        }
+    }
+}

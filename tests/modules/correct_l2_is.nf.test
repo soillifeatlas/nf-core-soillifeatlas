@@ -1,0 +1,22 @@
+nextflow_process {
+    name "Test CORRECT_L2_IS"
+    script "modules/local/correct_l2_is.nf"
+    process "CORRECT_L2_IS"
+    profile "local"
+
+    test("scales soil intensities by the internal standard") {
+        when {
+            process {
+                """
+                input[0] = file("${projectDir}/tests/fixtures/tiny/tiny_intensity.parquet")
+                input[1] = file("${projectDir}/tests/fixtures/tiny/tiny_is_features.csv")
+                """
+            }
+        }
+        then {
+            assert process.success
+            assert path(process.out.corrected[0]).exists()
+            assert path(process.out.versions[0]).exists()
+        }
+    }
+}
