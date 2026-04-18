@@ -1,0 +1,45 @@
+name: Full Demo Reproducibility
+
+on:
+  schedule:
+    - cron: '0 3 * * *'  # nightly 03:00 UTC
+  push:
+    tags: ['v*']
+  workflow_dispatch:  # allow manual trigger
+
+jobs:
+  full-demo:
+    name: End-to-end APPLY workflow demo
+    runs-on: ubuntu-latest
+    timeout-minutes: 45
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+          cache: 'pip'
+      - name: Install soillifeatlas package
+        run: pip install -e .
+      - name: Install Nextflow
+        uses: nf-core/setup-nextflow@v2
+        with:
+          version: '25.10.4'
+      - name: Install nf-test
+        run: |
+          curl -fsSL https://code.askimed.com/install/nf-test | bash
+          sudo mv nf-test /usr/local/bin/
+      - name: Run APPLY workflow end-to-end on tiny fixtures
+        # v0.1 LITE: uses tiny-fixture atlas bundle.
+        # Post-v0.1.0 release (when real Zenodo DOI is minted):
+        # 1. Remove this step
+        # 2. Add: nextflow run . -profile docker,full_demo --atlas_doi 10.5281/zenodo.<ID>
+        # 3. Add pytest step asserting published kingdom numbers from tests/test_samrat_2025_reproduction.py
+        run: nf-test test tests/workflows/apply.nf.test --profile local --verbose
+      - name: Upload results on failure
+        if: failure()
+        uses: actions/upload-artifact@v4
+        with:
+          name: full-demo-logs
+          path: |
+            .nf-test/
+            .nextflow.log
