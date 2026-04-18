@@ -55,7 +55,7 @@
     "instrument": {
       "type": "object",
       "title": "Instrument & atlas",
-      "description": "Instrument mode and reference-atlas choice. Defaults reproduce Samrat et al. 2025.",
+      "description": "Instrument mode and reference-atlas choice. Defaults match the ClimGrass source-decomposition demo.",
       "x-form-step": 2,
       "properties": {
         "ion_mode": {
@@ -72,7 +72,7 @@
         "is_compound": {
           "type": "string",
           "title": "Internal standard reference compound",
-          "description": "Deuterated lipid used for L2 IS normalization. LPE_18d7 is the Samrat 2025 default (primary adduct [M+H]+, m/z 487.3525). The 13 EquiSPLASH standards are listed for forward compatibility; only LPE_18d7 is validated for v0.1.",
+          "description": "Deuterated lipid used for L2 IS normalization. LPE_18d7 is the ClimGrass demo default (primary adduct [M+H]+, m/z 487.3525). The 13 EquiSPLASH standards are listed for forward compatibility; only LPE_18d7 is validated for v0.1.",
           "enum": [
             "LPE_18d7",
             "PC_15-18d7",
@@ -96,7 +96,7 @@
         "is_spiked_pmol": {
           "type": "number",
           "title": "Internal standard spike (pmol)",
-          "description": "Amount of the internal standard spiked into each sample before extraction. 100 pmol is the Samrat 2025 default.",
+          "description": "Amount of the internal standard spiked into each sample before extraction. 100 pmol is the ClimGrass demo default.",
           "minimum": 0,
           "default": 100,
           "x-form-widget": "number",
@@ -118,7 +118,7 @@
     "advanced": {
       "type": "object",
       "title": "Advanced (optional)",
-      "description": "Scientific-constant overrides. Defaults reproduce the iter3a_floor020 configuration from Samrat 2025. Changes here break the pinned-atlas SHA256 guarantee, so keep defaults unless you know why you're changing them.",
+      "description": "Scientific-constant overrides. Defaults match the iter3a_floor020 configuration used in the ClimGrass demo. Changes here break the pinned-atlas SHA256 guarantee, so keep defaults unless you know why you're changing them.",
       "x-form-step": 3,
       "x-form-collapsed-by-default": true,
       "properties": {
@@ -137,7 +137,7 @@
         "restrict_archaea_to_archlips": {
           "type": "boolean",
           "title": "Restrict Archaea to ArchLips reference features",
-          "description": "L5 correction: for the Archaea kingdom, only keep features that match the ArchLips-validated reference set. This is the Samrat 2025 reference-quality filter and is on by default.",
+          "description": "L5 correction: for the Archaea kingdom, only keep features that match the ArchLips-validated reference set. This is the ClimGrass-demo reference-quality filter and is on by default.",
           "default": true,
           "x-form-widget": "toggle",
           "x-nextflow-param": "restrict_archaea_to_archlips"
@@ -160,7 +160,7 @@
         "primary_method": {
           "type": "string",
           "title": "Primary decomposition method",
-          "description": "Method reported as THE composition in the final report; others are kept as sensitivity checks. fc_weighted_bc is the Samrat 2025 best performer (BC = 0.131 vs expected on ClimGrass).",
+          "description": "Method reported as THE composition in the final report; others are kept as sensitivity checks. fc_weighted_bc is the best performer on the ClimGrass demo (BC = 0.131 vs expected).",
           "enum": ["nnls", "std_bc", "enriched_bc", "fc_weighted_bc"],
           "default": "fc_weighted_bc",
           "x-form-widget": "select",

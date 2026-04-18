@@ -32,7 +32,7 @@ bundle layout produced by `scripts/build_tiny_atlas_bundle.py`.
 |---|---|---|
 | `atlas/simper_fingerprint_atlas.parquet` | ~3–5 MB | 12,710 SIMPER fingerprint features × 18 phyla. The core reference matrix for decomposition. |
 | `atlas/biomarker_atlas.parquet` | ~2 MB | 10,454 composite + IndVal biomarkers. Not consumed by decomposition in v0.1; shipped for external validation. |
-| `atlas/rie_table_s10.csv` | ~15 KB | 109 class × adduct entries for the L3 RIE correction (Samrat 2025 Table S10). |
+| `atlas/rie_table_s10.csv` | ~15 KB | 109 class × adduct entries for the L3 RIE correction (Table S10 reference calibration). |
 | `atlas/equisplash_IS_masses_POS.csv` | ~2 KB | 30 rows, one per (compound × adduct). 13 deuterated EquiSPLASH standards total (PC, LPC, PE, LPE, PG, PI, PS, TG, DG, MG, CE, SM, Cer). Defaults to the `LPE_18d7 [M+H]+` primary IS feature for v0.1. |
 | `atlas/archlips_validated_features.csv` | ~20 KB | Feature-ID list for the L5 Archaea reference-quality filter. |
 | `atlas/expected_kingdom_composition.csv` | ~1 KB | Reference kingdom proportions used by `EVAL_PLAUSIBILITY` to compute BC distance. |
@@ -44,8 +44,8 @@ bundle layout produced by `scripts/build_tiny_atlas_bundle.py`.
 ## Expected outputs — what the user gets back after running
 
 These are the artefacts emitted under `--outdir` after a successful
-end-to-end run. Numbers below are the pinned Samrat 2025 values asserted
-by the nightly full-demo CI job.
+end-to-end run. Numbers below are the pinned ClimGrass reference values
+asserted by the nightly full-demo CI job.
 
 | File | Contents |
 |---|---|
@@ -54,7 +54,7 @@ by the nightly full-demo CI job.
 | `composition_std_bc.parquet` | Same shape, standard Bray-Curtis decomposition. |
 | `composition_enriched_bc.parquet` | Same shape, IndVal-weighted Bray-Curtis. |
 | `plausibility.tsv` | BC distance vs expected, one row per decomposition method. `fc_weighted_bc → 0.131`, below the 0.15 threshold. |
-| `treatment_effects.tsv` | Mann-Whitney U per phylum × contrast. Expected direction: Actinomycetota ↑ drought (preserved from Samrat 2025); Basidiomycota ↓ drought (amplified vs raw); Bacteria ↓ warming, Fungi ↑ warming (newly revealed after L3 RIE correction). |
+| `treatment_effects.tsv` | Mann-Whitney U per phylum × contrast. Expected direction: Actinomycetota ↑ drought (preserved from the published ClimGrass analysis); Basidiomycota ↓ drought (amplified vs raw); Bacteria ↓ warming, Fungi ↑ warming (newly revealed after L3 RIE correction). |
 | `diagnostic_top_features.tsv` | Top-10 features per phylum (RIE over-amp sanity check; no single feature >3.1% of any phylum). |
 | `multiqc_report.html` | Rendered MultiQC + custom panels. |
 | `pipeline_info/provenance.yaml` | Git SHA, atlas DOI + SHA256, container digests, params, input hashes, runtime. |

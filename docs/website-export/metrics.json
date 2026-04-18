@@ -15,7 +15,7 @@
   "correction_layers": ["IS_normalization", "RIE_correction_floor_0.20", "Archaea_ref_filter"],
   "decomposition_methods": ["nnls", "std_bc", "enriched_bc", "fc_weighted_bc"],
   "primary_method": "fc_weighted_bc",
-  "samrat_2025_doi": "10.1016/j.soilbio.2025.109892",
+  "demo_example": "ClimGrass grassland soils (source decomposition)",
   "repo_url": "https://github.com/soillifeatlas/nf-core-soillifeatlas",
   "status": "v0.1-dev",
   "v0_1_0_release_blocker": "Zenodo DOI minting for reference atlas"
