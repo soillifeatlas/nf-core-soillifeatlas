@@ -34,12 +34,18 @@ is_features.to_csv(FIXTURES / "tiny_is_features.csv", index=False)
 # ---------- RIE table (columns match what apply_RIE_correction expects) ----------
 # Real signature: rie_lookup columns = ["class", "adduct", "RIE_LPE"].
 # Very low MG RIE exercises the floor at 0.20 (wrapper CLI arg).
+# NOTE on adduct format: corrections.apply_RIE_correction preprocesses the
+# lookup-side adduct by stripping only [ and ] (see lines 125-130), but the
+# query-side also strips the trailing charge (+/-) at line 140. To keep those
+# keys aligned, we store adducts here pre-stripped as "M+H" (no brackets, no
+# charge suffix). A bulk / real-world RIE table would require the same
+# preprocessing before being fed to the pipeline.
 rie_table = pd.DataFrame([
-    {"class": "PE",      "adduct": "[M+H]+", "RIE_LPE": 0.85},
-    {"class": "PC",      "adduct": "[M+H]+", "RIE_LPE": 1.00},
-    {"class": "MG",      "adduct": "[M+H]+", "RIE_LPE": 0.0005},  # very low — tests the floor
-    {"class": "DG",      "adduct": "[M+H]+", "RIE_LPE": 0.03},
-    {"class": "UNKNOWN", "adduct": "[M+H]+", "RIE_LPE": 0.5},
+    {"class": "PE",      "adduct": "M+H", "RIE_LPE": 0.85},
+    {"class": "PC",      "adduct": "M+H", "RIE_LPE": 1.00},
+    {"class": "MG",      "adduct": "M+H", "RIE_LPE": 0.0005},  # very low — tests the floor
+    {"class": "DG",      "adduct": "M+H", "RIE_LPE": 0.03},
+    {"class": "UNKNOWN", "adduct": "M+H", "RIE_LPE": 0.5},
 ])
 rie_table.to_csv(FIXTURES / "tiny_rie_table.csv", index=False)
 
