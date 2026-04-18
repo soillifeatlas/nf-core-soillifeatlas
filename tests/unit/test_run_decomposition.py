@@ -65,6 +65,7 @@ def test_run_decomposition_all_methods(tmp_path, method):
     atlas_p, sp_p, soil_p = _build_tiny_atlas_and_soil(tmp_path)
     simper = FIXTURES / "tiny_simper_atlas.parquet"
     out = tmp_path / f"comp_{method}.parquet"
+    out_phylum = tmp_path / f"comp_{method}_phylum.parquet"
 
     subprocess.run(
         [
@@ -75,6 +76,7 @@ def test_run_decomposition_all_methods(tmp_path, method):
             "--sample-phylum-map", str(sp_p),
             "--method", method,
             "--output", str(out),
+            "--output-phylum", str(out_phylum),
         ],
         check=True,
     )
@@ -96,6 +98,28 @@ def test_run_decomposition_all_methods(tmp_path, method):
         assert (sub["proportion_pct"] >= 0).all(), f"negative proportion in sample {s}"
         total = sub["proportion_pct"].sum()
         assert 99.0 <= total <= 101.0, f"sample {s} proportions sum to {total}, expected ~100"
+
+    # --- Phylum-level output ------------------------------------------------
+    assert out_phylum.exists(), f"wrapper did not produce phylum parquet for method={method}"
+    pdf = pd.read_parquet(out_phylum)
+
+    # Contract: long-format (sample x phylum x proportion_pct)
+    assert set(pdf.columns) == {"sample_id", "phylum", "proportion_pct"}, (
+        f"unexpected phylum columns, got {list(pdf.columns)}"
+    )
+    # All three soil samples should appear
+    assert set(pdf["sample_id"]) == {"SOIL_01", "SOIL_02", "SOIL_03"}, (
+        f"expected all 3 soil samples in phylum output, got {set(pdf['sample_id'])}"
+    )
+    # Proportions non-negative and each sample sums to ~100
+    for s, sub in pdf.groupby("sample_id"):
+        assert (sub["proportion_pct"] >= 0).all(), (
+            f"negative proportion in sample {s} (phylum output)"
+        )
+        total = sub["proportion_pct"].sum()
+        assert 99.0 <= total <= 101.0, (
+            f"phylum sample {s} proportions sum to {total}, expected ~100"
+        )
 
 
 def test_run_decomposition_help_does_not_crash():

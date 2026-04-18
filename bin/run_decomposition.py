@@ -26,6 +26,11 @@ Output:
     --output              parquet in long (tidy) format with columns
                           (sample_id, kingdom, proportion_pct); each sample's
                           proportions sum to 100.
+    --output-phylum       (optional) parquet in long format with columns
+                          (sample_id, phylum, proportion_pct); each sample's
+                          proportions sum to 100. Enables phylum-level
+                          treatment-effect checks (e.g. Actinomycetota drought
+                          response) which aggregate away at the kingdom level.
 """
 from __future__ import annotations
 
@@ -77,6 +82,8 @@ def main(argv: list[str] | None = None) -> int:
                    help="Drop phyla with fewer atlas samples than this (default: 2)")
     p.add_argument("--output", required=True, type=Path,
                    help="Output parquet (long-format: sample_id, kingdom, proportion_pct)")
+    p.add_argument("--output-phylum", required=False, type=Path, default=None,
+                   help="Optional output parquet (long-format: sample_id, phylum, proportion_pct)")
     args = p.parse_args(argv)
 
     # --- Load inputs ---------------------------------------------------------
@@ -114,7 +121,7 @@ def main(argv: list[str] | None = None) -> int:
     # curation-level knowledge pinned in the decomposition module.
     kingdom_comp, kingdoms = phylum_to_kingdom_array(comp, phyla)
 
-    # --- Step 6: emit long-format parquet -----------------------------------
+    # --- Step 6: emit long-format parquet(s) --------------------------------
     rows = [
         {
             "sample_id": sample_cols[i],
@@ -127,6 +134,24 @@ def main(argv: list[str] | None = None) -> int:
     out_df = pd.DataFrame(rows, columns=["sample_id", "kingdom", "proportion_pct"])
     args.output.parent.mkdir(parents=True, exist_ok=True)
     out_df.to_parquet(args.output)
+
+    # Optional phylum-level emission (pre-kingdom rollup). Used by
+    # treatment-effect diagnostics that track per-phylum responses
+    # (e.g. Actinomycetota drought direction) which are lost at the
+    # kingdom aggregation step.
+    if args.output_phylum is not None:
+        phylum_rows = [
+            {
+                "sample_id": sample_cols[i],
+                "phylum": phyla[p],
+                "proportion_pct": 100.0 * float(comp[i, p]),
+            }
+            for i in range(len(sample_cols))
+            for p in range(len(phyla))
+        ]
+        phylum_df = pd.DataFrame(phylum_rows, columns=["sample_id", "phylum", "proportion_pct"])
+        args.output_phylum.parent.mkdir(parents=True, exist_ok=True)
+        phylum_df.to_parquet(args.output_phylum)
     return 0
 
 
