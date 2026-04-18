@@ -15,6 +15,17 @@
 [![run with singularity](https://img.shields.io/badge/run%20with-singularity-1d355c.svg?labelColor=000000)](https://sylabs.io/docs/)
 [![Launch on Seqera Platform](https://img.shields.io/badge/Launch%20%F0%9F%9A%80-Seqera%20Platform-%234256e7)](https://cloud.seqera.io/launch?pipeline=https://github.com/soillifeatlas/nf-core-soillifeatlas)
 
+## Current status: v0.1-dev
+
+- End-to-end APPLY workflow runs on tiny fixtures (11/11 nf-tests + 32/32 Python tests green)
+- CI green on every PR + nightly full-demo on GitHub Actions
+- **v0.1.0 release blocked on Zenodo DOI minting for the reference atlas**
+- Real-data reproduction of Samrat 2025 kingdom numbers: queued for v0.1.0 nightly CI once atlas DOI is live
+
+See [`docs/ARCHITECTURE.md`](docs/ARCHITECTURE.md) for the 1-page reviewer
+artefact (DAG + SOP traceability + deployment matrix + "not vaporware"
+contract).
+
 ## Quickstart (macOS / Linux, ~20 min)
 
 Local Docker (once the atlas Zenodo release is minted):
