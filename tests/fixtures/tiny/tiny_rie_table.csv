@@ -1,0 +1,6 @@
+class,adduct,RIE_LPE
+PE,[M+H]+,0.85
+PC,[M+H]+,1.0
+MG,[M+H]+,0.0005
+DG,[M+H]+,0.03
+UNKNOWN,[M+H]+,0.5
