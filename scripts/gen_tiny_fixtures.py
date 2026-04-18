@@ -63,13 +63,16 @@ archlips = pd.DataFrame({"feature_id": ["feat_007", "feat_008", "feat_009"]})
 archlips.to_csv(FIXTURES / "tiny_archlips_validated.csv", index=False)
 
 # ---------- SIMPER fingerprint atlas (just enough for ref-quality filter test) ----------
-# 10 features x 3 phyla, some Archaea, some not
+# 10 features x 3 phyla, some Archaea, some not.
+# NOTE: column is `fold_change` (matches what soillifeatlas.decomposition
+# .build_direction_masks reads). Values centred ~1 with some spread so the
+# `min(fc, 100)` / `>0` branches in build_direction_masks are both exercised.
 simper_atlas = pd.DataFrame({
     "feature_id": [f"feat_{i:03d}" for i in range(10)] * 3,
     "phylum": ["Actinomycetota"] * 10 + ["Ascomycota"] * 10 + ["Euryarchaeota"] * 10,
     "kingdom": ["Bacteria"] * 10 + ["Fungi"] * 10 + ["Archaea"] * 10,
     "direction": ["enriched"] * 30,
-    "fc_weight": rng.random(30),
+    "fold_change": rng.uniform(0.5, 5.0, size=30),
     "simper_rank": list(range(10)) * 3,
 })
 simper_atlas.to_parquet(FIXTURES / "tiny_simper_atlas.parquet")
