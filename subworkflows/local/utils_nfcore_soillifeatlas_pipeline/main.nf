@@ -79,8 +79,8 @@ workflow PIPELINE_INITIALISATION {
     // Create channel from input file provided through params.input
     //
 
-    channel
-        .fromList(samplesheetToList(params.input, "${projectDir}/assets/schema_input.json"))
+    // Apply mode reads --soil_* files directly; a samplesheet is optional.
+    (params.input ? channel.fromList(samplesheetToList(params.input, "${projectDir}/assets/schema_input.json")) : channel.empty())
         .map {
             meta, fastq_1, fastq_2 ->
                 if (!fastq_2) {

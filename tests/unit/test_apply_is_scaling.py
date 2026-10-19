@@ -23,7 +23,7 @@ def test_apply_is_scaling_produces_scaled_parquet(tmp_path):
             "--intensity", str(FIXTURES / "tiny_intensity.parquet"),
             "--is-features", str(FIXTURES / "tiny_is_features.csv"),
             "--is-spiked-pmol", "100",
-            "--is-reference", "LPE_18d7",
+            "--is-reference", "PC_15_0_18_1_d7",
             "--output", str(out_file),
         ],
         check=True,

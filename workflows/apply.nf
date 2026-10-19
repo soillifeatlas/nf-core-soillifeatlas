@@ -27,6 +27,10 @@ workflow APPLY {
     // --- Step 2: Resolve soil-side inputs ------------------------------------
     // v0.1 uses explicit --soil_intensity / --soil_mgf / --sample_metadata
     // flags rather than a samplesheet; a samplesheet driver lands in v0.2.
+    def missing = ['soil_intensity', 'soil_mgf', 'sample_metadata'].findAll { !params[it] }
+    if (missing) {
+        error "Apply mode needs ${missing.collect { '--' + it }.join(', ')}. See docs/usage.md."
+    }
     def soil_intensity  = file(params.soil_intensity,  checkIfExists: true)
     def soil_mgf        = file(params.soil_mgf,        checkIfExists: true)
     def sample_metadata = file(params.sample_metadata, checkIfExists: true)

@@ -28,78 +28,41 @@ contract).
 
 ## Quickstart (macOS / Linux, ~20 min)
 
-Local Docker (once the atlas Zenodo release is minted):
+Check that the pipeline runs on the bundled tiny fixtures (host Python with
+`pip install -e .`):
+
+```bash
+nextflow run soillifeatlas/nf-core-soillifeatlas -profile test --outdir results
+```
+
+Your own atlas-aligned soil data:
 
 ```bash
 nextflow run soillifeatlas/nf-core-soillifeatlas \
-  -r v0.1.0 \
-  -profile docker \
-  --mode apply \
-  --soil_intensity path/to/soil_quant.parquet \
-  --soil_mgf path/to/soil.mgf \
-  --sample_metadata path/to/sample_metadata.tsv
+  -profile local \
+  --soil_intensity soil_quant.parquet \
+  --soil_mgf soil.mgf \
+  --sample_metadata sample_metadata.tsv \
+  --outdir results
 ```
 
-v0.1 demo (runs today, on tiny fixtures):
-
-```bash
-cd nf-core-soillifeatlas
-pip install -e .
-nf-test test tests/workflows/apply.nf.test --profile local
-```
-
-> The `v0.1.0` tag and corresponding Zenodo DOI are not minted yet; the first
-> block above is the target invocation for the v0.1.0 release. Use the tiny-
-> fixture demo (second block) to exercise the pipeline end-to-end today.
+> No release tag or Zenodo DOI exists yet, and no module declares a container,
+> so `-profile docker` would still use the host Python. See
+> [docs/usage.md](docs/usage.md) for inputs and which level of inference your
+> data can reach, and [docs/output.md](docs/output.md) for the results.
 
 ## Introduction
 
-**soillifeatlas/nf-core-soillifeatlas** is a standardized Nextflow pipeline for cross-kingdom soil lipidomics decomposition.
-
-<!-- TODO nf-core:
-   Complete this sentence with a 2-3 sentence summary of what types of data the pipeline ingests, a brief overview of the
-   major pipeline sections and the types of output it produces. You're giving an overview to someone new
-   to nf-core here, in 15-20 seconds. For an example, see https://github.com/nf-core/rnaseq/blob/master/README.md#introduction
--->
-
-<!-- TODO nf-core: Include a figure that guides the user through the major workflow steps. Many nf-core
-     workflows use the "tube map" design for that. See https://nf-co.re/docs/guidelines/graphic_design/workflow_diagrams#examples for examples.   -->
-<!-- TODO nf-core: Fill in short bullet-pointed list of the default steps in the pipeline -->
+**soillifeatlas/nf-core-soillifeatlas** applies the Soil Life Atlas, a
+cross-kingdom LC–MS/MS lipid reference, to soil lipidomics data. It matches soil
+MS/MS spectra to atlas fingerprint features, normalises intensities to the
+PC 15:0–18:1(d7) internal standard, and decomposes each sample's lipid signal
+into kingdom and phylum shares with four methods, followed by plausibility and
+diagnostic checks. The outputs are shares of lipid signal, not biomass.
 
 ## Usage
 
-> [!NOTE]
-> If you are new to Nextflow and nf-core, please refer to [this page](https://nf-co.re/docs/usage/installation) on how to set-up Nextflow.
-
-<!-- TODO nf-core: Describe the minimum required steps to execute the pipeline, e.g. how to prepare samplesheets.
-     Explain what rows and columns represent. For instance (please edit as appropriate):
-
-First, prepare a samplesheet with your input data that looks as follows:
-
-`samplesheet.csv`:
-
-```csv
-sample,fastq_1,fastq_2
-CONTROL_REP1,AEG588A1_S1_L002_R1_001.fastq.gz,AEG588A1_S1_L002_R2_001.fastq.gz
-```
-
-Each row represents a fastq file (single-end) or a pair of fastq files (paired end).
-
--->
-
-Now, you can run the pipeline using:
-
-<!-- TODO nf-core: update the following command to include all required parameters for a minimal example -->
-
-```bash
-nextflow run soillifeatlas/soillifeatlas \
-   -profile <docker/singularity/.../institute> \
-   --input samplesheet.csv \
-   --outdir <OUTDIR>
-```
-
-> [!WARNING]
-> Please provide pipeline parameters via the CLI or Nextflow `-params-file` option. Custom config files including those provided by the `-c` Nextflow option can be used to provide any configuration _**except for parameters**_; see [docs](https://nf-co.re/docs/usage/getting_started/configuration#custom-configuration-files).
+See [docs/usage.md](docs/usage.md).
 
 ## Credits
 

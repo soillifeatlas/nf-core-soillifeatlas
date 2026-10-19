@@ -8,7 +8,7 @@ one feature_id via the IS feature table.
 Inputs:
   --intensity     Parquet, features x samples (feature_id as index)
   --is-features   CSV with columns: feature_id, compound, adduct, spiked_pmol
-  --is-reference  IS compound name (e.g., LPE_18d7) — must match a row in
+  --is-reference  IS compound name (e.g., PC_15_0_18_1_d7) — must match a row in
                   is_features.csv
   --is-spiked-pmol  Spiked IS amount in pmol per sample
   --output        Output parquet (features x samples, IS-normalized)
@@ -59,7 +59,7 @@ def main(argv: list[str] | None = None) -> int:
     p.add_argument("--is-spiked-pmol", type=float, required=True,
                    help="Spiked IS amount in pmol per sample (e.g., 100)")
     p.add_argument("--is-reference", required=True,
-                   help="IS reference compound name (e.g., LPE_18d7)")
+                   help="IS reference compound name (e.g., PC_15_0_18_1_d7)")
     p.add_argument("--output", required=True, type=Path,
                    help="Output IS-normalized parquet (features x samples)")
     args = p.parse_args(argv)

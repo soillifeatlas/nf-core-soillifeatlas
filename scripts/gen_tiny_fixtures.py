@@ -25,7 +25,7 @@ intensity.to_parquet(FIXTURES / "tiny_intensity.parquet")
 # name consumed by --is-reference on the CLI.
 is_features = pd.DataFrame({
     "feature_id": ["feat_000"],
-    "compound":  ["LPE_18d7"],
+    "compound":  ["PC_15_0_18_1_d7"],
     "adduct":    ["[M+H]+"],
     "spiked_pmol": [100.0],
 })

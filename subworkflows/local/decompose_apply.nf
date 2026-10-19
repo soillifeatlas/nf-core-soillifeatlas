@@ -29,7 +29,7 @@ workflow DECOMPOSE_APPLY {
     simper_atlas            // path  — SIMPER fingerprint atlas parquet
     archlips_validated      // path  — ArchLips-validated feature CSV
     is_features             // path  — IS feature CSV (for L2 scaling)
-    rie_table               // path  — RIE lookup table CSV
+    rie_table               // path  — RIE lookup table CSV (used only with --enable_rie)
     annotation              // path  — feature -> class/adduct annotation CSV
     sample_phylum_map       // path  — atlas sample_id -> phylum CSV
     expected_kingdom_ref    // path  — expected kingdom composition CSV
@@ -51,17 +51,27 @@ workflow DECOMPOSE_APPLY {
     CORRECT_L2_IS(soil_intensity, is_features)
     ch_versions = ch_versions.mix(CORRECT_L2_IS.out.versions)
 
-    // --- Step 4: L3 RIE correction -----------------------------------------
-    CORRECT_L3_RIE(CORRECT_L2_IS.out.corrected, rie_table, annotation)
-    ch_versions = ch_versions.mix(CORRECT_L3_RIE.out.versions)
+    // --- Step 4: optional L3 RIE correction (experimental, off by default) --
+    if (params.enable_rie) {
+        CORRECT_L3_RIE(CORRECT_L2_IS.out.corrected, rie_table, annotation)
+        ch_versions = ch_versions.mix(CORRECT_L3_RIE.out.versions)
+        ch_corrected = CORRECT_L3_RIE.out.corrected
+    } else {
+        ch_corrected = CORRECT_L2_IS.out.corrected
+    }
 
     // --- Step 5: Decompose via all 4 methods in parallel (`each`) ----------
+    // The schema types this param as a comma-separated string (CLI-friendly);
+    // a list set in a config file is accepted too.
+    def methods = params.decomposition_methods instanceof List
+        ? params.decomposition_methods
+        : params.decomposition_methods.tokenize(',')*.trim()
     DECOMPOSE(
-        CORRECT_L3_RIE.out.corrected,
+        ch_corrected,
         atlas_intensity,
         CORRECT_L5_REF_FILTER.out.filtered,
         sample_phylum_map,
-        params.decomposition_methods,
+        methods,
     )
     ch_versions = ch_versions.mix(DECOMPOSE.out.versions)
 
@@ -81,13 +91,13 @@ workflow DECOMPOSE_APPLY {
     ch_versions = ch_versions.mix(EVAL_TREATMENT.out.versions)
 
     // --- Step 8: Top-features diagnostic -----------------------------------
-    DIAGNOSTIC_TOP_FEATURES(CORRECT_L3_RIE.out.corrected, CORRECT_L5_REF_FILTER.out.filtered)
+    DIAGNOSTIC_TOP_FEATURES(ch_corrected, CORRECT_L5_REF_FILTER.out.filtered)
     ch_versions = ch_versions.mix(DIAGNOSTIC_TOP_FEATURES.out.versions)
 
     emit:
     matches              = SIMPER_MATCH.out.matches
     intensity_l2         = CORRECT_L2_IS.out.corrected
-    intensity_l3         = CORRECT_L3_RIE.out.corrected
+    intensity_corrected  = ch_corrected   // L2 IS-scaled, or L3 when --enable_rie
     simper_filtered      = CORRECT_L5_REF_FILTER.out.filtered
     compositions_kingdom = DECOMPOSE.out.kingdom
     compositions_phylum  = DECOMPOSE.out.phylum

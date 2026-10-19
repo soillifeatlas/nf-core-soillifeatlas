@@ -33,7 +33,7 @@ class CorrectionConfig:
     external_calibration: bool = False
 
     # Parameters
-    IS_reference_compound: str = "LPE_18d7"  # which IS to anchor on
+    IS_reference_compound: str = "PC_15_0_18_1_d7"  # EquiSPLASH component the paper normalises to
     IS_spiked_pmol: float = 100.0            # pmol of IS added per sample
     RIE_reference_class: str = "LPE"         # RIE values are relative to this
     fallback_RIE: float = 1.0                # For classes not in S10 table

@@ -11,7 +11,7 @@ process CORRECT_L2_IS {
     path 'versions.yml',                      emit: versions
 
     script:
-    def is_reference   = params.IS_reference_compound ?: 'LPE_18d7'
+    def is_reference   = params.IS_reference_compound ?: 'PC_15_0_18_1_d7'
     def is_spiked_pmol = params.IS_spiked_pmol        ?: 100.0
     """
     apply_is_scaling.py \\
