@@ -36,12 +36,14 @@ process MZMINE_PROCESS {
     script:
     prefix = "${params.run_name}_${polarity}"
     def mzmine = params.mzmine_cmd ?: 'mzmine'
-    def user   = params.mzmine_user ? "-u \"\$PWD/mzmine_home/user.mzuser\"" : ''
+    // Keep the user file's own name: MZmine takes the user name from it.
+    def user_name = params.mzmine_user ? file(params.mzmine_user).name : ''
+    def user      = params.mzmine_user ? "-u \"\$PWD/mzmine_home/.mzmine/users/${user_name}\"" : ''
     """
     ls -1 "\$PWD"/mzml/*.mzML > files.txt
     mkdir -p mzmine_out mzmine_tmp mzmine_home
     export JAVA_TOOL_OPTIONS="-Djdk.lang.Process.launchMechanism=FORK -Duser.home=\$PWD/mzmine_home \${JAVA_TOOL_OPTIONS:-}"
-    ${params.mzmine_user ? "cp \"${params.mzmine_user}\" mzmine_home/user.mzuser" : ''}
+    ${params.mzmine_user ? "mkdir -p mzmine_home/.mzmine/users && cp \"${params.mzmine_user}\" \"mzmine_home/.mzmine/users/${user_name}\"" : ''}
 
     set +e
     ${mzmine} -b ${batch} -i files.txt -o "mzmine_out/${prefix}" -t mzmine_tmp --threads ${task.cpus} ${user} > ${prefix}.mzmine.log 2>&1
