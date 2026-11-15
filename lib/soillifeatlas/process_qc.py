@@ -38,9 +38,6 @@ ROLES = {
     "standard_cal",
 }
 
-# Roles whose internal-standard signal should be comparable (same matrix-free
-# spike amount after extraction). Neat standards and blanks are excluded.
-IS_COMPARABLE_ROLES = {"sample", "pooled_qc"}
 
 
 @dataclass
@@ -287,10 +284,40 @@ def internal_standard_metrics(
     rts: pd.DataFrame,
     sheet: pd.DataFrame,
 ) -> tuple[pd.DataFrame, pd.DataFrame]:
-    """Per-standard summary and per-injection detail for matched standards."""
+    """Per-standard summary and per-injection detail for matched standards.
+
+    Following Samrat et al. (2025), the pass/fail criteria apply to QC
+    injections and standards, not to soils, whose standard signal varies with
+    matrix effects and extraction recovery:
+
+    * retention time and mass accuracy: pooled QCs, NIST and standard
+      calibration injections;
+    * peak-area RSD: pooled QCs (a repeated identical sample); if there are
+      none, NIST injections; if neither, samples, flagged in ``qc_basis``.
+
+    Soil values are reported alongside (``sample_*`` columns) for information.
+    """
     roles = sheet.set_index("file_id")["role"]
     files = [f for f in area.columns if f in roles.index]
-    comparable = [f for f in files if roles[f] in IS_COMPARABLE_ROLES]
+    by_role = {r: [f for f in files if roles[f] == r] for r in ROLES}
+    rt_ppm_set = by_role["pooled_qc"] + by_role["nist"] + by_role["standard_cal"]
+    if by_role["pooled_qc"]:
+        rsd_set, basis = by_role["pooled_qc"], "pooled QC"
+    elif by_role["nist"]:
+        rsd_set, basis = by_role["nist"], "NIST (no pooled QC)"
+    else:
+        rsd_set, basis = by_role["sample"], "samples (no pooled QC or NIST)"
+    if not rt_ppm_set:
+        rt_ppm_set = by_role["sample"]
+    samples = by_role["sample"]
+
+    def rsd(values: pd.Series) -> float:
+        v = values.replace(0, np.nan).dropna()
+        return float(v.std(ddof=1) / v.mean() * 100) if len(v) >= 2 else np.nan
+
+    def max_rt_dev(values: pd.Series) -> float:
+        v = values.dropna()
+        return float((v - v.median()).abs().max()) if len(v) else np.nan
 
     detail_rows = []
     summary_rows = []
@@ -314,12 +341,11 @@ def internal_standard_metrics(
                     "ppm_error": ppm[f],
                 }
             )
-        ac = a[comparable].replace(0, np.nan)
-        rc = r[comparable]
-        pc = ppm[comparable]
-        detected = ac.notna().sum()
-        rsd = float(ac.std(ddof=1) / ac.mean() * 100) if detected >= 2 else np.nan
-        rt_dev = float((rc - rc.median()).abs().max()) if rc.notna().any() else np.nan
+        present = a > 0
+        rc = r[rt_ppm_set][present[rt_ppm_set]]
+        pc = ppm[rt_ppm_set][present[rt_ppm_set]]
+        rs = r[samples][present[samples]]
+        ps = ppm[samples][present[samples]]
         summary_rows.append(
             {
                 "compound": m["compound"],
@@ -329,13 +355,19 @@ def internal_standard_metrics(
                 "priority": m["priority"],
                 "selected_by": m.get("selected_by"),
                 "feature_id": fid,
-                "median_rt": float(rc.median()) if rc.notna().any() else np.nan,
-                "max_rt_deviation_min": rt_dev,
-                "median_ppm_error": float(pc.median()) if pc.notna().any() else np.nan,
-                "max_abs_ppm_error": float(pc.abs().max()) if pc.notna().any() else np.nan,
-                "area_rsd_pct": rsd,
-                "detected_in": int(detected),
-                "comparable_injections": len(comparable),
+                "qc_basis": basis,
+                "median_rt": float(rc.median()) if len(rc) else np.nan,
+                "max_rt_deviation_min": max_rt_dev(rc),
+                "median_ppm_error": float(pc.median()) if len(pc) else np.nan,
+                "max_abs_ppm_error": float(pc.abs().max()) if len(pc) else np.nan,
+                "area_rsd_pct": rsd(a[rsd_set]),
+                "detected_in_qc": int(present[rt_ppm_set].sum()),
+                "qc_injections": len(rt_ppm_set),
+                "sample_area_rsd_pct": rsd(a[samples]),
+                "sample_max_rt_deviation_min": max_rt_dev(rs),
+                "sample_max_abs_ppm_error": float(ps.abs().max()) if len(ps) else np.nan,
+                "detected_in_samples": int(present[samples].sum()),
+                "samples": len(samples),
             }
         )
     return pd.DataFrame(summary_rows), pd.DataFrame(detail_rows)
@@ -398,6 +430,26 @@ def _status(ok: bool, warn: bool = False) -> str:
     return "pass" if ok else ("warn" if warn else "fail")
 
 
+def _threshold_check(name: str, threshold: str, values: pd.Series, limit: float, compounds: pd.Series,
+                     note: str = "") -> Check:
+    """Judge one metric per standard; standards without a value are 'not measured', never 'within'."""
+    measured = values.notna()
+    bad = compounds[measured & (values > limit)].tolist()
+    n_meas = int(measured.sum())
+    missing = compounds[~measured].tolist()
+    if n_meas == 0:
+        return Check(name, threshold, "not measured", "not_run", note or "no QC injection contains these standards")
+    value = f"{n_meas - len(bad)} of {n_meas} measured within"
+    detail = ", ".join(bad)
+    if missing:
+        value += f"; {len(missing)} not measured"
+        detail = (detail + "; " if detail else "") + "not measured: " + ", ".join(missing)
+    status = _status(not bad, warn=len(bad) < n_meas)
+    if missing and status == "pass":
+        status = "warn"
+    return Check(name, threshold, value, status, (detail + (" " + note if note else "")).strip())
+
+
 def build_checks(
     is_summary: pd.DataFrame,
     feats: pd.DataFrame,
@@ -436,18 +488,25 @@ def build_checks(
                              "to the standards table or a standard-only injection: " + ", ".join(unconfirmed))
                             if unconfirmed else ""))
     if len(m):
-        rt_bad = m[m["max_rt_deviation_min"] > t.rt_tolerance_min]["compound"].tolist()
-        checks.append(Check("Internal standard retention time", f"±{t.rt_tolerance_min} min from median",
-                            f"{len(m) - len(rt_bad)} of {len(m)} within", _status(not rt_bad),
-                            ", ".join(rt_bad)))
-        ppm_bad = m[m["max_abs_ppm_error"] > t.mass_accuracy_ppm]["compound"].tolist()
-        checks.append(Check("Internal standard mass accuracy", f"±{t.mass_accuracy_ppm} ppm",
-                            f"{len(m) - len(ppm_bad)} of {len(m)} within", _status(not ppm_bad, warn=len(ppm_bad) < len(m)),
-                            ", ".join(ppm_bad)))
-        rsd_bad = m[m["area_rsd_pct"] > t.is_area_rsd_pct]["compound"].tolist()
-        checks.append(Check("Internal standard peak area RSD (samples and pooled QC)", f"< {t.is_area_rsd_pct:g}%",
-                            f"{len(m) - len(rsd_bad)} of {len(m)} within", _status(not rsd_bad, warn=len(rsd_bad) < len(m)),
-                            ", ".join(rsd_bad)))
+        comp = m["compound"].reset_index(drop=True)
+        checks.append(_threshold_check("Internal standard retention time (QC injections and standards)",
+                                       f"±{t.rt_tolerance_min} min from median",
+                                       m["max_rt_deviation_min"].reset_index(drop=True), t.rt_tolerance_min, comp))
+        checks.append(_threshold_check("Internal standard mass accuracy (QC injections and standards)",
+                                       f"±{t.mass_accuracy_ppm} ppm",
+                                       m["max_abs_ppm_error"].reset_index(drop=True), t.mass_accuracy_ppm, comp))
+        basis = str(m["qc_basis"].iloc[0]) if "qc_basis" in m else "pooled QC"
+        c = _threshold_check("Internal standard peak area RSD", f"< {t.is_area_rsd_pct:g}% over {basis}",
+                             m["area_rsd_pct"].reset_index(drop=True), t.is_area_rsd_pct, comp)
+        if basis != "pooled QC" and c.status in ("pass", "fail"):
+            c.status = "warn"
+            c.detail = (c.detail + " (no pooled QC: fallback set, so a warning only)").strip()
+        checks.append(c)
+        if "sample_area_rsd_pct" in m:
+            med = float(m["sample_area_rsd_pct"].median())
+            checks.append(Check("Internal standard variation across samples (information)", "reported, not judged",
+                                f"median RSD {med:.0f}%", "pass",
+                                "soils differ in matrix effects and recovery; stage 5 corrects for this"))
 
     if "qc_rsd_pct" in feats:
         detected = feats[feats["qc_detected"] >= 2]

@@ -112,22 +112,24 @@ def test_good_run_passes_is_checks(tmp_path):
     res = run_qc(full, _sheet(tmp_path), _targets(), "pos")
     pc = res.internal_standards.set_index("compound").loc["PC_15_0_18_1_d7"]
     assert pc["area_rsd_pct"] < 5
-    assert pc["max_rt_deviation_min"] == pytest.approx(0.02, abs=1e-6)
+    assert pc["max_rt_deviation_min"] == pytest.approx(0.01, abs=1e-6)  # pooled QCs only
+    assert pc["qc_basis"] == "pooled QC"
     status = res.checks_frame().set_index("check")["status"]
-    assert status["Internal standard retention time"] == "pass"
-    assert status["Internal standard peak area RSD (samples and pooled QC)"] == "pass"
-    assert status["Internal standard mass accuracy"] == "pass"
+    assert status["Internal standard retention time (QC injections and standards)"] == "pass"
+    assert status["Internal standard peak area RSD"] == "pass"
+    assert status["Internal standard mass accuracy (QC injections and standards)"] == "pass"
     # LPE target is absent, so not all standards are found
     assert status["Internal standards found"] == "warn"
 
 
 def test_drifting_standard_fails(tmp_path):
-    full = _full([1000, 400, 1500, 900, 1000, 0], [15.6, 15.9, 15.6, 15.6, 15.6, 15.6], pc_mz_shift_ppm=8)
+    # drift in the pooled QCs (QC2 late and low): these are what the criteria judge
+    full = _full([1000, 1000, 1500, 600, 1000, 0], [15.6, 15.6, 15.6, 15.9, 15.6, 15.6], pc_mz_shift_ppm=8)
     res = run_qc(full, _sheet(tmp_path), _targets(), "pos")
     status = res.checks_frame().set_index("check")["status"]
-    assert status["Internal standard retention time"] == "fail"
-    assert status["Internal standard peak area RSD (samples and pooled QC)"] == "fail"
-    assert status["Internal standard mass accuracy"] == "fail"
+    assert status["Internal standard retention time (QC injections and standards)"] == "fail"
+    assert status["Internal standard peak area RSD"] == "fail"
+    assert status["Internal standard mass accuracy (QC injections and standards)"] == "fail"
 
 
 def test_blank_is_excluded_from_is_rsd(tmp_path):
@@ -165,10 +167,10 @@ def test_read_mzml_start_time(tmp_path):
 
 
 def test_thresholds_are_configurable(tmp_path):
-    full = _full([1000, 1300, 1000, 1000, 1000, 0], [15.6] * 6)
+    full = _full([1000, 1000, 1000, 1300, 1000, 0], [15.6] * 6)
     strict = run_qc(full, _sheet(tmp_path), _targets(), "pos", thresholds=Thresholds(is_area_rsd_pct=5))
     loose = run_qc(full, _sheet(tmp_path), _targets(), "pos", thresholds=Thresholds(is_area_rsd_pct=50))
-    key = "Internal standard peak area RSD (samples and pooled QC)"
+    key = "Internal standard peak area RSD"
     assert strict.checks_frame().set_index("check").loc[key, "status"] == "fail"
     assert loose.checks_frame().set_index("check").loc[key, "status"] == "pass"
 
@@ -240,3 +242,22 @@ def test_expected_rt_selects_the_right_feature():
     m = match_internal_standards(full, tg, "pos", area, rt_window=0.3).set_index("compound")
     assert m.loc["PC_15_0_18_1_d7", "feature_id"] == 21
     assert m.loc["PC_15_0_18_1_d7", "selected_by"] == "expected RT"
+
+
+def test_soil_variation_is_information_not_failure(tmp_path):
+    # Soils vary strongly (matrix effects); pooled QCs are stable: the RSD check passes.
+    full = _full([300, 3000, 1000, 1010, 990, 0], [15.6] * 6)
+    res = run_qc(full, _sheet(tmp_path), _targets(), "pos")
+    status = res.checks_frame().set_index("check")["status"]
+    assert status["Internal standard peak area RSD"] == "pass"
+    pc = res.internal_standards.set_index("compound").loc["PC_15_0_18_1_d7"]
+    assert pc["sample_area_rsd_pct"] > 50
+
+
+def test_standard_missing_from_qc_is_not_measured_not_passed(tmp_path):
+    # Standard present in soils only: QC-based criteria cannot be judged.
+    full = _full([1000, 1000, 0, 0, 0, 0], [15.6] * 6)
+    res = run_qc(full, _sheet(tmp_path), _targets(), "pos")
+    status = res.checks_frame().set_index("check")["status"]
+    assert status["Internal standard retention time (QC injections and standards)"] == "not_run"
+    assert status["Internal standard mass accuracy (QC injections and standards)"] == "not_run"

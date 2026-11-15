@@ -175,9 +175,10 @@ def _table(df: pd.DataFrame, float_fmt="{:.3g}") -> str:
 
 def write_html(path: Path, res, checks: pd.DataFrame, summary: dict, plots: dict[str, str]) -> None:
     status = summary["overall_status"]
-    is_cols = [c for c in ["compound", "lipid_class", "matched", "adduct", "priority", "selected_by", "median_rt",
+    is_cols = [c for c in ["compound", "lipid_class", "matched", "adduct", "priority", "selected_by", "qc_basis", "median_rt",
                            "max_rt_deviation_min", "median_ppm_error", "max_abs_ppm_error", "area_rsd_pct",
-                           "detected_in", "comparable_injections"] if c in res.internal_standards.columns]
+                           "detected_in_qc", "qc_injections", "sample_area_rsd_pct",
+                           "sample_max_abs_ppm_error", "detected_in_samples", "samples"] if c in res.internal_standards.columns]
     doc = f"""<!doctype html><html lang="en"><head><meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>QC report · {html.escape(summary['prefix'])}</title>
@@ -200,7 +201,7 @@ injection order from {html.escape(summary['order_source'])}</p>
 <h2>Checks</h2>
 {_table(checks)}
 <h2>Internal standards</h2>
-<p class="meta">Retention time, mass error and area RSD are computed over samples and pooled QCs only.</p>
+<p class="meta">Pass/fail uses QC injections and standards (Samrat et al. 2025): retention time and mass error over pooled QCs, NIST and standard calibration; area RSD over pooled QCs. Columns starting with sample_ describe the soils and are for information.</p>
 {_table(res.internal_standards[is_cols])}
 {plots.get('internal_standards', '')}
 <h2>Injections</h2>
