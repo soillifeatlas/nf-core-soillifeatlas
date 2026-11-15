@@ -12,8 +12,8 @@
 // Outputs are copied to fixed names so later stages do not depend on MZmine's
 // export naming:
 //   <prefix>.features_full.csv   all features, per-file area/height/mz/rt
-//   <prefix>.gnps_quant.csv      GNPS FBMN quantification table   (if exported)
-//   <prefix>.gnps.mgf            GNPS FBMN MS2 spectra             (if exported)
+//   <prefix>.fbmn_quant.csv      GNPS FBMN quantification table   (if exported)
+//   <prefix>.fbmn.mgf            GNPS FBMN MS2 spectra             (if exported)
 //   <prefix>.sirius.mgf          SIRIUS input                      (if exported)
 //   <prefix>.annotations.csv     MZmine lipid annotations          (if exported)
 //
@@ -26,8 +26,8 @@ process MZMINE_PROCESS {
 
     output:
     tuple val(polarity), path("${prefix}.features_full.csv"), emit: features
-    tuple val(polarity), path("${prefix}.gnps_quant.csv"),    emit: gnps_quant, optional: true
-    tuple val(polarity), path("${prefix}.gnps.mgf"),          emit: gnps_mgf,   optional: true
+    tuple val(polarity), path("${prefix}.fbmn_quant.csv"),    emit: fbmn_quant, optional: true
+    tuple val(polarity), path("${prefix}.fbmn.mgf"),          emit: fbmn_mgf,   optional: true
     tuple val(polarity), path("${prefix}.sirius.mgf"),        emit: sirius_mgf, optional: true
     tuple val(polarity), path("${prefix}.annotations.csv"),   emit: annotations, optional: true
     path "${prefix}.mzmine.log",                               emit: log
@@ -59,15 +59,19 @@ process MZMINE_PROCESS {
         exit \$status
     fi
 
+    # Copy the first existing match to a fixed name; a missing optional export is not an error.
     copy_first() {
-        found=\$(ls \$1 2>/dev/null | head -n 1)
-        if [ -n "\$found" ]; then cp "\$found" "\$2"; fi
+        target="\$1"; shift
+        for f in "\$@"; do
+            if [ -e "\$f" ]; then cp "\$f" "\$target"; return 0; fi
+        done
+        return 0
     }
-    copy_first 'mzmine_out/*full*.csv'          ${prefix}.features_full.csv
-    copy_first 'mzmine_out/*gnps*quant*.csv'    ${prefix}.gnps_quant.csv
-    copy_first 'mzmine_out/*gnps*.mgf'          ${prefix}.gnps.mgf
-    copy_first 'mzmine_out/*sirius*.mgf'        ${prefix}.sirius.mgf
-    copy_first 'mzmine_out/*annotations*.csv'   ${prefix}.annotations.csv
+    copy_first ${prefix}.features_full.csv mzmine_out/*full_feature_table*.csv mzmine_out/*full*.csv
+    copy_first ${prefix}.fbmn_quant.csv    mzmine_out/*fbmn_quant*.csv mzmine_out/*gnps*quant*.csv
+    copy_first ${prefix}.fbmn.mgf          mzmine_out/*iimn_fbmn.mgf mzmine_out/*fbmn.mgf mzmine_out/*gnps.mgf
+    copy_first ${prefix}.sirius.mgf        mzmine_out/*sirius*.mgf
+    copy_first ${prefix}.annotations.csv   mzmine_out/*annotations*.csv
     if [ ! -s ${prefix}.features_full.csv ]; then
         echo "MZmine finished but no full feature table was exported. Files written:" >&2
         ls -la mzmine_out >&2

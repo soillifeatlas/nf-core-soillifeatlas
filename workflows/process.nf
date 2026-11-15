@@ -62,7 +62,7 @@ workflow PROCESS {
 
     emit:
     features    = MZMINE_PROCESS.out.features
-    gnps_mgf    = MZMINE_PROCESS.out.gnps_mgf
+    fbmn_mgf    = MZMINE_PROCESS.out.fbmn_mgf
     sirius_mgf  = MZMINE_PROCESS.out.sirius_mgf
     annotations = MZMINE_PROCESS.out.annotations
     qc_summary  = QC_REPORT.out.summary

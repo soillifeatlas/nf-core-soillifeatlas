@@ -102,7 +102,7 @@ nextflow run soillifeatlas/nf-core-soillifeatlas \
 On LiSC use `-profile lisc` and a small personal config for site paths (see
 `conf/lisc.config`).
 
-Outputs: `results/mzmine/<run>_<pol>.features_full.csv` (and GNPS, SIRIUS and
+Outputs: `results/mzmine/<run>_<pol>.features_full.csv` (and the GNPS FBMN, SIRIUS and
 annotation exports), `results/qc/<run>_<pol>.qc_report.html` with the tables
 behind it, and `results/mzml/` if `--save_mzml` is set.
 
