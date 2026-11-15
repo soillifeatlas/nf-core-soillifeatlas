@@ -11,7 +11,8 @@ process EVAL_TREATMENT {
     path 'versions.yml',          emit: versions
 
     script:
-    def contrast_list = (params.treatment_contrast ?: ['drought']).join(' ')
+    def contrast = params.treatment_contrast ?: 'drought'
+    def contrast_list = (contrast instanceof List ? contrast : contrast.tokenize(',')*.trim()).join(' ')
     """
     eval_treatment_effects.py \\
         --composition-phylum ${composition_phylum} \\

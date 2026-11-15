@@ -37,6 +37,10 @@ lint:
     - docs/README.md
     - .gitignore
   nextflow_config: false
+  # The pipeline-level test checks output files directly; per-module
+  # versions.yml are snapshotted in the module tests.
+  nf_test_content:
+    - tests/default.nf.test
   multiqc_config: false
   files_exist:
     - conf/igenomes.config

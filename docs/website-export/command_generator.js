@@ -31,18 +31,18 @@
 const DEFAULTS = Object.freeze({
   rie_floor: 0.2,
   restrict_archaea_to_archlips: true,
-  decomposition_methods: ['nnls', 'std_bc', 'enriched_bc', 'fc_weighted_bc'],
-  primary_method: 'fc_weighted_bc',
+  decomposition_methods: ["nnls", "std_bc", "enriched_bc", "fc_weighted_bc"],
+  primary_method: "fc_weighted_bc",
   skip_gnps: false,
   skip_annotate: true,
-  IS_reference_compound: 'LPE_18d7',
+  IS_reference_compound: "LPE_18d7",
   IS_spiked_pmol: 100,
-  atlas_version: 'v0.1.0',
+  atlas_version: "v0.1.0",
 });
 
-const PIPELINE_REVISION = 'v0.1.0-dev';
-const PIPELINE_NAME = 'soillifeatlas/nf-core-soillifeatlas';
-const DEFAULT_PROFILE = 'local';
+const PIPELINE_REVISION = "v0.1.0-dev";
+const PIPELINE_NAME = "soillifeatlas/nf-core-soillifeatlas";
+const DEFAULT_PROFILE = "local";
 
 /** Shell-quote a value for safe inclusion in the generated command. */
 function shq(v) {
@@ -54,8 +54,7 @@ function shq(v) {
 
 /** Compare two primitive arrays (order-sensitive). */
 function arraysEqual(a, b) {
-  return Array.isArray(a) && Array.isArray(b) && a.length === b.length &&
-    a.every((v, i) => v === b[i]);
+  return Array.isArray(a) && Array.isArray(b) && a.length === b.length && a.every((v, i) => v === b[i]);
 }
 
 /**
@@ -74,45 +73,47 @@ export function generateNextflowCommand(formState) {
   const push = (flag, val) => flags.push(`  --${flag} ${shq(val)}`);
 
   // --- required: inputs -----------------------------------------------------
-  if (upload.soil_intensity)  push('soil_intensity',  upload.soil_intensity);
-  if (upload.soil_mgf)        push('soil_mgf',        upload.soil_mgf);
-  if (upload.sample_metadata) push('sample_metadata', upload.sample_metadata);
+  if (upload.soil_intensity) push("soil_intensity", upload.soil_intensity);
+  if (upload.soil_mgf) push("soil_mgf", upload.soil_mgf);
+  if (upload.sample_metadata) push("sample_metadata", upload.sample_metadata);
 
   // --- instrument / atlas (emit when non-default so reviewers see the intent)
   if (instrument.atlas_version && instrument.atlas_version !== DEFAULTS.atlas_version) {
-    push('atlas_version', instrument.atlas_version);
+    push("atlas_version", instrument.atlas_version);
   }
   if (instrument.is_compound && instrument.is_compound !== DEFAULTS.IS_reference_compound) {
-    push('IS_reference_compound', instrument.is_compound);
+    push("IS_reference_compound", instrument.is_compound);
   }
-  if (instrument.is_spiked_pmol !== undefined &&
-      Number(instrument.is_spiked_pmol) !== DEFAULTS.IS_spiked_pmol) {
-    push('IS_spiked_pmol', instrument.is_spiked_pmol);
+  if (instrument.is_spiked_pmol !== undefined && Number(instrument.is_spiked_pmol) !== DEFAULTS.IS_spiked_pmol) {
+    push("IS_spiked_pmol", instrument.is_spiked_pmol);
   }
   // ion_mode = 'positive' maps to enable_neg=false (default); nothing to emit.
   // If we ever support 'negative', emit --enable_neg true here.
 
   // --- advanced (only diffs from defaults) ----------------------------------
-  if (advanced.rie_floor !== undefined &&
-      Number(advanced.rie_floor) !== DEFAULTS.rie_floor) {
-    push('RIE_floor', advanced.rie_floor);
+  if (advanced.rie_floor !== undefined && Number(advanced.rie_floor) !== DEFAULTS.rie_floor) {
+    push("RIE_floor", advanced.rie_floor);
   }
-  if (advanced.restrict_archaea_to_archlips !== undefined &&
-      advanced.restrict_archaea_to_archlips !== DEFAULTS.restrict_archaea_to_archlips) {
-    push('restrict_archaea_to_archlips', advanced.restrict_archaea_to_archlips);
+  if (
+    advanced.restrict_archaea_to_archlips !== undefined &&
+    advanced.restrict_archaea_to_archlips !== DEFAULTS.restrict_archaea_to_archlips
+  ) {
+    push("restrict_archaea_to_archlips", advanced.restrict_archaea_to_archlips);
   }
-  if (Array.isArray(advanced.decomposition_methods) &&
-      !arraysEqual(advanced.decomposition_methods, DEFAULTS.decomposition_methods)) {
-    push('decomposition_methods', advanced.decomposition_methods.join(','));
+  if (
+    Array.isArray(advanced.decomposition_methods) &&
+    !arraysEqual(advanced.decomposition_methods, DEFAULTS.decomposition_methods)
+  ) {
+    push("decomposition_methods", advanced.decomposition_methods.join(","));
   }
   if (advanced.primary_method && advanced.primary_method !== DEFAULTS.primary_method) {
-    push('primary_method', advanced.primary_method);
+    push("primary_method", advanced.primary_method);
   }
   if (advanced.skip_gnps !== undefined && advanced.skip_gnps !== DEFAULTS.skip_gnps) {
-    push('skip_gnps', advanced.skip_gnps);
+    push("skip_gnps", advanced.skip_gnps);
   }
   if (advanced.skip_annotate !== undefined && advanced.skip_annotate !== DEFAULTS.skip_annotate) {
-    push('skip_annotate', advanced.skip_annotate);
+    push("skip_annotate", advanced.skip_annotate);
   }
 
   const header = [
@@ -122,13 +123,13 @@ export function generateNextflowCommand(formState) {
     `  --mode apply \\`,
     `  --outdir ./results`,
   ];
-  return flags.length ? header.join('\n') + ' \\\n' + flags.join(' \\\n') : header.join('\n');
+  return flags.length ? header.join("\n") + " \\\n" + flags.join(" \\\n") : header.join("\n");
 }
 
 export default generateNextflowCommand;
 
 // CommonJS interop (Node + bundlers both).
-if (typeof module !== 'undefined' && module.exports) {
+if (typeof module !== "undefined" && module.exports) {
   module.exports = generateNextflowCommand;
   module.exports.default = generateNextflowCommand;
   module.exports.generateNextflowCommand = generateNextflowCommand;

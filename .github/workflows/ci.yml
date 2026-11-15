@@ -19,8 +19,8 @@ jobs:
       - uses: actions/checkout@v4
       - uses: actions/setup-python@v5
         with:
-          python-version: '3.11'
-          cache: 'pip'
+          python-version: "3.11"
+          cache: "pip"
       - name: Install soillifeatlas package
         run: pip install -e .
       - name: Install test deps
@@ -36,14 +36,14 @@ jobs:
       - uses: actions/checkout@v4
       - uses: actions/setup-python@v5
         with:
-          python-version: '3.11'
-          cache: 'pip'
+          python-version: "3.11"
+          cache: "pip"
       - name: Install soillifeatlas package (required for bin/ scripts)
         run: pip install -e .
       - name: Install Nextflow
         uses: nf-core/setup-nextflow@v2
         with:
-          version: '25.10.4'
+          version: "25.10.4"
       - name: Install nf-test (via gh CLI for CDN-resilient download)
         env:
           GH_TOKEN: ${{ github.token }}
@@ -80,9 +80,9 @@ jobs:
       - uses: actions/checkout@v4
       - uses: actions/setup-python@v5
         with:
-          python-version: '3.11'
+          python-version: "3.11"
       - name: Install nf-core/tools
         run: pip install nf-core
       - name: Run nf-core lint
         run: nf-core pipelines lint
-        continue-on-error: true  # v0.1 has known lint issues; don't block PRs yet
+        continue-on-error: true # v0.1 has known lint issues; don't block PRs yet

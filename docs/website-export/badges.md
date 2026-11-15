@@ -7,5 +7,6 @@
 ![License MIT](https://img.shields.io/badge/License-MIT-yellow.svg)
 
 ## TODO (post-v0.1.0 Zenodo release):
+
 - [![DOI pipeline](https://zenodo.org/badge/DOI/...svg)](https://doi.org/...)
 - [![DOI atlas](https://zenodo.org/badge/DOI/...svg)](https://doi.org/...)

@@ -15,11 +15,11 @@ side, plus plausibility and diagnostic tables.
 The atlas supports three separate levels of inference. Check yours before
 running the pipeline.
 
-| Level | Question | Needs | Pipeline output |
-|---|---|---|---|
-| 1. Detection | Is signal from a group present? | Any LC–MS/MS lipid data with MS/MS | `simper/*_verified_matches.parquet` (feature-level matches) |
-| 2. Lipid-signal share | How much of the lipid signal comes from each group? | Data from the atlas workflow: modified monophasic Bligh–Dyer extraction with EquiSPLASH, Accucore C30, Q Exactive DDA, aligned with the atlas consensus | `decompose/composition_{kingdom,phylum}_<method>.parquet` |
-| 3. Relative biomass | How much biomass does each group represent? | Level 2 plus lipid-content conversion; assumes lipids come from living organisms | Not produced by this version |
+| Level                 | Question                                            | Needs                                                                                                                                                   | Pipeline output                                             |
+| --------------------- | --------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------- |
+| 1. Detection          | Is signal from a group present?                     | Any LC–MS/MS lipid data with MS/MS                                                                                                                      | `simper/*_verified_matches.parquet` (feature-level matches) |
+| 2. Lipid-signal share | How much of the lipid signal comes from each group? | Data from the atlas workflow: modified monophasic Bligh–Dyer extraction with EquiSPLASH, Accucore C30, Q Exactive DDA, aligned with the atlas consensus | `decompose/composition_{kingdom,phylum}_<method>.parquet`   |
+| 3. Relative biomass   | How much biomass does each group represent?         | Level 2 plus lipid-content conversion; assumes lipids come from living organisms                                                                        | Not produced by this version                                |
 
 Decomposition (level 2) needs feature IDs in `--soil_intensity` that come from
 the same alignment as the atlas consensus. Data from another extraction or
@@ -27,12 +27,12 @@ instrument should stop at level 1.
 
 ## Inputs
 
-| Parameter | Format | Content |
-|---|---|---|
-| `--soil_intensity` | Parquet | One row per `feature_id` (atlas-aligned), one column per sample |
-| `--soil_mgf` | MGF | MS/MS spectra for the same features |
-| `--sample_metadata` | TSV | `sample_id` plus one column per contrast factor with values `Yes`/`No` |
-| `--outdir` | directory | Where results are written |
+| Parameter           | Format    | Content                                                                |
+| ------------------- | --------- | ---------------------------------------------------------------------- |
+| `--soil_intensity`  | Parquet   | One row per `feature_id` (atlas-aligned), one column per sample        |
+| `--soil_mgf`        | MGF       | MS/MS spectra for the same features                                    |
+| `--sample_metadata` | TSV       | `sample_id` plus one column per contrast factor with values `Yes`/`No` |
+| `--outdir`          | directory | Where results are written                                              |
 
 The atlas bundle is fetched automatically (`--atlas_path` points at a local copy
 for offline runs).

@@ -49,14 +49,14 @@ v0.2; manual copy in v0.1).
 All visual artefacts use the tokens declared in
 `docs/plans/2026-04-17-soil-life-atlas-website-design.md`:
 
-| Token | Hex |
-|---|---|
-| ink | `#1a1a1f` |
-| paper | `#faf8f4` |
-| soil | `#4a3728` |
-| moss | `#2f4a3a` |
+| Token    | Hex       |
+| -------- | --------- |
+| ink      | `#1a1a1f` |
+| paper    | `#faf8f4` |
+| soil     | `#4a3728` |
+| moss     | `#2f4a3a` |
 | spectral | `#2856d6` |
-| muted | `#6b6860` |
+| muted    | `#6b6860` |
 
 Fonts: Fraunces (display), Inter (body), JetBrains Mono (technical /
 parameter names). Files declare these `font-family`s but fall back to
