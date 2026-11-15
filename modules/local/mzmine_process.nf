@@ -49,6 +49,10 @@ process MZMINE_PROCESS {
     set -e
     tail -n 40 ${prefix}.mzmine.log
     if [ \$status -ne 0 ]; then
+        if grep -q -E "needs to login again|Cannot read specified user file|no users logged" ${prefix}.mzmine.log; then
+            echo "MZmine login missing or expired. Log in again once (mzmine --login-console)" >&2
+            echo "and pass the new .mzuser file with --mzmine_user. See docs/usage.md (MZmine)." >&2
+        fi
         echo "MZmine exited with status \$status; see ${prefix}.mzmine.log" >&2
         exit \$status
     fi
