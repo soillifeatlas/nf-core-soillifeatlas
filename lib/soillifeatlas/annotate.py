@@ -149,7 +149,7 @@ class Lipid:
 
 _CHAIN = r"(?:[OoPp]-|[dtm])?\d{1,2}:\d{1,2}(?:;O\d?|;\d?O)?"
 _NAME = re.compile(
-    rf"^(?P<cls>[A-Za-z][A-Za-z0-9]*(?:-[A-Za-z]{{1,2}})?)\s*\(?\s*"
+    rf"^(?P<cls>[A-Za-z][A-Za-z0-9]*(?:-[A-Za-z][A-Za-z]?)?)\s*\(?\s*"
     rf"(?P<chains>{_CHAIN}(?:\s*[_/]\s*{_CHAIN})*)\s*\)?\s*(?P<mod>\+.*)?$"
 )
 

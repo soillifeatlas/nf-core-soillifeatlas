@@ -30,13 +30,13 @@ file,polarity,role,group,dry_mass_g,extract_mg,spike_ng,volume_ul
 /data/run1/SBLK_01_POS.raw,pos,blank,,,,,
 ```
 
-| Column | Required | Meaning |
-| --- | --- | --- |
-| `file` | yes | Thermo `.raw` (converted in stage 1) or `.mzML` (used as it is) |
-| `polarity` | yes | `pos` or `neg`; each polarity is processed separately |
-| `role` | yes | `sample`, `pooled_qc`, `blank` (solvent), `extraction_blank`, `nist` (NIST SRM 1950), `standard_cal` (internal standard injected on its own, not extracted) |
-| `group`, `batch` | no | treatment group and acquisition batch |
-| `dry_mass_g`, `extract_mg`, `spike_ng`, `volume_ul` | no | sample dry mass, dried lipid-fraction mass, internal standard spiked, redissolve volume; used for recovery and amounts per gram (stage 5) |
+| Column                                              | Required | Meaning                                                                                                                                                     |
+| --------------------------------------------------- | -------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `file`                                              | yes      | Thermo `.raw` (converted in stage 1) or `.mzML` (used as it is)                                                                                             |
+| `polarity`                                          | yes      | `pos` or `neg`; each polarity is processed separately                                                                                                       |
+| `role`                                              | yes      | `sample`, `pooled_qc`, `blank` (solvent), `extraction_blank`, `nist` (NIST SRM 1950), `standard_cal` (internal standard injected on its own, not extracted) |
+| `group`, `batch`                                    | no       | treatment group and acquisition batch                                                                                                                       |
+| `dry_mass_g`, `extract_mg`, `spike_ng`, `volume_ul` | no       | sample dry mass, dried lipid-fraction mass, internal standard spiked, redissolve volume; used for recovery and amounts per gram (stage 5)                   |
 
 Injection order is read from the mzML run start times. Convert all files of a
 run the same way: different converters can record the start time with different
