@@ -19,7 +19,7 @@
                     "schema": "assets/schema_input.json",
                     "mimetype": "text/csv",
                     "pattern": "^\\S+\\.csv$",
-                    "description": "Optional samplesheet (reserved for the multi-sample driver). Apply mode uses --soil_intensity, --soil_mgf and --sample_metadata.",
+                    "description": "Sample sheet (CSV) for process mode: one row per raw or mzML file with columns file, polarity, role (see docs/usage.md).",
                     "help_text": "You will need to create a design file with information about the samples in your experiment before running the pipeline. Use this parameter to specify its location. It has to be a comma-separated file with 3 columns, and a header row.",
                     "fa_icon": "fas fa-file-csv"
                 },
@@ -126,8 +126,8 @@
                 "mode": {
                     "type": "string",
                     "default": "apply",
-                    "enum": ["apply", "train"],
-                    "description": "Which workflow to run. v0.1 ships `apply` end-to-end; `train` is scaffolded and lands in v0.2+.",
+                    "enum": ["process", "apply", "train"],
+                    "description": "Which workflow to run: `process` (raw files to quality-checked feature tables), `apply` (compare soil data with the Atlas), or `train` (not yet implemented).",
                     "fa_icon": "fas fa-route"
                 }
             }
@@ -392,6 +392,150 @@
                     "hidden": true
                 }
             }
+        },
+        "process_options": {
+            "title": "Process mode: raw files to quality-checked features",
+            "type": "object",
+            "fa_icon": "fas fa-cogs",
+            "description": "Stages 1-3: conversion, MZmine feature finding and the quality-check report.",
+            "properties": {
+                "run_name": {
+                    "type": "string",
+                    "default": "run",
+                    "description": "Prefix for output files.",
+                    "fa_icon": "fas fa-tag",
+                    "pattern": "^[A-Za-z0-9_.-]+$"
+                },
+                "thermorawfileparser": {
+                    "type": "string",
+                    "default": "ThermoRawFileParser",
+                    "description": "ThermoRawFileParser command or path, used for .raw inputs."
+                },
+                "save_mzml": {
+                    "type": "boolean",
+                    "description": "Copy converted mzML files to the output folder."
+                },
+                "mzmine_cmd": {
+                    "type": "string",
+                    "default": "mzmine",
+                    "description": "MZmine 4 command or path."
+                },
+                "mzmine_user": {
+                    "type": "string",
+                    "format": "file-path",
+                    "description": "Path to an MZmine .mzuser login file (MZmine 4 requires a user). Copied into the task; never written to logs."
+                },
+                "mzmine_batch_pos": {
+                    "type": "string",
+                    "format": "file-path",
+                    "exists": true,
+                    "default": "${projectDir}/assets/mzmine/soil_lipidomics_pos.mzbatch",
+                    "description": "MZmine batch settings for positive mode."
+                },
+                "mzmine_batch_neg": {
+                    "type": "string",
+                    "format": "file-path",
+                    "exists": true,
+                    "default": "${projectDir}/assets/mzmine/soil_lipidomics_neg.mzbatch",
+                    "description": "MZmine batch settings for negative mode."
+                },
+                "is_targets": {
+                    "type": "string",
+                    "format": "file-path",
+                    "exists": true,
+                    "default": "${projectDir}/assets/equisplash_targets.csv",
+                    "description": "Internal-standard table (compound, polarity, adduct, mz; optional rt, priority, spike_ng). Default: all 13 EquiSPLASH components; supply your own for other standards."
+                },
+                "is_compounds": {
+                    "type": "string",
+                    "description": "Comma-separated subset of standards from the table to use (default: all)."
+                },
+                "is_rt_window": {
+                    "type": "number",
+                    "default": 0.3,
+                    "description": "Window (min) around an expected retention time given in the standards table."
+                },
+                "qc_rt_tolerance": {
+                    "type": "number",
+                    "default": 0.1,
+                    "description": "Maximum internal-standard retention-time deviation (min) in QC injections."
+                },
+                "qc_is_rsd": {
+                    "type": "number",
+                    "default": 20,
+                    "description": "Maximum internal-standard peak-area RSD (%) in pooled QCs."
+                },
+                "qc_mass_accuracy_ppm": {
+                    "type": "number",
+                    "default": 5,
+                    "description": "Maximum internal-standard mass error (ppm) in QC injections."
+                },
+                "qc_feature_rsd": {
+                    "type": "number",
+                    "default": 30,
+                    "description": "Pooled-QC RSD (%) below which a feature counts as reproducible."
+                },
+                "qc_feature_pass_fraction": {
+                    "type": "number",
+                    "default": 0.7,
+                    "minimum": 0,
+                    "maximum": 1,
+                    "description": "Fraction of pooled-QC features that must be reproducible."
+                },
+                "qc_blank_ratio": {
+                    "type": "number",
+                    "default": 0.2,
+                    "description": "Blank-to-sample area ratio above which a feature is reported as blank-influenced."
+                },
+                "skip_annotation": {
+                    "type": "boolean",
+                    "description": "Skip stage 4 (annotation)."
+                },
+                "annotate_lipidsearch": {
+                    "type": "string",
+                    "format": "file-path",
+                    "exists": true,
+                    "description": "LipidSearch export (CSV, TSV or XLSX with POSITIVE/NEGATIVE sheets). Imported; LipidSearch itself is never run."
+                },
+                "annotate_msdial": {
+                    "type": "string",
+                    "format": "file-path",
+                    "exists": true,
+                    "description": "MS-DIAL alignment export (TSV)."
+                },
+                "annotate_library": {
+                    "type": "string",
+                    "format": "file-path",
+                    "exists": true,
+                    "description": "Spectral library matches in GNPS results format (Compound_Name, MQScore, SharedPeaks, SpecMZ, RT_Query)."
+                },
+                "annotate_sirius": {
+                    "type": "string",
+                    "format": "file-path",
+                    "exists": true,
+                    "description": "SIRIUS/CANOPUS summary with ClassyFire classes; used at class level only."
+                },
+                "annotate_mz_ppm": {
+                    "type": "number",
+                    "default": 5,
+                    "description": "m/z tolerance (ppm) for placing external annotations on this run's features."
+                },
+                "annotate_rt_window": {
+                    "type": "number",
+                    "default": 0.2,
+                    "description": "Retention-time window (min) for placing external annotations, after removing the estimated offset."
+                },
+                "annotate_library_min_score": {
+                    "type": "number",
+                    "default": 0.7,
+                    "description": "Minimum cosine score for a spectral library match."
+                },
+                "annotate_library_min_peaks": {
+                    "type": "integer",
+                    "default": 4,
+                    "description": "Minimum matched peaks for a spectral library match."
+                }
+            }
         }
     },
     "allOf": [
@@ -400,6 +544,9 @@
         },
         {
             "$ref": "#/$defs/apply_inputs"
+        },
+        {
+            "$ref": "#/$defs/process_options"
         },
         {
             "$ref": "#/$defs/pipeline_mode_options"

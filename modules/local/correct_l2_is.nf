@@ -5,6 +5,7 @@ process CORRECT_L2_IS {
     input:
     path intensity
     path is_features
+    val lib_sig  // libSignature(): package code is part of the task hash
 
     output:
     path 'intensity_l2_is_corrected.parquet', emit: corrected
@@ -25,6 +26,7 @@ process CORRECT_L2_IS {
     "${task.process}":
         python: \$(python3 --version | sed 's/Python //')
         soillifeatlas: \$(python3 -c 'import soillifeatlas; print(soillifeatlas.__version__)')
+        soillifeatlas_code: ${lib_sig}
     END_VERSIONS
     """
 }

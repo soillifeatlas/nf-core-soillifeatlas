@@ -1,0 +1,227 @@
+[
+    {
+        "name": "IS PC 15:0-18:1(d7)",
+        "formula": "C41H73D7NO8P",
+        "ion": "[M+H]+",
+        "polarity": "POS",
+        "mz": 753.61338,
+        "kind": "IS",
+        "spike_ng": 10
+    },
+    {
+        "name": "IS PC 15:0-18:1(d7)",
+        "formula": "C41H73D7NO8P",
+        "ion": "[M+HCOO]-",
+        "polarity": "NEG",
+        "mz": 797.6043,
+        "kind": "IS",
+        "spike_ng": 10
+    },
+    {
+        "name": "IS LPC 18:1(d7)",
+        "formula": "C26H45D7NO7P",
+        "ion": "[M+H]+",
+        "polarity": "POS",
+        "mz": 529.39938,
+        "kind": "IS",
+        "spike_ng": 10
+    },
+    {
+        "name": "IS LPC 18:1(d7)",
+        "formula": "C26H45D7NO7P",
+        "ion": "[M+HCOO]-",
+        "polarity": "NEG",
+        "mz": 573.3903,
+        "kind": "IS",
+        "spike_ng": 10
+    },
+    {
+        "name": "IS PE 15:0-18:1(d7)",
+        "formula": "C38H67D7NO8P",
+        "ion": "[M+H]+",
+        "polarity": "POS",
+        "mz": 711.56638,
+        "kind": "IS",
+        "spike_ng": 10
+    },
+    {
+        "name": "IS PE 15:0-18:1(d7)",
+        "formula": "C38H67D7NO8P",
+        "ion": "[M-H]-",
+        "polarity": "NEG",
+        "mz": 709.55182,
+        "kind": "IS",
+        "spike_ng": 10
+    },
+    {
+        "name": "IS LPE 18:1(d7)",
+        "formula": "C23H39D7NO7P",
+        "ion": "[M+H]+",
+        "polarity": "POS",
+        "mz": 487.35238,
+        "kind": "IS",
+        "spike_ng": 10
+    },
+    {
+        "name": "IS LPE 18:1(d7)",
+        "formula": "C23H39D7NO7P",
+        "ion": "[M-H]-",
+        "polarity": "NEG",
+        "mz": 485.33782,
+        "kind": "IS",
+        "spike_ng": 10
+    },
+    {
+        "name": "IS PG 15:0-18:1(d7)",
+        "formula": "C39H68D7O10P",
+        "ion": "[M+NH4]+",
+        "polarity": "POS",
+        "mz": 759.58753,
+        "kind": "IS",
+        "spike_ng": 10
+    },
+    {
+        "name": "IS PG 15:0-18:1(d7)",
+        "formula": "C39H68D7O10P",
+        "ion": "[M-H]-",
+        "polarity": "NEG",
+        "mz": 740.54642,
+        "kind": "IS",
+        "spike_ng": 10
+    },
+    {
+        "name": "IS PI 15:0-18:1(d7)",
+        "formula": "C42H72D7O13P",
+        "ion": "[M+NH4]+",
+        "polarity": "POS",
+        "mz": 847.60363,
+        "kind": "IS",
+        "spike_ng": 10
+    },
+    {
+        "name": "IS PI 15:0-18:1(d7)",
+        "formula": "C42H72D7O13P",
+        "ion": "[M-H]-",
+        "polarity": "NEG",
+        "mz": 828.56252,
+        "kind": "IS",
+        "spike_ng": 10
+    },
+    {
+        "name": "IS PS 15:0-18:1(d7)",
+        "formula": "C39H67D7NO10P",
+        "ion": "[M+H]+",
+        "polarity": "POS",
+        "mz": 755.55628,
+        "kind": "IS",
+        "spike_ng": 10
+    },
+    {
+        "name": "IS PS 15:0-18:1(d7)",
+        "formula": "C39H67D7NO10P",
+        "ion": "[M-H]-",
+        "polarity": "NEG",
+        "mz": 753.54172,
+        "kind": "IS",
+        "spike_ng": 10
+    },
+    {
+        "name": "IS TG 15:0-18:1(d7)-15:0",
+        "formula": "C51H89D7O6",
+        "ion": "[M+NH4]+",
+        "polarity": "POS",
+        "mz": 829.79843,
+        "kind": "IS",
+        "spike_ng": 10
+    },
+    {
+        "name": "IS DG 15:0-18:1(d7)",
+        "formula": "C36H61D7O5",
+        "ion": "[M+NH4]+",
+        "polarity": "POS",
+        "mz": 605.58443,
+        "kind": "IS",
+        "spike_ng": 10
+    },
+    {
+        "name": "IS MG 18:1(d7)",
+        "formula": "C21H33D7O4",
+        "ion": "[M+H]+",
+        "polarity": "POS",
+        "mz": 364.34388,
+        "kind": "IS",
+        "spike_ng": 10
+    },
+    {
+        "name": "IS MG 18:1(d7)",
+        "formula": "C21H33D7O4",
+        "ion": "[M+NH4]+",
+        "polarity": "POS",
+        "mz": 381.37043,
+        "kind": "IS",
+        "spike_ng": 10
+    },
+    {
+        "name": "IS CE 18:1(d7)",
+        "formula": "C45H71D7O2",
+        "ion": "[M+NH4]+",
+        "polarity": "POS",
+        "mz": 675.67793,
+        "kind": "IS",
+        "spike_ng": 10
+    },
+    {
+        "name": "IS SM d18:1-18:1(d9)",
+        "formula": "C41H72D9N2O6P",
+        "ion": "[M+H]+",
+        "polarity": "POS",
+        "mz": 738.64698,
+        "kind": "IS",
+        "spike_ng": 10
+    },
+    {
+        "name": "IS SM d18:1-18:1(d9)",
+        "formula": "C41H72D9N2O6P",
+        "ion": "[M+HCOO]-",
+        "polarity": "NEG",
+        "mz": 782.6379,
+        "kind": "IS",
+        "spike_ng": 10
+    },
+    {
+        "name": "IS Cer d18:1-15:0(d7)",
+        "formula": "C33H58D7NO3",
+        "ion": "[M+H]+",
+        "polarity": "POS",
+        "mz": 531.54768,
+        "kind": "IS",
+        "spike_ng": 10
+    },
+    {
+        "name": "IS Cer d18:1-15:0(d7)",
+        "formula": "C33H58D7NO3",
+        "ion": "[M+H-H2O]+",
+        "polarity": "POS",
+        "mz": 513.53711,
+        "kind": "IS",
+        "spike_ng": 10
+    },
+    {
+        "name": "IS Cer d18:1-15:0(d7)",
+        "formula": "C33H58D7NO3",
+        "ion": "[M-H]-",
+        "polarity": "NEG",
+        "mz": 529.53312,
+        "kind": "IS",
+        "spike_ng": 10
+    },
+    {
+        "name": "IS Cer d18:1-15:0(d7)",
+        "formula": "C33H58D7NO3",
+        "ion": "[M+HCOO]-",
+        "polarity": "NEG",
+        "mz": 575.5386,
+        "kind": "IS",
+        "spike_ng": 10
+    }
+]
