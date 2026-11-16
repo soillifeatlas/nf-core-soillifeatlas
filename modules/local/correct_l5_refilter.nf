@@ -5,6 +5,7 @@ process CORRECT_L5_REF_FILTER {
     input:
     path simper_atlas
     path archlips_validated
+    val lib_sig  // libSignature(): package code is part of the task hash
 
     output:
     path 'simper_atlas_l5_filtered.parquet', emit: filtered
@@ -23,6 +24,7 @@ process CORRECT_L5_REF_FILTER {
     "${task.process}":
         python: \$(python3 --version | sed 's/Python //')
         soillifeatlas: \$(python3 -c 'import soillifeatlas; print(soillifeatlas.__version__)')
+        soillifeatlas_code: ${lib_sig}
     END_VERSIONS
     """
 }

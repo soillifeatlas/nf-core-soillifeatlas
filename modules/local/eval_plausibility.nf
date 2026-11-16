@@ -5,6 +5,7 @@ process EVAL_PLAUSIBILITY {
     input:
     tuple val(method), path(composition_kingdom)
     path expected_ref
+    val lib_sig  // libSignature(): package code is part of the task hash
 
     output:
     tuple val(method), path("plausibility_${method}.tsv"), emit: tsv
@@ -22,6 +23,7 @@ process EVAL_PLAUSIBILITY {
     "${task.process}":
         python: \$(python3 --version | sed 's/Python //')
         soillifeatlas: \$(python3 -c 'import soillifeatlas; print(soillifeatlas.__version__)')
+        soillifeatlas_code: ${lib_sig}
     END_VERSIONS
     """
 }

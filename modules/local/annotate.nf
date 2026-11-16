@@ -19,6 +19,7 @@ process ANNOTATE {
     path msdial,      stageAs: 'plugins/msdial/*'
     path library,     stageAs: 'plugins/library/*'
     path sirius,      stageAs: 'plugins/sirius/*'
+    val lib_sig  // libSignature(): package code is part of the task hash
 
     output:
     tuple val(polarity), path("${prefix}.annotations.tsv"),        emit: annotations
@@ -49,6 +50,7 @@ process ANNOTATE {
     "${task.process}":
         python: \$(python3 --version | sed 's/Python //')
         soillifeatlas: \$(python3 -c 'import soillifeatlas; print(soillifeatlas.__version__)')
+        soillifeatlas_code: ${lib_sig}
     END_VERSIONS
     """
 

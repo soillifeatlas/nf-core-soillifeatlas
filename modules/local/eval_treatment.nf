@@ -5,6 +5,7 @@ process EVAL_TREATMENT {
     input:
     path composition_phylum
     path sample_metadata
+    val lib_sig  // libSignature(): package code is part of the task hash
 
     output:
     path 'treatment_effects.tsv', emit: tsv
@@ -24,6 +25,7 @@ process EVAL_TREATMENT {
     "${task.process}":
         python: \$(python3 --version | sed 's/Python //')
         soillifeatlas: \$(python3 -c 'import soillifeatlas; print(soillifeatlas.__version__)')
+        soillifeatlas_code: ${lib_sig}
     END_VERSIONS
     """
 }

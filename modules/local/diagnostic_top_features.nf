@@ -5,6 +5,7 @@ process DIAGNOSTIC_TOP_FEATURES {
     input:
     path corrected_intensity
     path simper_atlas
+    val lib_sig  // libSignature(): package code is part of the task hash
 
     output:
     path 'top_features_per_phylum.tsv', emit: tsv
@@ -23,6 +24,7 @@ process DIAGNOSTIC_TOP_FEATURES {
     "${task.process}":
         python: \$(python3 --version | sed 's/Python //')
         soillifeatlas: \$(python3 -c 'import soillifeatlas; print(soillifeatlas.__version__)')
+        soillifeatlas_code: ${lib_sig}
     END_VERSIONS
     """
 }

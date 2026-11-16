@@ -14,6 +14,7 @@
 
 include { FETCH_ATLAS     } from '../modules/local/fetch_atlas.nf'
 include { DECOMPOSE_APPLY } from '../subworkflows/local/decompose_apply.nf'
+include { libSignature } from '../modules/local/utils_lib_signature.nf'
 
 
 workflow APPLY {
@@ -21,7 +22,7 @@ workflow APPLY {
     ch_versions = Channel.empty()
 
     // --- Step 1: Fetch atlas artefacts ---------------------------------------
-    FETCH_ATLAS()
+    FETCH_ATLAS(libSignature())
     ch_versions = ch_versions.mix(FETCH_ATLAS.out.versions)
 
     // --- Step 2: Resolve soil-side inputs ------------------------------------

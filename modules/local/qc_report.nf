@@ -14,6 +14,7 @@ process QC_REPORT {
     tuple val(polarity), path(features), path(mzmls, stageAs: 'mzml/*')
     path samplesheet
     path is_targets
+    val lib_sig  // libSignature(): package code is part of the task hash
 
     output:
     tuple val(polarity), path("${prefix}.qc_report.html"),  emit: html
@@ -45,6 +46,7 @@ process QC_REPORT {
     "${task.process}":
         python: \$(python3 --version | sed 's/Python //')
         soillifeatlas: \$(python3 -c 'import soillifeatlas; print(soillifeatlas.__version__)')
+        soillifeatlas_code: ${lib_sig}
     END_VERSIONS
     """
 

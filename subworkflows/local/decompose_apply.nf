@@ -18,6 +18,7 @@ include { DECOMPOSE               } from '../../modules/local/decompose.nf'
 include { EVAL_PLAUSIBILITY       } from '../../modules/local/eval_plausibility.nf'
 include { EVAL_TREATMENT          } from '../../modules/local/eval_treatment.nf'
 include { DIAGNOSTIC_TOP_FEATURES } from '../../modules/local/diagnostic_top_features.nf'
+include { libSignature } from '../../modules/local/utils_lib_signature.nf'
 
 
 workflow DECOMPOSE_APPLY {
@@ -39,21 +40,21 @@ workflow DECOMPOSE_APPLY {
     ch_versions = Channel.empty()
 
     // --- Step 1: Layer 5 filter on atlas SIMPER ----------------------------
-    CORRECT_L5_REF_FILTER(simper_atlas, archlips_validated)
+    CORRECT_L5_REF_FILTER(simper_atlas, archlips_validated, libSignature())
     ch_versions = ch_versions.mix(CORRECT_L5_REF_FILTER.out.versions)
 
     // --- Step 2: MS2 cosine match soil vs atlas, joined against SIMPER ------
     ch_soil_mgf = soil_mgf.map { f -> [[id: 'demo'], f] }
-    SIMPER_MATCH(ch_soil_mgf, atlas_mgf, CORRECT_L5_REF_FILTER.out.filtered)
+    SIMPER_MATCH(ch_soil_mgf, atlas_mgf, CORRECT_L5_REF_FILTER.out.filtered, libSignature())
     ch_versions = ch_versions.mix(SIMPER_MATCH.out.versions)
 
     // --- Step 3: L2 IS normalization on soil intensity ----------------------
-    CORRECT_L2_IS(soil_intensity, is_features)
+    CORRECT_L2_IS(soil_intensity, is_features, libSignature())
     ch_versions = ch_versions.mix(CORRECT_L2_IS.out.versions)
 
     // --- Step 4: optional L3 RIE correction (experimental, off by default) --
     if (params.enable_rie) {
-        CORRECT_L3_RIE(CORRECT_L2_IS.out.corrected, rie_table, annotation)
+        CORRECT_L3_RIE(CORRECT_L2_IS.out.corrected, rie_table, annotation, libSignature())
         ch_versions = ch_versions.mix(CORRECT_L3_RIE.out.versions)
         ch_corrected = CORRECT_L3_RIE.out.corrected
     } else {
@@ -72,6 +73,7 @@ workflow DECOMPOSE_APPLY {
         CORRECT_L5_REF_FILTER.out.filtered,
         sample_phylum_map,
         methods,
+        libSignature(),
     )
     ch_versions = ch_versions.mix(DECOMPOSE.out.versions)
 
@@ -80,18 +82,18 @@ workflow DECOMPOSE_APPLY {
     // same reference delivered alongside each of the 4 per-method kingdom
     // compositions. Convert to a value channel via `.first()` so Nextflow
     // broadcasts it for every iteration of DECOMPOSE.out.kingdom.
-    EVAL_PLAUSIBILITY(DECOMPOSE.out.kingdom, expected_kingdom_ref.first())
+    EVAL_PLAUSIBILITY(DECOMPOSE.out.kingdom, expected_kingdom_ref.first(), libSignature())
     ch_versions = ch_versions.mix(EVAL_PLAUSIBILITY.out.versions)
 
     // --- Step 7: Treatment effects on the primary method's phylum comp -----
     ch_primary_phylum = DECOMPOSE.out.phylum
         .filter { method, _file -> method == params.primary_method }
         .map { _method, f -> f }
-    EVAL_TREATMENT(ch_primary_phylum, sample_metadata)
+    EVAL_TREATMENT(ch_primary_phylum, sample_metadata, libSignature())
     ch_versions = ch_versions.mix(EVAL_TREATMENT.out.versions)
 
     // --- Step 8: Top-features diagnostic -----------------------------------
-    DIAGNOSTIC_TOP_FEATURES(ch_corrected, CORRECT_L5_REF_FILTER.out.filtered)
+    DIAGNOSTIC_TOP_FEATURES(ch_corrected, CORRECT_L5_REF_FILTER.out.filtered, libSignature())
     ch_versions = ch_versions.mix(DIAGNOSTIC_TOP_FEATURES.out.versions)
 
     emit:

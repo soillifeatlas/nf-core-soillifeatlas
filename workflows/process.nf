@@ -20,6 +20,7 @@ include { CONVERT_RAW    } from '../modules/local/convert_raw.nf'
 include { MZMINE_PROCESS } from '../modules/local/mzmine_process.nf'
 include { QC_REPORT      } from '../modules/local/qc_report.nf'
 include { ANNOTATE       } from '../modules/local/annotate.nf'
+include { libSignature } from '../modules/local/utils_lib_signature.nf'
 
 
 workflow PROCESS {
@@ -59,7 +60,8 @@ workflow PROCESS {
     QC_REPORT(
         MZMINE_PROCESS.out.features.join(ch_by_polarity),
         file(params.input, checkIfExists: true),
-        file(params.is_targets, checkIfExists: true)
+        file(params.is_targets, checkIfExists: true),
+        libSignature()
     )
     ch_versions = ch_versions.mix(QC_REPORT.out.versions.first())
 
@@ -73,7 +75,8 @@ workflow PROCESS {
             file(params.annotate_lipidsearch ?: no_file, checkIfExists: true),
             file(params.annotate_msdial ?: no_file, checkIfExists: true),
             file(params.annotate_library ?: no_file, checkIfExists: true),
-            file(params.annotate_sirius ?: no_file, checkIfExists: true)
+            file(params.annotate_sirius ?: no_file, checkIfExists: true),
+            libSignature()
         )
         ch_versions = ch_versions.mix(ANNOTATE.out.versions.first())
         ch_annotations = ANNOTATE.out.annotations
