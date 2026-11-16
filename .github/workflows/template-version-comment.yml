@@ -4,6 +4,11 @@ name: nf-core template version comment
 
 on: pull_request_target
 
+# Needed for the github.token fallback below to post the PR comment.
+permissions:
+  contents: read
+  pull-requests: write
+
 jobs:
   template_version:
     runs-on: ubuntu-latest
@@ -33,7 +38,8 @@ jobs:
         if: |
           contains(env.OUTPUT, 'nf-core')
         with:
-          repo-token: ${{ secrets.NF_CORE_BOT_AUTH_TOKEN }}
+          # NF_CORE_BOT_AUTH_TOKEN exists only in nf-core's own repositories; fall back to this repository's token.
+          repo-token: ${{ secrets.NF_CORE_BOT_AUTH_TOKEN || github.token }}
           allow-repeats: false
           message: |
             > [!WARNING]
