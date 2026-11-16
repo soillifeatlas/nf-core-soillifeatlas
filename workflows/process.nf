@@ -9,6 +9,8 @@
 //                         per polarity: MZMINE_PROCESS (stage 2)
 //                                          ▼
 //                         per polarity: QC_REPORT (stage 3)
+//                                          ▼
+//                         per polarity: ANNOTATE (stage 4, plug-ins optional)
 //
 // Later stages (annotation, quantification and recovery, report, Atlas) read
 // the outputs of this workflow.
@@ -17,6 +19,7 @@
 include { CONVERT_RAW    } from '../modules/local/convert_raw.nf'
 include { MZMINE_PROCESS } from '../modules/local/mzmine_process.nf'
 include { QC_REPORT      } from '../modules/local/qc_report.nf'
+include { ANNOTATE       } from '../modules/local/annotate.nf'
 
 
 workflow PROCESS {
@@ -60,11 +63,28 @@ workflow PROCESS {
     )
     ch_versions = ch_versions.mix(QC_REPORT.out.versions.first())
 
+    // --- Stage 4: annotation per polarity (plug-ins optional) ----------------
+    def no_file = "${projectDir}/assets/NO_FILE"
+    ch_annotations = channel.empty()
+    if (!params.skip_annotation) {
+        ANNOTATE(
+            MZMINE_PROCESS.out.features,
+            file(params.is_targets, checkIfExists: true),
+            file(params.annotate_lipidsearch ?: no_file, checkIfExists: true),
+            file(params.annotate_msdial ?: no_file, checkIfExists: true),
+            file(params.annotate_library ?: no_file, checkIfExists: true),
+            file(params.annotate_sirius ?: no_file, checkIfExists: true)
+        )
+        ch_versions = ch_versions.mix(ANNOTATE.out.versions.first())
+        ch_annotations = ANNOTATE.out.annotations
+    }
+
     emit:
     features    = MZMINE_PROCESS.out.features
     fbmn_mgf    = MZMINE_PROCESS.out.fbmn_mgf
     sirius_mgf  = MZMINE_PROCESS.out.sirius_mgf
     annotations = MZMINE_PROCESS.out.annotations
     qc_summary  = QC_REPORT.out.summary
+    lipids      = ch_annotations
     versions    = ch_versions
 }

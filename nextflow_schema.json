@@ -486,6 +486,54 @@
                     "type": "number",
                     "default": 0.2,
                     "description": "Blank-to-sample area ratio above which a feature is reported as blank-influenced."
+                },
+                "skip_annotation": {
+                    "type": "boolean",
+                    "description": "Skip stage 4 (annotation)."
+                },
+                "annotate_lipidsearch": {
+                    "type": "string",
+                    "format": "file-path",
+                    "exists": true,
+                    "description": "LipidSearch export (CSV, TSV or XLSX with POSITIVE/NEGATIVE sheets). Imported; LipidSearch itself is never run."
+                },
+                "annotate_msdial": {
+                    "type": "string",
+                    "format": "file-path",
+                    "exists": true,
+                    "description": "MS-DIAL alignment export (TSV)."
+                },
+                "annotate_library": {
+                    "type": "string",
+                    "format": "file-path",
+                    "exists": true,
+                    "description": "Spectral library matches in GNPS results format (Compound_Name, MQScore, SharedPeaks, SpecMZ, RT_Query)."
+                },
+                "annotate_sirius": {
+                    "type": "string",
+                    "format": "file-path",
+                    "exists": true,
+                    "description": "SIRIUS/CANOPUS summary with ClassyFire classes; used at class level only."
+                },
+                "annotate_mz_ppm": {
+                    "type": "number",
+                    "default": 5,
+                    "description": "m/z tolerance (ppm) for placing external annotations on this run's features."
+                },
+                "annotate_rt_window": {
+                    "type": "number",
+                    "default": 0.2,
+                    "description": "Retention-time window (min) for placing external annotations, after removing the estimated offset."
+                },
+                "annotate_library_min_score": {
+                    "type": "number",
+                    "default": 0.7,
+                    "description": "Minimum cosine score for a spectral library match."
+                },
+                "annotate_library_min_peaks": {
+                    "type": "integer",
+                    "default": 4,
+                    "description": "Minimum matched peaks for a spectral library match."
                 }
             }
         }
