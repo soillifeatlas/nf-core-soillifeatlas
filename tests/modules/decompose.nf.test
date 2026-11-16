@@ -1,0 +1,32 @@
+nextflow_process {
+    name "Test DECOMPOSE"
+    script "modules/local/decompose.nf"
+    process "DECOMPOSE"
+    profile "local"
+
+    test("fans out all 4 methods via `each` and produces kingdom + phylum parquets") {
+        when {
+            process {
+                """
+                input[0] = file("${projectDir}/tests/fixtures/tiny/tiny_intensity.parquet")
+                input[1] = file("${projectDir}/tests/fixtures/tiny/tiny_atlas_intensity.parquet")
+                input[2] = file("${projectDir}/tests/fixtures/tiny/tiny_simper_atlas.parquet")
+                input[3] = file("${projectDir}/tests/fixtures/tiny/tiny_sample_phylum_map.csv")
+                input[4] = ['nnls', 'std_bc', 'enriched_bc', 'fc_weighted_bc']
+                """
+            }
+        }
+        then {
+            assert process.success
+            // 4 methods -> 4 kingdom + 4 phylum parquets
+            assert process.out.kingdom.size() == 4
+            assert process.out.phylum.size() == 4
+            process.out.kingdom.each { row ->
+                assert path(row[1]).exists()
+            }
+            process.out.phylum.each { row ->
+                assert path(row[1]).exists()
+            }
+        }
+    }
+}

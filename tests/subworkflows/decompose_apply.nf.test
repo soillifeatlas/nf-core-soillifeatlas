@@ -1,0 +1,51 @@
+nextflow_workflow {
+    name "Test DECOMPOSE_APPLY"
+    script "subworkflows/local/decompose_apply.nf"
+    workflow "DECOMPOSE_APPLY"
+    profile "local"
+
+    test("end-to-end: tiny fixtures produce all downstream outputs") {
+        when {
+            params {
+                simper_min_cos           = 0.5
+                simper_min_matched_peaks = 2
+                treatment_contrast       = ['drought']
+            }
+            workflow {
+                """
+                input[0]  = Channel.fromPath("${projectDir}/tests/fixtures/tiny/tiny_soil.mgf")
+                input[1]  = Channel.fromPath("${projectDir}/tests/fixtures/tiny/tiny_intensity.parquet")
+                input[2]  = Channel.fromPath("${projectDir}/tests/fixtures/tiny/tiny_atlas.mgf")
+                input[3]  = Channel.fromPath("${projectDir}/tests/fixtures/tiny/tiny_atlas_intensity.parquet")
+                input[4]  = Channel.fromPath("${projectDir}/tests/fixtures/tiny/tiny_simper_atlas.parquet")
+                input[5]  = Channel.fromPath("${projectDir}/tests/fixtures/tiny/tiny_archlips_validated.csv")
+                input[6]  = Channel.fromPath("${projectDir}/tests/fixtures/tiny/tiny_is_features.csv")
+                input[7]  = Channel.fromPath("${projectDir}/tests/fixtures/tiny/tiny_rie_table.csv")
+                input[8]  = Channel.fromPath("${projectDir}/tests/fixtures/tiny/tiny_annotation.csv")
+                input[9]  = Channel.fromPath("${projectDir}/tests/fixtures/tiny/tiny_sample_phylum_map.csv")
+                input[10] = Channel.fromPath("${projectDir}/tests/fixtures/tiny/tiny_expected_kingdom_composition.csv")
+                input[11] = Channel.fromPath("${projectDir}/tests/fixtures/tiny/tiny_sample_metadata.tsv")
+                """
+            }
+        }
+        then {
+            assert workflow.success
+
+            // 4 methods -> 4 kingdom + 4 phylum composition parquets
+            assert workflow.out.compositions_kingdom.size() == 4
+            assert workflow.out.compositions_phylum.size() == 4
+
+            // Plausibility runs once per method
+            assert workflow.out.plausibility.size() == 4
+
+            // Single treatment effects TSV (primary method only)
+            assert workflow.out.treatment.size() == 1
+
+            // Single diagnostic TSV
+            assert workflow.out.diagnostic.size() == 1
+
+            // SIMPER_MATCH emits one matches parquet for the demo meta
+            assert workflow.out.matches.size() == 1
+        }
+    }
+}

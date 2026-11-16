@@ -1,0 +1,26 @@
+nextflow_process {
+    name "Test CORRECT_L3_RIE"
+    script "modules/local/correct_l3_rie.nf"
+    process "CORRECT_L3_RIE"
+    profile "local"
+
+    test("applies RIE correction with floor clamp") {
+        when {
+            params {
+                RIE_floor = 0.20
+            }
+            process {
+                """
+                input[0] = file("${projectDir}/tests/fixtures/tiny/tiny_intensity.parquet")
+                input[1] = file("${projectDir}/tests/fixtures/tiny/tiny_rie_table.csv")
+                input[2] = file("${projectDir}/tests/fixtures/tiny/tiny_annotation.csv")
+                """
+            }
+        }
+        then {
+            assert process.success
+            assert path(process.out.corrected[0]).exists()
+            assert path(process.out.versions[0]).exists()
+        }
+    }
+}

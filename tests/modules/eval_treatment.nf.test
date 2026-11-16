@@ -1,0 +1,25 @@
+nextflow_process {
+    name "Test EVAL_TREATMENT"
+    script "modules/local/eval_treatment.nf"
+    process "EVAL_TREATMENT"
+    profile "local"
+
+    test("runs Mann-Whitney U per (phylum x contrast)") {
+        when {
+            params {
+                treatment_contrast = ['drought']
+            }
+            process {
+                """
+                input[0] = file("${projectDir}/tests/fixtures/tiny/tiny_phylum_composition.parquet")
+                input[1] = file("${projectDir}/tests/fixtures/tiny/tiny_sample_metadata.tsv")
+                """
+            }
+        }
+        then {
+            assert process.success
+            assert path(process.out.tsv[0]).exists()
+            assert path(process.out.versions[0]).exists()
+        }
+    }
+}

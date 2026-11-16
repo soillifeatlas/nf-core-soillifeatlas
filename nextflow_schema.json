@@ -10,7 +10,7 @@
             "type": "object",
             "fa_icon": "fas fa-terminal",
             "description": "Define where the pipeline should find input data and save output data.",
-            "required": ["input", "outdir"],
+            "required": ["outdir"],
             "properties": {
                 "input": {
                     "type": "string",
@@ -19,7 +19,7 @@
                     "schema": "assets/schema_input.json",
                     "mimetype": "text/csv",
                     "pattern": "^\\S+\\.csv$",
-                    "description": "Path to comma-separated file containing information about the samples in the experiment.",
+                    "description": "Optional samplesheet (reserved for the multi-sample driver). Apply mode uses --soil_intensity, --soil_mgf and --sample_metadata.",
                     "help_text": "You will need to create a design file with information about the samples in your experiment before running the pipeline. Use this parameter to specify its location. It has to be a comma-separated file with 3 columns, and a header row.",
                     "fa_icon": "fas fa-file-csv"
                 },
@@ -35,6 +35,37 @@
                     "fa_icon": "fas fa-envelope",
                     "help_text": "Set this parameter to your e-mail address to get a summary e-mail with details of the run sent to you when the workflow exits. If set in your user config file (`~/.nextflow/config`) then you don't need to specify this on the command line for every run.",
                     "pattern": "^([a-zA-Z0-9_\\-\\.]+)@([a-zA-Z0-9_\\-\\.]+)\\.([a-zA-Z]{2,5})$"
+                }
+            }
+        },
+        "apply_inputs": {
+            "title": "Apply-mode inputs",
+            "type": "object",
+            "fa_icon": "fas fa-seedling",
+            "description": "Soil data to profile against the atlas. Feature IDs in the intensity table must come from the same alignment as the atlas consensus (same MZmine workflow); data from another method only supports feature-level matching.",
+            "properties": {
+                "soil_intensity": {
+                    "type": "string",
+                    "format": "file-path",
+                    "exists": true,
+                    "pattern": "^\\S+\\.parquet$",
+                    "description": "Soil feature intensity table (Parquet): one row per feature_id, one column per sample.",
+                    "fa_icon": "fas fa-table"
+                },
+                "soil_mgf": {
+                    "type": "string",
+                    "format": "file-path",
+                    "exists": true,
+                    "pattern": "^\\S+\\.mgf$",
+                    "description": "Soil MS/MS spectra (MGF) for the same features.",
+                    "fa_icon": "fas fa-wave-square"
+                },
+                "sample_metadata": {
+                    "type": "string",
+                    "format": "file-path",
+                    "exists": true,
+                    "description": "Tab-separated sample metadata with sample_id and treatment columns.",
+                    "fa_icon": "fas fa-file-alt"
                 }
             }
         },
@@ -83,6 +114,138 @@
                     "description": "Institutional config URL link.",
                     "hidden": true,
                     "fa_icon": "fas fa-users-cog"
+                }
+            }
+        },
+        "pipeline_mode_options": {
+            "title": "Pipeline mode",
+            "type": "object",
+            "fa_icon": "fas fa-code-branch",
+            "description": "Top-level dispatch — which side of the train/apply split to run.",
+            "properties": {
+                "mode": {
+                    "type": "string",
+                    "default": "apply",
+                    "enum": ["apply", "train"],
+                    "description": "Which workflow to run. v0.1 ships `apply` end-to-end; `train` is scaffolded and lands in v0.2+.",
+                    "fa_icon": "fas fa-route"
+                }
+            }
+        },
+        "atlas_options": {
+            "title": "Reference atlas",
+            "type": "object",
+            "fa_icon": "fas fa-book",
+            "description": "Reference SIMPER fingerprint + biomarker atlas (published on Zenodo with SHA256 verification).",
+            "properties": {
+                "atlas_version": {
+                    "type": "string",
+                    "default": "v0.1.0",
+                    "description": "Atlas release version tag.",
+                    "fa_icon": "fas fa-tag"
+                },
+                "atlas_doi": {
+                    "type": "string",
+                    "default": "10.5281/zenodo.XXXXXXX",
+                    "description": "Zenodo DOI of the reference atlas bundle (filled in at v0.1.0 deposition).",
+                    "fa_icon": "fas fa-link"
+                },
+                "atlas_sha256": {
+                    "type": "string",
+                    "description": "Pinned SHA256 of the atlas tarball — runtime-asserted by FETCH_ATLAS. Empty until v0.1.0 deposition.",
+                    "fa_icon": "fas fa-fingerprint"
+                },
+                "atlas_path": {
+                    "type": "string",
+                    "format": "directory-path",
+                    "description": "Local path to a pre-extracted atlas directory, bypasses the Zenodo fetch (useful for offline/air-gapped runs).",
+                    "fa_icon": "fas fa-folder"
+                }
+            }
+        },
+        "correction_options": {
+            "title": "Quantification correction",
+            "type": "object",
+            "fa_icon": "fas fa-sliders-h",
+            "description": "Internal-standard normalisation (L2), the optional experimental RIE correction (L3) and the reference-quality filter (L5).",
+            "properties": {
+                "IS_reference_compound": {
+                    "type": "string",
+                    "default": "PC_15_0_18_1_d7",
+                    "description": "EquiSPLASH component used for L2 normalisation. The paper normalises to PC 15:0–18:1(d7).",
+                    "fa_icon": "fas fa-flask"
+                },
+                "IS_spiked_pmol": {
+                    "type": "number",
+                    "default": 100.0,
+                    "description": "Internal standard spike amount in pmol.",
+                    "fa_icon": "fas fa-balance-scale"
+                },
+                "enable_rie": {
+                    "type": "boolean",
+                    "default": false,
+                    "description": "Apply the experimental L3 relative-ionisation-efficiency correction. Off by default: it is not part of the published method.",
+                    "fa_icon": "fas fa-flask"
+                },
+                "RIE_floor": {
+                    "type": "number",
+                    "default": 0.2,
+                    "description": "Lower bound on the RIE factor (only with --enable_rie).",
+                    "fa_icon": "fas fa-shield-alt"
+                },
+                "restrict_archaea_to_archlips": {
+                    "type": "boolean",
+                    "default": true,
+                    "description": "Apply L5 Archaea reference-quality filter (restrict Archaea features to ArchLips-validated set).",
+                    "fa_icon": "fas fa-filter"
+                },
+                "simper_top_n": {
+                    "type": "integer",
+                    "default": 3000,
+                    "description": "Top N SIMPER features retained per phylum when building the fingerprint atlas (train-mode only).",
+                    "fa_icon": "fas fa-sort-numeric-down"
+                }
+            }
+        },
+        "decomposition_options": {
+            "title": "Decomposition",
+            "type": "object",
+            "fa_icon": "fas fa-object-ungroup",
+            "description": "Decomposition methods run in parallel to estimate kingdom-level composition.",
+            "properties": {
+                "decomposition_methods": {
+                    "type": "string",
+                    "default": "nnls,std_bc,enriched_bc,fc_weighted_bc",
+                    "description": "Comma-separated decomposition methods to run in parallel.",
+                    "fa_icon": "fas fa-layer-group",
+                    "pattern": "^(nnls|std_bc|enriched_bc|fc_weighted_bc)(,(nnls|std_bc|enriched_bc|fc_weighted_bc))*$"
+                },
+                "primary_method": {
+                    "type": "string",
+                    "default": "fc_weighted_bc",
+                    "enum": ["nnls", "std_bc", "enriched_bc", "fc_weighted_bc"],
+                    "description": "Primary decomposition method reported in the final composition vector (others kept as sensitivity checks).",
+                    "fa_icon": "fas fa-star"
+                }
+            }
+        },
+        "feature_toggles": {
+            "title": "Runtime feature toggles",
+            "type": "object",
+            "fa_icon": "fas fa-toggle-on",
+            "description": "Opt-out of optional subworkflows to stay off the critical path.",
+            "properties": {
+                "skip_annotate": {
+                    "type": "boolean",
+                    "default": true,
+                    "description": "Skip the ANNOTATE subworkflow (demo default — annotation is parallel enrichment, not a gate for decomposition).",
+                    "fa_icon": "fas fa-ban"
+                },
+                "enable_neg": {
+                    "type": "boolean",
+                    "default": false,
+                    "description": "Enable negative-mode processing. Out of scope for v0.1 (blocked by missing soil IS); set explicitly to override.",
+                    "fa_icon": "fas fa-minus-circle"
                 }
             }
         },
@@ -161,6 +324,74 @@
                     "description": "Display hidden parameters in the help message (only works when --help or --help_full are provided)."
                 }
             }
+        },
+        "tuning_options": {
+            "title": "Matching and evaluation tuning",
+            "type": "object",
+            "fa_icon": "fas fa-cogs",
+            "description": "Advanced thresholds. Defaults match the paper.",
+            "properties": {
+                "simper_precursor_ppm": {
+                    "type": "number",
+                    "default": 10,
+                    "description": "Precursor m/z tolerance (ppm) for soil-to-atlas MS/MS matching.",
+                    "hidden": true
+                },
+                "simper_fragment_tol": {
+                    "type": "number",
+                    "default": 0.02,
+                    "description": "Fragment m/z tolerance (Da) for cosine matching.",
+                    "hidden": true
+                },
+                "simper_min_cos": {
+                    "type": "number",
+                    "default": 0.7,
+                    "description": "Minimum cosine score for a match.",
+                    "hidden": true
+                },
+                "simper_min_matched_peaks": {
+                    "type": "integer",
+                    "default": 4,
+                    "description": "Minimum shared fragments for a match.",
+                    "hidden": true
+                },
+                "RIE_ceiling": {
+                    "type": "number",
+                    "default": 100.0,
+                    "description": "Upper bound on the RIE factor (only with --enable_rie).",
+                    "hidden": true
+                },
+                "fallback_RIE": {
+                    "type": "number",
+                    "default": 1.0,
+                    "description": "RIE used for classes missing from the RIE table (only with --enable_rie).",
+                    "hidden": true
+                },
+                "archaea_kingdom": {
+                    "type": "string",
+                    "default": "Archaea",
+                    "description": "Kingdom label treated as Archaea by the L5 filter.",
+                    "hidden": true
+                },
+                "min_phylum_samples": {
+                    "type": "integer",
+                    "default": 2,
+                    "description": "Minimum reference samples for a phylum to enter decomposition.",
+                    "hidden": true
+                },
+                "diagnostic_top_n": {
+                    "type": "integer",
+                    "default": 10,
+                    "description": "Top features per phylum in the diagnostic table.",
+                    "hidden": true
+                },
+                "treatment_contrast": {
+                    "type": "string",
+                    "default": "drought",
+                    "description": "Comma-separated treatment levels compared in eval/treatment_effects.tsv. Method-sensitivity check only; not a claim about treatment effects.",
+                    "hidden": true
+                }
+            }
         }
     },
     "allOf": [
@@ -168,10 +399,31 @@
             "$ref": "#/$defs/input_output_options"
         },
         {
+            "$ref": "#/$defs/apply_inputs"
+        },
+        {
+            "$ref": "#/$defs/pipeline_mode_options"
+        },
+        {
+            "$ref": "#/$defs/atlas_options"
+        },
+        {
+            "$ref": "#/$defs/correction_options"
+        },
+        {
+            "$ref": "#/$defs/decomposition_options"
+        },
+        {
+            "$ref": "#/$defs/feature_toggles"
+        },
+        {
             "$ref": "#/$defs/institutional_config_options"
         },
         {
             "$ref": "#/$defs/generic_options"
+        },
+        {
+            "$ref": "#/$defs/tuning_options"
         }
     ]
 }

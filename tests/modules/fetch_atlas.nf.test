@@ -1,0 +1,22 @@
+nextflow_process {
+    name "Test FETCH_ATLAS (local override path)"
+    script "modules/local/fetch_atlas.nf"
+    process "FETCH_ATLAS"
+    profile "local"
+
+    test("fetches atlas from local override and emits atlas_dir") {
+        when {
+            params {
+                atlas_version = 'v0.1.0'
+                atlas_doi     = '10.5281/zenodo.999999'
+                atlas_sha256  = ''
+                atlas_path    = "${projectDir}/tests/fixtures/tiny/tiny_atlas_bundle"
+            }
+        }
+        then {
+            assert process.success
+            assert path(process.out.atlas_dir[0]).exists()
+            assert path("${process.out.atlas_dir[0]}/simper_fingerprint_atlas.parquet").exists()
+        }
+    }
+}

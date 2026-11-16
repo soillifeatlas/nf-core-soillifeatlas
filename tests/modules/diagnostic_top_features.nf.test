@@ -1,0 +1,25 @@
+nextflow_process {
+    name "Test DIAGNOSTIC_TOP_FEATURES"
+    script "modules/local/diagnostic_top_features.nf"
+    process "DIAGNOSTIC_TOP_FEATURES"
+    profile "local"
+
+    test("ranks top-N features per phylum and pairs with mean intensity") {
+        when {
+            params {
+                diagnostic_top_n = 5
+            }
+            process {
+                """
+                input[0] = file("${projectDir}/tests/fixtures/tiny/tiny_intensity.parquet")
+                input[1] = file("${projectDir}/tests/fixtures/tiny/tiny_simper_atlas.parquet")
+                """
+            }
+        }
+        then {
+            assert process.success
+            assert path(process.out.tsv[0]).exists()
+            assert path(process.out.versions[0]).exists()
+        }
+    }
+}
