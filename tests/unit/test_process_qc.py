@@ -261,3 +261,115 @@ def test_standard_missing_from_qc_is_not_measured_not_passed(tmp_path):
     status = res.checks_frame().set_index("check")["status"]
     assert status["Internal standard retention time (QC injections and standards)"] == "not_run"
     assert status["Internal standard mass accuracy (QC injections and standards)"] == "not_run"
+
+
+# ---------------------------------------------------------------------------
+# Peak-picked values only, QC feature for standards, blocks, drift (Nov 2026)
+# ---------------------------------------------------------------------------
+def _table(features, files) -> pd.DataFrame:
+    """features: (id, mz, rt, {file: (area, state, rt)}); missing files are empty."""
+    rows = []
+    for fid, mz, rt, per in features:
+        r = {"id": fid, "mz": mz, "rt": rt}
+        for f in files:
+            a, state, frt = per.get(f, (0, "UNKNOWN", np.nan))
+            r[f"datafile:{f}.mzML:area"] = a
+            r[f"datafile:{f}.mzML:feature_state"] = state
+            r[f"datafile:{f}.mzML:mz"] = mz if a else np.nan
+            r[f"datafile:{f}.mzML:rt"] = frt if a else np.nan
+        rows.append(r)
+    return pd.DataFrame(rows)
+
+
+def _sheet_roles(tmp_path: Path, roles: dict[str, str]) -> pd.DataFrame:
+    p = tmp_path / "sheet2.csv"
+    pd.DataFrame({"file": [f"{f}.raw" for f in roles], "polarity": "pos", "role": list(roles.values())}).to_csv(p, index=False)
+    return read_samplesheet(p)
+
+
+QCS = [f"QC{i}" for i in range(1, 6)]
+
+
+def test_gap_filled_values_do_not_count(tmp_path):
+    files = QCS + ["S1"]
+    stable = {f: (1000 + 10 * i, "DETECTED", 12.0) for i, f in enumerate(QCS)}
+    noisy = {f: ((5000 if i == 0 else 50), "DETECTED" if i == 0 else "ESTIMATED", 13.0) for i, f in enumerate(QCS)}
+    full = _table([(1, 600.5, 12.0, stable), (2, 610.5, 13.0, noisy)], files)
+    sheet = _sheet_roles(tmp_path, {**{f: "pooled_qc" for f in QCS}, "S1": "sample"})
+    res = run_qc(full, sheet, _targets(), "pos")
+    f = res.features
+    assert f.loc[1, "qc_eligible"] and f.loc[1, "qc_rsd_pct"] < 2
+    assert f.loc[2, "qc_detected"] == 1 and not f.loc[2, "qc_eligible"]
+    assert np.isnan(f.loc[2, "qc_rsd_pct"])
+    status = res.checks_frame().set_index("check")["status"]
+    assert status["Pooled-QC features with RSD < 30%"] == "pass"
+
+
+def test_standard_measured_on_qc_row_when_calibration_ran_apart(tmp_path):
+    """Calibration on another day: the standard sits 0.12 min later there, on its own row."""
+    cal = ["CAL1", "CAL2"]
+    files = cal + QCS
+    cal_row = {**{c: (2e6, "DETECTED", 15.74) for c in cal}, **{q: (300, "ESTIMATED", 15.74) for q in QCS}}
+    qc_row = {q: (4e4 * (1 + 0.02 * i), "DETECTED", 15.62) for i, q in enumerate(QCS)}
+    full = _table([(1, PC_MZ, 15.74, cal_row), (2, PC_MZ, 15.62, qc_row)], files)
+    sheet = _sheet_roles(tmp_path, {**{c: "standard_cal" for c in cal}, **{q: "pooled_qc" for q in QCS}})
+    t0 = datetime(2023, 3, 27, 17, tzinfo=timezone.utc)
+    times = {c: t0.replace(hour=17 + i) for i, c in enumerate(cal)}
+    times.update({q: datetime(2023, 3, 30, 1 + 2 * i, tzinfo=timezone.utc) for i, q in enumerate(QCS)})
+    res = run_qc(full, sheet, _targets(), "pos", start_times=times)
+    pc = res.internal_standards.set_index("compound").loc["PC_15_0_18_1_d7"]
+    assert pc["feature_id"] == 1 and pc["qc_feature_id"] == 2
+    assert pc["area_rsd_pct"] < 5
+    assert pc["max_rt_deviation_min"] < 0.01  # judged within each block, not across days
+    assert set(res.injections["block"]) == {1, 2}
+    assert pc["qc_to_lowest_cal"] < 1
+    status = res.checks_frame().set_index("check")["status"]
+    assert status["Internal standard retention time (QC injections and standards)"] == "pass"
+    assert status["Internal standard signal in pooled QCs vs calibration range"] == "warn"
+
+
+def test_standard_rsd_needs_three_detected_qcs(tmp_path):
+    files = QCS
+    row = {q: ((1000, "DETECTED", 15.6) if i < 2 else (20, "ESTIMATED", 15.6)) for i, q in enumerate(QCS)}
+    full = _table([(1, PC_MZ, 15.6, row)], files)
+    sheet = _sheet_roles(tmp_path, {q: "pooled_qc" for q in QCS})
+    res = run_qc(full, sheet, _targets(), "pos")
+    pc = res.internal_standards.set_index("compound").loc["PC_15_0_18_1_d7"]
+    assert pc["detected_in_qc"] == 2
+    assert np.isnan(pc["area_rsd_pct"])
+
+
+def test_primary_adduct_preferred_in_standard_injection():
+    """Chapter II calibrates DG on [M+NH4]+ although [M+Na]+ is larger."""
+    files = ["CAL1"]
+    full = _table([(1, PC_MZ, 15.6, {"CAL1": (2e5, "DETECTED", 15.6)}),
+                   (2, 775.59532, 15.6, {"CAL1": (7e5, "DETECTED", 15.6)})], files)
+    area = per_file_matrix(full, "area")
+    m = match_internal_standards(full, _targets(), "pos", area, reference_files=["CAL1"]).set_index("compound")
+    assert m.loc["PC_15_0_18_1_d7", "adduct"] == "[M+H]+"
+
+
+def test_conditioning_qcs_are_left_out(tmp_path):
+    assert normalise_role("CONDQC") == "conditioning"
+    files = QCS + ["COND1"]
+    row = {**{q: (1000, "DETECTED", 15.6) for q in QCS}, "COND1": (9000, "DETECTED", 15.6)}
+    full = _table([(1, PC_MZ, 15.6, row)], files)
+    sheet = _sheet_roles(tmp_path, {**{q: "pooled_qc" for q in QCS}, "COND1": "cond_qc"})
+    res = run_qc(full, sheet, _targets(), "pos")
+    assert res.internal_standards.set_index("compound").loc["PC_15_0_18_1_d7", "area_rsd_pct"] == pytest.approx(0)
+    assert res.features.loc[1, "qc_rsd_pct"] == pytest.approx(0)
+
+
+def test_drift_and_agreement(tmp_path):
+    files = QCS
+    feats = [(i, 500.0 + i, 10.0, {q: (1000 * (1 + 0.05 * k) * (1 + 0.01 * i), "DETECTED", 10.0)
+                                    for k, q in enumerate(QCS)}) for i in range(1, 6)]
+    full = _table(feats, files)
+    sheet = _sheet_roles(tmp_path, {q: "pooled_qc" for q in QCS})
+    times = {q: datetime(2023, 3, 30, 1 + k, tzinfo=timezone.utc) for k, q in enumerate(QCS)}
+    res = run_qc(full, sheet, _targets(), "pos", start_times=times)
+    assert res.drift["drift_pct"].iloc[0] == pytest.approx(20.0, abs=0.5)
+    assert res.agreement["n_features"] == 5
+    assert 0 < res.agreement["within_fraction"] <= 1
+    status = res.checks_frame().set_index("check")["status"]
+    assert status["Pooled-QC signal drift over the run"] == "pass"

@@ -22,8 +22,8 @@
             },
             "role": {
                 "type": "string",
-                "enum": ["sample", "pooled_qc", "blank", "extraction_blank", "nist", "standard_cal"],
-                "errorMessage": "role must be one of: sample, pooled_qc, blank, extraction_blank, nist, standard_cal",
+                "enum": ["sample", "pooled_qc", "blank", "extraction_blank", "nist", "standard_cal", "conditioning"],
+                "errorMessage": "role must be one of: sample, pooled_qc, blank, extraction_blank, nist, standard_cal, conditioning",
                 "meta": ["role"]
             },
             "group": {

@@ -9,7 +9,8 @@ times. Outputs, all prefixed with --prefix:
   <prefix>.qc_internal_standards.tsv   one row per EquiSPLASH component
   <prefix>.qc_is_per_injection.tsv     standard area, RT and ppm per injection
   <prefix>.qc_injections.tsv           features and total area per injection
-  <prefix>.qc_features.tsv             pooled-QC RSD and blank ratio per feature
+  <prefix>.qc_features.tsv             pooled-QC detection, RSD and blank ratio per feature
+  <prefix>.qc_drift.tsv                summed pooled-QC signal in injection order
   <prefix>.qc_summary.json             thresholds and overall status
   <prefix>.qc_report.html              the same, readable, with plots
 """
@@ -42,6 +43,7 @@ ROLE_COLOURS = {
     "extraction_blank": "#6a786f",
     "nist": "#7b4fa0",
     "standard_cal": "#245276",
+    "conditioning": "#c9b48a",
     "not_in_sheet": "#c0392b",
 }
 
@@ -59,6 +61,15 @@ def parse_args(argv=None):
     p.add_argument("--mass-accuracy-ppm", type=float, default=5.0)
     p.add_argument("--qc-rsd", type=float, default=30.0)
     p.add_argument("--qc-pass-fraction", type=float, default=0.7)
+    p.add_argument("--qc-min-detect", type=float, default=0.7,
+                   help="Share of pooled QCs in which a feature must be peak-picked to get an RSD")
+    p.add_argument("--is-min-qc", type=int, default=3,
+                   help="Pooled QCs in which a standard must be peak-picked to get an RSD")
+    p.add_argument("--drift-limit", type=float, default=20.0, help="Allowed pooled-QC signal drift over the run (%%)")
+    p.add_argument("--block-gap-hours", type=float, default=12.0,
+                   help="A pause longer than this starts a new sequence block")
+    p.add_argument("--is-shift-window", type=float, default=0.2,
+                   help="How far (min) a standard may move between calibration injections and QCs")
     p.add_argument("--blank-ratio", type=float, default=0.2)
     p.add_argument("--match-ppm", type=float, default=10.0)
     p.add_argument("--rt-window", type=float, default=0.3,
@@ -117,8 +128,8 @@ def make_plots(res) -> dict[str, str]:
         det = det.sort_values("injection_order")
         fig, axes = plt.subplots(1, 3, figsize=(13, 3.4))
         for compound, grp in det.groupby("compound"):
-            g = grp[grp["role"].isin(["sample", "pooled_qc"])]
-            if g["area"].notna().sum() < 2:
+            g = grp[grp["role"].isin(["sample", "pooled_qc"]) & grp["detected"]]
+            if len(g) < 2:
                 continue
             axes[0].plot(g["injection_order"], g["rt"] - g["rt"].median(), marker="o", ms=3, lw=1, label=compound)
             axes[1].plot(g["injection_order"], g["ppm_error"], marker="o", ms=3, lw=1)
@@ -134,14 +145,41 @@ def make_plots(res) -> dict[str, str]:
 
     feats = res.features
     if feats is not None and "qc_rsd_pct" in feats:
-        vals = feats.loc[feats["qc_detected"] >= 2, "qc_rsd_pct"].dropna().clip(upper=200)
+        vals = feats["qc_rsd_pct"].dropna().clip(upper=200)
         if len(vals):
             fig, ax = plt.subplots(figsize=(6, 3))
             ax.hist(vals, bins=40, color="#e0a85e")
             ax.axvline(30, color="#1d3a2c", ls="--", lw=1)
-            ax.set_xlabel("Pooled-QC RSD (%) per feature (capped at 200)")
+            ax.set_xlabel("Pooled-QC RSD (%) per feature (peak-picked in ≥ 70% of QCs; capped at 200)")
             ax.set_ylabel("Features")
             plots["qc_rsd"] = _fig_to_img(fig)
+
+    ag = res.agreement or {}
+    if ag.get("points") is not None and len(ag["points"]):
+        pts = ag["points"]
+        fig, ax = plt.subplots(figsize=(8, 3.6))
+        for f, g in pts.groupby("file_id"):
+            ax.scatter(g["log_mean_area"], g["pct_diff"], s=4, alpha=0.5, label=f)
+        for y, ls in [(ag["loa_low"], "--"), (ag["loa_high"], "--"), (ag["mean_diff"], ":")]:
+            ax.axhline(y, color="#8a1c1c" if ls == "--" else "#333", ls=ls, lw=1)
+        ax.set_xlabel("ln(mean pooled-QC area)")
+        ax.set_ylabel("Difference from mean (%)")
+        ax.set_title(f"{ag['within_fraction']:.1%} within limits of agreement", fontsize=10)
+        ax.legend(fontsize=6, ncol=5, frameon=False, markerscale=3)
+        ax.grid(alpha=0.25)
+        plots["agreement"] = _fig_to_img(fig)
+
+    dr = res.drift
+    if dr is not None and not dr.empty:
+        fig, ax = plt.subplots(figsize=(7, 3))
+        ax.plot(dr["injection_order"], dr["summed_area"], "o", color="#e0a85e")
+        ax.plot(dr["injection_order"], dr["fitted"], "-", color="#1d3a2c", lw=1)
+        ax.set_xlabel("Injection order")
+        ax.set_ylabel("Summed area, pooled QC")
+        ax.set_title(f"Drift {dr['drift_pct'].iloc[0]:+.1f}% over the run ({int(dr['features_used'].iloc[0])} features)",
+                     fontsize=10)
+        ax.grid(alpha=0.25)
+        plots["drift"] = _fig_to_img(fig)
     return plots
 
 
@@ -175,9 +213,10 @@ def _table(df: pd.DataFrame, float_fmt="{:.3g}") -> str:
 
 def write_html(path: Path, res, checks: pd.DataFrame, summary: dict, plots: dict[str, str]) -> None:
     status = summary["overall_status"]
-    is_cols = [c for c in ["compound", "lipid_class", "matched", "adduct", "priority", "selected_by", "qc_basis", "median_rt",
+    is_cols = [c for c in ["compound", "lipid_class", "matched", "adduct", "priority", "selected_by", "rt_identity",
+                           "rt_qc", "qc_basis", "median_rt",
                            "max_rt_deviation_min", "median_ppm_error", "max_abs_ppm_error", "area_rsd_pct",
-                           "detected_in_qc", "qc_injections", "sample_area_rsd_pct",
+                           "detected_in_qc", "qc_injections", "qc_to_lowest_cal", "sample_area_rsd_pct",
                            "sample_max_abs_ppm_error", "detected_in_samples", "samples"] if c in res.internal_standards.columns]
     doc = f"""<!doctype html><html lang="en"><head><meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -201,14 +240,18 @@ injection order from {html.escape(summary['order_source'])}</p>
 <h2>Checks</h2>
 {_table(checks)}
 <h2>Internal standards</h2>
-<p class="meta">Pass/fail uses QC injections and standards (Samrat et al. 2025): retention time and mass error over pooled QCs, NIST and standard calibration; area RSD over pooled QCs. Columns starting with sample_ describe the soils and are for information.</p>
+<p class="meta">Pass/fail uses QC injections and standards (Samrat et al. 2025): retention time and mass error over pooled QCs, NIST and standard calibration, within each sequence block; area RSD over pooled QCs. Only peak-picked values count, not gap-filled ones. rt_identity is where the standard sits in the calibration injections, rt_qc where it is measured in the QCs and soils. qc_to_lowest_cal below 1 means the standard in the QCs is weaker than the lowest calibration level. Columns starting with sample_ describe the soils and are for information.</p>
 {_table(res.internal_standards[is_cols])}
 {plots.get('internal_standards', '')}
 <h2>Injections</h2>
 {plots.get('injections', '')}
 {_table(res.injections)}
 <h2>Pooled-QC reproducibility</h2>
+<p class="meta">Features peak-picked in at least {summary['thresholds']['qc_min_detect_fraction']:.0%} of pooled QCs (Broadhurst et al. 2018). Gap-filled values are not counted.</p>
 {plots.get('qc_rsd', '<p class="meta">Needs at least two pooled QCs.</p>')}
+{plots.get('agreement', '')}
+<h2>Drift</h2>
+{plots.get('drift', '<p class="meta">Needs at least three pooled QCs.</p>')}
 <p class="meta">Thresholds: {html.escape(json.dumps(summary['thresholds']))}</p>
 </main></body></html>"""
     path.write_text(doc)
@@ -225,6 +268,11 @@ def main(argv=None) -> int:
         mass_accuracy_ppm=a.mass_accuracy_ppm,
         qc_feature_rsd_pct=a.qc_rsd,
         qc_feature_pass_fraction=a.qc_pass_fraction,
+        qc_min_detect_fraction=a.qc_min_detect,
+        is_min_qc_detected=a.is_min_qc,
+        qc_drift_pct=a.drift_limit,
+        block_gap_hours=a.block_gap_hours,
+        is_qc_shift_window_min=a.is_shift_window,
         blank_ratio=a.blank_ratio,
         match_ppm=a.match_ppm,
         match_rt_window_min=a.rt_window,
@@ -239,6 +287,7 @@ def main(argv=None) -> int:
     res.is_per_injection.to_csv(out / f"{a.prefix}.qc_is_per_injection.tsv", sep="\t", index=False)
     res.injections.to_csv(out / f"{a.prefix}.qc_injections.tsv", sep="\t", index=False)
     res.features.to_csv(out / f"{a.prefix}.qc_features.tsv", sep="\t", index_label="feature_id")
+    (res.drift if res.drift is not None else pd.DataFrame()).to_csv(out / f"{a.prefix}.qc_drift.tsv", sep="\t", index=False)
 
     summary = {
         "prefix": a.prefix,
@@ -249,6 +298,7 @@ def main(argv=None) -> int:
         "order_source": str(res.injections["order_source"].iloc[0]) if len(res.injections) else "-",
         "thresholds": thresholds.__dict__,
         "checks": checks.to_dict(orient="records"),
+        "agreement": {k: v for k, v in (res.agreement or {}).items() if k != "points"},
     }
     (out / f"{a.prefix}.qc_summary.json").write_text(json.dumps(summary, indent=2, default=str))
     write_html(out / f"{a.prefix}.qc_report.html", res, checks, summary, make_plots(res))
