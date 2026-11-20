@@ -21,7 +21,9 @@ confidence level that is reported:
 Confidence (the labels the Soil Life Atlas uses):
 
 * **Gold**: species level from a rank-1 source, or the same species from two
-  independent sources.
+  independent sources. Free fatty acids need two sources: they barely
+  fragment, so one source's name rests on the mass alone (decided 2026-11-20).
+  From one source they are Silver.
 * **Silver**: sum composition (reported at sum level even if a weaker source
   named a species).
 * **Bronze**: lipid class only.
@@ -58,6 +60,9 @@ ADDUCT_SHIFT = {
 }
 
 # Classes whose names carry a single chain: one chain = complete species.
+# Classes whose name rests on the precursor mass: Gold only when two sources agree.
+NAME_FROM_MASS_ONLY = {"FA"}
+
 SINGLE_CHAIN = {
     "LPC", "LPE", "LPG", "LPI", "LPS", "LPA", "MG", "FA", "CE", "SPH", "SPB",
     "CAR", "NAE", "LPC-O", "LPE-O", "LPC-P", "LPE-P", "MGMG", "MGDG-L", "LDGTS",
@@ -462,7 +467,8 @@ def merge(cands: pd.DataFrame, features: pd.DataFrame, is_classes: set[str] | No
         species = g[g["level"] == "species"]
         sp_counts = species.groupby("lipid_name")["source"].nunique() if len(species) else pd.Series(dtype=int)
         agreed_species = sp_counts[sp_counts >= 2].index.tolist()
-        if best["level"] == "species" and best["rank"] == 1:
+        one_source_fa = best["lipid_class"] in NAME_FROM_MASS_ONLY and best["lipid_name"] not in agreed_species
+        if best["level"] == "species" and best["rank"] == 1 and not one_source_fa:
             conf, name = "Gold", best["lipid_name"]
         elif agreed_species:
             conf, name = "Gold", agreed_species[0]
