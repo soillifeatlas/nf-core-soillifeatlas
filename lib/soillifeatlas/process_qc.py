@@ -535,7 +535,8 @@ def feature_quality(area: pd.DataFrame, sheet: pd.DataFrame, detected: pd.DataFr
         rsd = qc.std(axis=1, ddof=1) / qc.mean(axis=1) * 100
         out["qc_rsd_pct"] = rsd.where(out["qc_eligible"])
     samples = area[by_role["sample"]].replace(0, np.nan)
-    out["sample_detected"] = samples.notna().sum(axis=1)
+    # Peak-picked only, like qc_detected; the median and the blank ratio keep all values (cautious).
+    out["sample_detected"] = (samples.notna() & detected[by_role["sample"]]).sum(axis=1)
     out["sample_median_area"] = samples.median(axis=1)
     blanks = area[by_role["blank"] + by_role["extraction_blank"]].replace(0, np.nan)
     if blanks.shape[1] >= 1:
