@@ -200,3 +200,25 @@ def test_check_rt_fits_ether_apart_and_ignores_implausible_anchors():
     assert (out.loc[range(7), "rt_check"] == "ok").all()
     assert out.loc[60, "rt_check"] == "untested"
     assert out.loc[61, "rt_check"] == "outlier"  # expected 14.9 min
+
+
+def test_free_fatty_acid_from_one_source_is_at_most_silver():
+    # A free fatty acid barely fragments, so its name rests on the mass alone (decision 2026-11-20).
+    f = pd.DataFrame({"id": [1, 2], "mz": [233.1547, 496.34], "rt": [5.9, 3.0]})
+    full = pd.DataFrame({"id": [1, 2], "lipid_annotations:lipid_annotations": ["FA 15:4", "LPC 16:0"],
+                         "lipid_annotations:ion_adduct": ["[M-H]-", "[M+H]+"],
+                         "lipid_annotations:explained_intensity_percent": [0.9, 0.9]})
+    m = merge(from_mzmine(full), f).set_index("feature_id")
+    assert m.loc[1, "confidence"] == "Silver" and m.loc[1, "lipid_name"] == "FA 15:4"
+    assert m.loc[2, "confidence"] == "Gold"  # lyso lipids keep the single-chain rule
+
+
+def test_free_fatty_acid_named_by_two_sources_is_gold():
+    f = pd.DataFrame({"id": [1], "mz": [255.2330], "rt": [12.0]})
+    full = pd.DataFrame({"id": [1], "lipid_annotations:lipid_annotations": ["FA 16:0"],
+                         "lipid_annotations:ion_adduct": ["[M-H]-"],
+                         "lipid_annotations:explained_intensity_percent": [0.9]})
+    lib = from_library(pd.DataFrame({"Compound_Name": ["FA 16:0"], "MQScore": [0.9], "SharedPeaks": [5],
+                                     "#Scan#": [1]}), f, 5, 0.2, same_run=True)
+    m = merge(pd.concat([from_mzmine(full), lib], ignore_index=True), f)
+    assert m.iloc[0]["confidence"] == "Gold" and m.iloc[0]["lipid_name"] == "FA 16:0"
