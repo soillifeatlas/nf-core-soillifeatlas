@@ -373,3 +373,17 @@ def test_drift_and_agreement(tmp_path):
     assert 0 < res.agreement["within_fraction"] <= 1
     status = res.checks_frame().set_index("check")["status"]
     assert status["Pooled-QC signal drift over the run"] == "pass"
+
+
+def test_sample_detection_counts_peak_picked_values_only(tmp_path):
+    # A feature MZmine picked in one sample and gap-filled in the other two is found in one sample.
+    samples = ["S1", "S2", "S3"]
+    files = QCS + samples
+    qcs = {f: (1000 + 10 * i, "DETECTED", 12.0) for i, f in enumerate(QCS)}
+    picked_once = {**qcs, "S1": (900, "DETECTED", 12.0), "S2": (40, "ESTIMATED", 12.0), "S3": (35, "ESTIMATED", 12.0)}
+    picked_all = {**qcs, **{s: (800, "DETECTED", 13.0) for s in samples}}
+    full = _table([(1, 600.5, 12.0, picked_once), (2, 610.5, 13.0, picked_all)], files)
+    sheet = _sheet_roles(tmp_path, {**{f: "pooled_qc" for f in QCS}, **{s: "sample" for s in samples}})
+    f = run_qc(full, sheet, _targets(), "pos").features
+    assert f.loc[1, "sample_detected"] == 1
+    assert f.loc[2, "sample_detected"] == 3
