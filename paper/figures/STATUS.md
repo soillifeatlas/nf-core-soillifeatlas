@@ -1,6 +1,6 @@
 # Figure status (2026-11-25)
 
-Built by `python paper/figures/build_all.py` on branch `paper/figures-2026-11` at `cd726c1` (paper/figures has uncommitted changes).
+Built by `python paper/figures/build_all.py` on branch `paper/figures-2026-11` at `17655d8`.
 Every plotted number is read from a file under `paper/` by the figure script; nothing is typed by hand.
 
 Status: **REAL** = drawn from recorded data · **SCHEMATIC** = cropped from the 2026-11-24 draft, no data · **PENDING** = grey box, waits for the named item · **UNCHANGED** = not rebuilt in this pass.
