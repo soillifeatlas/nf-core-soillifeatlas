@@ -1,0 +1,21 @@
+date: 2026-11-25T11:58:33+00:00
+export_git_sha: 71e2dba1359b6b5c4c8bdff2b096b5f861d15c32
+export_git_dirty: False
+command: 'paper/scripts/cap_options.py --quant paper/04_quant/pos --rie paper/00_inputs/rie_table_s10.csv --out paper/04_quant/cap_options_pos'
+params:
+  affected_classes: ['TG', 'DG', 'MG', 'PI', 'PG']
+  option_A_nh4_classes: ['CE', 'DG', 'MG', 'PG', 'PI', 'TG']
+  cap: [0.1, 10.0]
+inputs:
+  estimates_long:
+    path: 'paper/04_quant/pos/estimates_long.tsv'
+    sha256: 33ce08ee4e3501210d9f60fe10f890f21d43b2f3808d51f5bfbd209697f94f79
+  per_lipid:
+    path: 'paper/04_quant/pos/per_lipid.tsv'
+    sha256: 5f560cae426bc1f0857bef8ebb532543027c770fde83846d2d369cbfdb19a870
+  standards_used:
+    path: 'paper/04_quant/pos/standards_used.tsv'
+    sha256: d1e56f92c4d916b99cc7ed243af327601c9d491aad9783bc1a4dd897c6038cc4
+  rie:
+    path: 'paper/00_inputs/rie_table_s10.csv'
+    sha256: 056da89dfa158615541181073a63cb2f1f6a17e12317d5b38fbd16337afcc166
