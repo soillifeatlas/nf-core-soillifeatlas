@@ -4,7 +4,8 @@
 
 # Reconstitution volume confirmed (01_qc/*/is_vs_calibration.tsv currently assumes 100 uL).
 # Gates Fig S4 (internal standards vs calibration, apparent recovery).
-reconstitution_volume_confirmed: false
+reconstitution_volume_confirmed: true   # Rahul, 2026-11-25: 200 uL
+reconstitution_volume_ul: 200            # replaces the 100 uL assumed in the 01_qc export
 
 # Stage-5 quantification on paper/results-2026-11 confirmed (Rahul, 2026-11-25).
 # Gates Fig 5 (ClimGrass demonstration), Fig S5 (amounts per gram) and the Q3 points in S3D.

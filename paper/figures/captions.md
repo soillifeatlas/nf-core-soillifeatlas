@@ -18,4 +18,4 @@
 
 **Figure S5.** Lipid amounts in the ClimGrass soils. (A) Amount per lipid class in µg per g dry soil, summed over the lipids quantified in every soil (common lipid set), mean ± SD of soils, positive and negative mode; log scale. (B) The same per treatment (positive mode), mean ± SD of the three plots.
 
-[Figure S4 (internal-standard recovery against the neat calibration) is added once the reconstitution volume is confirmed.]
+**Figure S4.** Internal standards in soil extracts against the neat calibration (ClimGrass). (A) Median concentration in the soil extracts of each internal standard detected in soils (points; detected/analysed soils in brackets), read from a log–log calibration of the neat EquiSPLASH dilution series, against the calibration range (grey); 1 of 8 lie within the range. (B) Apparent recovery, the amount found (extract concentration × 200 µL reconstitution volume) relative to the 10 ng spiked before extraction, median and range over soils; dashed line, 100 %. Median values range from 151 % to 751 %. Without post-extraction spikes, losses during extraction and matrix effects on the signal cannot be separated.

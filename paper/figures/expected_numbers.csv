@@ -36,6 +36,13 @@ qc_rt_tolerance_min_neg,0.1
 qc_mass_tolerance_ppm_neg,5.0
 qc_is_pct_rt_within,100.0
 qc_is_pct_ppm_within,95.83333333333334
+qc_recon_volume_ul,200.0
+qc_recovery_n_standards,8
+qc_recovery_median_min_pct,151.0
+qc_recovery_median_max_pct,751.0
+qc_recovery_n_above_100,8
+qc_is_n_within_cal,1
+qc_is_n_detected,8
 ann_single_source_pct_pos,84.9182763744428
 ann_features_with_source_pos,2692
 ann_features_with_source_neg,1013

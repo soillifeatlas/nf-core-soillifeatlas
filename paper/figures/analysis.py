@@ -171,13 +171,29 @@ def qc():
 
     # S4 (gated): internal standards against the neat calibration
     set_panel("qc_is_vs_cal")
+    # m_found = extract concentration x reconstitution volume, so the exported amounts and
+    # R_app scale with the volume; the export assumed recon_ul_ASSUMED, gates.yaml holds the
+    # confirmed volume (Rahul, 2026-11-25: 200 uL).
+    vol = gates().get("reconstitution_volume_ul")
     rows = []
     for pol in POLS:
         d = read_table(f"01_qc/{pol}/is_vs_calibration.tsv")
+        assumed = float(read_yaml(f"01_qc/{pol}/provenance.yaml")["params"]["recon_ul_ASSUMED"])
+        f = float(vol) / assumed if vol else 1.0
+        for col in ("m_found_median_ng", "R_app_median_pct", "R_app_min_pct", "R_app_max_pct"):
+            d[col] = d[col] * f
         rows.append(d.assign(pol=pol))
     d = pd.concat(rows)
+    number("qc_recon_volume_ul", float(vol) if vol else assumed, "qc_is_vs_cal")
     table("qc_is_vs_cal", d[d.n_samples_detected > 0])
-    table("qc_recovery", d.dropna(subset=["R_app_median_pct"]))
+    rec = d.dropna(subset=["R_app_median_pct"])
+    table("qc_recovery", rec)
+    number("qc_recovery_n_standards", len(rec), "qc_is_vs_cal")
+    number("qc_recovery_median_min_pct", round(float(rec.R_app_median_pct.min()), 0), "qc_is_vs_cal")
+    number("qc_recovery_median_max_pct", round(float(rec.R_app_median_pct.max()), 0), "qc_is_vs_cal")
+    number("qc_recovery_n_above_100", int((rec.R_app_median_pct > 100).sum()), "qc_is_vs_cal")
+    number("qc_is_n_within_cal", int((d.status == "within").sum()), "qc_is_vs_cal")
+    number("qc_is_n_detected", int((d.n_samples_detected > 0).sum()), "qc_is_vs_cal")
 
 
 # =========================================================================== annotation (S2)

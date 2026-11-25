@@ -192,7 +192,9 @@ def qc_is_vs_cal(fig, gs, tag):
     ax.set_xscale("log")
     ax.set_xlabel(r"ng µL$^{-1}$ in extract (grey = calibration range)")
     ax.invert_yaxis()
-    letter(ax, tag, x=-0.02, y=1.02, title="IS in soil vs calibration range")
+    k = N("qc_is_n_within_cal")
+    finding(ax, tag, f"{k} of {N('qc_is_n_detected')} detected standards "
+            f"{'lies' if k == 1 else 'lie'} within the calibration range", x=-0.02, y=1.02)
 
 
 def qc_recovery(ax, tag):
@@ -205,8 +207,11 @@ def qc_recovery(ax, tag):
     ax.set_xticks(range(len(d)))
     ax.set_xticklabels([f"{c.split('_')[0]} {POL_LABEL[p]}" for c, p in zip(d.compound, d.pol)],
                        rotation=90)
-    ax.set_ylabel("R_app (%), median and range over soils")
-    letter(ax, tag, x=-0.15, y=1.03, title="Apparent recovery in soil")
+    ax.set_ylabel("apparent recovery (%), median and range")
+    ax.set_ylim(0, None)
+    k, n = N("qc_recovery_n_above_100"), N("qc_recovery_n_standards")
+    finding(ax, tag, f"Above 100 % for {'all ' + str(n) if k == n else f'{k} of {n}'} "
+            "standards", x=-0.02, y=1.03)
 
 
 # =========================================================================== annotation panels

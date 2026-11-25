@@ -1,6 +1,6 @@
 # Figure status (2026-11-25)
 
-Built by `python paper/figures/build_all.py` on branch `paper/figures-2026-11` at `1e59f9e`.
+Built by `python paper/figures/build_all.py` on branch `paper/figures-2026-11` at `1f69037` (paper/figures has uncommitted changes).
 Every number is made in `analysis.py` from files under `paper/` and checked against `expected_numbers.csv`; `plots.py` and `captions.py` only read its outputs (`figures/derived/`). Sources below are traced back to the paper/ files.
 
 Main text: Fig 1 Atlas, Fig 2 workflow, Fig 3 what the Atlas adds to a soil dataset, Fig 4 interpreting single features, Fig 5 ClimGrass demonstration. Supplement: S1 quality, S2 annotation, S3 response and routes, S4 recovery, S5 amounts.
@@ -9,7 +9,7 @@ Status: **REAL** = drawn from recorded data · **SCHEMATIC** = drawn from the 20
 
 Data SHA = last commit that changed the file in this repository; 'export' = `export_git_sha` in the folder's provenance.yaml.
 
-Gates (gates.yaml): `reconstitution_volume_confirmed: False`, `stage5_fix_confirmed: True`, `fig7E_lipid: PC 30:1`
+Gates (gates.yaml): `reconstitution_volume_confirmed: True`, `reconstitution_volume_ul: 200`, `stage5_fix_confirmed: True`, `fig7E_lipid: PC 30:1`
 
 | Fig | Panel | Status | Source file(s) under paper/ | Data SHA | Note |
 |---|---|---|---|---|---|
@@ -42,8 +42,8 @@ Gates (gates.yaml): `reconstitution_volume_confirmed: False`, `stage5_fix_confir
 |  | B | **REAL** | `03_response/ie_loco_predictions.tsv`<br>`03_response/ie_model_stats.tsv` | 57fa0ce (export 8012e4c)<br>57fa0ce (export 8012e4c) | leave-one-class-out; statistics from ie_model_stats.tsv |
 |  | C | **SCHEMATIC** | – | – | drawn natively; Q2 not used in this run |
 |  | D | **REAL** | `05_nist/neg/nist_comparison.tsv`<br>`05_nist/pos/nist_comparison.tsv` | e5dce35 (export f476c4c)<br>abeedd0 (export c4e944a) | Q1 and Q3 |
-| S4 recovery | A | **NOT BUILT** | – | – | waits for reconstitution_volume_confirmed |
-|  | B | **NOT BUILT** | – | – | waits for reconstitution_volume_confirmed |
+| S4 recovery | A | **REAL** | `01_qc/neg/is_vs_calibration.tsv`<br>`01_qc/neg/provenance.yaml`<br>`01_qc/pos/is_vs_calibration.tsv`<br>`01_qc/pos/provenance.yaml` | 756333b (export ac355b6)<br>756333b (export ac355b6)<br>756333b (export ac355b6)<br>756333b (export ac355b6) | IS in soil vs calibration range |
+|  | B | **REAL** | `01_qc/neg/is_vs_calibration.tsv`<br>`01_qc/neg/provenance.yaml`<br>`01_qc/pos/is_vs_calibration.tsv`<br>`01_qc/pos/provenance.yaml` | 756333b (export ac355b6)<br>756333b (export ac355b6)<br>756333b (export ac355b6)<br>756333b (export ac355b6) | apparent recovery |
 | S5 amounts | A | **REAL** | `04_quant/neg/class_by_sample.tsv`<br>`04_quant/pos/class_by_sample.tsv` | 24f98ec<br>abeedd0 | class amounts, common lipid set |
 |  | B | **REAL** | `08_application/pos/class_profiles.tsv` | abeedd0 (export c4e944a) | class amounts by treatment (POS) |
 
@@ -58,4 +58,5 @@ Outputs:
 - Fig S1: `figures/output/FigS1_quality_2026-11-25.pdf`, `figures/output/FigS1_quality_2026-11-25.png`
 - Fig S2: `figures/output/FigS2_annotation_2026-11-25.pdf`, `figures/output/FigS2_annotation_2026-11-25.png`
 - Fig S3: `figures/output/FigS3_response_routes_2026-11-25.pdf`, `figures/output/FigS3_response_routes_2026-11-25.png`
+- Fig S4: `figures/output/FigS4_recovery_2026-11-25.pdf`, `figures/output/FigS4_recovery_2026-11-25.png`
 - Fig S5: `figures/output/FigS5_amounts_2026-11-25.pdf`, `figures/output/FigS5_amounts_2026-11-25.png`
