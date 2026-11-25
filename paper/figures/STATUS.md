@@ -1,6 +1,6 @@
 # Figure status (2026-11-25)
 
-Built by `python paper/figures/build_all.py` on branch `paper/figures-2026-11` at `835911c` (paper/figures has uncommitted changes).
+Built by `python paper/figures/build_all.py` on branch `paper/figures-2026-11` at `f12f08c`.
 Every plotted number is read from a file under `paper/` by the figure script; nothing is typed by hand.
 
 Main text: Fig 1 Atlas, Fig 2 what the Atlas adds to a soil dataset, Fig 3 workflow, Fig 4 interpreting single features, Fig 5 ClimGrass demonstration. Supplement: S1 quality, S2 annotation, S3 response and routes, S4 recovery, S5 amounts.
@@ -21,7 +21,7 @@ Gates (gates.yaml): `reconstitution_volume_confirmed: False`, `stage5_fix_confir
 |  | D | **REAL** | `02_annotation/pos/annotations.tsv`<br>`06_atlas_match/pos/best_match.tsv`<br>`figures/inputs/atlas_groups.csv` | 756333b (export 72ba0e8)<br>55e0087 (export 72ba0e8)<br>3e25938 | 8 most frequent classes among named matches |
 | 3 workflow | A | **SCHEMATIC** | – | – | drawn natively; stage and tool text from the 2026-11-24 draft |
 |  | B | **REAL** | `01_qc/neg/provenance.yaml`<br>`01_qc/neg/rsd_per_feature.tsv`<br>`01_qc/neg/rsd_summary.tsv`<br>`01_qc/pos/provenance.yaml`<br>`01_qc/pos/rsd_per_feature.tsv`<br>`01_qc/pos/rsd_summary.tsv` | 756333b (export ac355b6)<br>756333b (export ac355b6)<br>756333b (export ac355b6)<br>756333b (export ac355b6)<br>756333b (export ac355b6)<br>756333b (export ac355b6) | pooled-QC RSD per feature; eligibility rule in rsd_summary.tsv |
-|  | C | **REAL** | `09_report/report_pos.html`<br>`figures/rendered/report_pos.png` | 24f98ec (export f476c4c)<br>8c32b47+dirty | summary tiles of report_pos.html; the 'lipids with an amount' tile is stage-5 output |
+|  | C | **REAL** | `09_report/report_pos.html`<br>`figures/rendered/report_pos.png` | 24f98ec (export f476c4c)<br>f12f08c | summary tiles of report_pos.html; the 'lipids with an amount' tile is stage-5 output |
 | 4 interpretation | A | **REAL** | `06_atlas_match/examples/examples.tsv`<br>`06_atlas_match/examples/mirror_21718.tsv` | a288361 (export 24f98ec)<br>a288361 (export 24f98ec) | zoomed to m/z 40–precursor+25; example proposed, to confirm |
 |  | B | **REAL** | `06_atlas_match/examples/examples.tsv`<br>`06_atlas_match/examples/mirror_41748.tsv` | a288361 (export 24f98ec)<br>a288361 (export 24f98ec) | zoomed; one reference peak above the range noted in the panel |
 |  | C | **REAL** | `06_atlas_match/examples/examples.tsv`<br>`06_atlas_match/examples/examples_phylum_detection.tsv`<br>`06_atlas_match/pos/phylum_detection.tsv`<br>`figures/inputs/atlas_groups.csv` | a288361 (export 24f98ec)<br>a288361 (export 24f98ec)<br>55e0087 (export 72ba0e8)<br>3e25938 | all 16 analysed phyla, grouped by organism group |
