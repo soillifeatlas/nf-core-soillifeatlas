@@ -29,10 +29,10 @@ Stages 1–4 ran end to end in Nextflow on ClimGrass (both polarities). Stage 5 
 stage 6 (one-page report) and stage 7 (spectral matching) ran as library code and scripts,
 not yet as Nextflow processes, so the text should not claim a seven-stage Nextflow run.
 Report screenshot: `09_report/report_pos.html`. Real sample sheet for Fig. 2B:
-`09_report/samplesheet_climgrass_pos.csv` (34 injections, in run order).
+`09_report/samplesheet_climgrass_pos.csv` (40 injections, in run order).
 
 ### §3.3 Analytical quality (ClimGrass)
-- Sequence: POS 34 injections (12 soils, 9 pooled QCs, 1 solvent blank, 1 extraction blank, 3 NIST SRM 1950, 14 calibration) in two blocks: calibration (sequence OE12-1, 27–28 Mar 2023) and soils/QCs/SRM (OE12-3, 30–31 Mar 2023). NEG the same with 8 pooled QCs. → `01_qc/*/injections.tsv`
+- Sequence: POS 40 injections (12 soils, 9 pooled QCs, 1 solvent blank, 1 extraction blank, 3 NIST SRM 1950, 14 calibration) in two blocks: calibration (sequence OE12-1, 27–28 Mar 2023) and soils/QCs/SRM (OE12-3, 30–31 Mar 2023). NEG 39 (8 pooled QCs). → `01_qc/*/injections.tsv`
 - Pooled-QC RSD, peak-picked only: POS median 13.8 %, 90.6 % of 6,513 eligible features ≤ 30 % (eligible = peak-picked in ≥ 7 of 9 QCs; 96,729 features in total). NEG median 9.9 %, 92.9 % of 2,128 (≥ 6 of 8; 20,280 features). → `01_qc/*/rsd_summary.tsv`
 - Including gap-filled values: POS median 47.4 %, 16.0 % of 66,961 eligible ≤ 30 %; NEG 38.2 %, 37.1 % of 8,095. On the same features the effect is small (POS 13.8 vs 15.9 %), so the main effect of gap filling is admitting many more, poorly measured features. → same file, row `paired_same_features`
 - Internal standards: identity, RT and mass accuracy confirmed for 12/12 (POS) and 9/9 (NEG) found standards; |mass error| median 0.70 ppm (POS, max 7.9) and 1.9 ppm (NEG, max 3.8). RT shifted between the calibration block and the soil block by a median −0.14 min (POS, n = 7 standards) and −0.09 min (NEG, n = 4). → `01_qc/*/is_by_block.tsv`, `is_per_injection.tsv`
