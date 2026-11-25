@@ -1,0 +1,13 @@
+compound	lipid_class	rt	adduct	n_soils_detected	used_for_quant
+Cer_d18_1_15_0_d7	Cer	15.4896	[M+H-H2O]+	12	True
+DG_15_0_18_1_d7	DG	18.09045	[M+NH4]+	3	False
+LPC_18_1_d7	LPC	3.7286	[M+H]+	12	True
+LPE_18_1_d7	LPE	3.92865	[M+H]+	1	False
+MG_18_1_d7	MG	18.08665	[M+H-H2O]+	0	False
+PC_15_0_18_1_d7	PC	15.75395	[M+H]+	4	False
+PE_15_0_18_1_d7	PE	16.1873	[M+H]+	7	True
+PG_15_0_18_1_d7	PG	14.83815	[M+NH4]+	0	False
+PI_15_0_18_1_d7	PI	14.506	[M+NH4]+	0	False
+PS_15_0_18_1_d7	PS	14.683	[M+H]+	0	False
+SM_d18_1_18_1_d9	SM	14.93465	[M+H]+	7	True
+TG_15_0_18_1_d7_15_0	TG	24.0475	[M+NH4]+	0	False

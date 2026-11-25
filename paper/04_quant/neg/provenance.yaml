@@ -1,0 +1,40 @@
+date: 2026-11-25T11:29:57+00:00
+export_git_sha: fc69b155f82c38c14919e8dd18089a2285313296
+export_git_dirty: False
+command: 'paper/scripts/run_quant.py --results /lisc/data/work/ter/samrat/sla_workflow_dev/runs/climgrass_both_2ed5d70/results --prefix climgrass_neg --polarity neg --samples paper/00_inputs/climgrass_samples.csv --rie paper/00_inputs/rie_table_s10.csv --run-provenance /lisc/data/work/ter/samrat/sla_workflow_dev/runs/climgrass_both_2ed5d70/run_provenance.txt --out /lisc/data/work/ter/samrat/sla_workflow_dev/paper_out/04_quant/neg'
+pipeline_run:
+  commit: '2ed5d705013599b1776f3dd2c5b222fb7c9dc13b'
+  branch: 'feat/couvillion-blinded'
+  uncommitted_changes_in_clone: '0'
+  started: '2026-11-25T11:54:57+01:00'
+  nextflow: 'version 25.10.3'
+  finished: '2026-11-25T12:10:37+01:00 (exit 0)'
+  run_provenance_file: '/lisc/data/work/ter/samrat/sla_workflow_dev/runs/climgrass_both_2ed5d70/run_provenance.txt'
+params:
+  polarity: 'neg'
+  areas: 'peak-picked only'
+  collapse_rt_min: 0.1
+  q2_predictions: False
+  routes: 'option A (manuscript 2.7), decided 2026-11-25'
+  f_limits: [0.1, 10.0]
+  rie_bridges: {'M+NH4': ('PS', 'M+H'), 'M+HCOO': ('HEXCER', 'M-H')}
+inputs:
+  features_full:
+    path: '/lisc/data/work/ter/samrat/sla_workflow_dev/runs/climgrass_both_2ed5d70/results/mzmine/climgrass_neg.features_full.csv'
+    sha256: 18ad513738d962ef88e563094eafff4aeffb11b3ea22bd77effd100610685cfa
+  annotations:
+    path: '/lisc/data/work/ter/samrat/sla_workflow_dev/runs/climgrass_both_2ed5d70/results/annotate/climgrass_neg.annotations.tsv'
+    sha256: 171dce646dbd4c2c5fbbc240e85f66fa82e9bd8448d7b276d54d5acd438f5e9a
+  internal_standards:
+    path: '/lisc/data/work/ter/samrat/sla_workflow_dev/runs/climgrass_both_2ed5d70/results/qc/climgrass_neg.qc_internal_standards.tsv'
+    sha256: f21e136c0153415750803e1c5e38bdb421df80160dcf92062bd78b89e550370d
+  is_per_injection:
+    path: '/lisc/data/work/ter/samrat/sla_workflow_dev/runs/climgrass_both_2ed5d70/results/qc/climgrass_neg.qc_is_per_injection.tsv'
+    sha256: 994dd7548b55c9111c615078007c3ed73533fb0c874f6073cd8dda5fa0c0f48e
+  samples:
+    path: 'paper/00_inputs/climgrass_samples.csv'
+    sha256: 43854857b224ee660febc61b9419920702cbbb5819bc8aa00a6ee7c5fcdb8afa
+  rie:
+    path: 'paper/00_inputs/rie_table_s10.csv'
+    sha256: 056da89dfa158615541181073a63cb2f1f6a17e12317d5b38fbd16337afcc166
+notes: 'Calibration range = min/max neat ESTD-1 areas (sequence OE12-1, 27-28 Mar 2023).'
