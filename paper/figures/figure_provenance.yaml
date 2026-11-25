@@ -1,7 +1,7 @@
-built: '2026-11-25T13:00:00+00:00'
+built: '2026-11-25T13:00:28+00:00'
 command: python paper/figures/build_all.py
-repo_head: cf3283b
-paper_figures_dirty: true
+repo_head: 3e25938
+paper_figures_dirty: false
 gates:
   reconstitution_volume_confirmed: false
   stage5_fix_confirmed: false
@@ -82,7 +82,7 @@ figures:
             export_sha: 72ba0e8
             sha256: 0fb9a1f727d28cce519d0c69f2940907e4b7aff1807a635929e568d9d2615e12
           figures/inputs/atlas_groups.csv: &id003
-            git_sha: uncommitted+dirty
+            git_sha: 3e25938
             export_sha: null
             sha256: a857cdf6ada3954fd78b59b1b5b17bf24ebf86693ce6c81336098bef3f8e426b
       B:

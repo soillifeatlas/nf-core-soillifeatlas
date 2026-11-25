@@ -1,6 +1,6 @@
 # Figure status (2026-11-25)
 
-Built by `python paper/figures/build_all.py` on branch `paper/figures-2026-11` at `cf3283b` (paper/figures has uncommitted changes).
+Built by `python paper/figures/build_all.py` on branch `paper/figures-2026-11` at `3e25938`.
 Every plotted number is read from a file under `paper/` by the figure script; nothing is typed by hand.
 
 Main text: Fig 1 Atlas, Fig 2 what the Atlas adds to a soil dataset, Fig 3 workflow, Fig 4 interpreting single features, Fig 5 ClimGrass demonstration. Supplement: S1 quality, S2 annotation, S3 response and routes, S4 recovery, S5 amounts.
@@ -15,17 +15,17 @@ Gates (gates.yaml): `reconstitution_volume_confirmed: False`, `stage5_fix_confir
 |---|---|---|---|---|---|
 | GA graphical_abstract | – | **UNCHANGED** | – | – | not rebuilt (issue #7) |
 | 1 atlas | A–D | **UNCHANGED** | – | – | Atlas overview; not rebuilt here (issue #7, release data outside paper/) |
-| 2 atlas_matching | A | **REAL** | `02_annotation/pos/annotations.tsv`<br>`02_annotation/pos/confidence.tsv`<br>`06_atlas_match/pos/best_match.tsv`<br>`06_atlas_match/pos/coverage.tsv`<br>`06_atlas_match/pos/provenance.yaml`<br>`figures/inputs/atlas_groups.csv` | 756333b (export 72ba0e8)<br>756333b (export 72ba0e8)<br>55e0087 (export 72ba0e8)<br>55e0087 (export 72ba0e8)<br>55e0087 (export 72ba0e8)<br>uncommitted+dirty | POS; modified cosine ≥ 0.7, ≥ 4 shared fragments, precursor ± 10 ppm |
-|  | B | **REAL** | `02_annotation/pos/annotations.tsv`<br>`06_atlas_match/pos/best_match.tsv`<br>`figures/inputs/atlas_groups.csv` | 756333b (export 72ba0e8)<br>55e0087 (export 72ba0e8)<br>uncommitted+dirty | organism groups from the release (figures/inputs/atlas_groups.csv) |
-|  | C | **REAL** | `02_annotation/pos/annotations.tsv`<br>`06_atlas_match/pos/best_match.tsv`<br>`06_atlas_match/pos/phylum_detection.tsv`<br>`figures/inputs/atlas_groups.csv` | 756333b (export 72ba0e8)<br>55e0087 (export 72ba0e8)<br>55e0087 (export 72ba0e8)<br>uncommitted+dirty | % of matched features; reference samples per group in brackets (matching denominators) |
-|  | D | **REAL** | `02_annotation/pos/annotations.tsv`<br>`06_atlas_match/pos/best_match.tsv`<br>`figures/inputs/atlas_groups.csv` | 756333b (export 72ba0e8)<br>55e0087 (export 72ba0e8)<br>uncommitted+dirty | 8 most frequent classes among named matches |
+| 2 atlas_matching | A | **REAL** | `02_annotation/pos/annotations.tsv`<br>`02_annotation/pos/confidence.tsv`<br>`06_atlas_match/pos/best_match.tsv`<br>`06_atlas_match/pos/coverage.tsv`<br>`06_atlas_match/pos/provenance.yaml`<br>`figures/inputs/atlas_groups.csv` | 756333b (export 72ba0e8)<br>756333b (export 72ba0e8)<br>55e0087 (export 72ba0e8)<br>55e0087 (export 72ba0e8)<br>55e0087 (export 72ba0e8)<br>3e25938 | POS; modified cosine ≥ 0.7, ≥ 4 shared fragments, precursor ± 10 ppm |
+|  | B | **REAL** | `02_annotation/pos/annotations.tsv`<br>`06_atlas_match/pos/best_match.tsv`<br>`figures/inputs/atlas_groups.csv` | 756333b (export 72ba0e8)<br>55e0087 (export 72ba0e8)<br>3e25938 | organism groups from the release (figures/inputs/atlas_groups.csv) |
+|  | C | **REAL** | `02_annotation/pos/annotations.tsv`<br>`06_atlas_match/pos/best_match.tsv`<br>`06_atlas_match/pos/phylum_detection.tsv`<br>`figures/inputs/atlas_groups.csv` | 756333b (export 72ba0e8)<br>55e0087 (export 72ba0e8)<br>55e0087 (export 72ba0e8)<br>3e25938 | % of matched features; reference samples per group in brackets (matching denominators) |
+|  | D | **REAL** | `02_annotation/pos/annotations.tsv`<br>`06_atlas_match/pos/best_match.tsv`<br>`figures/inputs/atlas_groups.csv` | 756333b (export 72ba0e8)<br>55e0087 (export 72ba0e8)<br>3e25938 | 8 most frequent classes among named matches |
 | 3 workflow | A | **SCHEMATIC** | `figures/schematics/source/Fig2_workflow_2026-11-24.png` | cd726c1 | crop of the 2026-11-24 draft; stages 5–7 dashed |
 |  | B | **SCHEMATIC** | `figures/schematics/source/Fig2_workflow_2026-11-24.png` | cd726c1 | crop of the 2026-11-24 draft, unchanged |
 |  | C | **REAL** | `01_qc/neg/provenance.yaml`<br>`01_qc/neg/rsd_per_feature.tsv`<br>`01_qc/neg/rsd_summary.tsv`<br>`01_qc/pos/provenance.yaml`<br>`01_qc/pos/rsd_per_feature.tsv`<br>`01_qc/pos/rsd_summary.tsv` | 756333b (export ac355b6)<br>756333b (export ac355b6)<br>756333b (export ac355b6)<br>756333b (export ac355b6)<br>756333b (export ac355b6)<br>756333b (export ac355b6) | pooled-QC RSD: peak-picked only vs including gap-filled |
 |  | D | **REAL** | `09_report/report_pos.html`<br>`figures/rendered/report_pos.png` | 24f98ec (export f476c4c)<br>8c32b47 | top of report_pos.html; the 'lipids with an amount' tile is stage-5 output |
 | 4 interpretation | A | **REAL** | `06_atlas_match/examples/examples.tsv`<br>`06_atlas_match/examples/mirror_21718.tsv` | a288361 (export 24f98ec)<br>a288361 (export 24f98ec) | zoomed to m/z 40–precursor+25; example proposed, to confirm |
 |  | B | **REAL** | `06_atlas_match/examples/examples.tsv`<br>`06_atlas_match/examples/mirror_41748.tsv` | a288361 (export 24f98ec)<br>a288361 (export 24f98ec) | zoomed; one reference peak above the range noted in the panel |
-|  | C | **REAL** | `06_atlas_match/examples/examples.tsv`<br>`06_atlas_match/examples/examples_phylum_detection.tsv`<br>`06_atlas_match/pos/phylum_detection.tsv`<br>`figures/inputs/atlas_groups.csv` | a288361 (export 24f98ec)<br>a288361 (export 24f98ec)<br>55e0087 (export 72ba0e8)<br>uncommitted+dirty | all 16 analysed phyla, grouped by organism group |
+|  | C | **REAL** | `06_atlas_match/examples/examples.tsv`<br>`06_atlas_match/examples/examples_phylum_detection.tsv`<br>`06_atlas_match/pos/phylum_detection.tsv`<br>`figures/inputs/atlas_groups.csv` | a288361 (export 24f98ec)<br>a288361 (export 24f98ec)<br>55e0087 (export 72ba0e8)<br>3e25938 | all 16 analysed phyla, grouped by organism group |
 | 5 application | A | **NOT BUILT** | – | – | waits for stage5_fix_confirmed |
 |  | B | **NOT BUILT** | – | – | waits for stage5_fix_confirmed |
 |  | C | **NOT BUILT** | – | – | waits for stage5_fix_confirmed |
