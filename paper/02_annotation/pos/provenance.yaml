@@ -1,7 +1,7 @@
-date: 2026-11-25T11:11:08+00:00
-export_git_sha: ac355b6ff87120bf09a7e036551b561f2aecc134
+date: 2026-11-25T11:36:04+00:00
+export_git_sha: 72ba0e84723208c048ef1a28db4d035fe62a0333
 export_git_dirty: False
-command: 'paper/scripts/export_annotation.py --results /lisc/data/work/ter/samrat/sla_workflow_dev/runs/climgrass_both_2ed5d70/results --prefix climgrass_pos --run-provenance /lisc/data/work/ter/samrat/sla_workflow_dev/runs/climgrass_both_2ed5d70/run_provenance.txt --out /lisc/data/work/ter/samrat/sla_workflow_dev/paper_out/02_annotation/pos'
+command: 'paper/scripts/export_annotation.py --results /lisc/data/work/ter/samrat/sla_workflow_dev/runs/climgrass_both_2ed5d70/results --prefix climgrass_pos --run-provenance /lisc/data/work/ter/samrat/sla_workflow_dev/runs/climgrass_both_2ed5d70/run_provenance.txt --out /lisc/data/work/ter/samrat/sla_workflow_dev/paper_out/02_annotation/pos --rt-class PC'
 pipeline_run:
   commit: '2ed5d705013599b1776f3dd2c5b222fb7c9dc13b'
   branch: 'feat/couvillion-blinded'
@@ -12,7 +12,7 @@ pipeline_run:
   run_provenance_file: '/lisc/data/work/ter/samrat/sla_workflow_dev/runs/climgrass_both_2ed5d70/run_provenance.txt'
 params:
   collapse_rt_min: 0.1
-  rt_class: 'TG'
+  rt_class: 'PC'
 inputs:
   annotations:
     path: '/lisc/data/work/ter/samrat/sla_workflow_dev/runs/climgrass_both_2ed5d70/results/annotate/climgrass_pos.annotations.tsv'

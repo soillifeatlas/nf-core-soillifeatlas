@@ -1,0 +1,479 @@
+feature_id	lipid_name	confidence	rt_group	carbons	double_bonds	rt	rt_expected	rt_residual_min	rt_check	is_anchor
+5092	PC O-33:5	Silver	PC ether	33.0	5.0	1.8714			untested	False
+6263	PC P-32:7	Silver	PC ether	32.0	7.0	2.0557			untested	False
+6752	PC 29:11	Silver	PC	29.0	11.0	2.1392	8.07	-5.931	outlier	False
+7346	PC 32:5	Silver	PC	32.0	5.0	2.2897	12.92	-10.63	outlier	False
+7353	PC O-38:10	Silver	PC ether	38.0	10.0	2.3009			untested	False
+7370	PC P-40:12	Silver	PC ether	40.0	12.0	2.3048			untested	False
+8195	PC O-38:5	Silver	PC ether	38.0	5.0	2.5535			untested	False
+8249	PC O-40:6	Silver	PC ether	40.0	6.0	2.5623			untested	False
+15305	PC O-16:0	Silver	PC ether	16.0	0.0	3.9013			untested	False
+16851	PC O-31:5	Silver	PC ether	31.0	5.0	4.2678			untested	False
+17148	PC	Bronze	PC			4.3462			untested	False
+17390	PC	Bronze	PC			4.4342			untested	False
+17838	PC 38:5	Silver	PC	38.0	5.0	4.5501	16.5	-11.95	outlier	False
+18441	PC 41:12	Silver	PC	41.0	12.0	4.6955	14.74	-10.044	outlier	False
+25348	PC	Bronze	PC			6.4493			untested	False
+30043	PC	Bronze	PC			7.8401			untested	False
+32040	PC	Bronze	PC			8.5679			untested	False
+33454	PC	Bronze	PC			9.0862			untested	False
+33798	PC O-42:13	Silver	PC ether	42.0	13.0	9.1614			untested	False
+33937	PC O-29:1	Silver	PC ether	29.0	1.0	9.2213			untested	False
+35719	PC	Bronze	PC			9.8787			untested	False
+36711	PC	Bronze	PC			10.1728			untested	False
+37598	PC	Bronze	PC			10.5006			untested	False
+37748	PC O-28:0	Silver	PC ether	28.0	0.0	10.5769			untested	False
+38137	PC 21:0	Silver	PC	21.0	0.0	10.7152	8.88	1.835	untested	False
+38389	PC O-38:10	Silver	PC ether	38.0	10.0	10.7906			untested	False
+38723	PC	Bronze	PC			10.9049			untested	False
+38778	PC	Bronze	PC			10.9172			untested	False
+39251	PC	Bronze	PC			11.1042			untested	False
+39618	PC	Bronze	PC			11.1985			untested	False
+39886	PC	Bronze	PC			11.2775			untested	False
+39894	PC 40:10	Silver	PC	40.0	10.0	11.2727	15.15	-3.877	outlier	False
+40113	PC 28:1	Silver	PC	28.0	1.0	11.3086	12.56	-1.251	ok	False
+40339	PC	Bronze	PC			11.3969			untested	False
+40378	PC	Bronze	PC			11.4056			untested	False
+40481	PC 34:5	Silver	PC	34.0	5.0	11.4277	14.11	-2.682	outlier	False
+41174	PC 30:2	Silver	PC	30.0	2.0	11.727	13.25	-1.523	outlier	False
+41422	PC 36:6	Silver	PC	36.0	6.0	11.8025	14.8	-2.998	outlier	False
+41588	PC 30:2	Silver	PC	30.0	2.0	11.8525	13.25	-1.398	outlier	False
+41715	PC	Bronze	PC			11.9214			untested	False
+41759	PC	Bronze	PC			11.9368			untested	False
+42114	PC	Bronze	PC			12.0715			untested	False
+42229	PC	Bronze	PC			12.1046			untested	False
+42262	PC	Bronze	PC			12.1027			untested	False
+42571	PC 34:5	Silver	PC	34.0	5.0	12.201	14.11	-1.909	outlier	False
+42781	PC 36:6	Silver	PC	36.0	6.0	12.2826	14.8	-2.517	outlier	False
+42818	PC	Bronze	PC			12.2707			untested	False
+43152	PC 32:3	Silver	PC	32.0	3.0	12.3896	13.93	-1.54	outlier	False
+43215	PC 36:6	Silver	PC	36.0	6.0	12.393	14.8	-2.407	outlier	False
+43417	PC 32:3	Silver	PC	32.0	3.0	12.4319	13.93	-1.498	outlier	False
+43492	PC 40:9	Silver	PC	40.0	9.0	12.4763	15.66	-3.184	outlier	False
+44058	PC 30:1	Silver	PC	30.0	1.0	12.6686	13.75	-1.081	ok	False
+44129	PC 34:4	Silver	PC	34.0	4.0	12.651	14.62	-1.969	outlier	False
+44449	PC 33:6	Silver	PC	33.0	6.0	12.7624	13.0	-0.238	ok	False
+44474	PC	Bronze	PC			12.7503			untested	False
+44632	PC 38:7	Silver	PC	38.0	7.0	12.7884	15.48	-2.692	outlier	False
+44870	PC 30:1	Silver	PC	30.0	1.0	12.8564	13.75	-0.894	ok	False
+45040	PC	Bronze	PC			12.9079			untested	False
+45201	PC 36:6	Silver	PC	36.0	6.0	12.9388	14.8	-1.861	outlier	False
+45388	PC 28:0	Silver	PC	28.0	0.0	12.9783	13.07	-0.092	ok	False
+45523	PC 32:2	Silver	PC	32.0	2.0	13.0355	14.44	-1.404	outlier	False
+45524	PC 36:5	Silver	PC	36.0	5.0	13.0352	15.31	-2.275	outlier	False
+45614	PC 34:4	Silver	PC	34.0	4.0	13.0622	14.62	-1.558	outlier	False
+45915	PC 35:5	Silver	PC	35.0	5.0	13.1197	14.71	-1.59	outlier	False
+45985	PC 38:7	Silver	PC	38.0	7.0	13.1434	15.48	-2.337	outlier	False
+46118	PC 42:10	Silver	PC	42.0	10.0	13.1823	16.35	-3.168	outlier	False
+46175	PC 30:1	Silver	PC	30.0	1.0	13.219	13.75	-0.531	ok	False
+46202	PC	Bronze	PC			13.219			untested	False
+46234	PC 29:0	Silver	PC	29.0	0.0	13.2148	13.66	-0.445	ok	False
+46315	PC 43:9	Silver	PC	43.0	9.0	13.2149	17.46	-4.245	untested	False
+46515	PC 30:1	Silver	PC	30.0	1.0	13.2698	13.75	-0.48	ok	False
+46576	PC	Bronze	PC			13.3522			untested	False
+46739	PC 34:4	Silver	PC	34.0	4.0	13.3744	14.62	-1.246	ok	False
+46758	PC 32:2	Silver	PC	32.0	2.0	13.3838	14.44	-1.056	ok	False
+46889	PC 35:4	Silver	PC	35.0	4.0	13.4188	15.22	-1.801	outlier	False
+47244	PC 35:4	Silver	PC	35.0	4.0	13.4847	15.22	-1.735	outlier	False
+47317	PC 37:6	Silver	PC	37.0	6.0	13.5268	15.4	-1.873	outlier	False
+47390	PC 36:5	Silver	PC	36.0	5.0	13.5519	15.31	-1.758	outlier	False
+47454	PC 33:3	Silver	PC	33.0	3.0	13.5734	14.53	-0.957	ok	False
+47466	PC 29:0	Silver	PC	29.0	0.0	13.5637	13.66	-0.096	ok	False
+47535	PC 32:2	Silver	PC	32.0	2.0	13.5415	14.44	-0.899	ok	False
+47546	PC 40:8	Silver	PC	40.0	8.0	13.5894	16.17	-2.581	outlier	False
+47587	PC O-37:11	Silver	PC ether	37.0	11.0	13.5755			untested	False
+47589	PC 32:2	Silver	PC	32.0	2.0	13.575	14.44	-0.865	ok	False
+47789	PC 31:2	Silver	PC	31.0	2.0	13.6572	13.84	-0.183	ok	False
+47797	PC	Bronze	PC			13.667			untested	False
+47844	PC 27:1	Silver	PC	27.0	1.0	13.6712	11.96	1.711	outlier	False
+47991	PC 31:1	Silver	PC	31.0	1.0	13.7521	14.35	-0.598	ok	False
+48065	PC 42:9	Silver	PC	42.0	9.0	13.7499	16.86	-3.11	outlier	False
+48067	PC 30:2	Silver	PC	30.0	2.0	13.7316	13.25	0.482	ok	False
+48287	PC 34:3	Silver	PC	34.0	3.0	13.7918	15.13	-1.338	outlier	False
+48288	PC 38:7	Silver	PC	38.0	7.0	13.7886	15.48	-1.691	outlier	False
+48302	PC 34:3	Silver	PC	34.0	3.0	13.789	15.13	-1.341	outlier	False
+48396	PC 37:6	Silver	PC	37.0	6.0	13.8149	15.4	-1.585	outlier	False
+48414	PC 39:9	Silver	PC	39.0	9.0	13.902	15.07	-1.168	ok	False
+48561	PC 29:0	Silver	PC	29.0	0.0	13.8785	13.66	0.219	ok	False
+48635	PC	Bronze	PC			13.8986			untested	False
+48692	PC 38:6	Silver	PC	38.0	6.0	13.9097	15.99	-2.08	outlier	False
+48759	PC 38:6	Silver	PC	38.0	6.0	13.9359	15.99	-2.054	outlier	False
+48807	PC 35:4	Silver	PC	35.0	4.0	13.9239	15.22	-1.296	outlier	False
+49013	PC 33:2	Silver	PC	33.0	2.0	14.0023	15.04	-1.038	ok	False
+49139	PC 40:7	Silver	PC	40.0	7.0	14.0235	16.68	-2.656	outlier	False
+49180	PC 15:0_15:0	Gold	PC	30.0	0.0	14.0394	14.26	-0.221	ok	True
+49195	PC 36:5	Silver	PC	36.0	5.0	14.0439	15.31	-1.266	outlier	False
+49242	PC 36:5	Silver	PC	36.0	5.0	14.0532	15.31	-1.257	ok	False
+49410	PC	Bronze	PC			14.0953			untested	False
+49446	PC 38:6	Silver	PC	38.0	6.0	14.0683	15.99	-1.922	outlier	False
+49516	PC 29:1	Silver	PC	29.0	1.0	14.1265	13.16	0.966	ok	False
+49528	PC 33:2	Silver	PC	33.0	2.0	14.0722	15.04	-0.968	ok	False
+49647	PC 36:4	Silver	PC	36.0	4.0	14.1539	15.81	-1.656	outlier	False
+49652	PC 36:4	Silver	PC	36.0	4.0	14.1574	15.81	-1.653	outlier	False
+49690	PC P-38:10	Silver	PC ether	38.0	10.0	14.1304			untested	False
+49839	PC 32:2	Silver	PC	32.0	2.0	14.1962	14.44	-0.244	ok	False
+49844	PC 35:4	Silver	PC	35.0	4.0	14.2239	15.22	-0.996	ok	False
+49857	PC	Bronze	PC			14.169			untested	False
+49895	PC 34:3	Silver	PC	34.0	3.0	14.2329	15.13	-0.897	ok	False
+49907	PC 34:3	Silver	PC	34.0	3.0	14.2345	15.13	-0.896	ok	False
+49966	PC 42:9	Silver	PC	42.0	9.0	14.2543	16.86	-2.606	outlier	False
+50007	PC 35:6	Silver	PC	35.0	6.0	14.2585	14.2	0.059	ok	False
+50079	PC 40:7	Silver	PC	40.0	7.0	14.3046	16.68	-2.375	outlier	False
+50096	PC 35:4	Silver	PC	35.0	4.0	14.2604	15.22	-0.96	ok	False
+50281	PC 32:1	Silver	PC	32.0	1.0	14.3346	14.95	-0.615	ok	False
+50315	PC 35:3	Silver	PC	35.0	3.0	14.3567	15.72	-1.363	outlier	False
+50345	PC 40:7	Silver	PC	40.0	7.0	14.3492	16.68	-2.331	outlier	False
+50379	PC 37:5	Silver	PC	37.0	5.0	14.3837	15.9	-1.516	outlier	False
+50568	PC O-34:4	Silver	PC ether	34.0	4.0	14.4197			untested	False
+50605	PC O-37:6	Silver	PC ether	37.0	6.0	14.4469			untested	False
+50610	PC 31:1	Silver	PC	31.0	1.0	14.3841	14.35	0.034	ok	False
+50880	PC 33:2	Silver	PC	33.0	2.0	14.4701	15.04	-0.57	ok	False
+50995	PC 28:0	Silver	PC	28.0	0.0	14.5135	13.07	1.444	outlier	False
+51011	PC O-34:4	Silver	PC ether	34.0	4.0	14.4793			untested	False
+51142	PC 34:2	Silver	PC	34.0	2.0	14.556	15.64	-1.084	ok	False
+51150	PC O-36:5	Silver	PC ether	36.0	5.0	14.5707			untested	False
+51192	PC 36:4	Silver	PC	36.0	4.0	14.5765	15.81	-1.234	ok	False
+51258	PC 35:3	Silver	PC	35.0	3.0	14.618	15.72	-1.102	ok	False
+51323	PC O-38:7	Silver	PC ether	38.0	7.0	14.631			untested	False
+51374	PC 37:5	Silver	PC	37.0	5.0	14.6037	15.9	-1.296	outlier	False
+51608	PC 35:3	Silver	PC	35.0	3.0	14.6596	15.72	-1.06	ok	False
+51630	PC 30:1	Silver	PC	30.0	1.0	14.6726	13.75	0.923	ok	False
+51640	PC 38:6	Silver	PC	38.0	6.0	14.6778	15.99	-1.312	outlier	False
+51663	PC	Bronze	PC			14.6654			untested	False
+51820	PC O-15:0_16:1	Gold	PC ether	31.0	1.0	14.7545			untested	True
+51823	PC 30:0	Silver	PC	30.0	0.0	14.7365	14.26	0.476	ok	False
+51824	PC 32:2	Silver	PC	32.0	2.0	14.7767	14.44	0.337	ok	False
+51852	PC 40:7	Silver	PC	40.0	7.0	14.7479	16.68	-1.932	outlier	False
+51857	PC 40:7	Silver	PC	40.0	7.0	14.7376	16.68	-1.942	outlier	False
+51866	PC 36:4	Silver	PC	36.0	4.0	14.7449	15.81	-1.065	ok	False
+51907	PC 38:5	Silver	PC	38.0	5.0	14.7343	16.5	-1.766	outlier	False
+51999	PC O-32:7	Silver	PC ether	32.0	7.0	14.8054			untested	False
+52025	PC O-36:6	Silver	PC ether	36.0	6.0	14.8182			untested	False
+52119	PC 42:8	Silver	PC	42.0	8.0	14.8047	17.37	-2.565	outlier	False
+52170	PC 40:7	Silver	PC	40.0	7.0	14.7871	16.68	-1.893	outlier	False
+52197	PC O-15:0_16:1	Gold	PC ether	31.0	1.0	14.814			untested	True
+52283	PC O-38:7	Silver	PC ether	38.0	7.0	14.8528			untested	False
+52297	PC O-38:6	Silver	PC ether	38.0	6.0	14.8645			untested	False
+52310	PC 35:3	Silver	PC	35.0	3.0	14.8437	15.72	-0.876	ok	False
+52476	PC 37:5	Silver	PC	37.0	5.0	14.8997	15.9	-1.0	ok	False
+52501	PC 32:1	Silver	PC	32.0	1.0	14.9049	14.95	-0.045	ok	False
+52510	PC O-37:10	Silver	PC ether	37.0	10.0	14.9043			untested	False
+52522	PC 32:1	Silver	PC	32.0	1.0	14.9133	14.95	-0.037	ok	False
+52603	PC	Bronze	PC			14.932			untested	False
+52633	PC P-36:4	Silver	PC ether	36.0	4.0	14.9699			untested	False
+52668	PC 37:4	Silver	PC	37.0	4.0	15.0	16.41	-1.41	outlier	False
+52685	PC 31:0	Silver	PC	31.0	0.0	14.9541	14.86	0.094	ok	False
+52714	PC O-30:1	Silver	PC ether	30.0	1.0	14.963			untested	False
+52741	PC 36:5	Silver	PC	36.0	5.0	14.9781	15.31	-0.332	ok	False
+52763	PC P-39:10	Silver	PC ether	39.0	10.0	15.0106			untested	False
+52841	PC 16:1_18:1	Gold	PC	34.0	2.0	15.0127	15.64	-0.627	ok	True
+52847	PC	Bronze	PC			15.0033			untested	False
+52967	PC 40:6	Silver	PC	40.0	6.0	15.0278	17.19	-2.162	outlier	False
+53017	PC O-36:5	Silver	PC ether	36.0	5.0	15.0636			untested	False
+53033	PC 36:4	Silver	PC	36.0	4.0	15.056	15.81	-0.754	ok	False
+53040	PC 40:7	Silver	PC	40.0	7.0	15.0391	16.68	-1.641	outlier	False
+53070	PC O-45:14	Silver	PC ether	45.0	14.0	15.0699			untested	False
+53133	PC 36:4	Silver	PC	36.0	4.0	15.0456	15.81	-0.764	ok	False
+53182	PC O-38:6	Silver	PC ether	38.0	6.0	15.1046			untested	False
+53311	PC 38:5	Silver	PC	38.0	5.0	15.135	16.5	-1.365	outlier	False
+53317	PC 38:5	Silver	PC	38.0	5.0	15.1432	16.5	-1.357	outlier	False
+53402	PC 39:6	Silver	PC	39.0	6.0	15.1783	16.59	-1.412	outlier	False
+53553	PC 31:0	Silver	PC	31.0	0.0	15.212	14.86	0.352	ok	False
+53588	PC O-32:1	Silver	PC ether	32.0	1.0	15.2185			untested	False
+53603	PC O-38:6	Silver	PC ether	38.0	6.0	15.1888			untested	False
+53620	PC O-15:0_15:0	Gold	PC ether	30.0	0.0	15.2286			untested	True
+53646	PC 30:1	Silver	PC	30.0	1.0	15.2356	13.75	1.486	outlier	False
+53727	PC 34:2	Silver	PC	34.0	2.0	15.2421	15.64	-0.398	ok	False
+53739	PC 34:2	Silver	PC	34.0	2.0	15.2429	15.64	-0.397	ok	False
+53858	PC 32:2	Silver	PC	32.0	2.0	15.3085	14.44	0.869	ok	False
+53891	PC 33:1	Silver	PC	33.0	1.0	15.3222	15.55	-0.228	ok	False
+53931	PC	Bronze	PC			15.3371			untested	False
+53944	PC O-37:7	Silver	PC ether	37.0	7.0	15.336			untested	False
+54003	PC 40:6	Silver	PC	40.0	6.0	15.3679	17.19	-1.822	outlier	False
+54012	PC O-38:7	Silver	PC ether	38.0	7.0	15.3645			untested	False
+54085	PC 36:3	Silver	PC	36.0	3.0	15.4022	16.32	-0.918	ok	False
+54153	PC 36:3	Silver	PC	36.0	3.0	15.3968	16.32	-0.923	ok	False
+54287	PC	Bronze	PC			15.4324			untested	False
+54368	PC O-40:8	Silver	PC ether	40.0	8.0	15.455			untested	False
+54524	PC 34:2	Silver	PC	34.0	2.0	15.4687	15.64	-0.171	ok	False
+54554	PC O-39:11	Silver	PC ether	39.0	11.0	15.4645			untested	False
+54555	PC O-31:0	Silver	PC ether	31.0	0.0	15.4925			untested	False
+54557	PC 39:6	Silver	PC	39.0	6.0	15.4877	16.59	-1.102	ok	False
+54587	PC	Bronze	PC			15.5202			untested	False
+54677	PC 31:0	Silver	PC	31.0	0.0	15.4767	14.86	0.617	ok	False
+54807	PC 40:6	Silver	PC	40.0	6.0	15.5845	17.19	-1.606	outlier	False
+54825	PC 37:4	Silver	PC	37.0	4.0	15.5717	16.41	-0.838	ok	False
+54841	PC 39:5	Silver	PC	39.0	5.0	15.5912	17.1	-1.509	outlier	False
+54893	PC 33:1	Silver	PC	33.0	1.0	15.6166	15.55	0.067	ok	False
+54896	PC	Bronze	PC			15.6444			untested	False
+54899	PC 38:6	Silver	PC	38.0	6.0	15.5893	15.99	-0.401	ok	False
+54904	PC O-41:12	Silver	PC ether	41.0	12.0	15.6026			untested	False
+54915	PC 15:0_17:0	Gold	PC	32.0	0.0	15.6081	15.46	0.148	ok	True
+54948	PC 38:5	Silver	PC	38.0	5.0	15.647	16.5	-0.853	ok	False
+54975	PC O-40:7	Silver	PC ether	40.0	7.0	15.6443			untested	False
+54980	PC 33:1	Silver	PC	33.0	1.0	15.5975	15.55	0.047	ok	False
+55003	PC 36:3	Silver	PC	36.0	3.0	15.6447	16.32	-0.675	ok	False
+55095	PC 36:3	Silver	PC	36.0	3.0	15.6895	16.32	-0.63	ok	False
+55101	PC O-40:8	Silver	PC ether	40.0	8.0	15.6854			untested	False
+55122	PC 40:6	Silver	PC	40.0	6.0	15.6961	17.19	-1.494	outlier	False
+55141	PC 38:4	Silver	PC	38.0	4.0	15.7605	17.01	-1.25	ok	False
+55257	PC O-30:0	Silver	PC ether	30.0	0.0	15.7909			untested	False
+55259	PC 33:1	Silver	PC	33.0	1.0	15.8191	15.55	0.269	ok	False
+55301	PC O-38:6	Silver	PC ether	38.0	6.0	15.8154			untested	False
+55303	PC O-31:0	Silver	PC ether	31.0	0.0	15.8136			untested	False
+55316	PC 33:1	Silver	PC	33.0	1.0	15.8256	15.55	0.276	ok	False
+55327	PC 33:2	Silver	PC	33.0	2.0	15.8311	15.04	0.791	ok	False
+55384	PC O-32:1	Silver	PC ether	32.0	1.0	15.8497			untested	False
+55392	PC 32:1	Silver	PC	32.0	1.0	15.8454	14.95	0.895	ok	False
+55395	PC O-41:12	Silver	PC ether	41.0	12.0	15.8795			untested	False
+55406	PC 37:4	Silver	PC	37.0	4.0	15.858	16.41	-0.552	ok	False
+55431	PC P-24:2	Silver	PC ether	24.0	2.0	15.8609			untested	False
+55442	PC 31:0	Silver	PC	31.0	0.0	15.8443	14.86	0.984	ok	False
+55465	PC 39:7	Silver	PC	39.0	7.0	15.8625	16.08	-0.217	ok	False
+55537	PC O-42:8	Silver	PC ether	42.0	8.0	15.904			untested	False
+55564	PC 39:5	Silver	PC	39.0	5.0	15.8902	17.1	-1.21	ok	False
+55575	PC 34:2	Silver	PC	34.0	2.0	15.9371	15.64	0.297	ok	False
+55877	PC 37:5	Silver	PC	37.0	5.0	15.967	15.9	0.067	ok	False
+55899	PC O-34:3	Silver	PC ether	34.0	3.0	16.007			untested	False
+56039	PC O-32:1	Silver	PC ether	32.0	1.0	15.9782			untested	False
+56070	PC O-36:4	Silver	PC ether	36.0	4.0	16.0411			untested	False
+56156	PC 33:0	Silver	PC	33.0	0.0	16.0559	16.05	0.006	ok	False
+56329	PC O-38:5	Silver	PC ether	38.0	5.0	16.0895			untested	False
+56372	PC 38:4	Silver	PC	38.0	4.0	16.1079	17.01	-0.902	ok	False
+56389	PC 38:5	Silver	PC	38.0	5.0	16.0584	16.5	-0.442	ok	False
+56397	PC	Bronze	PC			16.101			untested	False
+56426	PC 38:4	Silver	PC	38.0	4.0	16.1012	17.01	-0.909	ok	False
+56490	PC	Bronze	PC			16.11			untested	False
+56696	PC 39:5	Silver	PC	39.0	5.0	16.146	17.1	-0.954	ok	False
+56770	PC 37:3	Silver	PC	37.0	3.0	16.179	16.92	-0.741	ok	False
+56771	PC 30:1	Silver	PC	30.0	1.0	16.1612	13.75	2.411	outlier	False
+56865	PC	Bronze	PC			16.1329			untested	False
+56974	PC O-37:5	Silver	PC ether	37.0	5.0	16.1823			untested	False
+57044	PC O-37:9	Silver	PC ether	37.0	9.0	16.2361			untested	False
+57045	PC 42:7	Silver	PC	42.0	7.0	16.2066	17.87	-1.663	outlier	False
+57096	PC O-40:6	Silver	PC ether	40.0	6.0	16.2378			untested	False
+57174	PC 40:6	Silver	PC	40.0	6.0	16.2514	17.19	-0.939	ok	False
+57192	PC 40:5	Silver	PC	40.0	5.0	16.2498	17.7	-1.45	outlier	False
+57256	PC 32:0	Silver	PC	32.0	0.0	16.3089	15.46	0.849	ok	False
+57339	PC	Bronze	PC			16.3137			untested	False
+57357	PC 32:0	Silver	PC	32.0	0.0	16.3058	15.46	0.846	ok	False
+57465	PC P-39:7	Silver	PC ether	39.0	7.0	16.3349			untested	False
+57496	PC O-33:1	Silver	PC ether	33.0	1.0	16.3539			untested	False
+57538	PC 30:0	Silver	PC	30.0	0.0	16.3228	14.26	2.063	outlier	False
+57545	PC O-40:6	Silver	PC ether	40.0	6.0	16.3369			untested	False
+57593	PC 16:0_20:4	Gold	PC	36.0	4.0	16.3806	15.81	0.571	ok	True
+57621	PC 16:0_18:1	Gold	PC	34.0	1.0	16.3895	16.14	0.25	ok	True
+57641	PC O-39:10	Silver	PC ether	39.0	10.0	16.3946			untested	False
+57681	PC	Bronze	PC			16.4102			untested	False
+57724	PC O-35:3	Silver	PC ether	35.0	3.0	16.4358			untested	False
+57773	PC O-32:1	Silver	PC ether	32.0	1.0	16.4219			untested	False
+57793	PC 37:3	Silver	PC	37.0	3.0	16.4613	16.92	-0.459	ok	False
+57794	PC O-37:5	Silver	PC ether	37.0	5.0	16.4647			untested	False
+57799	PC O-41:11	Silver	PC ether	41.0	11.0	16.4642			untested	False
+57805	PC 18:1_18:1	Gold	PC	36.0	2.0	16.47	16.83	-0.36	ok	True
+57812	PC 38:5	Silver	PC	38.0	5.0	16.4703	16.5	-0.03	ok	False
+57814	PC 33:1	Silver	PC	33.0	1.0	16.4926	15.55	0.943	ok	False
+57961	PC O-38:5	Silver	PC ether	38.0	5.0	16.4828			untested	False
+57968	PC 37:6	Silver	PC	37.0	6.0	16.5225	15.4	1.123	ok	False
+57998	PC O-31:0	Silver	PC ether	31.0	0.0	16.508			untested	False
+58022	PC 29:1	Silver	PC	29.0	1.0	16.5134	13.16	3.353	outlier	False
+58059	PC 17:0_16:0	Gold	PC	33.0	0.0	16.5699	16.05	0.52	ok	True
+58063	PC	Bronze	PC			16.5836			untested	False
+58089	PC 39:4	Silver	PC	39.0	4.0	16.6012	17.61	-1.009	ok	False
+58111	PC 38:4	Silver	PC	38.0	4.0	16.5763	17.01	-0.434	ok	False
+58119	PC	Bronze	PC			16.5722			untested	False
+58128	PC 38:4	Silver	PC	38.0	4.0	16.5885	17.01	-0.422	ok	False
+58168	PC 40:5	Silver	PC	40.0	5.0	16.6037	17.7	-1.096	ok	False
+58191	PC 33:1	Silver	PC	33.0	1.0	16.5986	15.55	1.049	ok	False
+58198	PC 32:0	Silver	PC	32.0	0.0	16.6155	15.46	1.156	ok	False
+58215	PC	Bronze	PC			16.6202			untested	False
+58232	PC 32:1	Silver	PC	32.0	1.0	16.6329	14.95	1.683	outlier	False
+58287	PC 18:1_18:1	Gold	PC	36.0	2.0	16.6174	16.83	-0.213	ok	True
+58332	PC O-38:4	Silver	PC ether	38.0	4.0	16.6509			untested	False
+58335	PC O-36:3	Silver	PC ether	36.0	3.0	16.6589			untested	False
+58417	PC 34:2	Silver	PC	34.0	2.0	16.6708	15.64	1.031	ok	False
+58462	PC 33:0	Silver	PC	33.0	0.0	16.6145	16.05	0.564	ok	False
+58485	PC 40:5	Silver	PC	40.0	5.0	16.6543	17.7	-1.046	ok	False
+58524	PC	Bronze	PC			16.7277			untested	False
+58526	PC 38:3	Silver	PC	38.0	3.0	16.6948	17.52	-0.825	ok	False
+58597	PC 32:0	Silver	PC	32.0	0.0	16.6983	15.46	1.238	ok	False
+58626	PC O-35:3	Silver	PC ether	35.0	3.0	16.7381			untested	False
+58645	PC O-37:4	Silver	PC ether	37.0	4.0	16.7635			untested	False
+58777	PC O-44:8	Silver	PC ether	44.0	8.0	16.8159			untested	False
+58778	PC 18:1_18:1	Gold	PC	36.0	2.0	16.8204	16.83	-0.01	ok	True
+58795	PC 34:0	Silver	PC	34.0	0.0	16.7972	16.65	0.147	ok	False
+58818	PC 35:1	Silver	PC	35.0	1.0	16.8172	16.74	0.077	ok	False
+58828	PC 37:4	Silver	PC	37.0	4.0	16.8227	16.41	0.413	ok	False
+58863	PC O-39:8	Silver	PC ether	39.0	8.0	16.8389			untested	False
+58894	PC O-30:0	Silver	PC ether	30.0	0.0	16.8413			untested	False
+58903	PC 38:5	Silver	PC	38.0	5.0	16.8478	16.5	0.348	ok	False
+58920	PC 37:3	Silver	PC	37.0	3.0	16.8267	16.92	-0.093	ok	False
+58924	PC 41:5	Silver	PC	41.0	5.0	16.8676	18.29	-1.422	outlier	False
+59059	PC O-35:2	Silver	PC ether	35.0	2.0	16.899			untested	False
+59119	PC 37:2	Silver	PC	37.0	2.0	16.9166	17.43	-0.513	ok	False
+59152	PC 37:2	Silver	PC	37.0	2.0	16.9275	17.43	-0.503	ok	False
+59369	PC 36:4	Silver	PC	36.0	4.0	16.9582	15.81	1.148	ok	False
+59397	PC 38:3	Silver	PC	38.0	3.0	16.9519	17.52	-0.568	ok	False
+59399	PC O-35:2	Silver	PC ether	35.0	2.0	16.9612			untested	False
+59470	PC 33:0	Silver	PC	33.0	0.0	16.9496	16.05	0.9	ok	False
+59479	PC 32:1	Silver	PC	32.0	1.0	17.022	14.95	2.072	outlier	False
+59514	PC O-32:1	Silver	PC ether	32.0	1.0	17.018			untested	False
+59545	PC	Bronze	PC			17.0195			untested	False
+59555	PC O-38:4	Silver	PC ether	38.0	4.0	17.0147			untested	False
+59567	PC 33:1	Silver	PC	33.0	1.0	17.022	15.55	1.472	outlier	False
+59635	PC O-40:5	Silver	PC ether	40.0	5.0	17.0322			untested	False
+59642	PC O-42:7	Silver	PC ether	42.0	7.0	17.0415			untested	False
+59695	PC 37:4	Silver	PC	37.0	4.0	16.9924	16.41	0.582	ok	False
+59703	PC 32:0	Silver	PC	32.0	0.0	17.0517	15.46	1.592	outlier	False
+59838	PC 35:1	Silver	PC	35.0	1.0	17.0483	16.74	0.308	ok	False
+59895	PC 40:5	Silver	PC	40.0	5.0	17.1211	17.7	-0.579	ok	False
+59914	PC 33:2	Silver	PC	33.0	2.0	17.1147	15.04	2.075	outlier	False
+60017	PC O-40:6	Silver	PC ether	40.0	6.0	17.0999			untested	False
+60019	PC 40:6	Silver	PC	40.0	6.0	17.1529	17.19	-0.037	ok	False
+60026	PC 38:3	Silver	PC	38.0	3.0	17.1081	17.52	-0.412	ok	False
+60383	PC O-38:5	Silver	PC ether	38.0	5.0	17.2246			untested	False
+60396	PC O-44:8	Silver	PC ether	44.0	8.0	17.25			untested	False
+60447	PC 35:1	Silver	PC	35.0	1.0	17.2433	16.74	0.503	ok	False
+60478	PC 42:5	Silver	PC	42.0	5.0	17.2432	18.89	-1.647	outlier	False
+60498	PC 37:4	Silver	PC	37.0	4.0	17.2531	16.41	0.843	ok	False
+60512	PC O-32:0	Silver	PC ether	32.0	0.0	17.2529			untested	False
+60547	PC 36:1	Silver	PC	36.0	1.0	17.2302	17.34	-0.11	ok	False
+60578	PC 18:1_19:1	Gold	PC	37.0	2.0	17.2727	17.43	-0.157	ok	True
+60583	PC O-42:11	Silver	PC ether	42.0	11.0	17.2853			untested	False
+60668	PC O-34:1	Silver	PC ether	34.0	1.0	17.3086			untested	False
+60730	PC 38:3	Silver	PC	38.0	3.0	17.2845	17.52	-0.235	ok	False
+60785	PC O-36:2	Silver	PC ether	36.0	2.0	17.3336			untested	False
+60882	PC O-42:7	Silver	PC ether	42.0	7.0	17.3639			untested	False
+61176	PC O-33:1	Silver	PC ether	33.0	1.0	17.4018			untested	False
+61184	PC O-40:5	Silver	PC ether	40.0	5.0	17.4054			untested	False
+61370	PC O-36:3	Silver	PC ether	36.0	3.0	17.4625			untested	False
+61415	PC 31:0	Silver	PC	31.0	0.0	17.4445	14.86	2.585	outlier	False
+61429	PC 39:5	Silver	PC	39.0	5.0	17.447	17.1	0.347	ok	False
+61431	PC 37:2	Silver	PC	37.0	2.0	17.459	17.43	0.029	ok	False
+61493	PC O-38:4	Silver	PC ether	38.0	4.0	17.4945			untested	False
+61510	PC 40:4	Silver	PC	40.0	4.0	17.4793	18.2	-0.721	ok	False
+61728	PC 36:5	Silver	PC	36.0	5.0	17.5323	15.31	2.222	outlier	False
+61861	PC	Bronze	PC			17.5664			untested	False
+62018	PC O-42:6	Silver	PC ether	42.0	6.0	17.6027			untested	False
+62148	PC O-35:1	Silver	PC ether	35.0	1.0	17.6427			untested	False
+62282	PC O-33:0	Silver	PC ether	33.0	0.0	17.6167			untested	False
+62346	PC	Bronze	PC			17.6906			untested	False
+62443	PC 34:0	Silver	PC	34.0	0.0	17.6988	16.65	1.049	ok	False
+62518	PC O-36:2	Silver	PC ether	36.0	2.0	17.7098			untested	False
+62522	PC O-35:2	Silver	PC ether	35.0	2.0	17.6821			untested	False
+62604	PC O-44:7	Silver	PC ether	44.0	7.0	17.724			untested	False
+62670	PC O-34:0	Silver	PC ether	34.0	0.0	17.7397			untested	False
+62799	PC 36:1	Silver	PC	36.0	1.0	17.7694	17.34	0.429	ok	False
+62820	PC 38:4	Silver	PC	38.0	4.0	17.7683	17.01	0.758	ok	False
+62909	PC 38:2	Silver	PC	38.0	2.0	17.7917	18.03	-0.238	ok	False
+62969	PC 36:2	Silver	PC	36.0	2.0	17.8243	16.83	0.994	ok	False
+62975	PC 39:2	Silver	PC	39.0	2.0	17.8046	18.62	-0.815	ok	False
+63133	PC O-31:2	Silver	PC ether	31.0	2.0	17.8585			untested	False
+63401	PC 34:0	Silver	PC	34.0	0.0	17.86	16.65	1.21	ok	False
+63454	PC 35:0	Silver	PC	35.0	0.0	17.9236	17.25	0.674	ok	False
+63502	PC O-33:0	Silver	PC ether	33.0	0.0	17.9045			untested	False
+63511	PC 31:0	Silver	PC	31.0	0.0	17.9601	14.86	3.1	outlier	False
+63544	PC 40:4	Silver	PC	40.0	4.0	17.9386	18.2	-0.261	ok	False
+63545	PC 34:1	Silver	PC	34.0	1.0	17.9339	16.14	1.794	outlier	False
+63667	PC 37:1	Silver	PC	37.0	1.0	18.019	17.94	0.079	ok	False
+63689	PC O-46:8	Silver	PC ether	46.0	8.0	17.9739			untested	False
+63711	PC 36:2	Silver	PC	36.0	2.0	17.9639	16.83	1.134	ok	False
+63783	PC O-38:3	Silver	PC ether	38.0	3.0	18.0274			untested	False
+64044	PC 35:0	Silver	PC	35.0	0.0	17.9847	17.25	0.735	ok	False
+64168	PC	Bronze	PC			18.0993			untested	False
+64353	PC 37:1	Silver	PC	37.0	1.0	18.1063	17.94	0.166	ok	False
+64407	PC 36:0	Silver	PC	36.0	0.0	18.1219	17.85	0.272	ok	False
+64442	PC 34:3	Silver	PC	34.0	3.0	18.1278	15.13	2.998	outlier	False
+64490	PC O-43:11	Silver	PC ether	43.0	11.0	18.1306			untested	False
+64507	PC 19:1_19:1	Gold	PC	38.0	2.0	18.1335	18.03	0.104	ok	True
+64551	PC O-35:1	Silver	PC ether	35.0	1.0	18.1258			untested	False
+64789	PC	Bronze	PC			18.2035			untested	False
+64934	PC 36:1	Silver	PC	36.0	1.0	18.1745	17.34	0.834	ok	False
+65010	PC 39:2	Silver	PC	39.0	2.0	18.3014	18.62	-0.319	ok	False
+65011	PC O-46:9	Silver	PC ether	46.0	9.0	18.3008			untested	False
+65056	PC 37:2	Silver	PC	37.0	2.0	18.2737	17.43	0.844	ok	False
+65310	PC 12:0_21:0	Gold	PC	33.0	0.0	18.3365	16.05	2.286	outlier	True
+65368	PC 39:5	Silver	PC	39.0	5.0	18.2883	17.1	1.188	ok	False
+65392	PC 18:1_18:1	Gold	PC	36.0	2.0	18.3304	16.83	1.5	outlier	True
+65410	PC 35:0	Silver	PC	35.0	0.0	18.2977	17.25	1.048	ok	False
+65452	PC O-40:4	Silver	PC ether	40.0	4.0	18.3283			untested	False
+65495	PC 35:2	Silver	PC	35.0	2.0	18.3574	16.23	2.127	outlier	False
+65498	PC O-34:1	Silver	PC ether	34.0	1.0	18.3442			untested	False
+65602	PC 37:1	Silver	PC	37.0	1.0	18.4309	17.94	0.491	ok	False
+65760	PC 40:3	Silver	PC	40.0	3.0	18.4254	18.71	-0.285	ok	False
+65767	PC O-36:2	Silver	PC ether	36.0	2.0	18.4065			untested	False
+65869	PC 42:4	Silver	PC	42.0	4.0	18.4238	19.4	-0.976	ok	False
+65890	PC O-42:6	Silver	PC ether	42.0	6.0	18.45			untested	False
+65925	PC 32:0	Silver	PC	32.0	0.0	18.4138	15.46	2.954	outlier	False
+66065	PC O-46:8	Silver	PC ether	46.0	8.0	18.5256			untested	False
+66242	PC O-34:0	Silver	PC ether	34.0	0.0	18.5426			untested	False
+66282	PC 37:1	Silver	PC	37.0	1.0	18.5543	17.94	0.614	ok	False
+66325	PC	Bronze	PC			18.5211			untested	False
+66457	PC O-44:7	Silver	PC ether	44.0	7.0	18.5939			untested	False
+66855	PC	Bronze	PC			18.6453			untested	False
+66936	PC O-42:5	Silver	PC ether	42.0	5.0	18.6513			untested	False
+66956	PC O-34:0	Silver	PC ether	34.0	0.0	18.6429			untested	False
+66988	PC O-36:1	Silver	PC ether	36.0	1.0	18.6748			untested	False
+67223	PC 35:1	Silver	PC	35.0	1.0	18.7364	16.74	1.996	outlier	False
+67304	PC 39:2	Silver	PC	39.0	2.0	18.7524	18.62	0.132	ok	False
+67447	PC 41:5	Silver	PC	41.0	5.0	18.7707	18.29	0.481	ok	False
+67502	PC O-35:0	Silver	PC ether	35.0	0.0	18.7958			untested	False
+67593	PC O-37:1	Silver	PC ether	37.0	1.0	18.8718			untested	False
+67615	PC O-40:4	Silver	PC ether	40.0	4.0	18.8089			untested	False
+67670	PC O-44:6	Silver	PC ether	44.0	6.0	18.8544			untested	False
+67983	PC O-46:7	Silver	PC ether	46.0	7.0	18.8708			untested	False
+68119	PC 36:0	Silver	PC	36.0	0.0	18.9206	17.85	1.071	ok	False
+68150	PC 40:2	Silver	PC	40.0	2.0	18.9243	19.22	-0.296	ok	False
+68335	PC 38:1	Silver	PC	38.0	1.0	18.9937	18.53	0.464	ok	False
+68536	PC	Bronze	PC			19.0111			untested	False
+68578	PC 44:5	Silver	PC	44.0	5.0	19.0246	20.09	-1.065	untested	False
+68697	PC 39:3	Silver	PC	39.0	3.0	19.0865	18.12	0.966	ok	False
+68788	PC O-42:4	Silver	PC ether	42.0	4.0	19.0781			untested	False
+69014	PC 40:2	Silver	PC	40.0	2.0	19.0722	19.22	-0.148	ok	False
+69191	PC	Bronze	PC			19.1602			untested	False
+69241	PC 38:1	Silver	PC	38.0	1.0	19.1071	18.53	0.577	ok	False
+69351	PC O-37:1	Silver	PC ether	37.0	1.0	19.1795			untested	False
+69400	PC 42:4	Silver	PC	42.0	4.0	19.1774	19.4	-0.223	ok	False
+69402	PC 42:3	Silver	PC	42.0	3.0	19.1842	19.91	-0.726	ok	False
+69470	PC O-37:4	Silver	PC ether	37.0	4.0	19.2232			untested	False
+69673	PC O-46:8	Silver	PC ether	46.0	8.0	19.2755			untested	False
+69897	PC O-37:1	Silver	PC ether	37.0	1.0	19.2998			untested	False
+69907	PC 41:4	Silver	PC	41.0	4.0	19.3118	18.8	0.512	ok	False
+70009	PC 42:5	Silver	PC	42.0	5.0	19.3337	18.89	0.444	ok	False
+70074	PC 40:2	Silver	PC	40.0	2.0	19.3573	19.22	0.137	ok	False
+70136	PC 38:0	Silver	PC	38.0	0.0	19.2914	19.04	0.251	ok	False
+70402	PC 41:2	Silver	PC	41.0	2.0	19.4302	19.82	-0.39	ok	False
+70443	PC 35:0	Silver	PC	35.0	0.0	19.4523	17.25	2.202	outlier	False
+70649	PC O-46:7	Silver	PC ether	46.0	7.0	19.5285			untested	False
+70979	PC O-36:1	Silver	PC ether	36.0	1.0	19.5931			untested	False
+71063	PC O-44:6	Silver	PC ether	44.0	6.0	19.579			untested	False
+71155	PC O-23:6_18:0	Gold	PC ether	41.0	6.0	19.598			untested	True
+71273	PC O-48:8	Silver	PC ether	48.0	8.0	19.6316			untested	False
+71276	PC 35:0	Silver	PC	35.0	0.0	19.6364	17.25	2.386	outlier	False
+71308	PC O-36:1	Silver	PC ether	36.0	1.0	19.6572			untested	False
+71523	PC 35:0	Silver	PC	35.0	0.0	19.6746	17.25	2.425	outlier	False
+71592	PC O-42:5	Silver	PC ether	42.0	5.0	19.7503			untested	False
+71650	PC 42:2	Silver	PC	42.0	2.0	19.7498	20.42	-0.67	ok	False
+71838	PC O-38:1	Silver	PC ether	38.0	1.0	19.8053			untested	False
+71956	PC O-44:5	Silver	PC ether	44.0	5.0	19.8095			untested	False
+72022	PC O-36:0	Silver	PC ether	36.0	0.0	19.8263			untested	False
+72592	PC O-34:2	Silver	PC ether	34.0	2.0	19.9863			untested	False
+72678	PC 42:2	Silver	PC	42.0	2.0	19.9907	20.42	-0.429	ok	False
+72705	PC O-48:7	Silver	PC ether	48.0	7.0	20.0452			untested	False
+72711	PC O-42:4	Silver	PC ether	42.0	4.0	20.0169			untested	False
+72808	PC O-31:0	Silver	PC ether	31.0	0.0	20.0546			untested	False
+73103	PC 40:1	Silver	PC	40.0	1.0	20.1615	19.73	0.431	ok	False
+73404	PC O-44:4	Silver	PC ether	44.0	4.0	20.2784			untested	False
+73612	PC O-31:0	Silver	PC ether	31.0	0.0	20.3035			untested	False
+73652	PC 44:4	Silver	PC	44.0	4.0	20.2691	20.59	-0.321	untested	False
+74219	PC O-34:1	Silver	PC ether	34.0	1.0	20.4763			untested	False
+74418	PC 42:2	Silver	PC	42.0	2.0	20.5228	20.42	0.103	ok	False
+74434	PC O-32:0	Silver	PC ether	32.0	0.0	20.5603			untested	False
+74711	PC 42:1	Silver	PC	42.0	1.0	20.6257	20.92	-0.294	ok	False
+74814	PC O-44:4	Silver	PC ether	44.0	4.0	20.6943			untested	False
+75293	PC O-46:6	Silver	PC ether	46.0	6.0	20.818			untested	False
+75333	PC	Bronze	PC			20.826			untested	False
+75403	PC O-46:5	Silver	PC ether	46.0	5.0	20.8592			untested	False
+75412	PC O-34:1	Silver	PC ether	34.0	1.0	20.8626			untested	False
+75794	PC O-38:0	Silver	PC ether	38.0	0.0	20.9869			untested	False
+76642	PC 42:1	Silver	PC	42.0	1.0	21.2534	20.92	0.333	ok	False
