@@ -1,5 +1,5 @@
 quant_route	n_features	n_unique_lipids	pct_of_all_features	pct_of_annotated_features
 Q1	916.0	865.0	0.9	34.0
 Q2	0.0	0.0	0.0	0.0
-Q3	1679.0	1637.0	1.7	62.4
-Q4	94134.0		97.3	
+Q3	1561.0	1523.0	1.6	58.0
+Q4	94252.0		97.4	

@@ -70,3 +70,5 @@ Scored at [M+NH4]⁺ they are 4–180-fold below consensus (median ratio 0.015);
 without the cap they would be ~4-fold above (×297). So the adduct choice for PI is not settled
 by NIST, and TG/DG cannot be checked (see `../05_nist/pos/nist_comparison.tsv`). Per-feature
 adducts (LipidSearch main ion) remain the proper fix.
+
+**Follow-up decision 2026-11-25: PI → Q4 in positive mode** (`POS_NO_RESPONSE = {MG, PI}`, commit c4e944a). Q3 features now 1,561; positive NIST check is all Q1 (76 lipids, ρ 0.86, median ratio 1.02).

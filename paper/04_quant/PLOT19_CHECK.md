@@ -53,3 +53,5 @@ POS sums now use the 287 lipids with an amount in all 12 soils. Plot 19 = 34.1 �
 (plot 22) and 26.8 (plot 36): no longer an outlier. Treatment means: ambient 31.1 ± 3.8, future
 33.7 ± 2.2, ambient + drought 35.5 ± 5.7, future + drought 35.1 ± 9.7. NEG uses 177 lipids over
 11 soils (plot 49 has no detected standard in negative mode).
+
+After PI → Q4 (same day): common set 279 lipids; plot 19 = 34.0 vs 32.4 / 26.7; treatment means 31.0 / 33.6 / 35.3 / 35.0 µg g⁻¹ (ambient / future / ambient + drought / future + drought).
