@@ -486,6 +486,27 @@ number:qc_is_pct_rt_within:
 - 01_qc/pos/is_by_block.tsv
 - 01_qc/pos/is_per_injection.tsv
 - 01_qc/pos/provenance.yaml
+number:qc_is_soil_n:
+- 01_qc/neg/is_per_injection.tsv
+- 01_qc/neg/is_vs_calibration.tsv
+- 01_qc/neg/provenance.yaml
+- 01_qc/pos/is_per_injection.tsv
+- 01_qc/pos/is_vs_calibration.tsv
+- 01_qc/pos/provenance.yaml
+number:qc_is_soil_n_below_lowest:
+- 01_qc/neg/is_per_injection.tsv
+- 01_qc/neg/is_vs_calibration.tsv
+- 01_qc/neg/provenance.yaml
+- 01_qc/pos/is_per_injection.tsv
+- 01_qc/pos/is_vs_calibration.tsv
+- 01_qc/pos/provenance.yaml
+number:qc_is_soil_rel_lowest_median:
+- 01_qc/neg/is_per_injection.tsv
+- 01_qc/neg/is_vs_calibration.tsv
+- 01_qc/neg/provenance.yaml
+- 01_qc/pos/is_per_injection.tsv
+- 01_qc/pos/is_vs_calibration.tsv
+- 01_qc/pos/provenance.yaml
 number:qc_mass_tolerance_ppm_neg:
 - 01_qc/neg/is_by_block.tsv
 - 01_qc/neg/is_per_injection.tsv
@@ -691,6 +712,13 @@ qc_is_points:
 - 01_qc/neg/provenance.yaml
 - 01_qc/pos/is_by_block.tsv
 - 01_qc/pos/is_per_injection.tsv
+- 01_qc/pos/provenance.yaml
+qc_is_soil:
+- 01_qc/neg/is_per_injection.tsv
+- 01_qc/neg/is_vs_calibration.tsv
+- 01_qc/neg/provenance.yaml
+- 01_qc/pos/is_per_injection.tsv
+- 01_qc/pos/is_vs_calibration.tsv
 - 01_qc/pos/provenance.yaml
 qc_is_vs_cal:
 - 01_qc/neg/is_per_injection.tsv

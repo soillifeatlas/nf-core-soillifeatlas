@@ -178,42 +178,53 @@ def qc_internal_standards(fig, gs, tag):
                  f"±{N('qc_mass_tolerance_ppm_neg'):g} ppm (all injections)")
 
 
-def qc_is_vs_cal(fig, gs, tag):
+def _is_rows():
+    """Detected internal standards in the order used by both S4 panels (highest recovery first)."""
+    d = D("qc_recovery").sort_values("R_app_median_pct", ascending=False).reset_index(drop=True)
+    d["label"] = [f"{c.split('_')[0]} {POL_LABEL[p]} ({n})" for c, p, n in
+                  zip(d.compound, d.pol, d.n_samples_detected)]
+    return d
+
+
+def _strip(ax, rows, soil, col):
+    rng = np.random.default_rng(1)
+    for i, r in rows.iterrows():
+        v = soil[(soil.compound == r.compound) & (soil.pol == r.pol)][col]
+        ax.scatter(v, i + rng.uniform(-0.18, 0.18, len(v)), s=9, color=POL[r.pol], alpha=0.55,
+                   lw=0, zorder=3)
+        ax.plot([v.median()] * 2, [i - 0.32, i + 0.32], color="black", lw=1.2, zorder=4)
+    ax.set_yticks(range(len(rows)), rows.label)
+    ax.set_ylim(len(rows) - 0.5, -0.5)
+    ax.tick_params(axis="y", length=0)
+
+
+def qc_is_vs_cal(ax, tag):
+    """Soil signal of each standard relative to the lowest calibration level (5 uL series)."""
     set_panel("qc_is_vs_cal")
-    ax = fig.add_subplot(gs)
-    d = D("qc_is_vs_cal")
-    for i, r in d.iterrows():
-        ax.plot([r.cal_min_ng_per_ul, r.cal_max_ng_per_ul], [i, i], color="#AAAAAA", lw=3,
-                solid_capstyle="butt")
-        ax.scatter(r.soil_median_ng_per_ul, i, color=POL[r.pol], s=12, zorder=3)
-    ax.set_yticks(range(len(d)))
-    ax.set_yticklabels([f"{c.split('_')[0]} ({POL_LABEL[p]}, {n}/{m})" for c, p, n, m in
-                        zip(d.compound, d.pol, d.n_samples_detected, d.n_samples)])
+    rows, soil = _is_rows(), D("qc_is_soil")
+    ax.axvspan(1e-2, 1, color="#EEEEEE", lw=0, zorder=0)
+    ax.axvline(1, color="black", lw=0.6, ls="--")
+    _strip(ax, rows, soil, "rel_lowest_level")
     ax.set_xscale("log")
-    ax.set_xlabel(r"ng µL$^{-1}$ in extract (grey = calibration range)")
-    ax.invert_yaxis()
-    k = N("qc_is_n_within_cal")
-    finding(ax, tag, f"{k} of {N('qc_is_n_detected')} detected standards "
-            f"{'lies' if k == 1 else 'lie'} within the calibration range", x=-0.02, y=1.02)
+    ax.set_xlim(0.05, 2)
+    ax.set_xlabel("soil peak area / area at the lowest calibration level")
+    ax.text(0.06, len(rows) - 0.55, "below the calibrated range", fontsize=5.6, va="bottom",
+            color="#666666")
+    ax.text(1.05, len(rows) - 0.55, "lowest\nlevel", fontsize=5.6, va="bottom", color="#333333")
+    finding(ax, tag, f"{N('qc_is_soil_n_below_lowest')} of {N('qc_is_soil_n')} soil "
+            "measurements lie below the lowest calibration level", x=-0.02, y=1.03)
 
 
 def qc_recovery(ax, tag):
+    """Apparent recovery per soil (points) and its median (bar) for each standard."""
     set_panel("qc_recovery")
-    d = D("qc_recovery")
-    for i, r in d.iterrows():
-        ax.plot([i, i], [r.R_app_min_pct, r.R_app_max_pct], color=POL[r.pol], lw=0.8)
-        ax.scatter(i, r.R_app_median_pct, color=POL[r.pol], s=12, zorder=3)
-    ax.axhline(100, color="black", lw=0.6, ls="--")
-    ax.set_xticks(range(len(d)))
-    ax.set_xticklabels([f"{c.split('_')[0]} {POL_LABEL[p]}" for c, p in zip(d.compound, d.pol)],
-                       rotation=90)
-    ax.set_ylabel("apparent recovery (%), median and range")
-    ax.set_ylim(0, None)
-    k, n = N("qc_recovery_n_above_100"), N("qc_recovery_n_standards")
-    head = (f"Median apparent recovery {N('qc_recovery_median_min_pct'):.0f}–"
-            f"{N('qc_recovery_median_max_pct'):.0f} %" if k == 0 else
-            f"Above 100 % for {'all ' + str(n) if k == n else f'{k} of {n}'} standards")
-    finding(ax, tag, head, x=-0.02, y=1.03)
+    rows, soil = _is_rows(), D("qc_is_soil")
+    _strip(ax, rows, soil, "R_app_pct")
+    ax.set_xlim(0, max(50, float(soil.R_app_pct.max()) * 1.1))
+    ax.set_xlabel("apparent recovery (%)")
+    ax.tick_params(axis="y", labelleft=False)
+    finding(ax, tag, f"Median apparent recovery {N('qc_recovery_median_min_pct'):.0f}–"
+            f"{N('qc_recovery_median_max_pct'):.0f} %", x=-0.02, y=1.03)
 
 
 # =========================================================================== annotation panels
@@ -1227,12 +1238,12 @@ def figS4_recovery():
                           "withheld (figS4_shown: false): recovery > 100 %, calibration under "
                           "review", ["A", "B"])
     P = Panels("S4", "recovery", "supplement")
-    fig = plt.figure(figsize=(DOUBLE, 85 * MM))
-    gs = fig.add_gridspec(1, 2, wspace=0.5, left=0.15, right=0.98, top=0.88, bottom=0.25)
-    qc_is_vs_cal(fig, gs[0, 0], "A")
-    P.add("A", "REAL", "IS in soil vs calibration range", ["qc_is_vs_cal"])
+    fig = plt.figure(figsize=(DOUBLE, 70 * MM))
+    gs = fig.add_gridspec(1, 2, wspace=0.08, left=0.14, right=0.98, top=0.88, bottom=0.17)
+    qc_is_vs_cal(fig.add_subplot(gs[0, 0]), "A")
+    P.add("A", "REAL", "soil IS area / fitted area at the lowest level, 5 uL series", ["qc_is_vs_cal"])
     qc_recovery(fig.add_subplot(gs[0, 1]), "B")
-    P.add("B", "REAL", "apparent recovery", ["qc_recovery"])
+    P.add("B", "REAL", "apparent recovery per soil; A1 = 1 ng/uL, 200 uL, 10 ng", ["qc_recovery"])
     return save(fig, "S4", "recovery"), P.rows
 
 

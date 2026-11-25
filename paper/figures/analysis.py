@@ -182,7 +182,7 @@ def qc():
     vol = g_.get("reconstitution_volume_ul")
     day = str(g_.get("is_calibration_date") or "")
     levels = None
-    rows = []
+    rows, soil_rows = [], []
     for pol in POLS:
         prov = read_yaml(f"01_qc/{pol}/provenance.yaml")["params"]
         assumed, spike = float(prov["recon_ul_ASSUMED"]), float(prov["spike_ng"])
@@ -207,6 +207,10 @@ def qc():
                 rec_ = ng * v_ul / spike * 100
                 lo, hi = cal.conc.min(), cal.conc.max()
                 nb, na = int((ng < lo).sum()), int((ng > hi).sum())
+                low_area = 10 ** (a + b * np.log10(lo))  # fitted area at the lowest level
+                soil_rows += [{"compound": comp, "pol": pol, "area": float(x),
+                               "rel_lowest_level": float(x / low_area),
+                               "R_app_pct": float(rr)} for x, rr in zip(soil, rec_)]
                 r.update(slope=round(b, 3), r2=round(float(np.corrcoef(np.log10(cal.conc),
                          np.log10(cal.area))[0, 1] ** 2), 4), cal_min_ng_per_ul=lo,
                          cal_max_ng_per_ul=hi, soil_median_ng_per_ul=float(np.median(ng)),
@@ -218,6 +222,12 @@ def qc():
                          R_app_min_pct=float(rec_.min()), R_app_max_pct=float(rec_.max()))
             rows.append(r)
     d = pd.DataFrame(rows)
+    sd = pd.DataFrame(soil_rows)
+    table("qc_is_soil", sd)
+    number("qc_is_soil_n", len(sd), "qc_is_vs_cal")
+    number("qc_is_soil_n_below_lowest", int((sd.rel_lowest_level < 1).sum()), "qc_is_vs_cal")
+    number("qc_is_soil_rel_lowest_median", round(float(sd.rel_lowest_level.median()), 2),
+           "qc_is_vs_cal")
     number("qc_is_calibration_date", day or "all", "qc_is_vs_cal")
     number("qc_estd_a1_ng_per_ul", float(levels["A1"]), "qc_is_vs_cal")
     number("qc_is_cal_r2_min", float(d.r2.min()), "qc_is_vs_cal")
