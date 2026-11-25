@@ -1,5 +1,5 @@
-date: 2026-11-25T12:00:19+00:00
-export_git_sha: c578579c038aa69605aa6a23a934e9960a8f0307
+date: 2026-11-25T12:07:33+00:00
+export_git_sha: f476c4cb254185eff60c852efadc2557a1978bf6
 export_git_dirty: False
 command: 'paper/scripts/run_quant.py --results /lisc/data/work/ter/samrat/sla_workflow_dev/runs/climgrass_both_2ed5d70/results --prefix climgrass_pos --polarity pos --samples paper/00_inputs/climgrass_samples.csv --rie paper/00_inputs/rie_table_s10.csv --run-provenance /lisc/data/work/ter/samrat/sla_workflow_dev/runs/climgrass_both_2ed5d70/run_provenance.txt --out /lisc/data/work/ter/samrat/sla_workflow_dev/paper_out/04_quant/pos'
 pipeline_run:
@@ -16,6 +16,8 @@ params:
   collapse_rt_min: 0.1
   q2_predictions: False
   routes: 'option A (manuscript 2.7), decided 2026-11-25'
+  q3_adduct: 'analyte at class usual adduct (POS); MG -> Q4 (POS)'
+  class_sums: 'common lipid set (amount in every soil)'
   f_limits: [0.1, 10.0]
   rie_bridges: {'M+NH4': ('PS', 'M+H'), 'M+HCOO': ('HEXCER', 'M-H')}
 inputs:
