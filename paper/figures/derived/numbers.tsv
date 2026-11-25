@@ -94,6 +94,11 @@ interp_groups_restricted	Soil animals
 app_soils_pos	12
 app_soils_neg	12
 app_n_lipids_tested_pos	393
+app_n_q05_climate_pos	0
+app_n_q05_interaction_pos	0
+app_n_lipids_tested_neg	514
+app_n_q05_climate_neg	0
+app_n_q05_interaction_neg	0
 app_n_responsive_pos	18
 app_n_responsive_neg	15
 app_n_responsive_pos_matched	15

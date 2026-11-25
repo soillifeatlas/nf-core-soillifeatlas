@@ -452,9 +452,11 @@ def application():
         "log2fc_drought_vs_ambient")
     table("app_responsive", rows[["pol", "feature_id", "lipid_name",
                                   "log2fc_drought_vs_ambient"]])
-    ts = read_table("08_application/pos/test_summary.tsv").iloc[0]
-    read_table("08_application/neg/test_summary.tsv")
-    number("app_n_lipids_tested_pos", int(ts.n_lipids_tested), "app")
+    for p in POLS:
+        ts = read_table(f"08_application/{p}/test_summary.tsv").iloc[0]
+        number(f"app_n_lipids_tested_{p}", int(ts.n_lipids_tested), "app")
+        number(f"app_n_q05_climate_{p}", int(ts["n_q_lt_0.05_climate"]), "app")
+        number(f"app_n_q05_interaction_{p}", int(ts["n_q_lt_0.05_interaction"]), "app")
     for p in POLS:
         number(f"app_n_responsive_{p}", len(resp[p]), "app")
     occ = read_table("06_atlas_match/examples/responsive_atlas_occurrence.tsv")

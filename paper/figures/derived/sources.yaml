@@ -67,10 +67,37 @@ number:ann_top_level_pos:
 number:ann_top_level_share_pos:
 - 02_annotation/neg/confidence.tsv
 - 02_annotation/pos/confidence.tsv
-number:app_n_lipids_tested_pos:
+number:app_n_lipids_tested_neg:
 - 00_inputs/climgrass_samples.csv
 - 08_application/neg/responsive.tsv
 - 08_application/neg/test_summary.tsv
+- 08_application/pos/responsive.tsv
+- 08_application/pos/test_summary.tsv
+number:app_n_lipids_tested_pos:
+- 00_inputs/climgrass_samples.csv
+- 08_application/neg/responsive.tsv
+- 08_application/pos/responsive.tsv
+- 08_application/pos/test_summary.tsv
+number:app_n_q05_climate_neg:
+- 00_inputs/climgrass_samples.csv
+- 08_application/neg/responsive.tsv
+- 08_application/neg/test_summary.tsv
+- 08_application/pos/responsive.tsv
+- 08_application/pos/test_summary.tsv
+number:app_n_q05_climate_pos:
+- 00_inputs/climgrass_samples.csv
+- 08_application/neg/responsive.tsv
+- 08_application/pos/responsive.tsv
+- 08_application/pos/test_summary.tsv
+number:app_n_q05_interaction_neg:
+- 00_inputs/climgrass_samples.csv
+- 08_application/neg/responsive.tsv
+- 08_application/neg/test_summary.tsv
+- 08_application/pos/responsive.tsv
+- 08_application/pos/test_summary.tsv
+number:app_n_q05_interaction_pos:
+- 00_inputs/climgrass_samples.csv
+- 08_application/neg/responsive.tsv
 - 08_application/pos/responsive.tsv
 - 08_application/pos/test_summary.tsv
 number:app_n_responsive_neg:

@@ -44,7 +44,7 @@ def build() -> dict[str, str]:
             f"{int(pn.n_qc)} (NEG)")
     thr = n["qc_rsd_threshold_pct_pos"]
     c["Figure 1"] = (
-        f"The Soil Life Atlas ({n['release_label']}). (A) Reference collection: samples "
+        f"The Soil Life Atlas, {n['release_label']}. (A) Reference collection: samples "
         "measured in positive mode per phylum, grouped by organism group; hatched phyla were "
         f"collected but are not yet analysed ({n['release_phyla_analysed']} of "
         f"{n['release_phyla_collected']} phyla analysed; {n['release_genera']} genera; "
@@ -124,9 +124,9 @@ def build() -> dict[str, str]:
         "independent drying–rewetting validation is pre-registered and blinded and is not shown. "
         "(B) Lipids that change with drought (two-way ANOVA on log10 amounts per gram dry soil, "
         "Benjamini–Hochberg q < 0.05; "
-        f"{n['app_n_responsive_pos']} of {n['app_n_lipids_tested_pos']} POS lipids and "
-        f"{n['app_n_responsive_neg']} NEG lipids), shown as log2 fold change, drought vs "
-        "ambient. (C) Number of phyla in which the matched Atlas reference of each "
+        f"{n['app_n_responsive_pos']} of {n['app_n_lipids_tested_pos']} POS and "
+        f"{n['app_n_responsive_neg']} of {n['app_n_lipids_tested_neg']} NEG lipids), shown as "
+        "log2 fold change, drought vs ambient. (C) Number of phyla in which the matched Atlas reference of each "
         "drought-responsive POS lipid occurs; "
         f"{n['app_n_responsive_pos_matched']} of {n['app_n_responsive_pos']} have a match.")
 
