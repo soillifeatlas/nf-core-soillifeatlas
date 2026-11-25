@@ -1,7 +1,7 @@
-built: '2026-11-25T12:54:18+00:00'
+built: '2026-11-25T12:54:44+00:00'
 command: python paper/figures/build_all.py
-repo_head: bacc12d
-paper_figures_dirty: true
+repo_head: 8c32b47
+paper_figures_dirty: false
 gates:
   reconstitution_volume_confirmed: false
   stage5_fix_confirmed: false
@@ -162,7 +162,7 @@ figures:
             export_sha: f476c4c
             sha256: 5813b856feb136874a9fd5d5c0038ab625abd72c352bb5a7b7765a6c9ca90f78
           figures/rendered/report_pos.png:
-            git_sha: cd726c1+dirty
+            git_sha: 8c32b47
             export_sha: null
             sha256: 5f89b841a765d4c8c9c1fd91c7b34eb454649f254987812af86712f3dcd5b948
   '4':

@@ -1,6 +1,6 @@
 # Figure status (2026-11-25)
 
-Built by `python paper/figures/build_all.py` on branch `paper/figures-2026-11` at `bacc12d` (paper/figures has uncommitted changes).
+Built by `python paper/figures/build_all.py` on branch `paper/figures-2026-11` at `8c32b47`.
 Every plotted number is read from a file under `paper/` by the figure script; nothing is typed by hand.
 
 Main text: Fig 1 Atlas, Fig 2 what the Atlas adds to a soil dataset, Fig 3 workflow, Fig 4 interpreting single features, Fig 5 ClimGrass demonstration. Supplement: S1 quality, S2 annotation, S3 response and routes, S4 recovery, S5 amounts.
@@ -22,7 +22,7 @@ Gates (gates.yaml): `reconstitution_volume_confirmed: False`, `stage5_fix_confir
 | 3 workflow | A | **SCHEMATIC** | `figures/schematics/source/Fig2_workflow_2026-11-24.png` | cd726c1 | crop of the 2026-11-24 draft; stages 5–7 dashed |
 |  | B | **SCHEMATIC** | `figures/schematics/source/Fig2_workflow_2026-11-24.png` | cd726c1 | crop of the 2026-11-24 draft, unchanged |
 |  | C | **REAL** | `01_qc/neg/provenance.yaml`<br>`01_qc/neg/rsd_per_feature.tsv`<br>`01_qc/neg/rsd_summary.tsv`<br>`01_qc/pos/provenance.yaml`<br>`01_qc/pos/rsd_per_feature.tsv`<br>`01_qc/pos/rsd_summary.tsv` | 756333b (export ac355b6)<br>756333b (export ac355b6)<br>756333b (export ac355b6)<br>756333b (export ac355b6)<br>756333b (export ac355b6)<br>756333b (export ac355b6) | pooled-QC RSD: peak-picked only vs including gap-filled |
-|  | D | **REAL** | `09_report/report_pos.html`<br>`figures/rendered/report_pos.png` | 24f98ec (export f476c4c)<br>cd726c1+dirty | top of report_pos.html; the 'lipids with an amount' tile is stage-5 output |
+|  | D | **REAL** | `09_report/report_pos.html`<br>`figures/rendered/report_pos.png` | 24f98ec (export f476c4c)<br>8c32b47 | top of report_pos.html; the 'lipids with an amount' tile is stage-5 output |
 | 4 interpretation | A | **REAL** | `06_atlas_match/examples/examples.tsv`<br>`06_atlas_match/examples/mirror_21718.tsv` | a288361 (export 24f98ec)<br>a288361 (export 24f98ec) | example proposed, to confirm |
 |  | B | **REAL** | `06_atlas_match/examples/examples.tsv`<br>`06_atlas_match/examples/mirror_41748.tsv` | a288361 (export 24f98ec)<br>a288361 (export 24f98ec) | example proposed, to confirm |
 |  | C | **REAL** | `06_atlas_match/examples/examples.tsv`<br>`06_atlas_match/examples/examples_phylum_detection.tsv` | a288361 (export 24f98ec)<br>a288361 (export 24f98ec) | only phyla where either lipid is detected |
