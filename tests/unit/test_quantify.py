@@ -129,3 +129,26 @@ def test_an_exact_class_standard_wins_over_a_family_standard():
     r = assign_routes(ann, std, predicted=None).set_index("feature_id")
     assert r.loc[1, "is_compound"] == "PC_d7" and r.loc[1, "is_match"] == "class"
     assert r.loc[2, "is_compound"] == "LPC_d7" and r.loc[2, "is_match"] == "class"
+
+
+def test_positive_q3_scores_the_analyte_at_its_usual_adduct():
+    # PE standard measured as [M+H]+, TG analyte ionises as [M+NH4]+ (decision 2026-11-25)
+    std = pd.DataFrame({"compound": ["PE_d7"], "lipid_class": ["PE"], "rt": [16.0], "adduct": ["[M+H]+"]})
+    rie = pd.DataFrame({"class": ["PE", "TG", "TG", "PS", "PS"], "adduct": ["M+H", "M+H", "M+NH4", "M+H", "M+NH4"],
+                        "RIE_LPE": [10.0, 0.01, 2.0, 7.0, 1.0]})
+    routes = pd.DataFrame({"feature_id": [1], "lipid_name": ["TG 52:2"], "lipid_class": ["TG"],
+                           "confidence": ["Silver"], "quant_route": ["Q3"], "is_compound": ["PE_d7"],
+                           "RIE_pred": [np.nan]})
+    out = estimate(routes, pd.DataFrame({"s1": [10.0]}, index=[1]), pd.DataFrame({"s1": [10.0]}, index=["PE_d7"]),
+                   pd.DataFrame({"file_id": ["s1"], "dry_mass_g": [1.0], "spike_ng": [10.0]}), std, rie,
+                   pd.DataFrame(columns=["compound", "cal_min_area", "cal_max_area"]), polarity="pos")
+    # f = RIE(PE, M+H) / RIE(TG, M+NH4 bridged) = 10 / (2 x 7) = 0.714
+    assert out.loc[0, "f"] == pytest.approx(10 / 14)
+    assert not bool(out.loc[0, "f_capped"])
+
+
+def test_mg_without_its_own_standard_is_relative_only_in_positive_mode(standards):
+    ann = pd.DataFrame({"feature_id": [1], "lipid_name": ["MG 18:1"], "lipid_class": ["MG"],
+                        "confidence": ["Gold"], "rt": [18.0]})
+    r = assign_routes(ann, standards, predicted=None, polarity="pos").iloc[0]
+    assert r["quant_route"] == "Q4" and r["is_compound"] is None

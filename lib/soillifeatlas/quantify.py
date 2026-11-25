@@ -21,11 +21,13 @@ Routes follow the response evidence available for each feature (decision
 - Q3  class known, no Q1/Q2                                   -> nearest standard in RT,
                                                                  f = RIE(standard class) / RIE(analyte class)
 - Q4  no lipid class                                          -> no mass; excluded from sums
+      (positive mode also: MG without an MG standard - no usable response, POS_NO_RESPONSE)
 
 Annotation confidence stays a separate column and does not decide the route.
 RIE values are class means per adduct from the response table (Samrat et al.
 2025, Table S10), with [M+NH4]+ and [M+HCOO]- rows bridged onto the LPE scale
-(see BRIDGES). f is limited to [F_MIN, F_MAX]; ``f_capped`` marks limited rows
+(see BRIDGES). In positive mode the analyte is scored at its class's usual adduct
+(POS_CLASS_ADDUCT, e.g. [M+NH4]+ for TG), the standard at its measured adduct. f is limited to [F_MIN, F_MAX]; ``f_capped`` marks limited rows
 and ``f_uncapped`` keeps the raw ratio. The standard's measured adduct is used for both classes; if
 the analyte class has no value for that adduct, its [M+H]+ / [M-H]- value is
 used (``f_source`` says so); with no value at all f = 1 and ``f_default`` is set.
@@ -59,6 +61,12 @@ def _cls(c) -> str | None:
 # class measured with both adducts (decision 2026-11-25).
 BRIDGES = {"M+NH4": ("PS", "M+H"), "M+HCOO": ("HEXCER", "M-H")}
 F_MIN, F_MAX = 0.1, 10.0  # decision 2026-11-25: cap the response correction, flag capped rows
+# Positive mode: the adduct each analyte class is scored at (decision 2026-11-25, option A).
+# Classes not listed are scored at [M+H]+. Negative mode keeps the standard's adduct.
+POS_CLASS_ADDUCT = {"TG": "M+NH4", "DG": "M+NH4", "MG": "M+NH4", "CE": "M+NH4", "PI": "M+NH4", "PG": "M+NH4"}
+# Positive mode: classes with no usable response in Table S10 are relative only (Q4) unless a
+# standard of their own class is in the run (decision 2026-11-25: MG).
+POS_NO_RESPONSE = {"MG"}
 
 
 def class_rie(rie: pd.DataFrame) -> dict[tuple[str, str], float]:
@@ -73,7 +81,8 @@ def class_rie(rie: pd.DataFrame) -> dict[tuple[str, str], float]:
     return m
 
 
-def assign_routes(ann: pd.DataFrame, standards: pd.DataFrame, predicted: pd.DataFrame | None) -> pd.DataFrame:
+def assign_routes(ann: pd.DataFrame, standards: pd.DataFrame, predicted: pd.DataFrame | None,
+                  polarity: str = "pos") -> pd.DataFrame:
     """One row per annotated feature: route, standard used and lipid-specific RIE if any.
 
     ``standards``: compound, lipid_class, rt (median RT in this run), adduct.
@@ -96,6 +105,8 @@ def assign_routes(ann: pd.DataFrame, standards: pd.DataFrame, predicted: pd.Data
             route, k, match = "Q1", exact[x], "class"
         elif c in by_family:
             route, k, match = "Q1", by_family[c], "family"
+        elif polarity == "pos" and c in POS_NO_RESPONSE:
+            route, k, match = "Q4", None, None
         else:
             route = "Q2" if np.isfinite(rie_pred) else "Q3"
             k = std.iloc[(std["rt"] - r["rt"]).abs().argmin()]["compound"] if len(std) else None
@@ -126,7 +137,8 @@ def _f(route, analyte_cls, std_cls, std_adduct, rie_pred, rie, polarity):
         if r_std is None:
             return 1.0, "no RIE for standard class; f = 1", True
         return r_std / rie_pred, f"RIE({std_cls},{a}) / predicted RIE", False
-    r_an, src = rie.get((analyte_cls, a)), f"RIE({std_cls},{a}) / RIE({analyte_cls},{a})"
+    an_add = POS_CLASS_ADDUCT.get(analyte_cls, "M+H") if polarity == "pos" else a
+    r_an, src = rie.get((analyte_cls, an_add)), f"RIE({std_cls},{a}) / RIE({analyte_cls},{an_add})"
     if r_an is None:
         base = "M+H" if polarity == "pos" else "M-H"
         r_an, src = rie.get((analyte_cls, base)), f"RIE({std_cls},{a}) / RIE({analyte_cls},{base}) [adduct fallback]"

@@ -88,7 +88,7 @@ def main(argv=None):
 
     rie = pd.read_csv(p["rie"])
     pred = pd.read_csv(p["predicted"]) if a.predicted else None
-    routes = qt.assign_routes(ann, standards, pred)
+    routes = qt.assign_routes(ann, standards, pred, polarity=a.polarity)
     est = qt.estimate(routes, area, is_area, samples, standards, rie, cal, a.polarity)
     est = est.merge(samples[["file_id", "plot", "treatment"]], on="file_id")
     est.to_csv(out / "estimates_long.tsv", sep="\t", index=False)
@@ -119,12 +119,20 @@ def main(argv=None):
                                                  n_unique_lipids=("lipid_id", "nunique")).to_csv(
         out / "route_match_counts.tsv", sep="\t")
 
-    # class sums: one feature per unique lipid (the one with the largest median area), Q1-Q3 only
+    # class sums: one feature per unique lipid (the one with the largest median area), Q1-Q3 only,
+    # over the common lipid set = lipids with an amount in every soil (decision 2026-11-25), so that
+    # soils with more detected standards do not get larger sums
     q = est[est["quant_route"].isin(["Q1", "Q2", "Q3"])].merge(ann[["feature_id", "lipid_id"]], on="feature_id")
     if len(q):
         best = q.groupby(["lipid_id", "feature_id"])["area"].median().reset_index() \
                 .sort_values("area", ascending=False).drop_duplicates("lipid_id")["feature_id"]
         q = q[q["feature_id"].isin(best)]
+        complete = q.groupby("feature_id")["ng_per_g"].apply(lambda s: s.notna().all())
+        per["in_common_set"] = per["feature_id"].isin(complete[complete].index)
+        per.to_csv(out / "per_lipid.tsv", sep="\t", index=False)
+        pd.DataFrame([{"n_soils": len(soil_files), "n_unique_lipids_with_amount": int(len(complete)),
+                       "n_in_common_set": int(complete.sum())}]).to_csv(out / "common_set.tsv", sep="\t", index=False)
+        q = q[q["feature_id"].isin(complete[complete].index)]
         cls = q.groupby(["lipid_class", "plot", "treatment"])["ng_per_g"].sum(min_count=1).reset_index()
         cls["ug_per_g"] = cls["ng_per_g"] / 1000
         cls.to_csv(out / "class_by_sample.tsv", sep="\t", index=False)
@@ -152,6 +160,8 @@ def main(argv=None):
     provenance.write(out, p, {"polarity": a.polarity, "areas": "peak-picked only",
                               "collapse_rt_min": a.collapse_rt, "q2_predictions": bool(a.predicted),
                               "routes": "option A (manuscript 2.7), decided 2026-11-25",
+                              "q3_adduct": "analyte at class usual adduct (POS); MG -> Q4 (POS)",
+                              "class_sums": "common lipid set (amount in every soil)",
                               "f_limits": [qt.F_MIN, qt.F_MAX], "rie_bridges": qt.BRIDGES},
                      notes="Calibration range = min/max neat ESTD-1 areas (sequence OE12-1, 27-28 Mar 2023).",
                      pipeline_run=provenance.read_run_provenance(a.run_provenance))
