@@ -1,43 +1,19 @@
-"""Panels: workflow schematic (crop), tools/Atlas-layer matrix (crop), rendered report."""
+"""Panels: native workflow schematic with the Atlas layers, and the rendered report."""
 from __future__ import annotations
 
 import os
 import shutil
 import subprocess
 
-from matplotlib.patches import FancyBboxPatch, Rectangle
-
 from common import FIG_DIR, input_path, set_panel, show_image
 
-SCHEM = "figures/schematics/source/Fig2_workflow_2026-11-24.png"
-CROP_2A = (102, 240, 3866, 944)    # px in the 4000x3160 draft
-CROP_2C = (2183, 1208, 3885, 2100)
-STAGE_BOXES = [(2358, 2792), (2834, 3268), (3310, 3745)]  # stages 5, 6, 7 inside CROP_2A
-STAGE_Y = (18, 448)
+# Text source of the native schematic below (stage names, tools, Atlas layers).
+SCHEM_TEXT_SOURCE = "figures/schematics/source/Fig2_workflow_2026-11-24.png"
 
 REPORT_HTML = "09_report/report_pos.html"
 REPORT_PNG = "figures/rendered/report_pos.png"
-REPORT_VIEW_CSS = (1100, 470)  # top of the page: title, summary tiles, first quality checks
+REPORT_VIEW_CSS = (560, 300)  # narrow view: title and the summary tiles only
 CHROME = "/Applications/Google Chrome.app/Contents/MacOS/Google Chrome"
-
-
-def stages(ax):
-    """Seven-stage schematic; stages 5-7 dashed (scripted, not yet Nextflow processes)."""
-    set_panel("schematic_stages")
-    show_image(ax, input_path(SCHEM), CROP_2A)
-    y0, y1 = STAGE_Y
-    for x0, x1 in STAGE_BOXES:
-        ax.add_patch(Rectangle((x0, y0), x1 - x0, y1 - y0, facecolor="white", alpha=0.55,
-                               edgecolor="none", zorder=3))
-        ax.add_patch(FancyBboxPatch((x0 + 6, y0 + 6), x1 - x0 - 12, y1 - y0 - 12,
-                                    boxstyle="round,pad=0,rounding_size=30", fill=False,
-                                    edgecolor="#333333", linewidth=0.9,
-                                    linestyle=(0, (4, 2.5)), zorder=4))
-
-
-def tools_matrix(ax):
-    set_panel("schematic_tools")
-    show_image(ax, input_path(SCHEM), CROP_2C)
 
 
 def render_report() -> None:
@@ -67,3 +43,90 @@ def report(ax):
         s.set_visible(True)
         s.set_color("#999999")
         s.set_linewidth(0.5)
+
+
+# --------------------------------------------------------------------------- native schematic
+# Text of the stages, tools and Atlas layers, taken over from the 2026-11-24 draft schematic
+# (Fig2_workflow_2026-11-24.png, panels A and C). Schematic labels, not data.
+STAGES = [
+    # (number, title, what it does, tools, output, in Nextflow?)
+    (1, "Convert", "raw → indexed mzML", "ThermoRawFileParser", None, True),
+    (2, "Detect", "features per polarity;\npeak-picked and\ngap-filled kept apart", "MZmine 4.9",
+     None, True),
+    (3, "Check quality", "pooled QCs, internal\nstandards, blanks,\ncalibration, NIST", "workflow code",
+     "QC report", True),
+    (4, "Annotate", "lipid names with\nconfidence levels", "LipidSearch, MS-DIAL,\nGNPS, SIRIUS, "
+     "MZmine", "annotated features", True),
+    (5, "Amounts", "routes Q1–Q4,\nper g dry soil", "internal standards", "amounts per g soil",
+     False),
+    (6, "Report", "one-page report\nand result tables", "workflow code", "report + tables",
+     False),
+    (7, "Interpret", "spectral match to\nreference organisms", "Atlas matching", "Atlas matches",
+     False),
+]
+# Atlas layers under the stage they feed: (stage, text, used by default?)
+ATLAS_LINKS = [(4, "identity\nreference spectra and names", False),
+               (5, "response\nrelative ionisation by class", True),
+               (7, "identity + occurrence\nwhere each lipid is found", True)]
+
+
+def workflow_native(ax):
+    """Seven stages left to right; the Atlas as a band underneath feeding stages 4, 5 and 7."""
+    from matplotlib.patches import FancyArrowPatch, FancyBboxPatch
+
+    from common import ATLAS, SOIL
+    set_panel("schematic_native")
+    ax.set_xlim(0, 100)
+    ax.set_ylim(0, 40)
+    ax.set_axis_off()
+    x0, w, gap = 10.5, 11.3, 1.4
+    top, h = 39, 22
+    centres = {}
+    # inputs
+    ax.add_patch(FancyBboxPatch((0.3, top - h), 8.6, h, boxstyle="round,pad=0,rounding_size=1.2",
+                                facecolor="#F2F2F2", edgecolor="#BBBBBB", lw=0.6))
+    ax.text(4.6, top - 2.5, "Inputs", ha="center", va="top", fontsize=6.3, fontweight="bold")
+    ax.text(4.6, top - 7, "raw files\n\nsample\nsheet\n\nAtlas\nrelease", ha="center", va="top",
+            fontsize=5.5, linespacing=1.1)
+    for i, (n, title, what, tools, out, nf) in enumerate(STAGES):
+        x = x0 + i * (w + gap)
+        centres[n] = x + w / 2
+        ax.add_patch(FancyBboxPatch((x, top - h), w, h, boxstyle="round,pad=0,rounding_size=1.2",
+                                    facecolor="white", edgecolor=SOIL, lw=0.9,
+                                    linestyle="-" if nf else (0, (3, 2))))
+        ax.add_patch(FancyBboxPatch((x, top - 5.2), w, 5.2,
+                                    boxstyle="round,pad=0,rounding_size=1.2",
+                                    facecolor=SOIL if nf else "#8A96A3", edgecolor="none"))
+        ax.text(x + w / 2, top - 2.6, f"{n}  {title}", ha="center", va="center", fontsize=6,
+                fontweight="bold", color="white")
+        ax.text(x + w / 2, top - 7.2, what, ha="center", va="top", fontsize=5.3,
+                linespacing=1.15)
+        ax.text(x + w / 2, top - h + 1.2, tools, ha="center", va="bottom", fontsize=4.8,
+                color="#666666", style="italic", linespacing=1.1)
+        if i:
+            ax.annotate("", xy=(x - 0.1, top - h / 2), xytext=(x - gap + 0.1, top - h / 2),
+                        arrowprops=dict(arrowstyle="-|>", lw=0.6, color="#777777",
+                                        mutation_scale=6))
+        if out:
+            ax.text(x + w / 2, top - h + 6.6, f"→ {out}", ha="center", va="bottom",
+                    fontsize=5.2, color=SOIL, fontweight="bold")
+    ax.annotate("", xy=(x0 - 0.1, top - h / 2), xytext=(9.0, top - h / 2),
+                arrowprops=dict(arrowstyle="-|>", lw=0.6, color="#777777", mutation_scale=6))
+    # Atlas band: each layer sits under the stage it feeds
+    band_y, band_h = 0.8, 7.5
+    ax.add_patch(FancyBboxPatch((x0, band_y), 7 * w + 6 * gap, band_h,
+                                boxstyle="round,pad=0,rounding_size=1.2", facecolor=ATLAS,
+                                alpha=0.12, edgecolor=ATLAS, lw=0.8))
+    ax.text(x0 - 1.0, band_y + band_h / 2, "Soil Life\nAtlas", ha="right", va="center",
+            fontsize=6.5, fontweight="bold", color=ATLAS)
+    for stage, text, default in ATLAS_LINKS:
+        cx = centres[stage]
+        ax.text(cx, band_y + band_h / 2, text, ha="center", va="center", fontsize=5,
+                color="#0B5F57", linespacing=1.15,
+                bbox=dict(boxstyle="round,pad=0.3", facecolor="white", edgecolor=ATLAS, lw=0.6))
+        ax.add_patch(FancyArrowPatch((cx, band_y + band_h + 0.2), (cx, top - h - 0.3),
+                                     arrowstyle="-|>", mutation_scale=7, lw=0.9, color=ATLAS,
+                                     linestyle="-" if default else (0, (2, 1.5))))
+    ax.text(x0, band_y - 0.4, "teal arrow solid: used by default · dashed: when available    "
+            "grey dashed box: run as a script, not yet a Nextflow process", ha="left", va="top",
+            fontsize=5, color="#666666")

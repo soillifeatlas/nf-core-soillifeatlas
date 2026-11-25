@@ -21,7 +21,6 @@ import yaml  # noqa: E402
 import common  # noqa: E402
 import figures  # noqa: E402
 import panels_quant  # noqa: E402
-import panels_workflow  # noqa: E402
 
 UNCHANGED = [
     {"figure": "1", "name": "atlas", "role": "main", "panel": "A–D", "status": "UNCHANGED",
@@ -124,8 +123,7 @@ def main() -> int:
             "figures/schematics/source/Fig2_workflow_2026-11-24.png": {
                 "from": "Google Drive folder 1bR_DKLZjM1M0crbp7-Ffwo6EUGxFjwKn, file id "
                         "1NJwtkjVm8F2GWcJSrjEDEgvCo-hli6az",
-                "crops": {"Fig3A": list(panels_workflow.CROP_2A),
-                          "Fig3B": list(panels_workflow.CROP_2C)}},
+                "used_for": "text of the natively drawn Fig 3A (no crop)"},
             "figures/schematics/source/Fig5_quantification_2026-11-24.png": {
                 "from": "Google Drive folder 1bR_DKLZjM1M0crbp7-Ffwo6EUGxFjwKn, file id "
                         "18CBhsQyLNANSEUddCtcQCL5bdV8XogRk",

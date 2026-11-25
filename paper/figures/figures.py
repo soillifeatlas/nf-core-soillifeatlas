@@ -49,25 +49,22 @@ def fig2_atlas():
 
 def fig3_workflow():
     P = Panels(3, "workflow")
-    fig = plt.figure(figsize=(DOUBLE, 170 * MM))
-    axA = fig.add_axes([0.0, 0.80, 1.0, 0.16])
-    wf.stages(axA)
-    fig_letter(fig, "A", 0.005, 0.995, "From raw files to Atlas-linked lipid profiles "
-               "(dashed: run as scripts, not yet Nextflow processes)")
-    P.add("A", "SCHEMATIC", "crop of the 2026-11-24 draft; stages 5–7 dashed",
-          ["schematic_stages"])
-    axB = fig.add_axes([0.02, 0.43, 0.44, 0.31])
-    wf.tools_matrix(axB)
-    fig_letter(fig, "B", 0.005, 0.775, "Where tools and Atlas layers enter")
-    P.add("B", "SCHEMATIC", "crop of the 2026-11-24 draft, unchanged", ["schematic_tools"])
-    gC = fig.add_gridspec(1, 2, left=0.58, right=0.98, top=0.735, bottom=0.47, wspace=0.12)
-    qc.panel_B(fig, gC, tag="C", compact=True)
-    P.add("C", "REAL", "pooled-QC RSD: peak-picked only vs including gap-filled", ["3B"])
-    axD = fig.add_axes([0.08, 0.0, 0.84, 0.355])
-    wf.report(axD)
-    fig_letter(fig, "D", 0.005, 0.385, "One-page report (ClimGrass, positive mode)")
-    P.add("D", "REAL", "top of report_pos.html; the 'lipids with an amount' tile is stage-5 "
-          "output", ["report"])
+    fig = plt.figure(figsize=(DOUBLE, 118 * MM))
+    axA = fig.add_axes([0.005, 0.53, 0.99, 0.43])
+    wf.workflow_native(axA)
+    fig_letter(fig, "A", 0.005, 0.995, "Seven stages from raw files to Atlas-linked lipid "
+               "profiles; the Atlas enters at annotation, amounts and interpretation")
+    P.add("A", "SCHEMATIC", "drawn natively; stage and tool text from the 2026-11-24 draft",
+          ["schematic_native"])
+    gB = fig.add_gridspec(1, 2, left=0.07, right=0.56, top=0.43, bottom=0.09, wspace=0.08)
+    qc.rsd_main(fig, gB, "B")
+    P.add("B", "REAL", "pooled-QC RSD per feature; eligibility rule in rsd_summary.tsv",
+          ["rsd_main"])
+    axC = fig.add_axes([0.62, 0.05, 0.36, 0.38])
+    wf.report(axC)
+    fig_letter(fig, "C", 0.605, 0.485, "Every run ends in a one-page report")
+    P.add("C", "REAL", "summary tiles of report_pos.html; the 'lipids with an amount' tile is "
+          "stage-5 output", ["report"])
     return save(fig, 3, "workflow"), P.rows
 
 

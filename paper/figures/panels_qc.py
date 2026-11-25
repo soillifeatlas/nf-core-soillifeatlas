@@ -163,3 +163,43 @@ def panel_D(fig, gs, tag="D"):
     return "REAL", ""
 
 
+
+
+def rsd_main(fig, gs, tag):
+    """Main-text version: peak-picked only (slate) vs including gap-filled values (grey)."""
+    from common import SOIL, finding
+    set_panel("rsd_main")
+    axes = [fig.add_subplot(gs[i]) for i in range(2)]
+    stats = {}
+    for ax, pol in zip(axes, POLS):
+        thr = read_yaml(f"01_qc/{pol}/provenance.yaml")["params"]["thresholds_from_run"][
+            "qc_feature_rsd_pct"]
+        rsd = read_table(f"01_qc/{pol}/rsd_per_feature.tsv")
+        summ = read_table(f"01_qc/{pol}/rsd_summary.tsv").set_index("mode")
+        for mode, flag, col, colour, lab in [
+                ("peak_picked_only", "eligible_peak_picked", "rsd_peak_picked_pct", SOIL,
+                 "detected peaks only"),
+                ("including_gap_filled", "eligible_with_gapfill", "rsd_with_gapfill_pct",
+                 "#A6A6A6", "incl. gap-filled values")]:
+            v = np.sort(rsd.loc[rsd[flag].astype(bool), col].dropna().to_numpy())
+            n = int(summ.loc[mode, "n_eligible"])
+            if len(v) != n:
+                raise ValueError(f"{pol} {mode}: {len(v)} RSD values vs n_eligible {n}")
+            pct = summ.loc[mode, "pct_of_eligible_le_30"]
+            stats[(pol, mode)] = (n, pct)
+            ax.step(v, np.arange(1, n + 1) / n, where="post", color=colour, lw=1.2,
+                    label=f"{lab}\n{n:,} features, {pct} % ≤ {thr:g} %")
+        ax.axvline(thr, color="black", lw=0.5, ls=":")
+        ax.set_xlim(0, 150)
+        ax.set_ylim(0, 1.0)
+        ax.set_xlabel("pooled-QC RSD (%)")
+        ax.text(0.97, 0.97, POL_LABEL[pol], transform=ax.transAxes, ha="right", va="top",
+                fontsize=6.5, fontweight="bold", color="#555555")
+        ax.legend(loc="lower right", fontsize=5, handlelength=1.2, borderaxespad=0.1,
+                  labelspacing=0.6)
+    axes[1].tick_params(labelleft=False)
+    axes[0].set_ylabel("cumulative fraction of features")
+    n_pp, _ = stats[("pos", "peak_picked_only")]
+    n_gf, pct_gf = stats[("pos", "including_gap_filled")]
+    finding(axes[0], tag, f"Gap filling adds {n_gf / n_pp:.0f}× more features; "
+            f"only {pct_gf:.0f} % reproducible (POS)", x=-0.02)
