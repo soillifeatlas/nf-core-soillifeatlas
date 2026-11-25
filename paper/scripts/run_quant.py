@@ -77,6 +77,14 @@ def main(argv=None):
         meta[["plot", "treatment", "dry_mass_g", "spike_ng_per_is"]], on="plot")
     samples = samples.rename(columns={"spike_ng_per_is": "spike_ng"})
 
+    # a standard is "in the run" only if it was peak-picked in at least half of the soils
+    n_det = is_area.reindex(columns=soil_files).notna().sum(axis=1)
+    usable = n_det[n_det >= np.ceil(len(soil_files) / 2)].index
+    standards_all = standards.assign(n_soils_detected=standards["compound"].map(n_det).fillna(0).astype(int),
+                                     used_for_quant=standards["compound"].isin(usable))
+    standards_all.to_csv(out / "standards_used.tsv", sep="\t", index=False)
+    standards = standards[standards["compound"].isin(usable)]
+
     rie = pd.read_csv(p["rie"])
     pred = pd.read_csv(p["predicted"]) if a.predicted else None
     routes = qt.assign_routes(ann, standards, pred)
@@ -97,9 +105,12 @@ def main(argv=None):
     n_feat_total = len(area)
     rc = per.groupby("quant_route").agg(n_features=("feature_id", "size"),
                                         n_unique_lipids=("lipid_id", "nunique")).reindex(qt.ROUTE_ORDER).fillna(0)
-    rc.loc["unannotated"] = [n_feat_total - len(per), np.nan]
+    # Q4 = features without a lipid class, i.e. also every unannotated feature (relative signal only)
+    rc.loc["Q4", "n_features"] += n_feat_total - len(per)
+    rc.loc["Q4", "n_unique_lipids"] = np.nan
+    rc["pct_of_all_features"] = (rc["n_features"] / n_feat_total * 100).round(1)
     rc["pct_of_annotated_features"] = (rc["n_features"] / len(per) * 100).round(1)
-    rc.loc["unannotated", "pct_of_annotated_features"] = np.nan
+    rc.loc["Q4", "pct_of_annotated_features"] = np.nan
     rc.to_csv(out / "route_counts.tsv", sep="\t")
 
     # class sums: one feature per unique lipid (the one with the largest median area), Q1-Q3 only
