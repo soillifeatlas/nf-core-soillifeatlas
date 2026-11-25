@@ -1,0 +1,18 @@
+date: 2026-11-25T11:06:35+00:00
+export_git_sha: 8012e4c798bc784cfb6daa6e2b613fa9d13c30bb
+export_git_dirty: False
+command: 'paper/scripts/export_response.py --rie paper/00_inputs/rie_table_s10.csv --builder /Users/rahulsamrat/Desktop/SoilMass/SLA/methods/08_climgrass/scripts/rie_prediction.py --out paper/03_response'
+params:
+  cv: 'leave-one-class-out'
+  adducts: ['M+H', 'M+NH4']
+  seed: 20260808
+  builder_repo_sha: '2b48a5dfb5e77cf584519bf36ec3ad54a8decd51'
+  best_model: 'random_forest'
+inputs:
+  rie_table_s10:
+    path: 'paper/00_inputs/rie_table_s10.csv'
+    sha256: 056da89dfa158615541181073a63cb2f1f6a17e12317d5b38fbd16337afcc166
+  rie_prediction_builder:
+    path: '/Users/rahulsamrat/Desktop/SoilMass/SLA/methods/08_climgrass/scripts/rie_prediction.py'
+    sha256: fabbd4b31d3f8b1019d7ce3459d2693bc677c599677b9d6e8a1be8071cd8bd96
+notes: 'Matrix effect not computed: no post-extraction spikes in the ClimGrass sequence.'
