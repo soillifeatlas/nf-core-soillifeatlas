@@ -20,7 +20,7 @@ composition, one refit without anchors beyond 3 robust SD; tolerance 4 × robust
   median |residual| 0.18 min, along ECN 30–51 (plot, green).
 - The R² of 0.63 over all anchors is pulled down by Gold anchors that themselves elute far too
   early (anchor RT down to 5.3 min); 9 of the 109 anchors end up flagged as outliers.
-- 244 of 246 outliers elute **earlier** than predicted (median RT 15.9 min vs 22.7 min for
+- 243 of 246 outliers elute **earlier** than predicted (median RT 15.9 min vs 22.7 min for
   accepted TG; median residual −4.2 min), many with compositions no TG has at that RT
   (e.g. "TG 54:15" at 1.7 min, "TG 50:13" at 1.6 min). 215 are Silver, 31 Gold; 245 of 246 come
   from LipidSearch. These look like other classes, in-source fragments or adducts named as TG.
