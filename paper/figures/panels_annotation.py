@@ -11,7 +11,7 @@ POLS = ("pos", "neg")
 SOURCE_ORDER = ["LipidSearch", "SIRIUS/CANOPUS", "MZmine lipid rules", "spectral library"]
 
 
-def upset(fig, gs, pol, first):
+def upset(fig, gs, pol, first, tag="A"):
     sets = read_table(f"02_annotation/{pol}/upset_sets.tsv")
     inter = read_table(f"02_annotation/{pol}/upset_intersections.tsv")
     inter = inter.sort_values("n_features", ascending=False).reset_index(drop=True)
@@ -54,11 +54,11 @@ def upset(fig, gs, pol, first):
         ax_lab.text(0.04, i, n, va="center", ha="left", fontsize=6,
                     transform=ax_lab.get_yaxis_transform())
     if first:
-        letter(ax_bar, "A", x=-0.62, y=1.2,
+        letter(ax_bar, tag, x=-0.62, y=1.2,
                title="Annotation sources (UpSet; exclusive intersections; left: set sizes)")
 
 
-def panel_B(ax):
+def panel_B(ax, tag="B"):
     set_panel("4B")
     ys = []
     for i, pol in enumerate(POLS):
@@ -84,10 +84,10 @@ def panel_B(ax):
     handles = [plt.Rectangle((0, 0), 1, 1, color=CONF[k]) for k in ("Gold", "Silver", "Bronze")]
     ax.legend(handles, ["Gold", "Silver", "Bronze"], ncol=3, loc="lower right",
               bbox_to_anchor=(1.0, 1.0), handlelength=1, columnspacing=0.8)
-    letter(ax, "B", x=-0.15, y=1.15, title="Confidence (ClimGrass)")
+    letter(ax, tag, x=-0.15, y=1.15, title="Confidence (ClimGrass)")
 
 
-def panel_C(fig, gs, top=12):
+def panel_C(fig, gs, top=12, tag="C"):
     set_panel("4C")
     axes = [fig.add_subplot(gs[i]) for i in range(2)]
     for ax, pol in zip(axes, POLS):
@@ -103,10 +103,10 @@ def panel_C(fig, gs, top=12):
                      color=POL[pol], pad=2)
         ax.legend(loc="upper right", handlelength=1)
     axes[0].set_ylabel("Gold + Silver + Bronze")
-    letter(axes[0], "C", x=-0.12, y=1.1, title="Classes: features vs unique lipids")
+    letter(axes[0], tag, x=-0.12, y=1.1, title="Classes: features vs unique lipids")
 
 
-def panel_D(fig, gs):
+def panel_D(fig, gs, tag="D"):
     set_panel("4D")
     ax = fig.add_subplot(gs)
     lo, hi = np.inf, -np.inf
@@ -127,25 +127,6 @@ def panel_D(fig, gs):
     ax.legend(loc="upper left", fontsize=5.5, handletextpad=0.2, borderaxespad=0.1)
     ax.text(0.02, 0.5, "untested, not drawn:\n" + ", ".join(notes), transform=ax.transAxes, ha="left",
             fontsize=5.5)
-    letter(ax, "D", x=-0.15, y=1.04, title="PC retention-time model")
+    letter(ax, tag, x=-0.15, y=1.04, title="PC retention-time model")
 
 
-def build():
-    P = Panels(4)
-    fig = plt.figure(figsize=(DOUBLE, 185 * MM))
-    outer = fig.add_gridspec(3, 1, height_ratios=[1.0, 1.0, 0.95], hspace=0.5,
-                             left=0.08, right=0.98, top=0.93, bottom=0.07)
-    set_panel("4A")
-    top = outer[0].subgridspec(1, 2, wspace=0.12)
-    upset(fig, top[0], "pos", True)
-    upset(fig, top[1], "neg", False)
-    P.add("A", "REAL", "exclusive intersections, POS and NEG")
-    mid = outer[1].subgridspec(1, 2, width_ratios=[1.1, 1], wspace=0.3)
-    panel_B(fig.add_subplot(mid[0]))
-    P.add("B", "REAL", "ClimGrass only; drying–rewetting values omitted (not in a recorded "
-          "paper/ file)")
-    panel_D(fig, mid[1])
-    P.add("D", "REAL", "points with an RT check; untested (incl. ether PC) counted, not drawn")
-    panel_C(fig, outer[2].subgridspec(1, 2, wspace=0.15))
-    P.add("C", "REAL", "12 largest classes per polarity by feature count")
-    return save(fig, 4, "annotation"), P.rows

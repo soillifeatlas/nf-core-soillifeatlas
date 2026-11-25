@@ -1,10 +1,9 @@
 """Checks for the figure scripts.  Run:  python paper/figures/test_figures.py  (or pytest).
 
-1. Every figure script builds with the gates as committed.
-2. Every script also builds with all Pass-2 gates open (into a temporary folder), so the
-   PENDING panels are ready to re-run once the user confirms the inputs.
+1. Every figure builds with the gates as committed; gated figures are reported NOT BUILT.
+2. Every figure also builds with all gates open (into a temporary folder), so the waiting
+   figures are ready to re-run once the user confirms the inputs.
 3. No panel reads a file outside paper/, and the scripts contain no absolute data paths.
-4. While a gate is closed, its panels are reported PENDING.
 """
 from __future__ import annotations
 
@@ -21,8 +20,9 @@ import yaml  # noqa: E402
 
 import common  # noqa: E402
 
-SCRIPTS = ["fig2", "fig3", "fig4", "fig5", "fig6", "fig7"]
-GATED = {"3D", "5C", "5F", "7B", "7C", "7D", "7E"}
+SCRIPTS = ["figures", "panels_atlas", "panels_workflow", "panels_qc", "panels_annotation",
+           "panels_quant", "panels_interp", "panels_application"]
+GATED = {"5A", "5B", "5C", "5D", "S4A", "S4B", "S5A", "S5B"}
 
 
 def _build_all(out: Path, gates_file: Path | None = None):
@@ -30,14 +30,13 @@ def _build_all(out: Path, gates_file: Path | None = None):
     if gates_file:
         os.environ["FIG_GATES_FILE"] = str(gates_file)
     try:
-        import importlib
+        import figures
         common.OUT_DIR = out
         common.reset_reads()
         rows = []
-        for name in SCRIPTS:
-            mod = importlib.import_module(name)
-            paths, r = mod.build()
-            assert all(p.exists() and p.stat().st_size > 0 for p in paths), name
+        for build in figures.FIGURES:
+            paths, r = build()
+            assert all(p.exists() and p.stat().st_size > 0 for p in paths), build.__name__
             rows += r
         return rows, common.reads()
     finally:
@@ -59,12 +58,14 @@ def test_build_with_committed_gates():
     _assert_inside_paper(reads)
     g = common.gates()
     status = {f"{r['figure']}{r['panel']}": r["status"] for r in rows}
+    assert "PENDING" not in status.values()
     if not g["reconstitution_volume_confirmed"]:
-        assert status["3D"] == status["5C"] == "PENDING"
+        assert status["S4A"] == status["S4B"] == "NOT BUILT"
     if not g["stage5_fix_confirmed"]:
-        for k in ("5F", "7B", "7C", "7D", "7E"):
-            assert status[k] == "PENDING", k
-    assert status["6D"] == "PENDING"
+        for k in ("5A", "5B", "5C", "S5A", "S5B"):
+            assert status[k] == "NOT BUILT", k
+    for k in ("2A", "2B", "2C", "2D", "4A", "4B", "4C"):
+        assert status[k] == "REAL", k
 
 
 def test_build_with_all_gates_open():

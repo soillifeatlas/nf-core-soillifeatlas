@@ -23,7 +23,7 @@ def shade_blocks(ax, spans):
             ax.axvspan(lo - 0.5, hi + 0.5, color="#EFEFEF", zorder=0, lw=0)
 
 
-def panel_A(fig, gs):
+def panel_A(fig, gs, tag="A"):
     set_panel("3A")
     axes = [fig.add_subplot(gs[i]) for i in range(2)]
     for ax, pol in zip(axes, POLS):
@@ -46,7 +46,7 @@ def panel_A(fig, gs):
         ax.tick_params(axis="y", length=0)
         ax.spines["left"].set_visible(False)
     axes[1].set_xlabel("injection order", labelpad=1)
-    letter(axes[0], "A", x=-0.07, y=1.55, title="Injection sequence and roles")
+    letter(axes[0], tag, x=-0.07, y=1.55, title="Injection sequence and roles")
     roles = list(ROLE)
     axes[1].legend([Rectangle((0, 0), 1, 1, facecolor=ROLE[k], edgecolor="#333333", lw=0.3)
                     for k in roles], [ROLE_LABEL[k] for k in roles], ncol=6,
@@ -54,7 +54,7 @@ def panel_A(fig, gs):
                    columnspacing=1.2)
 
 
-def panel_B(fig, gs):
+def panel_B(fig, gs, tag="B", compact=False):
     set_panel("3B")
     axes = [fig.add_subplot(gs[i]) for i in range(2)]
     for ax, pol in zip(axes, POLS):
@@ -72,21 +72,27 @@ def panel_B(fig, gs):
             if len(v) != n:
                 raise ValueError(f"{pol} {mode}: {len(v)} RSD values vs n_eligible {n}")
             y = np.arange(1, len(v) + 1) / len(v)
+            sep = "\n" if compact else ": "
             ax.step(v, y, where="post", color=POL[pol], ls=ls, lw=1.0,
-                    label=f"{lab}: n = {n:,}, {summ.loc[mode, 'pct_of_eligible_le_30']}% "
+                    label=f"{lab}{sep}n = {n:,}, {summ.loc[mode, 'pct_of_eligible_le_30']}% "
                           f"≤ {thr:g}%")
         ax.axvline(thr, color="black", lw=0.6, ls=":")
         ax.set_xlim(0, 150)
         ax.set_ylim(0, 1.0)
         ax.set_xlabel("pooled-QC RSD (%)")
         ax.set_title(POL_LABEL[pol], loc="left", fontsize=7, color=POL[pol], pad=2)
-        ax.legend(loc="center right", bbox_to_anchor=(1.0, 0.22), handlelength=1.8,
-                  fontsize=5.8)
-    axes[0].set_ylabel("cumulative fraction of eligible features")
-    letter(axes[0], "B", x=-0.18, y=1.08, title="Pooled-QC RSD per feature")
+        if compact:
+            ax.legend(loc="lower right", handlelength=1.5, fontsize=5, borderaxespad=0.1)
+        else:
+            ax.legend(loc="center right", bbox_to_anchor=(1.0, 0.22), handlelength=1.8,
+                      fontsize=5.8)
+    axes[1].tick_params(labelleft=False)
+    axes[0].set_ylabel("cumulative fraction" if compact else
+                       "cumulative fraction of eligible features")
+    letter(axes[0], tag, x=-0.18, y=1.08, title="Pooled-QC RSD per feature")
 
 
-def panel_C(fig, gs):
+def panel_C(fig, gs, tag="C"):
     set_panel("3C")
     axes = np.array([[fig.add_subplot(gs[r, c]) for c in range(2)] for r in range(2)])
     for c, pol in enumerate(POLS):
@@ -125,17 +131,17 @@ def panel_C(fig, gs):
                 ax.tick_params(labelbottom=False)
             else:
                 ax.set_xlabel("injection order")
-    letter(axes[0, 0], "C", x=-0.13, y=1.12,
+    letter(axes[0, 0], tag, x=-0.13, y=1.12,
            title="Internal standards: RT and mass accuracy, all injections (shaded = block 1)")
 
 
-def panel_D(fig, gs):
+def panel_D(fig, gs, tag="D"):
     set_panel("3D")
     ax = fig.add_subplot(gs)
     data = {pol: read_table(f"01_qc/{pol}/is_vs_calibration.tsv") for pol in POLS}
     if not gates()["reconstitution_volume_confirmed"]:
         pending(ax, "reconstitution\nvolume not confirmed")
-        letter(ax, "D", x=0.0, y=1.02, title="IS in soil vs calibration range")
+        letter(ax, tag, x=0.0, y=1.02, title="IS in soil vs calibration range")
         return "PENDING", "gated on reconstitution_volume_confirmed"
     rows = []
     for pol, d in data.items():
@@ -153,23 +159,7 @@ def panel_D(fig, gs):
     ax.set_xscale("log")
     ax.set_xlabel(r"ng µL$^{-1}$ in extract (grey = calibration range)")
     ax.invert_yaxis()
-    letter(ax, "D", x=-0.02, y=1.02, title="IS in soil vs calibration range")
+    letter(ax, tag, x=-0.02, y=1.02, title="IS in soil vs calibration range")
     return "REAL", ""
 
 
-def build():
-    P = Panels(3)
-    fig = plt.figure(figsize=(DOUBLE, 175 * MM))
-    outer = fig.add_gridspec(3, 1, height_ratios=[0.55, 1.0, 1.35], hspace=0.62,
-                             left=0.09, right=0.98, top=0.95, bottom=0.06)
-    panel_A(fig, outer[0].subgridspec(2, 1, hspace=1.5))
-    P.add("A", "REAL", "POS and NEG sequences, both blocks")
-    mid = outer[1].subgridspec(1, 3, wspace=0.35, width_ratios=[1, 1, 0.85])
-    panel_B(fig, mid[0, :2].subgridspec(1, 2, wspace=0.12))
-    P.add("B", "REAL", "ECDF of RSD, x-axis cut at 150 %; n and % ≤ 30 % from rsd_summary.tsv")
-    st, note = panel_D(fig, mid[0, 2])
-    P.add("D", st, note or "reconstitution volume")
-    panel_C(fig, outer[2].subgridspec(2, 2, hspace=0.12, wspace=0.15))
-    P.add("C", "REAL", "detected IS in all injections, RT relative to the recorded block median "
-          "(is_by_block.tsv); tolerances from provenance.yaml; dates in Europe/Vienna time")
-    return save(fig, 3, "quality"), P.rows

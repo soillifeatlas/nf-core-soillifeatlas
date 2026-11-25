@@ -3,8 +3,9 @@
 
     python paper/figures/build_all.py
 
-Pass-2 panels (3D, 5C, 5E-Q3, 5F, 7B-E) stay PENDING until the switches in gates.yaml are
-set. Outputs go to paper/figures/output/ (or $FIG_OUT_DIR).
+Figures that need an unconfirmed input (Fig 5, S4, S5, the Q3 points in S3) are not drawn
+until the switches in gates.yaml are set. Outputs go to paper/figures/output/ (or
+$FIG_OUT_DIR); stale outputs there are removed first.
 """
 from __future__ import annotations
 
@@ -18,20 +19,18 @@ sys.path.insert(0, str(Path(__file__).resolve().parent))
 import yaml  # noqa: E402
 
 import common  # noqa: E402
-import fig2  # noqa: E402
-import fig3  # noqa: E402
-import fig4  # noqa: E402
-import fig5  # noqa: E402
-import fig6  # noqa: E402
-import fig7  # noqa: E402
+import figures  # noqa: E402
+import panels_quant  # noqa: E402
+import panels_workflow  # noqa: E402
 
-MODULES = [fig2, fig3, fig4, fig5, fig6, fig7]
 UNCHANGED = [
-    {"figure": 1, "panel": "A–D", "status": "UNCHANGED",
-     "note": "not rebuilt in this pass (issue #7)", "sources": []},
-    {"figure": "GA", "panel": "–", "status": "UNCHANGED",
-     "note": "graphical abstract not rebuilt (issue #7)", "sources": []},
+    {"figure": "1", "name": "atlas", "role": "main", "panel": "A–D", "status": "UNCHANGED",
+     "note": "Atlas overview; not rebuilt here (issue #7, release data outside paper/)",
+     "sources": []},
+    {"figure": "GA", "name": "graphical_abstract", "role": "main", "panel": "–",
+     "status": "UNCHANGED", "note": "not rebuilt (issue #7)", "sources": []},
 ]
+ORDER = ["GA", "1", "2", "3", "4", "5", "S1", "S2", "S3", "S4", "S5"]
 
 
 def _git(*args) -> str:
@@ -56,17 +55,20 @@ def _export_sha(rel: str) -> str | None:
 
 def main() -> int:
     common.reset_reads()
+    common.OUT_DIR.mkdir(exist_ok=True)
+    for old in list(common.OUT_DIR.glob("Fig*.png")) + list(common.OUT_DIR.glob("Fig*.pdf")):
+        old.unlink()
     rows, outputs = [], {}
-    for m in MODULES:
-        paths, r = m.build()
+    for build in figures.FIGURES:
+        paths, r = build()
         rows += r
-        outputs[r[0]["figure"]] = [str(p.relative_to(common.PAPER)) if common.PAPER in p.parents
-                                   else str(p) for p in paths]
+        if paths:
+            outputs[r[0]["figure"]] = [str(p.relative_to(common.PAPER))
+                                       if common.PAPER in p.parents else str(p) for p in paths]
         for p in paths:
             print("wrote", p)
     rows += UNCHANGED
-    rows.sort(key=lambda r: (str(r["figure"]) if r["figure"] == "GA" else f"{r['figure']:02d}",
-                             r["panel"]))
+    rows.sort(key=lambda r: (ORDER.index(r["figure"]), r["panel"]))
 
     head = _git("rev-parse", "--short", "HEAD") or "unknown"
     dirty = bool(_git("status", "--porcelain", "--", "paper/figures"))
@@ -85,21 +87,28 @@ def main() -> int:
              f"{' (paper/figures has uncommitted changes)' if dirty else ''}.",
              "Every plotted number is read from a file under `paper/` by the figure script; "
              "nothing is typed by hand.", "",
+             "Main text: Fig 1 Atlas, Fig 2 what the Atlas adds to a soil dataset, Fig 3 "
+             "workflow, Fig 4 interpreting single features, Fig 5 ClimGrass demonstration. "
+             "Supplement: S1 quality, S2 annotation, S3 response and routes, S4 recovery, "
+             "S5 amounts.", "",
              "Status: **REAL** = drawn from recorded data · **SCHEMATIC** = cropped from the "
-             "2026-11-24 draft, no data · **PENDING** = grey box, waits for the named item · "
-             "**UNCHANGED** = not rebuilt in this pass.", "",
+             "2026-11-24 draft, no data · **NOT BUILT** = figure not drawn yet, waits for the "
+             "named switch in gates.yaml · **UNCHANGED** = not rebuilt in this pass.", "",
              "Data SHA = last commit that changed the file in this repository; "
              "'export' = `export_git_sha` in the folder's provenance.yaml.", "",
              "Gates (gates.yaml): " + ", ".join(f"`{k}: {v}`" for k, v in g.items()), "",
              "| Fig | Panel | Status | Source file(s) under paper/ | Data SHA | Note |",
              "|---|---|---|---|---|---|"]
+    last = None
     for r in rows:
         srcs = "<br>".join(f"`{s}`" for s in r["sources"]) or "–"
         shas = "<br>".join(
             src_info[s]["git_sha"] + (f" (export {src_info[s]['export_sha']})"
                                       if src_info[s]["export_sha"] else "")
             for s in r["sources"]) or "–"
-        lines.append(f"| {r['figure']} | {r['panel']} | **{r['status']}** | {srcs} | {shas} | "
+        fig_cell = f"{r['figure']} {r['name']}" if r["figure"] != last else ""
+        last = r["figure"]
+        lines.append(f"| {fig_cell} | {r['panel']} | **{r['status']}** | {srcs} | {shas} | "
                      f"{r['note']} |")
     lines += ["", "Outputs:", ""]
     for f, ps in outputs.items():
@@ -115,20 +124,22 @@ def main() -> int:
             "figures/schematics/source/Fig2_workflow_2026-11-24.png": {
                 "from": "Google Drive folder 1bR_DKLZjM1M0crbp7-Ffwo6EUGxFjwKn, file id "
                         "1NJwtkjVm8F2GWcJSrjEDEgvCo-hli6az",
-                "crops": {"2A": list(fig2.CROP_2A), "2C": list(fig2.CROP_2C)}},
+                "crops": {"Fig3A": list(panels_workflow.CROP_2A),
+                          "Fig3B": list(panels_workflow.CROP_2C)}},
             "figures/schematics/source/Fig5_quantification_2026-11-24.png": {
                 "from": "Google Drive folder 1bR_DKLZjM1M0crbp7-Ffwo6EUGxFjwKn, file id "
                         "18CBhsQyLNANSEUddCtcQCL5bdV8XogRk",
-                "crops": {"5D": list(fig5.CROP_5D)}},
+                "crops": {"FigS3C": list(panels_quant.CROP_5D)}},
         },
         "figures": {},
     }
     for r in rows:
-        f = prov["figures"].setdefault(str(r["figure"]), {"outputs": outputs.get(r["figure"], []),
-                                                          "panels": {}})
+        f = prov["figures"].setdefault(str(r["figure"]), {
+            "name": r["name"], "role": r["role"], "outputs": outputs.get(r["figure"], []),
+            "script": "paper/figures/figures.py" if r["figure"] in outputs else None,
+            "panels": {}})
         f["panels"][r["panel"]] = {
             "status": r["status"], "note": r["note"],
-            "script": f"paper/figures/fig{r['figure']}.py" if r["figure"] in outputs else None,
             "sources": {s: src_info[s] for s in r["sources"]},
         }
     (common.FIG_DIR / "figure_provenance.yaml").write_text(

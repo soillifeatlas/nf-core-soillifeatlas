@@ -1,7 +1,7 @@
-built: '2026-11-25T12:36:23+00:00'
+built: '2026-11-25T12:54:18+00:00'
 command: python paper/figures/build_all.py
-repo_head: 17655d8
-paper_figures_dirty: false
+repo_head: bacc12d
+paper_figures_dirty: true
 gates:
   reconstitution_volume_confirmed: false
   stage5_fix_confirmed: false
@@ -10,12 +10,12 @@ schematic_sources:
   figures/schematics/source/Fig2_workflow_2026-11-24.png:
     from: Google Drive folder 1bR_DKLZjM1M0crbp7-Ffwo6EUGxFjwKn, file id 1NJwtkjVm8F2GWcJSrjEDEgvCo-hli6az
     crops:
-      2A:
+      Fig3A:
       - 102
       - 240
       - 3866
       - 944
-      2C:
+      Fig3B:
       - 2183
       - 1208
       - 3885
@@ -23,118 +23,239 @@ schematic_sources:
   figures/schematics/source/Fig5_quantification_2026-11-24.png:
     from: Google Drive folder 1bR_DKLZjM1M0crbp7-Ffwo6EUGxFjwKn, file id 18CBhsQyLNANSEUddCtcQCL5bdV8XogRk
     crops:
-      5D:
+      FigS3C:
       - 185
       - 1363
       - 3664
       - 2087
 figures:
-  '1':
+  GA:
+    name: graphical_abstract
+    role: main
     outputs: []
+    script: null
+    panels:
+      –:
+        status: UNCHANGED
+        note: 'not rebuilt (issue #7)'
+        sources: {}
+  '1':
+    name: atlas
+    role: main
+    outputs: []
+    script: null
     panels:
       A–D:
         status: UNCHANGED
-        note: 'not rebuilt in this pass (issue #7)'
-        script: null
+        note: 'Atlas overview; not rebuilt here (issue #7, release data outside paper/)'
         sources: {}
   '2':
+    name: atlas_matching
+    role: main
     outputs:
-    - figures/output/Fig2_workflow_2026-11-25.pdf
-    - figures/output/Fig2_workflow_2026-11-25.png
+    - figures/output/Fig2_atlas_matching_2026-11-25.pdf
+    - figures/output/Fig2_atlas_matching_2026-11-25.png
+    script: paper/figures/figures.py
+    panels:
+      A:
+        status: REAL
+        note: POS; modified cosine ≥ 0.7, ≥ 4 shared fragments, precursor ± 10 ppm
+        sources:
+          02_annotation/pos/annotations.tsv: &id001
+            git_sha: 756333b
+            export_sha: 72ba0e8
+            sha256: c79645cc05fe4dff3916b757befc8be7e755ea8f327ea6ac2600d42db78c1631
+          02_annotation/pos/confidence.tsv: &id014
+            git_sha: 756333b
+            export_sha: 72ba0e8
+            sha256: a35127d8a1d75b8c03366f26b5de401896ef89d87b8ae9712a867cffe4d2ad98
+          06_atlas_match/pos/best_match.tsv: &id002
+            git_sha: 55e0087
+            export_sha: 72ba0e8
+            sha256: 1fd2fb18b358c08db6343af56651a14ec25944799b90e36e5404a4d1182cdc17
+          06_atlas_match/pos/coverage.tsv: &id003
+            git_sha: 55e0087
+            export_sha: 72ba0e8
+            sha256: b135e8c18b422412a305fbc3ccc4bae5f0c46d47494373c63850d9428988312e
+          06_atlas_match/pos/provenance.yaml:
+            git_sha: 55e0087
+            export_sha: 72ba0e8
+            sha256: 0fb9a1f727d28cce519d0c69f2940907e4b7aff1807a635929e568d9d2615e12
+      B:
+        status: REAL
+        note: occurrence = phyla where the matched reference feature is detected
+        sources:
+          02_annotation/pos/annotations.tsv: *id001
+          06_atlas_match/pos/best_match.tsv: *id002
+          06_atlas_match/pos/coverage.tsv: *id003
+      C:
+        status: REAL
+        note: raw counts; phyla differ in reference sample numbers (in brackets)
+        sources:
+          02_annotation/pos/annotations.tsv: *id001
+          06_atlas_match/pos/best_match.tsv: *id002
+          06_atlas_match/pos/phylum_detection.tsv:
+            git_sha: 55e0087
+            export_sha: 72ba0e8
+            sha256: 83c7362d667399e7695042959e4bc1326f7e6d99692f58a2caf03310188ebfcd
+      D:
+        status: REAL
+        note: 10 most frequent classes among annotated matches
+        sources:
+          02_annotation/pos/annotations.tsv: *id001
+          06_atlas_match/pos/best_match.tsv: *id002
+  '3':
+    name: workflow
+    role: main
+    outputs:
+    - figures/output/Fig3_workflow_2026-11-25.pdf
+    - figures/output/Fig3_workflow_2026-11-25.png
+    script: paper/figures/figures.py
     panels:
       A:
         status: SCHEMATIC
-        note: crop of Fig2_workflow_2026-11-24.png; stages 5–7 overlaid dashed ('script, not yet in Nextflow')
-        script: paper/figures/fig2.py
+        note: crop of the 2026-11-24 draft; stages 5–7 dashed
         sources:
-          figures/schematics/source/Fig2_workflow_2026-11-24.png: &id001
+          figures/schematics/source/Fig2_workflow_2026-11-24.png: &id004
             git_sha: cd726c1
             export_sha: null
             sha256: 099562f60ec443d9e22fb625976821e3a30e2a4f97bec573251a2c2ed5cc8c67
       B:
-        status: REAL
-        note: first two calibration rows and the first nine soil-block rows shown
-        script: paper/figures/fig2.py
+        status: SCHEMATIC
+        note: crop of the 2026-11-24 draft, unchanged
         sources:
-          01_qc/pos/injections.tsv: &id002
+          figures/schematics/source/Fig2_workflow_2026-11-24.png: *id004
+      C:
+        status: REAL
+        note: 'pooled-QC RSD: peak-picked only vs including gap-filled'
+        sources:
+          01_qc/neg/provenance.yaml: &id006
             git_sha: 756333b
             export_sha: ac355b6
-            sha256: 24830590d8f59ad057d9a41a50d8616a1c5ac48a8d3881dcb6471c589deec653
-          09_report/samplesheet_climgrass_pos.csv:
-            git_sha: 33eebd2
-            export_sha: f476c4c
-            sha256: 3ee53ea172fa8e524896aa97813ae8885625f918c97fcd8ccd41ddebe6d08b4d
-      C:
-        status: SCHEMATIC
-        note: crop of Fig2_workflow_2026-11-24.png, unchanged (#10)
-        script: paper/figures/fig2.py
-        sources:
-          figures/schematics/source/Fig2_workflow_2026-11-24.png: *id001
+            sha256: 25af58aa23a637afd1703020795c64118b57a9edefd66fc1062e9885b27c18eb
+          01_qc/neg/rsd_per_feature.tsv: &id007
+            git_sha: 756333b
+            export_sha: ac355b6
+            sha256: 317d3d829612b33ac74f4bdd2ec94e9294ba43ed0b6e6539a4dba53b4946e567
+          01_qc/neg/rsd_summary.tsv: &id008
+            git_sha: 756333b
+            export_sha: ac355b6
+            sha256: 95769c600385950e3643423091fa0327c7ec906ee6dfe1f2887875421a618afb
+          01_qc/pos/provenance.yaml: &id009
+            git_sha: 756333b
+            export_sha: ac355b6
+            sha256: 67c61b24229b8b8510e62d63bc06f81867d81145baf7e91110ce5a5422d400eb
+          01_qc/pos/rsd_per_feature.tsv: &id010
+            git_sha: 756333b
+            export_sha: ac355b6
+            sha256: ce70c89f96ecd8e781df140c5cfa204378db8aafa193ccea3bfca9fa53702407
+          01_qc/pos/rsd_summary.tsv: &id011
+            git_sha: 756333b
+            export_sha: ac355b6
+            sha256: 40ba1a96366c7074e1873f5afaa95e75d5d133adec57f7a1d94fe7f621c42637
       D:
         status: REAL
-        note: headless-Chrome render of report_pos.html (top section); the 'Lipids with an amount' tile
-          is stage-5 output
-        script: paper/figures/fig2.py
+        note: top of report_pos.html; the 'lipids with an amount' tile is stage-5 output
         sources:
           09_report/report_pos.html:
             git_sha: 24f98ec
             export_sha: f476c4c
             sha256: 5813b856feb136874a9fd5d5c0038ab625abd72c352bb5a7b7765a6c9ca90f78
           figures/rendered/report_pos.png:
-            git_sha: cd726c1
+            git_sha: cd726c1+dirty
             export_sha: null
-            sha256: 2e5d5ede07f747228db4760aa8c08eac81e2bb54532013758779c1008134d817
-  '3':
+            sha256: 5f89b841a765d4c8c9c1fd91c7b34eb454649f254987812af86712f3dcd5b948
+  '4':
+    name: interpretation
+    role: main
     outputs:
-    - figures/output/Fig3_quality_2026-11-25.pdf
-    - figures/output/Fig3_quality_2026-11-25.png
+    - figures/output/Fig4_interpretation_2026-11-25.pdf
+    - figures/output/Fig4_interpretation_2026-11-25.png
+    script: paper/figures/figures.py
+    panels:
+      A:
+        status: REAL
+        note: example proposed, to confirm
+        sources:
+          06_atlas_match/examples/examples.tsv: &id005
+            git_sha: a288361
+            export_sha: 24f98ec
+            sha256: 7d16c44d603111a4e0ad38471dc02b45e9e31ef23f0ef9e3025e38210495f899
+          06_atlas_match/examples/mirror_21718.tsv:
+            git_sha: a288361
+            export_sha: 24f98ec
+            sha256: 8b8f06dbb77691f3f2313dc75bd7b38890ba59686b15c9af0c0ebd5f802838e6
+      B:
+        status: REAL
+        note: example proposed, to confirm
+        sources:
+          06_atlas_match/examples/examples.tsv: *id005
+          06_atlas_match/examples/mirror_41748.tsv:
+            git_sha: a288361
+            export_sha: 24f98ec
+            sha256: b4fb8d6d425fdf62511c8798b8670c348ae4b097eb67a984096be7112bb983c8
+      C:
+        status: REAL
+        note: only phyla where either lipid is detected
+        sources:
+          06_atlas_match/examples/examples.tsv: *id005
+          06_atlas_match/examples/examples_phylum_detection.tsv:
+            git_sha: a288361
+            export_sha: 24f98ec
+            sha256: fd0955752a55454d1aca28c4c91a1669b403e56e8a002bf19e66e28dea988395
+  '5':
+    name: application
+    role: main
+    outputs: []
+    script: null
+    panels:
+      A:
+        status: NOT BUILT
+        note: waits for stage5_fix_confirmed
+        sources: {}
+      B:
+        status: NOT BUILT
+        note: waits for stage5_fix_confirmed
+        sources: {}
+      C:
+        status: NOT BUILT
+        note: waits for stage5_fix_confirmed
+        sources: {}
+  S1:
+    name: quality
+    role: supplement
+    outputs:
+    - figures/output/FigS1_quality_2026-11-25.pdf
+    - figures/output/FigS1_quality_2026-11-25.png
+    script: paper/figures/figures.py
     panels:
       A:
         status: REAL
         note: POS and NEG sequences, both blocks
-        script: paper/figures/fig3.py
         sources:
-          01_qc/neg/injections.tsv: &id003
+          01_qc/neg/injections.tsv: &id012
             git_sha: 756333b
             export_sha: ac355b6
             sha256: edf107b9b5cc2ad05c1e73dc1a07bb9cda3a5ff9ad4c7a1c733b605e5079171a
-          01_qc/pos/injections.tsv: *id002
+          01_qc/pos/injections.tsv: &id013
+            git_sha: 756333b
+            export_sha: ac355b6
+            sha256: 24830590d8f59ad057d9a41a50d8616a1c5ac48a8d3881dcb6471c589deec653
       B:
         status: REAL
-        note: ECDF of RSD, x-axis cut at 150 %; n and % ≤ 30 % from rsd_summary.tsv
-        script: paper/figures/fig3.py
+        note: ECDF, x cut at 150 %; n and % ≤ 30 % from rsd_summary.tsv
         sources:
-          01_qc/neg/provenance.yaml: &id004
-            git_sha: 756333b
-            export_sha: ac355b6
-            sha256: 25af58aa23a637afd1703020795c64118b57a9edefd66fc1062e9885b27c18eb
-          01_qc/neg/rsd_per_feature.tsv:
-            git_sha: 756333b
-            export_sha: ac355b6
-            sha256: 317d3d829612b33ac74f4bdd2ec94e9294ba43ed0b6e6539a4dba53b4946e567
-          01_qc/neg/rsd_summary.tsv:
-            git_sha: 756333b
-            export_sha: ac355b6
-            sha256: 95769c600385950e3643423091fa0327c7ec906ee6dfe1f2887875421a618afb
-          01_qc/pos/provenance.yaml: &id005
-            git_sha: 756333b
-            export_sha: ac355b6
-            sha256: 67c61b24229b8b8510e62d63bc06f81867d81145baf7e91110ce5a5422d400eb
-          01_qc/pos/rsd_per_feature.tsv:
-            git_sha: 756333b
-            export_sha: ac355b6
-            sha256: ce70c89f96ecd8e781df140c5cfa204378db8aafa193ccea3bfca9fa53702407
-          01_qc/pos/rsd_summary.tsv:
-            git_sha: 756333b
-            export_sha: ac355b6
-            sha256: 40ba1a96366c7074e1873f5afaa95e75d5d133adec57f7a1d94fe7f621c42637
+          01_qc/neg/provenance.yaml: *id006
+          01_qc/neg/rsd_per_feature.tsv: *id007
+          01_qc/neg/rsd_summary.tsv: *id008
+          01_qc/pos/provenance.yaml: *id009
+          01_qc/pos/rsd_per_feature.tsv: *id010
+          01_qc/pos/rsd_summary.tsv: *id011
       C:
         status: REAL
-        note: detected IS in all injections, RT relative to the recorded block median (is_by_block.tsv);
-          tolerances from provenance.yaml; dates in Europe/Vienna time
-        script: paper/figures/fig3.py
+        note: RT relative to recorded block median; tolerances from provenance.yaml
         sources:
-          01_qc/neg/injections.tsv: *id003
+          01_qc/neg/injections.tsv: *id012
           01_qc/neg/is_by_block.tsv:
             git_sha: 756333b
             export_sha: ac355b6
@@ -143,8 +264,8 @@ figures:
             git_sha: 756333b
             export_sha: ac355b6
             sha256: 40a539879883142be04b542dff056efccaf4a7bfabfa7e3a87ffa7457aa8ad24
-          01_qc/neg/provenance.yaml: *id004
-          01_qc/pos/injections.tsv: *id002
+          01_qc/neg/provenance.yaml: *id006
+          01_qc/pos/injections.tsv: *id013
           01_qc/pos/is_by_block.tsv:
             git_sha: 756333b
             export_sha: ac355b6
@@ -153,29 +274,18 @@ figures:
             git_sha: 756333b
             export_sha: ac355b6
             sha256: acf6ad27bd5f64b067c321c12c53d173555588b64227ce3b0584e49eed02429c
-          01_qc/pos/provenance.yaml: *id005
-      D:
-        status: PENDING
-        note: gated on reconstitution_volume_confirmed
-        script: paper/figures/fig3.py
-        sources:
-          01_qc/neg/is_vs_calibration.tsv: &id006
-            git_sha: 756333b
-            export_sha: ac355b6
-            sha256: 089230dd8e3a6ca93cdc1179f9c48fc1fdc999ef59fa6a4ce7393eeac6ee6a8b
-          01_qc/pos/is_vs_calibration.tsv: &id007
-            git_sha: 756333b
-            export_sha: ac355b6
-            sha256: 3aeb8607926cc64b562c63c1635835e317e7aff4793aac49e165ba17fff5e5a0
-  '4':
+          01_qc/pos/provenance.yaml: *id009
+  S2:
+    name: annotation
+    role: supplement
     outputs:
-    - figures/output/Fig4_annotation_2026-11-25.pdf
-    - figures/output/Fig4_annotation_2026-11-25.png
+    - figures/output/FigS2_annotation_2026-11-25.pdf
+    - figures/output/FigS2_annotation_2026-11-25.png
+    script: paper/figures/figures.py
     panels:
       A:
         status: REAL
         note: exclusive intersections, POS and NEG
-        script: paper/figures/fig4.py
         sources:
           02_annotation/neg/upset_intersections.tsv:
             git_sha: 756333b
@@ -195,21 +305,16 @@ figures:
             sha256: 8779e0e457d409c635b01559b74cbac5efee2ba41eeffb085fdef1cccc40fe77
       B:
         status: REAL
-        note: ClimGrass only; drying–rewetting values omitted (not in a recorded paper/ file)
-        script: paper/figures/fig4.py
+        note: ClimGrass only
         sources:
           02_annotation/neg/confidence.tsv:
             git_sha: 756333b
             export_sha: ac355b6
             sha256: 7a3b11a962a6f77eeaf7b0418ec2da427f75c7b89f6089a669497389ff18c92a
-          02_annotation/pos/confidence.tsv:
-            git_sha: 756333b
-            export_sha: 72ba0e8
-            sha256: a35127d8a1d75b8c03366f26b5de401896ef89d87b8ae9712a867cffe4d2ad98
+          02_annotation/pos/confidence.tsv: *id014
       C:
         status: REAL
-        note: 12 largest classes per polarity by feature count
-        script: paper/figures/fig4.py
+        note: 12 largest classes per polarity
         sources:
           02_annotation/neg/classes.tsv:
             git_sha: 756333b
@@ -221,8 +326,7 @@ figures:
             sha256: 0f7e56a14e76d22dff688912fbc8877ae407b017f10478ef5526a411d4e57cea
       D:
         status: REAL
-        note: points with an RT check; untested (incl. ether PC) counted, not drawn
-        script: paper/figures/fig4.py
+        note: PC; untested lipids counted, not drawn
         sources:
           02_annotation/neg/rt_model_PC.tsv:
             git_sha: 756333b
@@ -232,15 +336,17 @@ figures:
             git_sha: 90a4383
             export_sha: 72ba0e8
             sha256: 75844a9a047f36090a91e5dd6a78b4fe9047e817545af11f659bc483f2cf0203
-  '5':
+  S3:
+    name: response_routes
+    role: supplement
     outputs:
-    - figures/output/Fig5_quantification_2026-11-25.pdf
-    - figures/output/Fig5_quantification_2026-11-25.png
+    - figures/output/FigS3_response_routes_2026-11-25.pdf
+    - figures/output/FigS3_response_routes_2026-11-25.png
+    script: paper/figures/figures.py
     panels:
       A:
         status: REAL
-        note: 'axis: RIE relative to LPE (not response per pmol)'
-        script: paper/figures/fig5.py
+        note: RIE relative to LPE
         sources:
           03_response/response_by_class_adduct.tsv:
             git_sha: 57fa0ce
@@ -248,8 +354,7 @@ figures:
             sha256: 18464c64971674dff87798f463dff0a138dad6b3ec04e683c0106ab1e965bedd
       B:
         status: REAL
-        note: R², RMSE from ie_model_stats.tsv (best model)
-        script: paper/figures/fig5.py
+        note: leave-one-class-out; statistics from ie_model_stats.tsv
         sources:
           03_response/ie_loco_predictions.tsv:
             git_sha: 57fa0ce
@@ -260,26 +365,16 @@ figures:
             export_sha: 8012e4c
             sha256: c9c4838c1c06da3129ce08448e20e3dd227de4513d7df477745e40febb182608
       C:
-        status: PENDING
-        note: gated on reconstitution_volume_confirmed
-        script: paper/figures/fig5.py
-        sources:
-          01_qc/neg/is_vs_calibration.tsv: *id006
-          01_qc/pos/is_vs_calibration.tsv: *id007
-      D:
         status: SCHEMATIC
-        note: crop of Fig5_quantification_2026-11-24.png, unchanged; Q2 drawn but not used in this run
-          (0 features)
-        script: paper/figures/fig5.py
+        note: crop of the 2026-11-24 draft; Q2 not used in this run
         sources:
           figures/schematics/source/Fig5_quantification_2026-11-24.png:
             git_sha: cd726c1
             export_sha: null
             sha256: f912117614bc6e9a8b94f2863e6c0422f345e860e138901b01ea7a4ed1148e90
-      E:
+      D:
         status: REAL
-        note: 'Q1 lipids only; Q3 points gated on stage5_fix_confirmed (caption: Q3 pending)'
-        script: paper/figures/fig5.py
+        note: Q1 only; Q3 waits for stage5_fix_confirmed
         sources:
           05_nist/neg/nist_comparison.tsv:
             git_sha: e5dce35
@@ -289,132 +384,31 @@ figures:
             git_sha: 24f98ec
             export_sha: f476c4c
             sha256: 2937ee211683beb9420c5eb6b1889342fd5341eabd958fb3db69ccdbc4c69950
-      F:
-        status: PENDING
-        note: gated on stage5_fix_confirmed
-        script: paper/figures/fig5.py
-        sources:
-          04_quant/neg/class_by_sample.tsv:
-            git_sha: 24f98ec
-            export_sha: null
-            sha256: 72a99d96d647b33b7dd7a93940f4fcbd5411214053e18e36d0294ae1bdcdf04e
-          04_quant/pos/class_by_sample.tsv:
-            git_sha: 24f98ec
-            export_sha: null
-            sha256: 2ba5a6fd329743f61a1a578e3e4940fe4754a5b0d782cbfb3ef8aca01a5bdac5
-  '6':
-    outputs:
-    - figures/output/Fig6_interpretation_2026-11-25.pdf
-    - figures/output/Fig6_interpretation_2026-11-25.png
-    panels:
-      A:
-        status: REAL
-        note: LPC 18:0; examples proposed, to confirm
-        script: paper/figures/fig6.py
-        sources:
-          06_atlas_match/examples/examples.tsv: &id008
-            git_sha: a288361
-            export_sha: 24f98ec
-            sha256: 7d16c44d603111a4e0ad38471dc02b45e9e31ef23f0ef9e3025e38210495f899
-          06_atlas_match/examples/mirror_21718.tsv:
-            git_sha: a288361
-            export_sha: 24f98ec
-            sha256: 8b8f06dbb77691f3f2313dc75bd7b38890ba59686b15c9af0c0ebd5f802838e6
-      B:
-        status: REAL
-        note: SM 34:3; examples proposed, to confirm
-        script: paper/figures/fig6.py
-        sources:
-          06_atlas_match/examples/examples.tsv: *id008
-          06_atlas_match/examples/mirror_41748.tsv:
-            git_sha: a288361
-            export_sha: 24f98ec
-            sha256: b4fb8d6d425fdf62511c8798b8670c348ae4b097eb67a984096be7112bb983c8
-      C:
-        status: REAL
-        note: only phyla where either reference feature is detected are listed
-        script: paper/figures/fig6.py
-        sources:
-          06_atlas_match/examples/examples.tsv: *id008
-          06_atlas_match/examples/examples_phylum_detection.tsv:
-            git_sha: a288361
-            export_sha: 24f98ec
-            sha256: fd0955752a55454d1aca28c4c91a1669b403e56e8a002bf19e66e28dea988395
-      D:
-        status: PENDING
-        note: 'Explorer screenshot, issue #7'
-        script: paper/figures/fig6.py
-        sources: {}
-  '7':
-    outputs:
-    - figures/output/Fig7_application_2026-11-25.pdf
-    - figures/output/Fig7_application_2026-11-25.png
-    panels:
-      A:
-        status: REAL
-        note: 'ClimGrass design from climgrass_samples.csv; drying–rewetting as a generic text box (blinded,
-          #11)'
-        script: paper/figures/fig7.py
-        sources:
-          00_inputs/climgrass_samples.csv:
-            git_sha: def3188
-            export_sha: null
-            sha256: 43854857b224ee660febc61b9419920702cbbb5819bc8aa00a6ee7c5fcdb8afa
-      B:
-        status: PENDING
-        note: gated on stage5_fix_confirmed
-        script: paper/figures/fig7.py
-        sources:
-          08_application/neg/class_profiles.tsv:
-            git_sha: 24f98ec
-            export_sha: f476c4c
-            sha256: aa607d7479a352a5202aa4823982395fef6f3e922946041d8d85109dff1be591
-          08_application/pos/class_profiles.tsv:
-            git_sha: 24f98ec
-            export_sha: f476c4c
-            sha256: e4b368c57f684932790489ab8f3bcac06634039da077ca5b30aad0e982317493
-      C:
-        status: PENDING
-        note: gated on stage5_fix_confirmed
-        script: paper/figures/fig7.py
-        sources:
-          08_application/neg/responsive.tsv:
-            git_sha: b711a7f
-            export_sha: f476c4c
-            sha256: ed9c4b8a3065aebdf4b64f64dbc56a196845a3d88464b70371406f73ef9c7370
-          08_application/neg/test_summary.tsv:
-            git_sha: b711a7f
-            export_sha: f476c4c
-            sha256: 667d17ef0b87b81d6f051bf2c6b8fc1c35996cb1b89b0498bbe131003c4633fa
-          08_application/pos/responsive.tsv: &id010
-            git_sha: 24f98ec
-            export_sha: f476c4c
-            sha256: 4de3f12ebe6289656dfce8a5c93d2350b948a6b7fbb5bd893445e5aff205f8c8
-          08_application/pos/test_summary.tsv:
-            git_sha: 24f98ec
-            export_sha: f476c4c
-            sha256: 379413813f7cc34be64d814be597860ea3bdb1b45e517fb184fa647855464c57
-      D:
-        status: PENDING
-        note: gated on stage5_fix_confirmed
-        script: paper/figures/fig7.py
-        sources:
-          06_atlas_match/examples/responsive_atlas_occurrence.tsv: &id009
-            git_sha: ed8495e
-            export_sha: 24f98ec
-            sha256: 616804d485421d986db80ad89b6b2220b679260be67bf34e0a279b331ec16453
-      E:
-        status: PENDING
-        note: gated on stage5_fix_confirmed and fig7E_lipid
-        script: paper/figures/fig7.py
-        sources:
-          06_atlas_match/examples/responsive_atlas_occurrence.tsv: *id009
-          08_application/pos/responsive.tsv: *id010
-  GA:
+  S4:
+    name: recovery
+    role: supplement
     outputs: []
+    script: null
     panels:
-      –:
-        status: UNCHANGED
-        note: 'graphical abstract not rebuilt (issue #7)'
-        script: null
+      A:
+        status: NOT BUILT
+        note: waits for reconstitution_volume_confirmed
+        sources: {}
+      B:
+        status: NOT BUILT
+        note: waits for reconstitution_volume_confirmed
+        sources: {}
+  S5:
+    name: amounts
+    role: supplement
+    outputs: []
+    script: null
+    panels:
+      A:
+        status: NOT BUILT
+        note: waits for stage5_fix_confirmed
+        sources: {}
+      B:
+        status: NOT BUILT
+        note: waits for stage5_fix_confirmed
         sources: {}

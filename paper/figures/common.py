@@ -179,14 +179,14 @@ def save(fig, number: int, name: str) -> list[Path]:
 
 
 class Panels:
-    """Collects one STATUS row per panel."""
+    """Collects one STATUS row per panel. `keys` name the set_panel() buckets it read from."""
 
-    def __init__(self, figure: int):
-        self.figure = figure
+    def __init__(self, figure: str, name: str, role: str = "main"):
+        self.figure, self.name, self.role = str(figure), name, role
         self.rows: list[dict] = []
 
-    def add(self, panel: str, status: str, note: str = "", sources: list[str] | None = None):
-        key = f"{self.figure}{panel}"
-        src = sources if sources is not None else reads().get(key, [])
-        self.rows.append({"figure": self.figure, "panel": panel, "status": status,
-                          "sources": src, "note": note})
+    def add(self, panel: str, status: str, note: str = "", keys: list[str] | None = None):
+        r = reads()
+        src = sorted({f for k in (keys or []) for f in r.get(k, [])})
+        self.rows.append({"figure": self.figure, "name": self.name, "role": self.role,
+                          "panel": panel, "status": status, "sources": src, "note": note})
