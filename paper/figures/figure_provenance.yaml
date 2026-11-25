@@ -1,7 +1,7 @@
-built: '2026-11-25T13:13:36+00:00'
+built: '2026-11-25T13:20:45+00:00'
 command: python paper/figures/build_all.py
-repo_head: 42a902e
-paper_figures_dirty: false
+repo_head: aa35431
+paper_figures_dirty: true
 gates:
   reconstitution_volume_confirmed: false
   stage5_fix_confirmed: false
@@ -58,60 +58,11 @@ figures:
         note: 'Atlas overview; not rebuilt here (issue #7, release data outside paper/)'
         sources: {}
   '2':
-    name: atlas_matching
-    role: main
-    outputs:
-    - figures/output/Fig2_atlas_matching_2026-11-25.pdf
-    - figures/output/Fig2_atlas_matching_2026-11-25.png
-    script: paper/figures/figures.py
-    panels:
-      A:
-        status: REAL
-        note: POS; modified cosine ≥ 0.7, ≥ 4 shared fragments, precursor ± 10 ppm
-        sources:
-          02_annotation/pos/annotations.tsv: *id001
-          02_annotation/pos/confidence.tsv: &id015
-            git_sha: 756333b
-            export_sha: 72ba0e8
-            sha256: a35127d8a1d75b8c03366f26b5de401896ef89d87b8ae9712a867cffe4d2ad98
-          06_atlas_match/pos/best_match.tsv: *id002
-          06_atlas_match/pos/coverage.tsv: *id003
-          06_atlas_match/pos/provenance.yaml:
-            git_sha: 55e0087
-            export_sha: 72ba0e8
-            sha256: 0fb9a1f727d28cce519d0c69f2940907e4b7aff1807a635929e568d9d2615e12
-          figures/inputs/atlas_groups.csv: *id004
-      B:
-        status: REAL
-        note: organism groups from the release (figures/inputs/atlas_groups.csv)
-        sources:
-          02_annotation/pos/annotations.tsv: *id001
-          06_atlas_match/pos/best_match.tsv: *id002
-          figures/inputs/atlas_groups.csv: *id004
-      C:
-        status: REAL
-        note: '% of matched features; reference samples per group in brackets (matching denominators)'
-        sources:
-          02_annotation/pos/annotations.tsv: *id001
-          06_atlas_match/pos/best_match.tsv: *id002
-          06_atlas_match/pos/phylum_detection.tsv: &id006
-            git_sha: 55e0087
-            export_sha: 72ba0e8
-            sha256: 83c7362d667399e7695042959e4bc1326f7e6d99692f58a2caf03310188ebfcd
-          figures/inputs/atlas_groups.csv: *id004
-      D:
-        status: REAL
-        note: 8 most frequent classes among named matches
-        sources:
-          02_annotation/pos/annotations.tsv: *id001
-          06_atlas_match/pos/best_match.tsv: *id002
-          figures/inputs/atlas_groups.csv: *id004
-  '3':
     name: workflow
     role: main
     outputs:
-    - figures/output/Fig3_workflow_2026-11-25.pdf
-    - figures/output/Fig3_workflow_2026-11-25.png
+    - figures/output/Fig2_workflow_2026-11-25.pdf
+    - figures/output/Fig2_workflow_2026-11-25.png
     script: paper/figures/figures.py
     panels:
       A:
@@ -158,6 +109,55 @@ figures:
             git_sha: f12f08c
             export_sha: null
             sha256: 42ea52124721f6e67848a71cf94683771343d675efadd29bb9dd6d50a755fd50
+  '3':
+    name: atlas_matching
+    role: main
+    outputs:
+    - figures/output/Fig3_atlas_matching_2026-11-25.pdf
+    - figures/output/Fig3_atlas_matching_2026-11-25.png
+    script: paper/figures/figures.py
+    panels:
+      A:
+        status: REAL
+        note: POS; modified cosine ≥ 0.7, ≥ 4 shared fragments, precursor ± 10 ppm
+        sources:
+          02_annotation/pos/annotations.tsv: *id001
+          02_annotation/pos/confidence.tsv: &id015
+            git_sha: 756333b
+            export_sha: 72ba0e8
+            sha256: a35127d8a1d75b8c03366f26b5de401896ef89d87b8ae9712a867cffe4d2ad98
+          06_atlas_match/pos/best_match.tsv: *id002
+          06_atlas_match/pos/coverage.tsv: *id003
+          06_atlas_match/pos/provenance.yaml:
+            git_sha: 55e0087
+            export_sha: 72ba0e8
+            sha256: 0fb9a1f727d28cce519d0c69f2940907e4b7aff1807a635929e568d9d2615e12
+          figures/inputs/atlas_groups.csv: *id004
+      B:
+        status: REAL
+        note: organism groups from the release (figures/inputs/atlas_groups.csv)
+        sources:
+          02_annotation/pos/annotations.tsv: *id001
+          06_atlas_match/pos/best_match.tsv: *id002
+          figures/inputs/atlas_groups.csv: *id004
+      C:
+        status: REAL
+        note: '% of matched features; reference samples per group in brackets (matching denominators)'
+        sources:
+          02_annotation/pos/annotations.tsv: *id001
+          06_atlas_match/pos/best_match.tsv: *id002
+          06_atlas_match/pos/phylum_detection.tsv: &id006
+            git_sha: 55e0087
+            export_sha: 72ba0e8
+            sha256: 83c7362d667399e7695042959e4bc1326f7e6d99692f58a2caf03310188ebfcd
+          figures/inputs/atlas_groups.csv: *id004
+      D:
+        status: REAL
+        note: 8 most frequent classes among named matches
+        sources:
+          02_annotation/pos/annotations.tsv: *id001
+          06_atlas_match/pos/best_match.tsv: *id002
+          figures/inputs/atlas_groups.csv: *id004
   '4':
     name: interpretation
     role: main

@@ -64,7 +64,7 @@ def test_build_with_committed_gates():
     if not g["stage5_fix_confirmed"]:
         for k in ("5A", "5B", "5C", "S5A", "S5B"):
             assert status[k] == "NOT BUILT", k
-    for k in ("2A", "2B", "2C", "2D", "4A", "4B", "4C"):
+    for k in ("3A", "3B", "3C", "3D", "4A", "4B", "4C"):
         assert status[k] == "REAL", k
 
 

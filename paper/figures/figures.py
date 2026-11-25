@@ -1,8 +1,8 @@
 """The figure set: which panels make up each main and supplementary figure.
 
-Main text tells the resource story: the Atlas (Fig 1, unchanged here), what it adds to a soil
-dataset (Fig 2), the workflow (Fig 3), interpreting single features (Fig 4) and the ClimGrass
-demonstration (Fig 5). Analytical detail goes to the Supplement (Figs S1-S5).
+Main text tells the resource story in the order of the Results: the Atlas (Fig 1, unchanged
+here), the workflow (Fig 2), what the Atlas adds to a soil dataset (Fig 3), interpreting single
+features (Fig 4) and the ClimGrass demonstration (Fig 5). Analytical detail goes to the Supplement (Figs S1-S5).
 
 A figure that needs an unconfirmed input is not drawn at all (no grey placeholder boxes): its
 STATUS row says NOT BUILT and which switch in gates.yaml it waits for.
@@ -30,8 +30,8 @@ def _not_built(figure, name, role, why, panels):
 
 
 # ------------------------------------------------------------------------------------ main
-def fig2_atlas():
-    P = Panels(2, "atlas_matching")
+def fig3_atlas():
+    P = Panels(3, "atlas_matching")
     fig = plt.figure(figsize=(DOUBLE, 115 * MM))
     gs = fig.add_gridspec(2, 3, height_ratios=[0.3, 1], width_ratios=[0.9, 1, 1.1],
                           hspace=0.55, wspace=0.75, left=0.07, right=0.9, top=0.92, bottom=0.14)
@@ -45,11 +45,11 @@ def fig2_atlas():
           "(matching denominators)", ["atlas_per_group"])
     atlas.class_by_group(fig.add_subplot(gs[1, 2]), "D")
     P.add("D", "REAL", "8 most frequent classes among named matches", ["atlas_class_group"])
-    return save(fig, 2, "atlas_matching"), P.rows
+    return save(fig, 3, "atlas_matching"), P.rows
 
 
-def fig3_workflow():
-    P = Panels(3, "workflow")
+def fig2_workflow():
+    P = Panels(2, "workflow")
     fig = plt.figure(figsize=(DOUBLE, 118 * MM))
     axA = fig.add_axes([0.005, 0.53, 0.99, 0.43])
     wf.workflow_native(axA)
@@ -66,7 +66,7 @@ def fig3_workflow():
     fig_letter(fig, "C", 0.605, 0.485, "Every run ends in a one-page report")
     P.add("C", "REAL", "summary tiles of report_pos.html; the 'lipids with an amount' tile is "
           "stage-5 output", ["report"])
-    return save(fig, 3, "workflow"), P.rows
+    return save(fig, 2, "workflow"), P.rows
 
 
 def fig4_interpretation():
@@ -205,5 +205,5 @@ def graphical_abstract():
     return save(fig, "GA", "graphical_abstract"), P.rows
 
 
-FIGURES = [graphical_abstract, fig2_atlas, fig3_workflow, fig4_interpretation, fig5_application,
+FIGURES = [graphical_abstract, fig2_workflow, fig3_atlas, fig4_interpretation, fig5_application,
            figS1_quality, figS2_annotation, figS3_response, figS4_recovery, figS5_amounts]

@@ -84,8 +84,8 @@ def main() -> int:
              f"{' (paper/figures has uncommitted changes)' if dirty else ''}.",
              "Every plotted number is read from a file under `paper/` by the figure script; "
              "nothing is typed by hand.", "",
-             "Main text: Fig 1 Atlas, Fig 2 what the Atlas adds to a soil dataset, Fig 3 "
-             "workflow, Fig 4 interpreting single features, Fig 5 ClimGrass demonstration. "
+             "Main text: Fig 1 Atlas, Fig 2 workflow, Fig 3 what the Atlas adds to a soil "
+             "dataset, Fig 4 interpreting single features, Fig 5 ClimGrass demonstration. "
              "Supplement: S1 quality, S2 annotation, S3 response and routes, S4 recovery, "
              "S5 amounts.", "",
              "Status: **REAL** = drawn from recorded data · **SCHEMATIC** = cropped from the "
