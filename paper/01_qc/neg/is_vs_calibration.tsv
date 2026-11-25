@@ -1,0 +1,10 @@
+compound	n_cal_points	n_cal_levels	n_samples_detected	n_samples	cal_fit	slope	r2	cal_min_ng_per_ul	cal_max_ng_per_ul	cal_min_area	soil_median_area	soil_median_ng_per_ul	n_below_range	n_above_range	status	m_found_median_ng	R_app_median_pct	R_app_min_pct	R_app_max_pct
+Cer_d18_1_15_0_d7	13	7	11	12	log10(area) ~ log10(ng/uL)	1.032	0.6924	0.15625	10.0	10360.0	12450.0	0.10879701607150646	10.0	0.0	partly_below	10.879701607150647	108.8	75.2	267.1
+LPC_18_1_d7	10	6	0	12											not_detected_in_samples				
+LPE_18_1_d7	10	6	0	12											not_detected_in_samples				
+PC_15_0_18_1_d7	11	7	0	12											not_detected_in_samples				
+PE_15_0_18_1_d7	12	7	0	12											not_detected_in_samples				
+PG_15_0_18_1_d7	12	7	0	12											not_detected_in_samples				
+PI_15_0_18_1_d7	11	7	0	12											not_detected_in_samples				
+PS_15_0_18_1_d7	9	6	0	12											not_detected_in_samples				
+SM_d18_1_18_1_d9	10	6	0	12											not_detected_in_samples				

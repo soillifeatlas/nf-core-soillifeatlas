@@ -1,0 +1,22 @@
+date: 2026-11-25T11:11:08+00:00
+export_git_sha: ac355b6ff87120bf09a7e036551b561f2aecc134
+export_git_dirty: False
+command: 'paper/scripts/export_annotation.py --results /lisc/data/work/ter/samrat/sla_workflow_dev/runs/climgrass_both_2ed5d70/results --prefix climgrass_pos --run-provenance /lisc/data/work/ter/samrat/sla_workflow_dev/runs/climgrass_both_2ed5d70/run_provenance.txt --out /lisc/data/work/ter/samrat/sla_workflow_dev/paper_out/02_annotation/pos'
+pipeline_run:
+  commit: '2ed5d705013599b1776f3dd2c5b222fb7c9dc13b'
+  branch: 'feat/couvillion-blinded'
+  uncommitted_changes_in_clone: '0'
+  started: '2026-11-25T11:54:57+01:00'
+  nextflow: 'version 25.10.3'
+  finished: '2026-11-25T12:10:37+01:00 (exit 0)'
+  run_provenance_file: '/lisc/data/work/ter/samrat/sla_workflow_dev/runs/climgrass_both_2ed5d70/run_provenance.txt'
+params:
+  collapse_rt_min: 0.1
+  rt_class: 'TG'
+inputs:
+  annotations:
+    path: '/lisc/data/work/ter/samrat/sla_workflow_dev/runs/climgrass_both_2ed5d70/results/annotate/climgrass_pos.annotations.tsv'
+    sha256: 3543e9d64bd2df165cb637e30e22a356c1d316ec1f20fb732ec5638bf6d0956c
+  features_full:
+    path: '/lisc/data/work/ter/samrat/sla_workflow_dev/runs/climgrass_both_2ed5d70/results/mzmine/climgrass_pos.features_full.csv'
+    sha256: 8d38b565d2922ecbf81bc92227d25a118ea31c9686636278de01b2187d6ac38e

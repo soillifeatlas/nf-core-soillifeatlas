@@ -1,0 +1,1014 @@
+feature_id	mz	rt	lipid_name	lipid_class	confidence	quant_route	best_source	best_rank	n_sources	sources	class_agreement	alternatives	composition_check	rt_expected	rt_check	rt_residual_min	lipid_id	flags
+1445	459.26063	1.4823	MG	MG	Bronze	Q3	SIRIUS/CANOPUS	4	1	SIRIUS/CANOPUS	True		untested		untested		feature:1445	
+2605	311.22322	1.7608	FA 18:2	FA	Silver	Q2	LipidSearch	3	1	LipidSearch	True	FA 18:2+2Os	ok		untested		FA 18:2#0	
+2706	307.19192	1.7091	FA 18:4	FA	Silver	Q2	LipidSearch	3	1	LipidSearch	True	FA 18:4+2Os	ok		untested		FA 18:4#0	
+2782	333.20757	1.7364	FA 20:5	FA	Silver	Q2	LipidSearch	3	1	LipidSearch	True	FA 20:5+2Os	ok		untested		FA 20:5#0	
+3092	311.22327	1.8318	FA 18:2	FA	Silver	Q2	LipidSearch	3	1	LipidSearch	True	FA 18:2+2Os	ok		untested		FA 18:2#0	
+3139	849.50227	1.8491	HexCer	HexCer	Bronze	Q3	SIRIUS/CANOPUS	4	1	SIRIUS/CANOPUS	True		untested		untested		feature:3139	
+3189	325.23879	1.8631	FA 19:2	FA	Silver	Q2	LipidSearch	3	1	LipidSearch	True	FA 19:2+2Os	ok		untested		FA 19:2#0	
+3312	309.20768	1.9074	FA 18:3	FA	Silver	Q2	LipidSearch	3	1	LipidSearch	True	FA 18:3+2Os	ok		untested		FA 18:3#0	
+3496	313.23888	1.9186	FA 18:0	FA	Silver	Q2	LipidSearch	3	1	LipidSearch	True	FA 18:0+COOHs	ok		untested		FA 18:0#0	
+3542	580.39727	1.9785	PE	PE	Bronze	Q3	SIRIUS/CANOPUS	4	1	SIRIUS/CANOPUS	True		untested		untested		feature:3542	
+3632	337.23893	2.0223	FA 20:3	FA	Silver	Q2	LipidSearch	3	1	LipidSearch	True	FA 20:3+2Os	ok		untested		FA 20:3#0	
+3709	317.21245	2.0618	FA 20:5	FA	Silver	Q2	LipidSearch	3	1	LipidSearch	True	FA 20:5+Os	ok		untested		FA 20:5#1	
+3739	313.23894	2.0288	FA 18:0	FA	Silver	Q2	LipidSearch	3	1	LipidSearch	True	FA 18:0+COOHs	ok		untested		FA 18:0#1	
+3830	341.26998	2.1134	FA 20:0	FA	Silver	Q2	LipidSearch	3	1	LipidSearch	True	FA 20:0+COOHs	ok		untested		FA 20:0#0	
+3992	339.25435	2.2001	FA 20:2	FA	Silver	Q2	LipidSearch	3	1	LipidSearch	True	FA 20:2+2Os	ok		untested		FA 20:2#0	
+4047	469.25788	2.2255	LPG 15:0	LPG	Gold	Q2	LipidSearch	1	1	LipidSearch	True		ok		untested		LPG 15:0#0	
+4053	436.24711	2.2367	LPE 15:1	LPE	Gold	Q1	LipidSearch	1	2	LipidSearch; MZmine lipid rules	True		ok	1.74	ok	0.497	LPE 15:1#0	
+4109	323.2231	2.2577	FA 19:3	FA	Silver	Q2	LipidSearch	3	1	LipidSearch	True	FA 19:3+2Os	ok		untested		FA 19:3#0	
+4114	311.22325	2.2683	FA 18:2	FA	Silver	Q2	LipidSearch	3	1	LipidSearch	True	FA 18:2+2Os	ok		untested		FA 18:2#1	
+4184	337.23888	2.2981	FA 20:3	FA	Silver	Q2	LipidSearch	3	1	LipidSearch	True	FA 20:3+2Os	ok		untested		FA 20:3#1	
+4188	818.49671	2.3004	PC 36:8	PC	Silver	Q1	LipidSearch	3	1	LipidSearch	True		ok	10.87	outlier	-8.57	PC 36:8#0	rt_outlier
+4203	317.21241	2.2902	FA 20:5	FA	Silver	Q2	LipidSearch	3	1	LipidSearch	True	FA 20:5+Os	ok		untested		FA 20:5#2	
+4409	538.31598	2.4478	LPC 16:1	LPC	Silver	Q1	LipidSearch	3	1	LipidSearch	True		ok	2.32	ok	0.128	LPC 16:1#0	
+4452	355.28585	2.4345	FA 21:0	FA	Silver	Q2	LipidSearch	3	1	LipidSearch	True	FA 21:0+COOHs	ok		untested		FA 21:0#0	
+4461	471.34849	2.4914	FA 30:6	FA	Silver	Q2	LipidSearch	3	1	LipidSearch	True	FA 30:6+2Os	ok		untested		FA 30:6#0	
+4462	571.28954	2.4943	PI	PI	Bronze	Q3	SIRIUS/CANOPUS	4	1	SIRIUS/CANOPUS	True		untested		untested		feature:4462	
+4470	450.26308	2.4578	LPE 16:1	LPE	Gold	Q1	LipidSearch	1	2	LipidSearch; MZmine lipid rules	True		ok	2.46	ok	-0.002	LPE 16:1#0	
+4479	325.23877	2.4684	FA 19:2	FA	Silver	Q2	LipidSearch	3	1	LipidSearch	True	FA 19:2+2Os	ok		untested		FA 19:2#1	
+4484	596.33507	2.4783	PE	PE	Bronze	Q3	SIRIUS/CANOPUS	4	1	SIRIUS/CANOPUS	True		untested		untested		feature:4484	
+4507	608.42878	2.4693	PE	PE	Bronze	Q3	SIRIUS/CANOPUS	4	1	SIRIUS/CANOPUS	True		untested		untested		feature:4507	
+4541	538.31595	2.4862	LPC 16:1	LPC	Gold	Q1	MZmine lipid rules	1	2	LipidSearch; MZmine lipid rules	True		ok	2.32	ok	0.166	LPC 16:1#0	
+4561	651.35269	2.5453	LPI 22:2	LPI	Gold	Q2	MZmine lipid rules	1	1	MZmine lipid rules	True		ok		untested		LPI 22:2#0	
+4603	341.27	2.549	FA 20:0	FA	Silver	Q2	LipidSearch	3	1	LipidSearch	True	FA 20:0+COOHs	ok		untested		FA 20:0#1	
+4619	471.34845	2.563	FA 30:6	FA	Silver	Q2	LipidSearch	3	1	LipidSearch	True	FA 30:6+2Os	ok		untested		FA 30:6#0	
+4645	438.26301	2.583	LPE 15:0	LPE	Gold	Q1	LipidSearch	1	2	LipidSearch; MZmine lipid rules	True		ok	2.7	ok	-0.117	LPE 15:0#0	
+4646	450.26312	2.5677	LPE 16:1	LPE	Gold	Q1	MZmine lipid rules	1	1	MZmine lipid rules	True		ok	2.46	ok	0.108	LPE 16:1#1	
+4720	469.33286	2.6313	FA 30:7	FA	Silver	Q2	LipidSearch	3	1	LipidSearch	True	FA 30:7+2Os	implausible		untested		FA 30:7#0	composition_implausible
+4723	321.24385	2.6339	FA 20:3	FA	Silver	Q2	LipidSearch	3	1	LipidSearch	True	FA 20:3+Os	ok		untested		FA 20:3#2	
+4732	313.23898	2.6399	FA 18:0	FA	Silver	Q2	LipidSearch	3	1	LipidSearch	True	FA 18:0+COOHs	ok		untested		FA 18:0#2	
+4769	500.27906	2.6706	LPE 20:4	LPE	Gold	Q1	MZmine lipid rules	1	1	MZmine lipid rules	True		ok	2.44	ok	0.231	LPE 20:4#0	
+4770	588.33168	2.6634	LPC 20:4	LPC	Gold	Q1	MZmine lipid rules	1	2	LipidSearch; MZmine lipid rules	True		ok	2.3	ok	0.363	LPC 20:4#0	
+4781	433.23658	2.6818	LPA 18:2	LPA	Gold	Q2	MZmine lipid rules	1	1	MZmine lipid rules	True		ok		untested		LPA 18:2#0	
+4803	476.27876	2.7181	LPE 18:2	LPE	Gold	Q1	MZmine lipid rules	1	2	LipidSearch; MZmine lipid rules	True		ok	2.93	ok	-0.212	LPE 18:2#0	
+4848	333.24396	2.7378	FA 21:4	FA	Silver	Q2	LipidSearch	3	1	LipidSearch	True	FA 21:4+Os	ok		untested		FA 21:4#0	
+4864	317.21256	2.7459	FA 20:5	FA	Silver	Q2	LipidSearch	3	1	LipidSearch	True	FA 20:5+Os	ok		untested		FA 20:5#3	
+4866	564.33147	2.7562	LPC 18:2	LPC	Gold	Q1	MZmine lipid rules	1	2	LipidSearch; MZmine lipid rules	True		ok	2.83	ok	-0.074	LPC 18:2#0	
+4881	464.27837	2.7757	LPE 17:1	LPE	Gold	Q1	MZmine lipid rules	1	1	MZmine lipid rules	True		ok	3.17	ok	-0.394	LPE 17:1#0	
+4887	675.44886	2.7686	PC	PC	Bronze	Q3	SIRIUS/CANOPUS	4	1	SIRIUS/CANOPUS	True		untested		untested		feature:4887	
+4928	483.27387	2.7949	LPG 16:0	LPG	Gold	Q2	LipidSearch	1	1	LipidSearch	True		ok		untested		LPG 16:0#0	
+4930	339.25445	2.8038	FA 20:2	FA	Silver	Q2	LipidSearch	3	1	LipidSearch	True	FA 20:2+2Os	ok		untested		FA 20:2#1	
+4997	321.24386	2.8426	FA 20:3	FA	Silver	Q2	LipidSearch	3	1	LipidSearch	True	FA 20:3+Os	ok		untested		FA 20:3#3	
+5011	476.27894	2.8675	LPE 18:2	LPE	Gold	Q1	MZmine lipid rules	1	2	LipidSearch; MZmine lipid rules	True		ok	2.93	ok	-0.062	LPE 18:2#1	
+5036	552.33166	2.8913	LPC 17:1	LPC	Silver	Q1	LipidSearch	3	1	LipidSearch	True		ok	3.1	ok	-0.209	LPC 17:1#0	
+5108	369.30144	2.9602	FA 22:0	FA	Silver	Q2	LipidSearch	3	1	LipidSearch	True	FA 22:0+COOHs	ok		untested		FA 22:0#0	
+5131	351.25453	2.9715	FA 21:3	FA	Silver	Q2	LipidSearch	3	1	LipidSearch	True	FA 21:3+2Os	ok		untested		FA 21:3#0	
+5137	391.28609	2.9749	FA 24:4	FA	Silver	Q2	LipidSearch	3	1	LipidSearch	True	FA 24:4+2Os	ok		untested		FA 24:4#0	
+5138	323.25963	2.9803	FA 20:1	FA	Silver	Q2	LipidSearch	3	1	LipidSearch	True	FA 20:1+OXs	ok		untested		FA 20:1#0	
+5168	464.27862	3.0233	LPE 17:1	LPE	Gold	Q1	MZmine lipid rules	1	1	MZmine lipid rules	True		ok	3.17	ok	-0.147	LPE 17:1#1	
+5189	436.28381	3.0325	LPE P-16:0	LPE	Silver	Q1	LipidSearch	3	1	LipidSearch	True		ok		untested		LPE P-16:0#0	
+5279	590.34751	3.1332	LPC 20:3	LPC	Gold	Q1	MZmine lipid rules	1	1	MZmine lipid rules	True		ok	3.35	ok	-0.217	LPC 20:3#0	
+5296	327.25465	3.1538	FA 19:0	FA	Silver	Q2	LipidSearch	3	1	LipidSearch	True	FA 19:0+COOHs	ok		untested		FA 19:0#0	
+5303	540.33157	3.1515	LPC 16:0	LPC	Gold	Q1	LipidSearch	1	2	LipidSearch; MZmine lipid rules	True		ok	3.37	ok	-0.219	LPC 16:0#0	
+5312	321.244	3.1692	FA 20:3	FA	Silver	Q2	LipidSearch	3	1	LipidSearch	True	FA 20:3+Os	ok		untested		FA 20:3#4	
+5322	351.2546	3.1934	FA 21:3	FA	Silver	Q2	LipidSearch	3	1	LipidSearch	True	FA 21:3+2Os	ok		untested		FA 21:3#1	
+5330	341.27015	3.2062	FA 20:0	FA	Silver	Q2	LipidSearch	3	1	LipidSearch	True	FA 20:0+COOHs	ok		untested		FA 20:0#2	
+5334	509.28916	3.2147	LPG 18:1	LPG	Silver	Q2	LipidSearch	3	2	LipidSearch; SIRIUS/CANOPUS	True	PG	ok		untested		LPG 18:1#0	
+5351	317.21254	3.2268	FA 20:5	FA	Silver	Q2	LipidSearch	3	1	LipidSearch	True	FA 20:5+Os	ok		untested		FA 20:5#4	
+5377	339.25446	3.2622	FA 20:2	FA	Silver	Q2	LipidSearch	3	1	LipidSearch	True	FA 20:2+2Os	ok		untested		FA 20:2#2	
+5433	452.27881	3.3371	LPE 16:0	LPE	Gold	Q1	LipidSearch	1	2	LipidSearch; MZmine lipid rules	True		ok	3.42	ok	-0.083	LPE 16:0#0	
+5441	457.3331	3.3389	FA 29:6	FA	Silver	Q2	LipidSearch	3	1	LipidSearch	True	FA 29:6+2Os	ok		untested		FA 29:6#0	
+5457	353.27038	3.3698	FA 21:2	FA	Silver	Q2	LipidSearch	3	1	LipidSearch	True	FA 21:2+2Os	ok		untested		FA 21:2#0	
+5463	309.24413	3.3786	FA 19:1	FA	Silver	Q2	LipidSearch	3	1	LipidSearch	True	FA 19:1+OXs	ok		untested		FA 19:1#0	
+5496	566.34741	3.4201	LPC 18:1	LPC	Gold	Q1	LipidSearch	1	2	LipidSearch; MZmine lipid rules	True		ok	3.88	ok	-0.46	LPC 18:1#0	
+5507	409.23661	3.4234	LPA 16:0	LPA	Gold	Q2	MZmine lipid rules	1	2	LipidSearch; MZmine lipid rules	True		ok		untested		LPA 16:0#0	
+5533	540.33167	3.4366	LPC 16:0	LPC	Gold	Q1	LipidSearch	1	2	LipidSearch; MZmine lipid rules	True		ok	3.37	ok	0.067	LPC 16:0#1	
+5593	554.34747	3.5034	LPC 17:0	LPC	Silver	Q1	LipidSearch	3	1	LipidSearch	True		ok	4.14	ok	-0.637	LPC 17:0#0	
+5605	405.30147	3.5192	FA 25:4	FA	Silver	Q2	LipidSearch	3	1	LipidSearch	True	FA 25:4+2Os	ok		untested		FA 25:4#0	
+5623	397.33286	3.5392	FA 24:0	FA	Silver	Q2	LipidSearch	3	1	LipidSearch	True	FA 24:0+COOHs	ok		untested		FA 24:0#0	
+5642	383.31742	3.5546	FA 23:0	FA	Silver	Q2	LipidSearch	3	1	LipidSearch	True	FA 23:0+COOHs	ok		untested		FA 23:0#0	
+5650	478.29465	3.5609	LPE 18:1	LPE	Gold	Q1	MZmine lipid rules	1	1	MZmine lipid rules	True		ok	3.89	ok	-0.329	LPE 18:1#0	
+5655	323.25967	3.5526	FA 20:1	FA	Silver	Q2	LipidSearch	3	1	LipidSearch	True	FA 20:1+OXs	ok		untested		FA 20:1#1	
+5661	596.33495	3.5837	PE	PE	Bronze	Q3	SIRIUS/CANOPUS	4	1	SIRIUS/CANOPUS	True		untested		untested		feature:5661	
+5673	435.25247	3.5974	LPA 18:1	LPA	Gold	Q2	MZmine lipid rules	1	1	MZmine lipid rules	True		ok		untested		LPA 18:1#0	
+5674	452.27908	3.5932	LPE 16:0	LPE	Gold	Q1	LipidSearch	1	2	LipidSearch; MZmine lipid rules	True		ok	3.42	ok	0.173	LPE 16:0#1	
+5723	367.28597	3.6804	FA 22:2	FA	Silver	Q2	LipidSearch	3	1	LipidSearch	True	FA 22:2+2Os	ok		untested		FA 22:2#0	
+5728	395.31723	3.6859	FA 24:2	FA	Silver	Q2	LipidSearch	3	1	LipidSearch	True	FA 24:2+2Os	ok		untested		FA 24:2#0	
+5730	466.29459	3.6886	LPE 17:0	LPE	Gold	Q1	MZmine lipid rules	1	2	LipidSearch; MZmine lipid rules	True		ok	4.13	ok	-0.441	LPE 17:0#0	
+5733	478.29479	3.672	LPE 18:1	LPE	Gold	Q1	MZmine lipid rules	1	1	MZmine lipid rules	True		ok	3.89	ok	-0.218	LPE 18:1#1	
+5742	566.34762	3.7093	LPC 18:1	LPC	Gold	Q1	LipidSearch	1	2	LipidSearch; MZmine lipid rules	True		ok	3.88	ok	-0.171	LPC 18:1#1	
+5784	566.34764	3.7697	LPC 18:1	LPC	Gold	Q1	MZmine lipid rules	1	1	MZmine lipid rules	True		ok	3.88	ok	-0.11	LPC 18:1#1	
+5810	478.2947	3.8453	LPE 18:1	LPE	Gold	Q1	LipidSearch	1	2	LipidSearch; MZmine lipid rules	True		ok	3.89	ok	-0.045	LPE 18:1#2	
+5827	323.25972	3.8723	FA 20:1	FA	Silver	Q2	LipidSearch	3	1	LipidSearch	True	FA 20:1+OXs	ok		untested		FA 20:1#2	
+5837	341.27022	3.8858	FA 20:0	FA	Silver	Q2	LipidSearch	3	1	LipidSearch	True	FA 20:0+COOHs	ok		untested		FA 20:0#3	
+5867	423.25245	3.9109	LPA 17:0	LPA	Gold	Q2	MZmine lipid rules	1	1	MZmine lipid rules	True		ok		untested		LPA 17:0#0	
+5887	301.21777	3.9449	FA 20:5	FA	Silver	Q2	LipidSearch	3	1	LipidSearch	True		ok		untested		FA 20:5#5	
+5914	623.32074	3.9232	PI	PI	Bronze	Q3	SIRIUS/CANOPUS	4	1	SIRIUS/CANOPUS	True		untested		untested		feature:5914	
+5929	478.29487	3.9494	LPE 18:1	LPE	Gold	Q1	MZmine lipid rules	1	1	MZmine lipid rules	True		ok	3.89	ok	0.059	LPE 18:1#3	
+5962	325.27538	3.9997	FA 20:0	FA	Silver	Q2	LipidSearch	3	1	LipidSearch	True	FA 20:0+CHOs	ok		untested		FA 20:0#4	
+5987	537.15631	4.0444	PI	PI	Bronze	Q3	SIRIUS/CANOPUS	4	1	SIRIUS/CANOPUS	True		untested		untested		feature:5987	
+6031	383.31736	4.1306	FA 23:0	FA	Silver	Q2	LipidSearch	3	1	LipidSearch	True	FA 23:0+COOHs	ok		untested		FA 23:0#1	
+6043	311.25982	4.1535	FA 19:1	FA	Silver	Q2	MZmine lipid rules	1	2	LipidSearch; MZmine lipid rules	True	FA 19:0+CHOs	ok		untested		FA 19:1#1	
+6055	367.28585	4.1692	FA 22:2	FA	Silver	Q2	LipidSearch	3	1	LipidSearch	True	FA 22:2+2Os	ok		untested		FA 22:2#1	
+6066	526.35201	4.1811	Cer 30:8	Cer	Silver	Q1	MZmine lipid rules	3	1	MZmine lipid rules	True		ok		untested		Cer 30:8#0	
+6071	591.33213	4.2107	PG	PG	Bronze	Q3	SIRIUS/CANOPUS	4	1	SIRIUS/CANOPUS	True		untested		untested		feature:6071	
+6109	571.29534	4.2576	Cer	Cer	Bronze	Q3	SIRIUS/CANOPUS	4	1	SIRIUS/CANOPUS	True		untested		untested		feature:6109	
+6160	554.34658	4.3161	LPC 17:0	LPC	Gold	Q1	MZmine lipid rules	1	1	MZmine lipid rules	True		ok	4.14	ok	0.176	LPC 17:0#1	
+6185	637.33754	4.3466	PG	PG	Bronze	Q3	SIRIUS/CANOPUS	4	1	SIRIUS/CANOPUS	True		untested		untested		feature:6185	
+6197	580.3627	4.3935	LPC 19:1	LPC	Gold	Q1	LipidSearch	1	1	LipidSearch	True		ok	4.65	ok	-0.256	LPC 19:1#0	
+6212	552.36816	4.4208	Cer 32:9	Cer	Silver	Q1	MZmine lipid rules	3	1	MZmine lipid rules	True		ok		untested		Cer 32:9#0	
+6242	409.33302	4.482	FA 25:2	FA	Silver	Q2	LipidSearch	3	1	LipidSearch	True	FA 25:2+2Os	ok		untested		FA 25:2#0	
+6248	397.33288	4.4991	FA 24:0	FA	Silver	Q2	LipidSearch	3	1	LipidSearch	True	FA 24:0+COOHs	ok		untested		FA 24:0#1	
+6306	563.34428	4.6594	MGDG	MGDG	Bronze	Q3	SIRIUS/CANOPUS	4	1	SIRIUS/CANOPUS	True		untested		untested		feature:6306	
+6310	492.31044	4.6918	LPE 19:1	LPE	Gold	Q1	MZmine lipid rules	1	2	LipidSearch; MZmine lipid rules	True		ok	4.6	ok	0.092	LPE 19:1#0	
+6331	327.2337	4.6721	FA 22:6	FA	Silver	Q2	LipidSearch	3	1	LipidSearch	True		ok		untested		FA 22:6#0	
+6342	403.28586	4.7011	FA 25:5	FA	Silver	Q2	LipidSearch	3	1	LipidSearch	True	FA 25:5+2Os	ok		untested		FA 25:5#0	
+6355	455.3538	4.7324	FA 30:6	FA	Silver	Q2	LipidSearch	3	1	LipidSearch	True	FA 30:6+Os	ok		untested		FA 30:6#1	
+6408	580.36198	4.8295	LPC 19:1	LPC	Gold	Q1	LipidSearch	1	1	LipidSearch	True		ok	4.65	ok	0.18	LPC 19:1#1	
+6419	355.28587	4.8555	FA 21:0	FA	Silver	Q2	LipidSearch	3	1	LipidSearch	True	FA 21:0+COOHs	ok		untested		FA 21:0#1	
+6424	337.2754	4.8651	FA 21:1	FA	Silver	Q2	LipidSearch	3	1	LipidSearch	True	FA 21:1+OXs	ok		untested		FA 21:1#0	
+6489	369.3013	4.9453	FA 22:0	FA	Silver	Q2	LipidSearch	3	1	LipidSearch	True	FA 22:0+COOHs	ok		untested		FA 22:0#1	
+6518	351.29095	4.9472	FA 22:1	FA	Silver	Q2	LipidSearch	3	1	LipidSearch	True	FA 22:1+OXs	ok		untested		FA 22:1#0	
+6552	397.33259	4.9736	FA 24:0	FA	Silver	Q2	LipidSearch	3	1	LipidSearch	True	FA 24:0+COOHs	ok		untested		FA 24:0#2	
+6558	605.34755	4.9366	PG	PG	Bronze	Q3	SIRIUS/CANOPUS	4	1	SIRIUS/CANOPUS	True		untested		untested		feature:6558	
+6611	417.30149	5.0061	FA 26:5	FA	Silver	Q2	LipidSearch	3	1	LipidSearch	True	FA 26:5+2Os	ok		untested		FA 26:5#0	
+6651	712.3982	5.0653	PE	PE	Bronze	Q3	SIRIUS/CANOPUS	4	1	SIRIUS/CANOPUS	True		untested		untested		feature:6651	
+6674	397.33263	5.1442	FA 24:0	FA	Silver	Q2	LipidSearch	3	1	LipidSearch	True	FA 24:0+COOHs	ok		untested		FA 24:0#3	
+6680	367.28567	5.1589	FA 22:2	FA	Silver	Q2	LipidSearch	3	1	LipidSearch	True	FA 22:2+2Os	ok		untested		FA 22:2#2	
+6685	443.31719	5.2126	FA 28:6	FA	Silver	Q2	LipidSearch	3	1	LipidSearch	True	FA 28:6+2Os	ok		untested		FA 28:6#0	
+6686	303.23342	5.1715	FA 20:4	FA	Gold	Q2	MZmine lipid rules	1	2	LipidSearch; MZmine lipid rules	True		ok		untested		FA 20:4#0	
+6687	381.30159	5.1773	FA 23:2	FA	Silver	Q2	LipidSearch	3	1	LipidSearch	True	FA 23:2+2Os	ok		untested		FA 23:2#0	
+6707	563.33638	5.2265	PA	PA	Bronze	Q3	SIRIUS/CANOPUS	4	1	SIRIUS/CANOPUS	True		untested		untested		feature:6707	
+6726	425.36424	5.2649	FA 26:0	FA	Silver	Q2	LipidSearch	3	1	LipidSearch	True	FA 26:0+COOHs	ok		untested		FA 26:0#0	
+6785	455.35358	5.3158	FA 30:6	FA	Silver	Q2	LipidSearch	3	1	LipidSearch	True	FA 30:6+Os	ok		untested		FA 30:6#2	
+6881	353.30661	5.4592	FA 22:0	FA	Silver	Q2	LipidSearch	3	1	LipidSearch	True	FA 22:0+CHOs	ok		untested		FA 22:0#2	
+6909	568.36271	5.4589	LPC 18:0	LPC	Gold	Q1	MZmine lipid rules	1	1	MZmine lipid rules	True		ok	4.92	ok	0.539	LPC 18:0#0	
+6960	455.35365	5.465	FA 30:6	FA	Silver	Q2	LipidSearch	3	1	LipidSearch	True	FA 30:6+Os	ok		untested		FA 30:6#3	
+6985	607.36313	5.5223	BMP 24:1	BMP	Silver	Q2	MZmine lipid rules	3	1	MZmine lipid rules	True		untested	8.18	untested	-2.658	BMP 24:1#0	
+6987	443.31723	5.4658	FA 28:6	FA	Silver	Q2	LipidSearch	3	1	LipidSearch	True	FA 28:6+2Os	ok		untested		FA 28:6#1	
+7007	339.29074	5.5244	FA 21:0	FA	Silver	Q2	LipidSearch	3	1	LipidSearch	True	FA 21:0+CHOs	ok		untested		FA 21:0#2	
+7008	353.30662	5.5148	FA 22:0	FA	Silver	Q2	LipidSearch	3	1	LipidSearch	True	FA 22:0+CHOs	ok		untested		FA 22:0#2	
+7012	423.34862	5.5231	FA 26:2	FA	Silver	Q2	LipidSearch	3	1	LipidSearch	True	FA 26:2+2Os	ok		untested		FA 26:2#0	
+7014	323.25957	5.5221	FA 20:1	FA	Silver	Q2	LipidSearch	3	1	LipidSearch	True	FA 20:1+OXs	ok		untested		FA 20:1#3	
+7043	325.27524	5.5361	FA 20:0	FA	Silver	Q2	LipidSearch	3	1	LipidSearch	True	FA 20:0+CHOs	ok		untested		FA 20:0#5	
+7049	411.34851	5.5374	FA 25:0	FA	Silver	Q2	LipidSearch	3	1	LipidSearch	True	FA 25:0+COOHs	ok		untested		FA 25:0#0	
+7053	367.28568	5.5401	FA 22:2	FA	Silver	Q2	LipidSearch	3	1	LipidSearch	True	FA 22:2+2Os	ok		untested		FA 22:2#3	
+7057	329.2489	5.542	FA 22:5	FA	Silver	Q2	LipidSearch	3	1	LipidSearch	True		ok		untested		FA 22:5#0	
+7086	355.28588	5.5491	FA 21:0	FA	Silver	Q2	LipidSearch	3	1	LipidSearch	True	FA 21:0+COOHs	ok		untested		FA 21:0#2	
+7107	569.40638	5.5287	SM	SM	Bronze	Q3	SIRIUS/CANOPUS	4	1	SIRIUS/CANOPUS	True		untested		untested		feature:7107	
+7162	351.291	5.5847	FA 22:1	FA	Silver	Q2	LipidSearch	3	1	LipidSearch	True	FA 22:1+OXs	ok		untested		FA 22:1#1	
+7177	397.3328	5.5938	FA 24:0	FA	Silver	Q2	LipidSearch	3	1	LipidSearch	True	FA 24:0+COOHs	ok		untested		FA 24:0#4	
+7178	395.31707	5.6013	FA 24:2	FA	Silver	Q2	LipidSearch	3	1	LipidSearch	True	FA 24:2+2Os	ok		untested		FA 24:2#1	
+7188	453.33823	5.6215	FA 30:7	FA	Silver	Q2	LipidSearch	3	1	LipidSearch	True	FA 30:7+Os	implausible		untested		FA 30:7#1	composition_implausible
+7220	473.36423	5.6791	FA 30:5	FA	Silver	Q2	LipidSearch	3	1	LipidSearch	True	FA 30:5+2Os	ok		untested		FA 30:5#0	
+7243	480.31017	5.7169	LPE 18:0	LPE	Gold	Q1	MZmine lipid rules	1	2	LipidSearch; MZmine lipid rules	True		ok	4.84	ok	0.877	LPE 18:0#0	
+7251	431.31722	5.7492	FA 27:5	FA	Silver	Q2	LipidSearch	3	1	LipidSearch	True	FA 27:5+2Os	ok		untested		FA 27:5#0	
+7280	409.33284	5.8547	FA 25:2	FA	Silver	Q2	LipidSearch	3	1	LipidSearch	True	FA 25:2+2Os	ok		untested		FA 25:2#1	
+7330	506.32522	5.9626	LPE 20:1	LPE	Silver	Q1	LipidSearch	3	1	LipidSearch	True		ok	5.31	ok	0.653	LPE 20:1#0	
+7341	457.33289	5.9746	FA 29:6	FA	Silver	Q2	LipidSearch	3	1	LipidSearch	True	FA 29:6+2Os	ok		untested		FA 29:6#1	
+7365	443.31699	5.9794	FA 28:6	FA	Silver	Q2	LipidSearch	3	1	LipidSearch	True	FA 28:6+2Os	ok		untested		FA 28:6#2	
+7366	369.30126	5.984	FA 22:0	FA	Silver	Q2	LipidSearch	3	1	LipidSearch	True	FA 22:0+COOHs	ok		untested		FA 22:0#3	
+7368	351.29077	5.9841	FA 22:1	FA	Silver	Q2	LipidSearch	3	1	LipidSearch	True	FA 22:1+OXs	ok		untested		FA 22:1#2	
+7396	595.2459	5.9895	PA	PA	Bronze	Q3	SIRIUS/CANOPUS	4	1	SIRIUS/CANOPUS	False	PI	untested		untested		feature:7396	class_disagreement
+7428	329.24907	6.0585	FA 22:5	FA	Silver	Q2	LipidSearch	3	1	LipidSearch	True		ok		untested		FA 22:5#1	
+7464	411.34857	6.1106	FA 25:0	FA	Silver	Q2	LipidSearch	3	1	LipidSearch	True	FA 25:0+COOHs	ok		untested		FA 25:0#1	
+7535	469.33328	6.3061	FA 30:7	FA	Silver	Q2	LipidSearch	3	1	LipidSearch	True	FA 30:7+2Os	implausible		untested		FA 30:7#2	composition_implausible
+7537	395.31725	6.3039	FA 24:2	FA	Silver	Q2	LipidSearch	3	1	LipidSearch	True	FA 24:2+2Os	ok		untested		FA 24:2#2	
+7558	561.32114	6.3333	PG	PG	Bronze	Q3	SIRIUS/CANOPUS	4	1	SIRIUS/CANOPUS	True		untested		untested		feature:7558	
+7631	323.25976	6.531	FA 20:1	FA	Silver	Q2	LipidSearch	3	1	LipidSearch	True	FA 20:1+OXs	ok		untested		FA 20:1#4	
+7667	445.33318	6.6098	FA 28:5	FA	Silver	Q2	LipidSearch	3	1	LipidSearch	True	FA 28:5+2Os	ok		untested		FA 28:5#0	
+7669	339.29101	6.6205	FA 21:0	FA	Silver	Q2	LipidSearch	3	1	LipidSearch	True	FA 21:0+CHOs	ok		untested		FA 21:0#3	
+7685	353.30687	6.6648	FA 22:0	FA	Silver	Q2	LipidSearch	3	1	LipidSearch	True	FA 22:0+CHOs	ok		untested		FA 22:0#4	
+7704	365.30655	6.7282	FA 23:1	FA	Silver	Q2	LipidSearch	3	1	LipidSearch	True	FA 23:1+OXs	ok		untested		FA 23:1#0	
+7714	409.33305	6.7811	FA 25:2	FA	Silver	Q2	LipidSearch	3	1	LipidSearch	True	FA 25:2+2Os	ok		untested		FA 25:2#2	
+7717	425.36455	6.8042	FA 26:0	FA	Silver	Q2	LipidSearch	3	1	LipidSearch	True	FA 26:0+COOHs	ok		untested		FA 26:0#1	
+7730	609.37887	6.8169	PG 8:0_16:0	PG	Gold	Q1	LipidSearch	1	1	LipidSearch	True		implausible	9.14	untested	-2.323	PG 8:0_16:0#0	composition_implausible
+7809	471.34869	6.953	FA 30:6	FA	Silver	Q2	LipidSearch	3	1	LipidSearch	True	FA 30:6+2Os	ok		untested		FA 30:6#4	
+7828	423.34844	7.0361	FA 26:2	FA	Silver	Q2	LipidSearch	3	1	LipidSearch	True	FA 26:2+2Os	ok		untested		FA 26:2#1	
+7874	471.34854	7.1086	FA 30:6	FA	Silver	Q2	LipidSearch	3	1	LipidSearch	True	FA 30:6+2Os	ok		untested		FA 30:6#5	
+7979	327.29079	7.1841	FA 20:0	FA	Silver	Q2	MZmine lipid rules	1	1	MZmine lipid rules	True		ok		untested		FA 20:0#6	
+7980	339.29068	7.1853	FA 21:0	FA	Silver	Q2	LipidSearch	3	1	LipidSearch	True	FA 21:0+CHOs	ok		untested		FA 21:0#4	
+7986	365.30612	7.1871	FA 23:1	FA	Silver	Q2	LipidSearch	3	1	LipidSearch	True	FA 23:1+OXs	ok		untested		FA 23:1#1	
+7991	383.31694	7.1922	FA 23:0	FA	Silver	Q2	LipidSearch	3	1	LipidSearch	True	FA 23:0+COOHs	ok		untested		FA 23:0#2	
+8047	397.33249	7.2395	FA 24:0	FA	Silver	Q2	LipidSearch	3	1	LipidSearch	True	FA 24:0+COOHs	ok		untested		FA 24:0#5	
+8065	379.32205	7.2725	FA 24:1	FA	Silver	Q2	LipidSearch	3	1	LipidSearch	True	FA 24:1+OXs	ok		untested		FA 24:1#0	
+8073	425.36428	7.3128	FA 26:0	FA	Silver	Q2	LipidSearch	3	1	LipidSearch	True	FA 26:0+COOHs	ok		untested		FA 26:0#2	
+8078	353.30666	7.332	FA 22:1	FA	Silver	Q2	MZmine lipid rules	1	2	LipidSearch; MZmine lipid rules	True	FA 22:0+CHOs	ok		untested		FA 22:1#3	
+8167	409.33283	7.4785	FA 25:2	FA	Silver	Q2	LipidSearch	3	1	LipidSearch	True	FA 25:2+2Os	ok		untested		FA 25:2#3	
+8174	701.44073	7.4899	PG	PG	Bronze	Q3	SIRIUS/CANOPUS	4	1	SIRIUS/CANOPUS	True		untested		untested		feature:8174	
+8212	381.33797	7.5626	FA 24:0	FA	Silver	Q2	LipidSearch	3	1	LipidSearch	True	FA 24:0+CHOs	ok		untested		FA 24:0#6	
+8236	433.33259	7.5587	FA 27:4	FA	Silver	Q2	LipidSearch	3	1	LipidSearch	True	FA 27:4+2Os	ok		untested		FA 27:4#0	
+8257	745.60028	7.6307	PA	PA	Bronze	Q3	SIRIUS/CANOPUS	4	1	SIRIUS/CANOPUS	True		untested		untested		feature:8257	
+8291	471.34881	7.8313	FA 30:6	FA	Silver	Q2	LipidSearch	3	1	LipidSearch	True	FA 30:6+2Os	ok		untested		FA 30:6#6	
+8306	379.32243	7.8375	FA 24:1	FA	Silver	Q2	LipidSearch	3	1	LipidSearch	True	FA 24:1+OXs	ok		untested		FA 24:1#1	
+8313	353.30683	7.8562	FA 22:0	FA	Silver	Q2	LipidSearch	3	1	LipidSearch	True	FA 22:0+CHOs	ok		untested		FA 22:0#5	
+8332	367.32226	7.8946	FA 23:0	FA	Silver	Q2	LipidSearch	3	1	LipidSearch	True	FA 23:0+CHOs	ok		untested		FA 23:0#3	
+8347	439.38002	7.9264	FA 27:0	FA	Silver	Q2	LipidSearch	3	1	LipidSearch	True	FA 27:0+COOHs	ok		untested		FA 27:0#0	
+8358	381.30168	7.9475	FA 23:2	FA	Silver	Q2	LipidSearch	3	1	LipidSearch	True	FA 23:2+2Os	ok		untested		FA 23:2#1	
+8370	423.34873	7.9648	FA 26:2	FA	Silver	Q2	LipidSearch	3	1	LipidSearch	True	FA 26:2+2Os	ok		untested		FA 26:2#2	
+8371	307.26462	7.988	FA 20:2	FA	Silver	Q2	MZmine lipid rules	1	1	MZmine lipid rules	True		ok		untested		FA 20:2#3	
+8431	383.3175	8.1116	FA 23:0	FA	Silver	Q2	LipidSearch	3	1	LipidSearch	True	FA 23:0+COOHs	ok		untested		FA 23:0#4	
+8475	437.36447	8.1977	FA 27:2	FA	Silver	Q2	LipidSearch	3	1	LipidSearch	True	FA 27:2+2Os	ok		untested		FA 27:2#0	
+8480	627.4487	8.2144	SM	SM	Bronze	Q3	SIRIUS/CANOPUS	4	1	SIRIUS/CANOPUS	True		untested		untested		feature:8480	
+8557	709.44607	8.4476	PG P-33:5	PG	Silver	Q1	LipidSearch	3	1	LipidSearch	True		ok		untested		PG P-33:5#0	
+8561	739.50666	8.4441	PG	PG	Bronze	Q3	SIRIUS/CANOPUS	4	1	SIRIUS/CANOPUS	True		untested		untested		feature:8561	
+8600	397.3325	8.4562	FA 24:0	FA	Silver	Q2	LipidSearch	3	1	LipidSearch	True	FA 24:0+COOHs	ok		untested		FA 24:0#7	
+8609	379.3221	8.4601	FA 24:1	FA	Silver	Q2	LipidSearch	3	1	LipidSearch	True	FA 24:1+OXs	ok		untested		FA 24:1#2	
+8648	703.4551	8.4866	PG 31:2	PG	Silver	Q1	LipidSearch	3	1	LipidSearch	True		ok	12.3	outlier	-3.813	PG 31:2#0	rt_outlier
+8656	439.37952	8.5228	FA 27:0	FA	Silver	Q2	LipidSearch	3	1	LipidSearch	True	FA 27:0+COOHs	ok		untested		FA 27:0#1	
+8677	353.30659	8.543	FA 22:0	FA	Silver	Q2	LipidSearch	3	1	LipidSearch	True	FA 22:0+CHOs	ok		untested		FA 22:0#6	
+8706	341.30647	8.5794	FA 21:0	FA	Silver	Q2	MZmine lipid rules	1	1	MZmine lipid rules	True		ok		untested		FA 21:0#5	
+8718	367.32211	8.5994	FA 23:0	FA	Silver	Q2	LipidSearch	3	1	LipidSearch	True	FA 23:0+CHOs	ok		untested		FA 23:0#5	
+8728	423.34869	8.6644	FA 26:2	FA	Silver	Q2	LipidSearch	3	1	LipidSearch	True	FA 26:2+2Os	ok		untested		FA 26:2#3	
+8743	648.45344	8.7281	SM	SM	Bronze	Q3	SIRIUS/CANOPUS	4	1	SIRIUS/CANOPUS	True		untested		untested		feature:8743	
+8811	395.3171	8.8271	FA 24:2	FA	Silver	Q2	LipidSearch	3	1	LipidSearch	True	FA 24:2+2Os	ok		untested		FA 24:2#3	
+8830	383.31737	8.8791	FA 23:0	FA	Silver	Q2	LipidSearch	3	1	LipidSearch	True	FA 23:0+COOHs	ok		untested		FA 23:0#6	
+8853	735.52961	8.943	PE	PE	Bronze	Q3	SIRIUS/CANOPUS	4	1	SIRIUS/CANOPUS	True		untested		untested		feature:8853	
+8868	716.48946	8.9748	PE	PE	Bronze	Q3	SIRIUS/CANOPUS	4	1	SIRIUS/CANOPUS	True		untested		untested		feature:8868	
+8879	690.47318	9.0334	PE	PE	Bronze	Q3	SIRIUS/CANOPUS	4	1	SIRIUS/CANOPUS	True		untested		untested		feature:8879	
+8899	431.35351	9.0677	FA 28:4	FA	Silver	Q2	LipidSearch	3	1	LipidSearch	True	FA 28:4+Os	ok		untested		FA 28:4#0	
+8912	703.45628	9.1134	PA	PA	Bronze	Q3	SIRIUS/CANOPUS	4	1	SIRIUS/CANOPUS	True		untested		untested		feature:8912	
+8916	629.44452	9.0954	PA	PA	Bronze	Q3	SIRIUS/CANOPUS	4	1	SIRIUS/CANOPUS	True		untested		untested		feature:8916	
+8922	367.32223	9.1208	FA 23:1	FA	Silver	Q2	MZmine lipid rules	1	1	MZmine lipid rules	True		ok		untested		FA 23:1#2	
+8924	359.25979	9.0832	FA 23:5	FA	Silver	Q2	LipidSearch	3	1	LipidSearch	True	FA 23:5+Os	ok		untested		FA 23:5#0	
+8929	381.33799	9.1234	FA 24:0	FA	Silver	Q2	LipidSearch	3	1	LipidSearch	True	FA 24:0+CHOs	ok		untested		FA 24:0#8	
+8942	437.36415	9.1464	FA 27:2	FA	Silver	Q2	LipidSearch	3	1	LipidSearch	True	FA 27:2+2Os	ok		untested		FA 27:2#1	
+8960	837.61109	9.2006	SM	SM	Bronze	Q3	SIRIUS/CANOPUS	4	1	SIRIUS/CANOPUS	True		untested		untested		feature:8960	
+8961	535.34171	9.1512	PA 8:0_16:0	PA	Gold	Q2	LipidSearch	1	2	LipidSearch; SIRIUS/CANOPUS	True	PA	implausible	9.91	untested	-0.759	PA 8:0_16:0#0	composition_implausible
+8974	461.36448	9.2267	FA 29:4	FA	Silver	Q2	LipidSearch	3	1	LipidSearch	True	FA 29:4+2Os	ok		untested		FA 29:4#0	
+9045	397.33286	9.3698	FA 24:0	FA	Silver	Q2	LipidSearch	3	1	LipidSearch	True	FA 24:0+COOHs	ok		untested		FA 24:0#9	
+9051	451.38005	9.3628	FA 28:2	FA	Silver	Q2	LipidSearch	3	1	LipidSearch	True	FA 28:2+2Os	ok		untested		FA 28:2#0	
+9064	353.34307	9.402	FA 23:0	FA	Silver	Q2	LipidSearch	3	1	LipidSearch	True		ok		untested		FA 23:0#7	
+9072	447.34861	9.4279	FA 28:4	FA	Silver	Q2	LipidSearch	3	1	LipidSearch	True	FA 28:4+2Os	ok		untested		FA 28:4#1	
+9138	709.44542	9.6309	PG P-33:5	PG	Silver	Q1	LipidSearch	3	1	LipidSearch	True		ok		untested		PG P-33:5#1	
+9199	411.34822	9.6735	FA 25:0	FA	Silver	Q2	LipidSearch	3	1	LipidSearch	True	FA 25:0+COOHs	ok		untested		FA 25:0#2	
+9268	437.3637	9.8244	FA 27:2	FA	Silver	Q2	LipidSearch	3	1	LipidSearch	True	FA 27:2+2Os	ok		untested		FA 27:2#2	
+9295	381.33765	9.852	FA 24:1	FA	Silver	Q2	MZmine lipid rules	1	2	LipidSearch; MZmine lipid rules	True	FA 24:0+CHOs	ok		untested		FA 24:1#3	
+9298	685.44474	9.877	PG O-31:4	PG	Silver	Q1	LipidSearch	3	1	LipidSearch	True		ok		untested		PG O-31:4#0	
+9311	367.32181	9.8744	FA 23:0	FA	Silver	Q2	LipidSearch	3	1	LipidSearch	True	FA 23:0+CHOs	ok		untested		FA 23:0#8	
+9325	453.33792	9.8956	FA 30:7	FA	Silver	Q2	LipidSearch	3	1	LipidSearch	True	FA 30:7+Os	implausible		untested		FA 30:7#3	composition_implausible
+9333	409.33251	9.8962	FA 25:2	FA	Silver	Q2	LipidSearch	3	1	LipidSearch	True	FA 25:2+2Os	ok		untested		FA 25:2#4	
+9346	409.36886	9.9106	FA 26:0	FA	Silver	Q2	LipidSearch	3	1	LipidSearch	True	FA 26:0+CHOs	ok		untested		FA 26:0#3	
+9350	355.32207	9.9211	FA 22:0	FA	Silver	Q2	MZmine lipid rules	1	1	MZmine lipid rules	True		ok		untested		FA 22:0#7	
+9402	437.34267	9.9464	FA 30:7	FA	Silver	Q2	LipidSearch	3	1	LipidSearch	True		implausible		untested		FA 30:7#3	composition_implausible
+9426	445.33302	9.9728	FA 28:5	FA	Silver	Q2	LipidSearch	3	1	LipidSearch	True	FA 28:5+2Os	ok		untested		FA 28:5#1	
+9511	337.31151	10.0724	FA 22:1	FA	Silver	Q2	LipidSearch	3	1	LipidSearch	True		ok		untested		FA 22:1#4	
+9515	407.3533	10.0775	FA 26:1	FA	Silver	Q2	LipidSearch	3	1	LipidSearch	True	FA 26:1+OXs	ok		untested		FA 26:1#0	
+9541	439.37979	10.137	FA 27:0	FA	Silver	Q2	LipidSearch	3	1	LipidSearch	True	FA 27:0+COOHs	ok		untested		FA 27:0#2	
+9545	457.33303	10.147	FA 29:6	FA	Silver	Q2	LipidSearch	3	1	LipidSearch	True	FA 29:6+2Os	ok		untested		FA 29:6#2	
+9566	625.38695	10.1751	PA	PA	Bronze	Q3	SIRIUS/CANOPUS	4	1	SIRIUS/CANOPUS	True		untested		untested		feature:9566	
+9575	353.30668	10.2146	FA 22:0	FA	Silver	Q2	LipidSearch	3	1	LipidSearch	True	FA 22:0+CHOs	ok		untested		FA 22:0#8	
+9587	461.36426	10.2295	FA 29:4	FA	Silver	Q2	LipidSearch	3	1	LipidSearch	True	FA 29:4+2Os	ok		untested		FA 29:4#1	
+9605	467.41103	10.2935	FA 29:0	FA	Silver	Q2	LipidSearch	3	1	LipidSearch	True	FA 29:0+COOHs	ok		untested		FA 29:0#0	
+9608	451.37984	10.2788	FA 28:2	FA	Silver	Q2	LipidSearch	3	1	LipidSearch	True	FA 28:2+2Os	ok		untested		FA 28:2#1	
+9614	409.31178	10.291	FA 28:7	FA	Silver	Q2	LipidSearch	3	1	LipidSearch	True		implausible		untested		FA 28:7#0	composition_implausible
+9632	395.35331	10.3243	FA 25:0	FA	Silver	Q2	LipidSearch	3	1	LipidSearch	True	FA 25:0+CHOs	ok		untested		FA 25:0#3	
+9638	381.33784	10.3753	FA 24:1	FA	Silver	Q2	MZmine lipid rules	1	2	LipidSearch; MZmine lipid rules	True	FA 24:0+CHOs	ok		untested		FA 24:1#4	
+9678	365.3426	10.4193	FA 24:1	FA	Silver	Q2	LipidSearch	3	1	LipidSearch	True		ok		untested		FA 24:1#4	
+9696	913.58464	10.4277	PI 40:4	PI	Silver	Q1	LipidSearch	3	1	LipidSearch	True		ok	15.61	outlier	-5.182	PI 40:4#0	rt_outlier
+9698	457.36925	10.4332	FA 30:5	FA	Silver	Q2	LipidSearch	3	1	LipidSearch	True	FA 30:5+Os	ok		untested		FA 30:5#1	
+9701	409.33258	10.4335	FA 25:2	FA	Silver	Q2	LipidSearch	3	1	LipidSearch	True	FA 25:2+2Os	ok		untested		FA 25:2#5	
+9740	718.50369	10.4793	PE	PE	Bronze	Q3	SIRIUS/CANOPUS	4	1	SIRIUS/CANOPUS	True		untested		untested		feature:9740	
+9756	465.39507	10.4987	FA 29:2	FA	Silver	Q2	LipidSearch	3	1	LipidSearch	True	FA 29:2+2Os	ok		untested		FA 29:2#0	
+9831	439.37977	10.6109	FA 27:0	FA	Silver	Q2	LipidSearch	3	1	LipidSearch	True	FA 27:0+COOHs	ok		untested		FA 27:0#3	
+9847	411.3486	10.6321	FA 25:0	FA	Silver	Q2	LipidSearch	3	1	LipidSearch	True	FA 25:0+COOHs	ok		untested		FA 25:0#4	
+9852	367.35846	10.6361	FA 24:0	FA	Silver	Q2	LipidSearch	3	1	LipidSearch	True		ok		untested		FA 24:0#10	
+9865	749.54451	10.654	HexCer	HexCer	Bronze	Q3	SIRIUS/CANOPUS	4	1	SIRIUS/CANOPUS	True		untested		untested		feature:9865	
+9946	814.50247	10.7935	PC P-37:9	PC	Silver	Q1	LipidSearch	3	1	LipidSearch	True		ok		untested		PC P-37:9#0	
+9952	459.34851	10.8118	FA 29:5	FA	Silver	Q2	LipidSearch	3	1	LipidSearch	True	FA 29:5+2Os	ok		untested		FA 29:5#0	
+9985	425.36415	10.8525	FA 26:0	FA	Silver	Q2	LipidSearch	3	1	LipidSearch	True	FA 26:0+COOHs	ok		untested		FA 26:0#4	
+10001	409.36904	10.8687	FA 26:0	FA	Silver	Q2	LipidSearch	3	1	LipidSearch	True	FA 26:0+CHOs	ok		untested		FA 26:0#4	
+10038	451.37969	10.9187	FA 28:2	FA	Silver	Q2	LipidSearch	3	1	LipidSearch	True	FA 28:2+2Os	ok		untested		FA 28:2#2	
+10059	470.38512	10.9537	Cer d27:1	Cer	Silver	Q1	LipidSearch	3	2	LipidSearch; SIRIUS/CANOPUS	True	Cer d27:1+2Os; Cer	ok		untested		Cer d27:1#0	
+10063	457.36908	10.9428	FA 30:5	FA	Silver	Q2	LipidSearch	3	1	LipidSearch	True	FA 30:5+Os	ok		untested		FA 30:5#2	
+10085	687.46138	10.9924	PA	PA	Bronze	Q3	SIRIUS/CANOPUS	4	1	SIRIUS/CANOPUS	True		untested		untested		feature:10085	
+10152	395.35319	11.0794	FA 25:1	FA	Silver	Q2	MZmine lipid rules	1	2	LipidSearch; MZmine lipid rules	True	FA 25:0+CHOs	ok		untested		FA 25:1#0	
+10178	459.38486	11.1068	FA 30:4	FA	Silver	Q2	LipidSearch	3	1	LipidSearch	True	FA 30:4+Os	ok		untested		FA 30:4#0	
+10196	794.52024	11.055	PE	PE	Bronze	Q3	SIRIUS/CANOPUS	4	1	SIRIUS/CANOPUS	True		untested		untested		feature:10196	
+10197	381.33769	11.1346	FA 24:0	FA	Silver	Q2	LipidSearch	3	1	LipidSearch	True	FA 24:0+CHOs	ok		untested		FA 24:0#11	
+10263	423.34838	11.2098	FA 26:2	FA	Silver	Q2	LipidSearch	3	1	LipidSearch	True	FA 26:2+2Os	ok		untested		FA 26:2#4	
+10268	685.44561	11.2212	PA	PA	Bronze	Q3	SIRIUS/CANOPUS	4	1	SIRIUS/CANOPUS	True		untested		untested		feature:10268	
+10284	369.33765	11.226	FA 23:0	FA	Silver	Q2	MZmine lipid rules	1	1	MZmine lipid rules	True		ok		untested		FA 23:0#9	
+10402	451.37971	11.3445	FA 28:2	FA	Silver	Q2	LipidSearch	3	1	LipidSearch	True	FA 28:2+2Os	ok		untested		FA 28:2#3	
+10409	411.34842	11.3687	FA 25:0	FA	Silver	Q2	LipidSearch	3	1	LipidSearch	True	FA 25:0+COOHs	ok		untested		FA 25:0#5	
+10413	569.47935	11.3667	SM	SM	Bronze	Q3	SIRIUS/CANOPUS	4	1	SIRIUS/CANOPUS	True		untested		untested		feature:10413	
+10437	955.56526	11.4125	DGDG 34:5	DGDG	Silver	Q2	LipidSearch	3	1	LipidSearch	True		ok		untested		DGDG 34:5#0	
+10453	797.48363	11.411	PI	PI	Bronze	Q3	SIRIUS/CANOPUS	4	1	SIRIUS/CANOPUS	True		untested		untested		feature:10453	
+10471	409.36916	11.464	FA 26:0	FA	Silver	Q2	LipidSearch	3	1	LipidSearch	True	FA 26:0+CHOs	ok		untested		FA 26:0#5	
+10539	447.38508	11.615	FA 29:3	FA	Silver	Q2	LipidSearch	3	1	LipidSearch	True	FA 29:3+Os	ok		untested		FA 29:3#0	
+10606	738.50994	11.6998	PE 36:4	PE	Silver	Q1	LipidSearch	3	1	LipidSearch	True		ok	14.87	outlier	-3.17	PE 36:4#0	rt_outlier
+10651	981.5813	11.8056	DGDG 36:6	DGDG	Silver	Q2	LipidSearch	3	1	LipidSearch	True		ok		untested		DGDG 36:6#0	
+10657	759.4228	11.8099	PG	PG	Bronze	Q3	SIRIUS/CANOPUS	4	1	SIRIUS/CANOPUS	True		untested		untested		feature:10657	
+10699	691.43342	11.9081	PG	PG	Bronze	Q3	SIRIUS/CANOPUS	4	1	SIRIUS/CANOPUS	True		untested		untested		feature:10699	
+10706	737.55942	11.9469	SM	SM	Bronze	Q3	SIRIUS/CANOPUS	4	1	SIRIUS/CANOPUS	True		untested		untested		feature:10706	
+10716	439.37979	11.9611	FA 27:0	FA	Silver	Q2	LipidSearch	3	1	LipidSearch	True	FA 27:0+COOHs	ok		untested		FA 27:0#4	
+10718	461.36205	11.9627	FA 29:4	FA	Silver	Q2	LipidSearch	3	1	LipidSearch	True	FA 29:4+2Os	ok		untested		FA 29:4#2	
+10721	805.48877	11.9646	PI 16:1_16:1	PI	Gold	Q1	LipidSearch	1	1	LipidSearch	True		ok	13.07	ok	-1.105	PI 16:1_16:1#0	
+10723	381.33793	11.9669	FA 24:0	FA	Silver	Q2	LipidSearch	3	1	LipidSearch	True	FA 24:0+CHOs	ok		untested		FA 24:0#12	
+10732	465.39533	11.9802	FA 29:2	FA	Silver	Q2	LipidSearch	3	1	LipidSearch	True	FA 29:2+2Os	ok		untested		FA 29:2#1	
+10733	387.291	11.9852	FA 25:5	FA	Silver	Q2	LipidSearch	3	1	LipidSearch	True	FA 25:5+Os	ok		untested		FA 25:5#1	
+10747	689.47677	12.0718	PG	PG	Bronze	Q3	SIRIUS/CANOPUS	4	1	SIRIUS/CANOPUS	True		untested		untested		feature:10747	
+10768	383.35362	12.0847	FA 24:0	FA	Silver	Q2	MZmine lipid rules	1	1	MZmine lipid rules	True		ok		untested		FA 24:0#13	
+10774	720.47462	12.0941	PE	PE	Bronze	Q3	SIRIUS/CANOPUS	4	1	SIRIUS/CANOPUS	True		untested		untested		feature:10774	
+10821	554.4793	12.167	Cer d33:1	Cer	Silver	Q1	LipidSearch	3	2	LipidSearch; SIRIUS/CANOPUS	True	Cer d33:1+2Os; Cer	ok		untested		Cer d33:1#0	
+10846	687.46275	12.2203	PG	PG	Bronze	Q3	SIRIUS/CANOPUS	4	1	SIRIUS/CANOPUS	True		untested		untested		feature:10846	
+10895	467.41088	12.2597	FA 29:0	FA	Silver	Q2	LipidSearch	3	1	LipidSearch	True	FA 29:0+COOHs	ok		untested		FA 29:0#1	
+10904	679.45625	12.2675	PG	PG	Bronze	Q3	SIRIUS/CANOPUS	4	1	SIRIUS/CANOPUS	True		untested		untested		feature:10904	
+10911	658.44632	12.293	PE 15:1_15:1	PE	Gold	Q1	MZmine lipid rules	1	1	MZmine lipid rules	True		ok	12.48	ok	-0.187	PE 15:1_15:1#0	
+10925	437.36392	12.3108	FA 27:2	FA	Silver	Q2	LipidSearch	3	1	LipidSearch	True	FA 27:2+2Os	ok		untested		FA 27:2#3	
+10929	409.36899	12.2364	FA 26:1	FA	Silver	Q2	MZmine lipid rules	1	2	LipidSearch; MZmine lipid rules	True	FA 26:0+CHOs	ok		untested		FA 26:1#1	
+10933	691.45734	12.3419	PG 30:1	PG	Silver	Q1	LipidSearch	3	2	LipidSearch; SIRIUS/CANOPUS	True	PG	ok	12.49	ok	-0.148	PG 30:1#0	
+10950	447.38441	12.35	FA 29:3	FA	Silver	Q2	LipidSearch	3	1	LipidSearch	True	FA 29:3+Os	ok		untested		FA 29:3#1	
+10957	1145.7453	12.3541	CL O-52:5	CL	Silver	Q2	LipidSearch	3	1	LipidSearch	True		ok		untested		CL O-52:5#0	
+10979	793.48788	12.384	PI 31:1	PI	Silver	Q1	LipidSearch	3	1	LipidSearch	True		ok	13.3	ok	-0.916	PI 31:1#0	
+11002	479.41095	12.3978	FA 30:2	FA	Silver	Q2	LipidSearch	3	1	LipidSearch	True	FA 30:2+2Os	ok		untested		FA 30:2#0	
+11015	832.62655	12.4219	PE	PE	Bronze	Q3	SIRIUS/CANOPUS	4	1	SIRIUS/CANOPUS	True		untested		untested		feature:11015	
+11025	687.49991	12.4125	PA	PA	Bronze	Q3	SIRIUS/CANOPUS	4	1	SIRIUS/CANOPUS	True		untested		untested		feature:11025	
+11026	717.4726	12.416	BMP 16:1_16:1	BMP	Gold	Q2	MZmine lipid rules	1	2	LipidSearch; MZmine lipid rules	False	PG 32:2	untested	12.79	ok	-0.374	BMP 16:1_16:1#0	class_disagreement
+11029	465.39456	12.425	FA 29:2	FA	Silver	Q2	LipidSearch	3	1	LipidSearch	True	FA 29:2+2Os	ok		untested		FA 29:2#2	
+11035	831.50442	12.4379	PI 34:3	PI	Silver	Q1	LipidSearch	3	2	LipidSearch; SIRIUS/CANOPUS	True	PI	ok	13.34	ok	-0.902	PI 34:3#0	
+11059	1031.59579	12.4308	DGDG 40:9	DGDG	Silver	Q2	LipidSearch	3	1	LipidSearch	True		ok		untested		DGDG 40:9#0	
+11060	383.35343	12.4438	FA 24:0	FA	Silver	Q2	MZmine lipid rules	1	1	MZmine lipid rules	True		ok		untested		FA 24:0#14	
+11083	658.44508	12.4184	PE 30:2	PE	Silver	Q1	LipidSearch	3	1	LipidSearch	True		ok	12.48	ok	-0.062	PE 30:2#0	
+11085	687.46195	12.4376	PA	PA	Bronze	Q3	SIRIUS/CANOPUS	4	1	SIRIUS/CANOPUS	True		untested		untested		feature:11085	
+11102	337.31153	12.4729	FA 22:1	FA	Silver	Q2	LipidSearch	3	1	LipidSearch	True		ok		untested		FA 22:1#5	
+11129	425.36405	12.4952	FA 26:0	FA	Silver	Q2	LipidSearch	3	1	LipidSearch	True	FA 26:0+COOHs	ok		untested		FA 26:0#6	
+11133	365.34249	12.5084	FA 24:1	FA	Gold	Q2	MZmine lipid rules	1	2	LipidSearch; MZmine lipid rules	True		ok		untested		FA 24:1#5	
+11138	590.45612	12.5078	CerP 32:0	CerP	Silver	Q2	MZmine lipid rules	3	1	MZmine lipid rules	True		untested		untested		CerP 32:0#0	
+11158	423.38466	12.5396	FA 27:0	FA	Silver	Q2	LipidSearch	3	1	LipidSearch	True	FA 27:0+CHOs	ok		untested		FA 27:0#5	
+11167	768.50403	12.5991	PS	PS	Bronze	Q3	SIRIUS/CANOPUS	4	1	SIRIUS/CANOPUS	True		untested		untested		feature:11167	
+11184	582.47505	12.5959	Cer	Cer	Bronze	Q3	SIRIUS/CANOPUS	4	1	SIRIUS/CANOPUS	True		untested		untested		feature:11184	
+11191	822.51478	12.5997	PE	PE	Bronze	Q3	SIRIUS/CANOPUS	4	1	SIRIUS/CANOPUS	True		untested		untested		feature:11191	
+11195	311.29597	12.5817	FA 20:0	FA	Gold	Q2	MZmine lipid rules	1	2	LipidSearch; MZmine lipid rules	True		ok		untested		FA 20:0#7	
+11198	679.45599	12.584	PG 29:0	PG	Silver	Q1	LipidSearch	3	2	LipidSearch; SIRIUS/CANOPUS	True	PG	ok	12.69	ok	-0.106	PG 29:0#0	
+11234	741.47333	12.623	PG 16:1_18:3	PG	Gold	Q1	LipidSearch	1	2	LipidSearch; SIRIUS/CANOPUS	True	PG	ok	12.61	ok	0.013	PG 16:1_18:3#0	
+11248	672.4624	12.6865	PE 15:1_16:1	PE	Gold	Q1	LipidSearch	1	1	LipidSearch	True		ok	13.21	ok	-0.524	PE 15:1_16:1#0	
+11251	437.36386	12.6391	FA 27:2	FA	Silver	Q2	LipidSearch	3	1	LipidSearch	True	FA 27:2+2Os	ok		untested		FA 27:2#4	
+11252	815.49984	12.6372	SQDG 34:3	SQDG	Silver	Q2	LipidSearch	3	1	LipidSearch	True		ok		untested		SQDG 34:3#0	
+11263	957.58006	12.6413	DGDG 16:1_18:3	DGDG	Gold	Q2	LipidSearch	1	1	LipidSearch	True		ok		untested		DGDG 16:1_18:3#0	
+11289	1007.59675	12.6675	DGDG 38:7	DGDG	Silver	Q2	LipidSearch	3	1	LipidSearch	True		ok		untested		DGDG 38:7#0	
+11292	381.33782	12.675	FA 24:0	FA	Silver	Q2	LipidSearch	3	1	LipidSearch	True	FA 24:0+CHOs	ok		untested		FA 24:0#15	
+11324	467.41089	12.7054	FA 29:0	FA	Silver	Q2	LipidSearch	3	1	LipidSearch	True	FA 29:0+COOHs	ok		untested		FA 29:0#2	
+11333	927.53948	12.7312	CL 36:2	CL	Silver	Q2	LipidSearch	3	1	LipidSearch	True		implausible	13.63	untested	-0.899	CL 36:2#0	composition_implausible
+11354	855.50475	12.7397	PI 36:5	PI	Silver	Q1	LipidSearch	3	1	LipidSearch	True		ok	12.88	ok	-0.14	PI 36:5#0	
+11367	719.53604	12.7639	SM 31:1	SM	Silver	Q1	MZmine lipid rules	3	1	MZmine lipid rules	True		ok		untested		SM 31:1#0	
+11391	781.48843	12.7724	PI 15:0_15:0	PI	Gold	Q1	LipidSearch	1	1	LipidSearch	True		ok	13.53	ok	-0.758	PI 15:0_15:0#0	
+11417	705.47245	12.8065	BMP 15:0_16:1	BMP	Gold	Q2	MZmine lipid rules	1	3	LipidSearch; MZmine lipid rules; SIRIUS/CANOPUS	False	PG 31:1; PG	untested	13.07	ok	-0.264	BMP 15:0_16:1#0	class_disagreement
+11427	857.51892	12.8211	PI 18:2_18:2	PI	Gold	Q1	LipidSearch	1	1	LipidSearch	True		ok	13.61	ok	-0.789	PI 18:2_18:2#0	
+11445	672.46236	12.824	PE 15:1_16:1	PE	Gold	Q1	MZmine lipid rules	1	1	MZmine lipid rules	True		ok	13.21	ok	-0.386	PE 15:1_16:1#1	
+11450	739.57713	12.861	SM	SM	Bronze	Q3	SIRIUS/CANOPUS	4	1	SIRIUS/CANOPUS	True		untested		untested		feature:11450	
+11452	753.49335	12.8584	PI O-29:0	PI	Silver	Q1	LipidSearch	3	2	LipidSearch; SIRIUS/CANOPUS	True	PI	ok		untested		PI O-29:0#0	
+11455	810.55071	12.8868	PS	PS	Bronze	Q3	SIRIUS/CANOPUS	4	1	SIRIUS/CANOPUS	True		untested		untested		feature:11455	
+11472	831.5044	12.8883	PI 16:0_18:3	PI	Gold	Q1	LipidSearch	1	1	LipidSearch	True		ok	13.34	ok	-0.452	PI 16:0_18:3#0	
+11530	807.50389	12.9938	PI	PI	Bronze	Q3	SIRIUS/CANOPUS	4	1	SIRIUS/CANOPUS	True		untested		untested		feature:11530	
+11544	542.4801	12.9787	Cer	Cer	Bronze	Q3	SIRIUS/CANOPUS	4	1	SIRIUS/CANOPUS	True		untested		untested		feature:11544	
+11552	983.59648	13.0007	DGDG 36:5	DGDG	Silver	Q2	LipidSearch	3	1	LipidSearch	True		ok		untested		DGDG 36:5#0	
+11557	453.39557	13.0053	FA 28:0	FA	Silver	Q2	LipidSearch	3	1	LipidSearch	True	FA 28:0+COOHs	ok		untested		FA 28:0#0	
+11579	824.54648	13.0439	PC 18:2_18:3	PC	Gold	Q1	MZmine lipid rules	1	2	LipidSearch; MZmine lipid rules	True	PC 36:5	ok	13.79	ok	-0.746	PC 18:2_18:3#0	
+11602	383.35358	13.0655	FA 24:0	FA	Silver	Q2	MZmine lipid rules	1	1	MZmine lipid rules	True		ok		untested		FA 24:0#16	
+11621	660.46217	13.0816	PE 15:0_15:1	PE	Gold	Q1	LipidSearch	1	2	LipidSearch; MZmine lipid rules	True		ok	13.45	ok	-0.368	PE 15:0_15:1#0	
+11633	745.5521	13.0811	SM 33:2	SM	Silver	Q1	MZmine lipid rules	3	1	MZmine lipid rules	True		ok		untested		SM 33:2#0	
+11711	795.50393	13.1409	PI 15:0_16:0	PI	Gold	Q1	LipidSearch	1	2	LipidSearch; SIRIUS/CANOPUS	True	PI	ok	14.04	ok	-0.899	PI 15:0_16:0#0	
+11713	705.472	13.147	PG 31:1	PG	Silver	Q1	LipidSearch	3	2	LipidSearch; SIRIUS/CANOPUS	True	PG	ok	13.21	ok	-0.063	PG 31:1#0	
+11715	819.5024	13.1251	PI 15:0_18:2	PI	Gold	Q1	LipidSearch	1	2	LipidSearch; SIRIUS/CANOPUS	False	MGDG	ok	13.57	ok	-0.445	PI 15:0_18:2#0	class_disagreement
+11724	693.44934	13.1747	PA	PA	Bronze	Q3	SIRIUS/CANOPUS	4	1	SIRIUS/CANOPUS	True		untested		untested		feature:11724	
+11728	693.47346	13.1532	PG 15:0_15:0	PG	Gold	Q1	LipidSearch	1	2	LipidSearch; MZmine lipid rules	False	BMP 15:0_15:0; PG 30:0	ok	13.4	ok	-0.247	PG 15:0_15:0#0	class_disagreement
+11747	644.4604	13.1809	SM	SM	Bronze	Q3	SIRIUS/CANOPUS	4	1	SIRIUS/CANOPUS	True		untested		untested		feature:11747	
+11751	1173.77364	13.1686	CL O-54:5	CL	Silver	Q2	LipidSearch	3	1	LipidSearch	True		ok		untested		CL O-54:5#0	
+11766	481.42695	13.2122	FA 30:0	FA	Silver	Q2	LipidSearch	3	1	LipidSearch	True	FA 30:0+COOHs	ok		untested		FA 30:0#0	
+11776	743.48853	13.2332	BMP 16:0_18:3	BMP	Gold	Q2	MZmine lipid rules	1	2	LipidSearch; MZmine lipid rules	False	PG 34:3	untested	13.2	ok	0.033	BMP 16:0_18:3#0	class_disagreement
+11778	689.44045	13.2355	PG	PG	Bronze	Q3	SIRIUS/CANOPUS	4	1	SIRIUS/CANOPUS	True		untested		untested		feature:11778	
+11781	570.47463	13.2481	Cer d16:0_16:1+Os	Cer	Gold	Q1	LipidSearch	1	1	LipidSearch	True		ok	13.9	ok	-0.652	Cer d16:0_16:1+Os#0	
+11785	445.33284	13.25	FA 28:5	FA	Silver	Q2	LipidSearch	3	1	LipidSearch	True	FA 28:5+2Os	ok		untested		FA 28:5#2	
+11797	807.5042	13.2858	PI 16:0_16:1	PI	Gold	Q1	LipidSearch	1	1	LipidSearch	True		ok	13.8	ok	-0.514	PI 16:0_16:1#0	
+11798	693.44901	13.2552	PA 36:5	PA	Silver	Q2	LipidSearch	3	2	LipidSearch; SIRIUS/CANOPUS	True	PA	ok	13.62	ok	-0.365	PA 36:5#0	
+11839	731.56988	13.3392	SM	SM	Bronze	Q3	SIRIUS/CANOPUS	4	1	SIRIUS/CANOPUS	True		untested		untested		feature:11839	
+11862	798.53028	13.3731	PC 14:0_20:4	PC	Gold	Q1	MZmine lipid rules	1	1	MZmine lipid rules	True		ok	13.31	ok	0.063	PC 14:0_20:4#0	
+11873	774.53048	13.3876	PC 15:1_16:1	PC	Gold	Q1	MZmine lipid rules	1	2	LipidSearch; MZmine lipid rules	True	PC 32:2	ok	13.07	ok	0.318	PC 15:1_16:1#0	
+11874	736.49078	13.3898	PE 36:5	PE	Silver	Q1	LipidSearch	3	2	LipidSearch; SIRIUS/CANOPUS	True	PE	ok	13.9	ok	-0.51	PE 36:5#0	
+11875	467.41112	13.3881	FA 29:0	FA	Silver	Q2	LipidSearch	3	1	LipidSearch	True	FA 29:0+COOHs	ok		untested		FA 29:0#3	
+11876	686.47751	13.391	PE 15:1_17:1	PE	Gold	Q1	MZmine lipid rules	1	2	LipidSearch; MZmine lipid rules	True	PE 32:2	ok	13.93	ok	-0.539	PE 15:1_17:1#0	
+11878	719.48787	13.3951	PG 32:1	PG	Silver	Q1	LipidSearch	3	2	LipidSearch; SIRIUS/CANOPUS	True	PG	ok	13.92	ok	-0.525	PG 32:1#0	
+11884	703.49274	13.4031	PG O-32:2	PG	Silver	Q1	MZmine lipid rules	3	1	MZmine lipid rules	True		ok		untested		PG O-32:2#0	
+11895	479.4111	13.4118	FA 30:2	FA	Silver	Q2	LipidSearch	3	1	LipidSearch	True	FA 30:2+2Os	ok		untested		FA 30:2#1	
+11917	1009.61266	13.4765	DGDG 38:6	DGDG	Silver	Q2	LipidSearch	3	1	LipidSearch	True		ok		untested		DGDG 38:6#0	
+11921	617.4199	13.4566	PA 30:1	PA	Silver	Q2	LipidSearch	3	2	LipidSearch; SIRIUS/CANOPUS	True	PA	ok	13.56	ok	-0.103	PA 30:1#0	
+11948	731.48744	13.4866	PG	PG	Bronze	Q3	SIRIUS/CANOPUS	4	1	SIRIUS/CANOPUS	True		untested		untested		feature:11948	
+11964	693.47554	13.5045	PG	PG	Bronze	Q3	SIRIUS/CANOPUS	4	1	SIRIUS/CANOPUS	True		untested		untested		feature:11964	
+11997	643.43546	13.5714	PA 16:1_16:1	PA	Gold	Q2	LipidSearch	1	1	LipidSearch	True		ok	13.98	ok	-0.409	PA 16:1_16:1#0	
+11998	824.54847	13.5393	PC 16:1_20:4	PC	Gold	Q1	MZmine lipid rules	1	1	MZmine lipid rules	True		ok	13.79	ok	-0.251	PC 16:1_20:4#0	
+12010	437.40032	13.57	FA 28:0	FA	Silver	Q2	LipidSearch	3	1	LipidSearch	True	FA 28:0+CHOs	ok		untested		FA 28:0#1	
+12011	807.50405	13.5751	PI 16:0_16:1	PI	Gold	Q1	LipidSearch	1	1	LipidSearch	True		ok	13.8	ok	-0.225	PI 16:0_16:1#1	
+12022	397.36915	13.5904	FA 25:0	FA	Silver	Q2	MZmine lipid rules	1	1	MZmine lipid rules	True		ok		untested		FA 25:0#6	
+12027	745.50386	13.6012	PG 34:2	PG	Silver	Q1	LipidSearch	3	1	LipidSearch	True		ok	14.43	ok	-0.829	PG 34:2#0	
+12050	677.44059	13.6089	PG	PG	Bronze	Q3	SIRIUS/CANOPUS	4	1	SIRIUS/CANOPUS	True		untested		untested		feature:12050	
+12059	770.54396	13.6135	PE	PE	Bronze	Q3	SIRIUS/CANOPUS	4	1	SIRIUS/CANOPUS	True		untested		untested		feature:12059	
+12064	648.46197	13.6162	PE 14:0_15:0	PE	Gold	Q1	LipidSearch	1	2	LipidSearch; MZmine lipid rules	True		ok	13.7	ok	-0.084	PE 14:0_15:0#0	
+12068	459.34834	13.6179	FA 29:5	FA	Silver	Q2	LipidSearch	3	1	LipidSearch	True	FA 29:5+2Os	ok		untested		FA 29:5#1	
+12075	774.52994	13.5892	PC 14:0_18:2	PC	Gold	Q1	MZmine lipid rules	1	2	LipidSearch; MZmine lipid rules	True	PC 32:2	ok	13.8	ok	-0.211	PC 14:0_18:2#0	
+12092	795.50245	13.6352	PI 15:0_16:0	PI	Gold	Q1	LipidSearch	1	2	LipidSearch; SIRIUS/CANOPUS	True	PI	ok	14.04	ok	-0.405	PI 15:0_16:0#1	
+12102	719.48907	13.6434	PG 16:0_16:1	PG	Gold	Q1	LipidSearch	1	1	LipidSearch	True		ok	13.92	ok	-0.277	PG 16:0_16:1#0	
+12104	481.42661	13.6469	FA 30:0	FA	Silver	Q2	LipidSearch	3	1	LipidSearch	True	FA 30:0+COOHs	ok		untested		FA 30:0#1	
+12130	670.48333	13.6601	PE	PE	Bronze	Q3	SIRIUS/CANOPUS	4	1	SIRIUS/CANOPUS	True		untested		untested		feature:12130	
+12133	727.45531	13.6644	PG 33:4	PG	Silver	Q1	LipidSearch	3	1	LipidSearch	True		ok	11.9	outlier	1.764	PG 33:4#0	rt_outlier
+12134	660.46211	13.6709	PE 15:0_15:1	PE	Gold	Q1	LipidSearch	1	3	LipidSearch; MZmine lipid rules; spectral library	True		ok	13.45	ok	0.221	PE 15:0_15:1#1	
+12137	674.47674	13.6776	PC 29:1	PC	Silver	Q1	LipidSearch	3	1	LipidSearch	True		ok	12.59	ok	1.088	PC 29:1#0	
+12154	767.50844	13.6912	LPI 30:0	LPI	Silver	Q2	LipidSearch	3	2	LipidSearch; SIRIUS/CANOPUS	True	PI O-30:0; PI	ok		untested		LPI 30:0#0	
+12155	817.51472	13.6901	SQDG 34:2	SQDG	Silver	Q2	LipidSearch	3	1	LipidSearch	True		ok		untested		SQDG 34:2#0	
+12159	807.50397	13.6455	PI 16:0_16:1	PI	Gold	Q1	LipidSearch	1	1	LipidSearch	True		ok	13.8	ok	-0.155	PI 16:0_16:1#1	
+12174	658.48266	13.7004	PE O-31:2	PE	Silver	Q1	MZmine lipid rules	3	3	LipidSearch; MZmine lipid rules; SIRIUS/CANOPUS	False	PC O-29:2; PE	ok		untested		PE O-31:2#0	class_disagreement
+12182	758.54331	13.7053	Hex1Cer d34:2	Hex1Cer	Silver	Q2	LipidSearch	3	1	LipidSearch	True	Hex1Cer d34:2+Os	ok		untested		Hex1Cer d34:2#0	
+12192	733.55138	13.7183	SM 32:1	SM	Silver	Q1	MZmine lipid rules	3	1	MZmine lipid rules	True		ok		untested		SM 32:1#0	
+12208	700.49279	13.7311	PC 15:1_16:1	PC	Gold	Q1	LipidSearch	1	2	LipidSearch; MZmine lipid rules	False	PE 16:1_17:1	ok	13.07	ok	0.661	PC 15:1_16:1#1	class_disagreement
+12212	743.49024	13.7163	PG 16:1_18:2	PG	Gold	Q1	LipidSearch	1	2	LipidSearch; SIRIUS/CANOPUS	True	PG	ok	13.52	ok	0.196	PG 16:1_18:2#0	
+12227	686.47742	13.7502	PE 16:1_16:1	PE	Gold	Q1	LipidSearch	1	3	LipidSearch; MZmine lipid rules; spectral library	True		ok	13.93	ok	-0.18	PE 16:1_16:1#0	
+12254	395.35324	13.7839	FA 25:0	FA	Silver	Q2	LipidSearch	3	1	LipidSearch	True	FA 25:0+CHOs	ok		untested		FA 25:0#7	
+12256	465.43151	13.7908	FA 30:0	FA	Silver	Q2	LipidSearch	3	1	LipidSearch	True	FA 30:0+CHOs	ok		untested		FA 30:0#2	
+12270	857.51939	13.7952	PI 16:0_20:4	PI	Gold	Q1	LipidSearch	1	1	LipidSearch	True		ok	13.61	ok	0.185	PI 16:0_20:4#0	
+12275	800.54553	13.8027	PC 34:3	PC	Silver	Q1	LipidSearch	3	1	LipidSearch	True		ok	14.28	ok	-0.477	PC 34:3#0	
+12311	665.54763	13.847	Cer	Cer	Bronze	Q3	SIRIUS/CANOPUS	4	1	SIRIUS/CANOPUS	True		untested		untested		feature:12311	
+12385	795.50235	13.9177	PI 15:0_16:0	PI	Gold	Q1	LipidSearch	1	1	LipidSearch	True		ok	14.04	ok	-0.122	PI 15:0_16:0#2	
+12417	850.56117	13.9182	PC 18:2_20:4	PC	Gold	Q1	MZmine lipid rules	1	1	MZmine lipid rules	True		ok	14.27	ok	-0.352	PC 18:2_20:4#0	
+12420	648.46196	13.9247	PE 14:0_15:0	PE	Gold	Q1	MZmine lipid rules	1	2	LipidSearch; MZmine lipid rules	True	PE 29:0	ok	13.7	ok	0.225	PE 14:0_15:0#1	
+12461	572.49041	13.9627	Cer d17:0_15:0+Os	Cer	Gold	Q1	LipidSearch	1	1	LipidSearch	True	Cer d32:0+Os	ok	14.09	ok	-0.127	Cer d17:0_15:0+Os#0	
+12462	719.48815	13.9652	PG 16:0_16:1	PG	Gold	Q1	LipidSearch	1	3	LipidSearch; MZmine lipid rules; spectral library	False	BMP 16:0_16:1	ok	13.92	ok	0.045	PG 16:0_16:1#1	class_disagreement
+12473	467.41096	13.9685	FA 29:0	FA	Silver	Q2	LipidSearch	3	1	LipidSearch	True	FA 29:0+COOHs	ok		untested		FA 29:0#4	
+12485	658.48174	13.982	PC O-29:2	PC	Silver	Q1	LipidSearch	3	1	LipidSearch	True		ok		untested		PC O-29:2#0	
+12486	833.51975	13.9769	PI 16:0_18:2	PI	Gold	Q1	LipidSearch	1	2	LipidSearch; spectral library	True	PI 34:2	ok	14.07	ok	-0.093	PI 16:0_18:2#0	
+12493	614.50162	13.9802	Cer d34:1	Cer	Silver	Q1	LipidSearch	3	1	LipidSearch	True	Cer d34:1+2Os	ok		untested		Cer d34:1#0	
+12502	707.48758	13.9977	PG 15:0_16:0	PG	Gold	Q1	LipidSearch	1	1	LipidSearch	True		ok	14.12	ok	-0.122	PG 15:0_16:0#0	
+12516	788.54541	14.0088	PC 16:1_17:1	PC	Gold	Q1	MZmine lipid rules	1	2	LipidSearch; MZmine lipid rules	True	PC 33:2	ok	14.53	ok	-0.521	PC 16:1_17:1#0	
+12530	554.47967	14.0232	Cer d32:1	Cer	Silver	Q1	LipidSearch	3	1	LipidSearch	True		ok		untested		Cer d32:1#0	
+12535	750.53034	14.0252	PC 15:0_15:0	PC	Gold	Q1	MZmine lipid rules	1	1	MZmine lipid rules	True		ok	14.29	ok	-0.265	PC 15:0_15:0#0	
+12541	730.5041	14.003	PE	PE	Bronze	Q3	SIRIUS/CANOPUS	4	1	SIRIUS/CANOPUS	True		untested		untested		feature:12541	
+12566	646.48265	14.0629	PE O-30:1	PE	Silver	Q1	MZmine lipid rules	3	1	MZmine lipid rules	True		ok		untested		PE O-30:1#0	
+12568	824.54369	14.0452	PC 16:0_20:5	PC	Gold	Q1	MZmine lipid rules	1	1	MZmine lipid rules	True		ok	13.79	ok	0.255	PC 16:0_20:5#0	
+12572	745.50427	14.0691	BMP 16:1_18:1	BMP	Gold	Q2	MZmine lipid rules	1	3	LipidSearch; MZmine lipid rules; spectral library	False	PG 16:1_18:1	untested	14.19	ok	-0.121	BMP 16:1_18:1#0	class_disagreement
+12573	821.51776	14.0647	PI 16:0_17:1	PI	Gold	Q1	LipidSearch	1	1	LipidSearch	True		ok	14.3	ok	-0.235	PI 16:0_17:1#0	
+12610	552.49995	14.1087	Cer d34:1	Cer	Silver	Q1	LipidSearch	3	2	LipidSearch; SIRIUS/CANOPUS	True	Cer d34:1+Os; Cer	ok		untested		Cer d34:1#1	
+12630	859.53498	14.113	PI 18:1_18:2	PI	Gold	Q1	LipidSearch	1	1	LipidSearch	True		ok	14.34	ok	-0.227	PI 18:1_18:2#0	
+12639	758.49841	14.1122	PS 16:0_18:2	PS	Gold	Q1	LipidSearch	1	1	LipidSearch	True		ok		untested		PS 16:0_18:2#0	
+12643	985.6122	14.1167	DGDG 36:4	DGDG	Silver	Q2	LipidSearch	3	1	LipidSearch	True		ok		untested		DGDG 36:4#0	
+12644	411.38492	14.1342	FA 26:0	FA	Silver	Q2	MZmine lipid rules	1	1	MZmine lipid rules	True		ok		untested		FA 26:0#7	
+12655	712.4926	14.1198	PE 34:3	PE	Silver	Q1	LipidSearch	3	2	LipidSearch; SIRIUS/CANOPUS	True	PE	ok	14.4	ok	-0.28	PE 34:3#0	
+12674	674.47736	14.1324	PE 15:0_16:1	PE	Gold	Q1	MZmine lipid rules	1	3	LipidSearch; MZmine lipid rules; spectral library	True		ok	14.18	ok	-0.048	PE 15:0_16:1#0	
+12682	742.46534	14.1382	PE	PE	Bronze	Q3	SIRIUS/CANOPUS	4	1	SIRIUS/CANOPUS	True		untested		untested		feature:12682	
+12708	826.56185	14.1529	PC 18:2_18:2	PC	Gold	Q1	MZmine lipid rules	1	2	LipidSearch; MZmine lipid rules	True	PC 36:4	ok	14.76	ok	-0.607	PC 18:2_18:2#0	
+12720	767.60538	14.1624	SM	SM	Bronze	Q3	SIRIUS/CANOPUS	4	1	SIRIUS/CANOPUS	True		untested		untested		feature:12720	
+12745	415.32206	14.1906	FA 27:5	FA	Silver	Q2	LipidSearch	3	1	LipidSearch	True	FA 27:5+Os	ok		untested		FA 27:5#1	
+12749	679.49273	14.1924	PG O-30:0	PG	Silver	Q1	MZmine lipid rules	3	3	LipidSearch; MZmine lipid rules; SIRIUS/CANOPUS	True	PG	ok		untested		PG O-30:0#0	
+12760	959.59592	14.2014	DGDG 34:3	DGDG	Silver	Q2	LipidSearch	3	1	LipidSearch	True		ok		untested		DGDG 34:3#0	
+12772	703.49452	14.2082	PG	PG	Bronze	Q3	SIRIUS/CANOPUS	4	1	SIRIUS/CANOPUS	True		untested		untested		feature:12772	
+12794	631.43527	14.2382	PA 15:0_16:1	PA	Gold	Q2	LipidSearch	1	2	LipidSearch; SIRIUS/CANOPUS	False	PG	ok	14.37	ok	-0.132	PA 15:0_16:1#0	class_disagreement
+12795	675.50914	14.2338	PA	PA	Bronze	Q3	SIRIUS/CANOPUS	4	1	SIRIUS/CANOPUS	True		untested		untested		feature:12795	
+12796	800.54557	14.2348	PC 16:1_18:2	PC	Gold	Q1	MZmine lipid rules	1	3	LipidSearch; MZmine lipid rules; SIRIUS/CANOPUS	False	PC 34:3; PE	ok	14.28	ok	-0.045	PC 16:1_18:2#0	class_disagreement
+12806	784.51544	14.2199	PS 36:3	PS	Silver	Q1	LipidSearch	3	1	LipidSearch	True		ok		untested		PS 36:3#0	
+12809	762.50624	14.2466	PE 18:2_20:4	PE	Gold	Q1	MZmine lipid rules	1	1	MZmine lipid rules	True		ok	14.37	ok	-0.123	PE 18:2_20:4#0	
+12822	836.56699	14.2561	PI	PI	Bronze	Q3	SIRIUS/CANOPUS	4	1	SIRIUS/CANOPUS	True		untested		untested		feature:12822	
+12827	763.4547	14.3122	PG	PG	Bronze	Q3	SIRIUS/CANOPUS	4	1	SIRIUS/CANOPUS	True		untested		untested		feature:12827	
+12833	707.48752	14.2655	BMP 15:0_16:0	BMP	Gold	Q2	MZmine lipid rules	1	4	LipidSearch; MZmine lipid rules; SIRIUS/CANOPUS; spectral library	False	PG 15:0_16:0; PG	untested	14.05	ok	0.215	BMP 15:0_16:0#0	class_disagreement
+12838	719.48941	14.2408	PG 32:1	PG	Silver	Q1	LipidSearch	3	1	LipidSearch	True		ok	13.92	ok	0.321	PG 32:1#1	
+12839	745.50434	14.2584	BMP 16:1_18:1	BMP	Gold	Q2	MZmine lipid rules	1	3	LipidSearch; MZmine lipid rules; SIRIUS/CANOPUS	False	PG 34:2; PG	untested	14.19	ok	0.068	BMP 16:1_18:1#1	class_disagreement
+12850	772.55895	14.2864	Hex1Cer d35:2	Hex1Cer	Silver	Q2	LipidSearch	3	1	LipidSearch	True	Hex1Cer d35:2+Os	ok		untested		Hex1Cer d35:2#0	
+12858	481.42672	14.2946	FA 30:0	FA	Silver	Q2	LipidSearch	3	1	LipidSearch	True	FA 30:0+COOHs	ok		untested		FA 30:0#3	
+12874	714.50836	14.3166	PE 34:2	PE	Silver	Q1	LipidSearch	3	1	LipidSearch	False	PC 32:2	ok	15.37	ok	-1.053	PE 34:2#0	class_disagreement
+12876	703.45664	14.3198	PG	PG	Bronze	Q3	SIRIUS/CANOPUS	4	1	SIRIUS/CANOPUS	True		untested		untested		feature:12876	
+12878	619.43533	14.3606	PA	PA	Bronze	Q3	SIRIUS/CANOPUS	4	1	SIRIUS/CANOPUS	True		untested		untested		feature:12878	
+12881	742.62137	14.3352	HexCer	HexCer	Bronze	Q3	SIRIUS/CANOPUS	4	1	SIRIUS/CANOPUS	True		untested		untested		feature:12881	
+12883	695.46666	14.3686	PA 18:2_18:2	PA	Gold	Q2	LipidSearch	1	2	LipidSearch; spectral library	True		ok	14.82	ok	-0.451	PA 18:2_18:2#0	
+12890	776.54588	14.3324	PC 15:0_17:1	PC	Gold	Q1	MZmine lipid rules	1	3	LipidSearch; MZmine lipid rules; SIRIUS/CANOPUS	False	PC 32:1; PS	ok	14.77	ok	-0.438	PC 15:0_17:1#0	class_disagreement
+12891	700.49291	14.3348	PE 16:1_17:1	PE	Gold	Q1	MZmine lipid rules	1	2	LipidSearch; MZmine lipid rules	True		ok	14.65	ok	-0.315	PE 16:1_17:1#0	
+12924	691.45644	14.3669	PG	PG	Bronze	Q3	SIRIUS/CANOPUS	4	1	SIRIUS/CANOPUS	True		untested		untested		feature:12924	
+12928	793.52388	14.4118	PI O-32:1	PI	Silver	Q1	LipidSearch	3	1	LipidSearch	True		ok		untested		PI O-32:1#0	
+12937	437.40031	14.4077	FA 28:0	FA	Silver	Q2	LipidSearch	3	1	LipidSearch	True	FA 28:0+CHOs	ok		untested		FA 28:0#2	
+12954	859.53537	14.4	PI 16:0_20:3	PI	Gold	Q1	LipidSearch	1	1	LipidSearch	True		ok	14.34	ok	0.06	PI 16:0_20:3#0	
+12962	753.47248	14.4211	PG	PG	Bronze	Q3	SIRIUS/CANOPUS	4	1	SIRIUS/CANOPUS	True		untested		untested		feature:12962	
+12989	669.45109	14.4724	PA 16:0_18:3	PA	Gold	Q2	LipidSearch	1	2	LipidSearch; SIRIUS/CANOPUS	True	PA	ok	14.4	ok	0.072	PA 16:0_18:3#0	
+12996	733.50342	14.4496	PG	PG	Bronze	Q3	SIRIUS/CANOPUS	4	1	SIRIUS/CANOPUS	True		untested		untested		feature:12996	
+13007	566.4795	14.4577	Cer	Cer	Bronze	Q3	SIRIUS/CANOPUS	4	1	SIRIUS/CANOPUS	True		untested		untested		feature:13007	
+13015	809.51963	14.4639	PI 16:0_16:0	PI	Gold	Q1	LipidSearch	1	1	LipidSearch	True		ok	14.54	ok	-0.076	PI 16:0_16:0#0	
+13041	714.53488	14.49	PE	PE	Bronze	Q3	SIRIUS/CANOPUS	4	1	SIRIUS/CANOPUS	True		untested		untested		feature:13041	
+13052	801.49155	14.462	PG	PG	Bronze	Q3	SIRIUS/CANOPUS	4	1	SIRIUS/CANOPUS	True		untested		untested		feature:13052	
+13054	738.50889	14.4973	PE 18:2_18:2	PE	Gold	Q1	MZmine lipid rules	1	3	LipidSearch; MZmine lipid rules; SIRIUS/CANOPUS	True	PE 36:4; PE	ok	14.87	ok	-0.373	PE 18:2_18:2#0	
+13062	730.46556	14.5013	PS	PS	Bronze	Q3	SIRIUS/CANOPUS	4	1	SIRIUS/CANOPUS	True		untested		untested		feature:13062	
+13072	676.49154	14.5077	PE 15:0_16:0	PE	Gold	Q1	MZmine lipid rules	1	2	LipidSearch; MZmine lipid rules	False	PC 29:0	ok	15.14	ok	-0.632	PE 15:0_16:0#0	class_disagreement
+13074	662.47739	14.5096	PE 15:0_15:0	PE	Gold	Q1	LipidSearch	1	2	LipidSearch; MZmine lipid rules	False	PC 28:0	ok	14.42	ok	0.09	PE 15:0_15:0#0	class_disagreement
+13097	586.5059	14.5254	Cer d17:0_16:0+Os	Cer	Gold	Q1	LipidSearch	1	2	LipidSearch; SIRIUS/CANOPUS	True	Cer	ok	14.73	ok	-0.205	Cer d17:0_16:0+Os#0	
+13099	451.41603	14.5257	FA 29:0	FA	Silver	Q2	LipidSearch	3	1	LipidSearch	True	FA 29:0+CHOs	ok		untested		FA 29:0#5	
+13100	847.53448	14.528	PI 17:1_18:1	PI	Gold	Q1	LipidSearch	1	1	LipidSearch	True		ok	14.57	ok	-0.042	PI 17:1_18:1#0	
+13113	781.52406	14.5383	PI O-31:0	PI	Silver	Q1	LipidSearch	3	1	LipidSearch	True		ok		untested		PI O-31:0#0	
+13117	802.56007	14.5425	PC 17:1_17:1	PC	Gold	Q1	MZmine lipid rules	1	2	LipidSearch; MZmine lipid rules	True	PC 34:2	ok	15.25	ok	-0.707	PC 17:1_17:1#0	
+13122	465.39508	14.5442	FA 29:2	FA	Silver	Q2	LipidSearch	3	1	LipidSearch	True	FA 29:2+2Os	ok		untested		FA 29:2#3	
+13143	679.56325	14.5501	Cer	Cer	Bronze	Q3	SIRIUS/CANOPUS	4	1	SIRIUS/CANOPUS	True		untested		untested		feature:13143	
+13153	771.52555	14.5704	MGDG	MGDG	Bronze	Q3	SIRIUS/CANOPUS	4	1	SIRIUS/CANOPUS	True		untested		untested		feature:13153	
+13167	554.47887	14.5721	Cer d32:1	Cer	Silver	Q1	LipidSearch	3	1	LipidSearch	True		ok		untested		Cer d32:1#1	
+13173	712.49277	14.5697	PE 16:0_18:3	PE	Gold	Q1	MZmine lipid rules	1	2	LipidSearch; MZmine lipid rules	True	PE 34:3	ok	14.4	ok	0.17	PE 16:0_18:3#0	
+13187	660.49736	14.5935	PE O-31:1	PE	Silver	Q1	MZmine lipid rules	3	3	LipidSearch; MZmine lipid rules; SIRIUS/CANOPUS	False	PC O-29:1; PE	ok		untested		PE O-31:1#0	class_disagreement
+13189	819.54002	14.5942	PI O-34:2	PI	Silver	Q1	LipidSearch	3	1	LipidSearch	True		ok		untested		PI O-34:2#0	
+13190	598.50617	14.6083	Cer	Cer	Bronze	Q3	SIRIUS/CANOPUS	4	1	SIRIUS/CANOPUS	True		untested		untested		feature:13190	
+13206	740.60597	14.6047	HexCer	HexCer	Bronze	Q3	SIRIUS/CANOPUS	4	1	SIRIUS/CANOPUS	True		untested		untested		feature:13206	
+13210	691.45653	14.6263	PG	PG	Bronze	Q3	SIRIUS/CANOPUS	4	1	SIRIUS/CANOPUS	True		untested		untested		feature:13210	
+13212	619.43526	14.5686	PA 15:0_15:0	PA	Gold	Q2	LipidSearch	1	2	LipidSearch; SIRIUS/CANOPUS	True	PA	ok	14.76	ok	-0.191	PA 15:0_15:0#0	
+13221	556.4951	14.6162	Cer d17:0_15:0	Cer	Gold	Q1	LipidSearch	1	1	LipidSearch	True		ok		untested		Cer d17:0_15:0#0	
+13225	747.56702	14.6171	SM 33:1	SM	Silver	Q1	MZmine lipid rules	3	1	MZmine lipid rules	True		ok		untested		SM 33:1#0	
+13231	411.38481	14.6373	FA 26:0	FA	Silver	Q2	MZmine lipid rules	1	1	MZmine lipid rules	True		ok		untested		FA 26:0#8	
+13250	652.58928	14.6365	HexCer	HexCer	Bronze	Q3	SIRIUS/CANOPUS	4	1	SIRIUS/CANOPUS	True		untested		untested		feature:13250	
+13257	365.34254	14.6448	FA 24:1	FA	Silver	Q2	MZmine lipid rules	1	1	MZmine lipid rules	True		ok		untested		FA 24:1#6	
+13271	669.45091	14.6145	PA 16:0_18:3	PA	Gold	Q2	LipidSearch	1	1	LipidSearch	True		ok	14.4	ok	0.214	PA 16:0_18:3#1	
+13273	729.47265	14.6555	BMP 15:1_18:2	BMP	Gold	Q2	MZmine lipid rules	1	2	MZmine lipid rules; SIRIUS/CANOPUS	False	SM	untested	12.51	outlier	2.146	BMP 15:1_18:2#0	rt_outlier;class_disagreement
+13278	403.32185	14.6571	FA 26:4	FA	Silver	Q2	LipidSearch	3	1	LipidSearch	True	FA 26:4+Os	ok		untested		FA 26:4#0	
+13280	629.45556	14.6658	PA O-32:2	PA	Silver	Q2	LipidSearch	3	2	LipidSearch; SIRIUS/CANOPUS	True	PA	ok		untested		PA O-32:2#0	
+13287	596.49032	14.6722	Cer	Cer	Bronze	Q3	SIRIUS/CANOPUS	4	1	SIRIUS/CANOPUS	True		untested		untested		feature:13287	
+13295	935.59568	14.6796	DGDG 32:1	DGDG	Silver	Q2	LipidSearch	3	1	LipidSearch	True		ok		untested		DGDG 32:1#0	
+13313	688.4929	14.6844	PE 15:0_17:1	PE	Gold	Q1	LipidSearch	1	2	LipidSearch; MZmine lipid rules	True		ok	14.9	ok	-0.216	PE 15:0_17:1#0	
+13314	702.50693	14.6893	PE 33:1	PE	Silver	Q1	LipidSearch	3	1	LipidSearch	True		ok	15.62	ok	-0.931	PE 33:1#0	
+13320	756.48104	14.6907	PS	PS	Bronze	Q3	SIRIUS/CANOPUS	4	1	SIRIUS/CANOPUS	True		untested		untested		feature:13320	
+13322	657.4511	14.6868	PA 33:2	PA	Silver	Q2	LipidSearch	3	1	LipidSearch	True		ok	14.79	ok	-0.103	PA 33:2#0	
+13324	706.50337	14.7	PE	PE	Bronze	Q3	SIRIUS/CANOPUS	4	1	SIRIUS/CANOPUS	True		untested		untested		feature:13324	
+13334	793.51547	14.7045	SQDG 32:0	SQDG	Silver	Q2	LipidSearch	3	1	LipidSearch	True		ok		untested		SQDG 32:0#0	
+13352	753.52932	14.721	LPI O-30:0	LPI	Silver	Q2	LipidSearch	3	1	LipidSearch	True		ok		untested		LPI O-30:0#0	
+13357	715.57427	14.7126	Cer	Cer	Bronze	Q3	SIRIUS/CANOPUS	4	1	SIRIUS/CANOPUS	True		untested		untested		feature:13357	
+13391	794.51568	14.7399	PS	PS	Bronze	Q3	SIRIUS/CANOPUS	4	1	SIRIUS/CANOPUS	True		untested		untested		feature:13391	
+13392	721.50334	14.7586	PG 15:0_17:0	PG	Gold	Q1	LipidSearch	1	2	LipidSearch; MZmine lipid rules	False	BMP 15:0_17:0	ok	14.83	ok	-0.071	PG 15:0_17:0#0	class_disagreement
+13417	1187.79179	14.7715	CL O-55:5	CL	Silver	Q2	LipidSearch	3	1	LipidSearch	True		ok		untested		CL O-55:5#0	
+13425	672.49813	14.7779	PE O-16:1_16:1	PE	Gold	Q1	LipidSearch	1	2	LipidSearch; MZmine lipid rules	False	PE O-32:2; PC O-30:2	ok		untested		PE O-16:1_16:1#0	class_disagreement
+13431	823.53405	14.781	PI 16:0_17:0	PI	Gold	Q1	LipidSearch	1	1	LipidSearch	True		ok	15.04	ok	-0.259	PI 16:0_17:0#0	
+13437	740.48584	14.7829	PC O-30:5	PC	Silver	Q1	MZmine lipid rules	3	1	MZmine lipid rules	True		ok		untested		PC O-30:5#0	
+13439	923.59604	14.782	DGDG 31:0	DGDG	Silver	Q2	LipidSearch	3	1	LipidSearch	True		ok		untested		DGDG 31:0#0	
+13442	748.46614	14.7898	PE	PE	Bronze	Q3	SIRIUS/CANOPUS	4	1	SIRIUS/CANOPUS	True		untested		untested		feature:13442	
+13454	700.49321	14.7931	PE 16:1_17:1	PE	Gold	Q1	MZmine lipid rules	1	2	LipidSearch; MZmine lipid rules	True		ok	14.65	ok	0.143	PE 16:1_17:1#1	
+13461	616.51687	14.7982	Cer d17:0_17:0+2Os	Cer	Gold	Q1	LipidSearch	1	1	LipidSearch	True		ok	15.37	ok	-0.572	Cer d17:0_17:0+2Os#0	
+13478	876.57948	14.8156	PC 18:1_22:6	PC	Gold	Q1	MZmine lipid rules	1	1	MZmine lipid rules	True		ok	14.76	ok	0.056	PC 18:1_22:6#0	
+13485	759.52182	14.8517	PG 35:2	PG	Silver	Q1	LipidSearch	3	2	LipidSearch; SIRIUS/CANOPUS	True	PG	ok	15.14	ok	-0.288	PG 35:2#0	
+13513	728.52455	14.8437	PC 33:2	PC	Silver	Q1	LipidSearch	3	1	LipidSearch	True		ok	14.53	ok	0.314	PC 33:2#0	
+13520	835.53549	14.8498	PI 16:0_18:1	PI	Gold	Q1	LipidSearch	1	1	LipidSearch	True		ok	14.8	ok	0.05	PI 16:0_18:1#0	
+13523	738.5087	14.8452	PE 36:4	PE	Silver	Q1	LipidSearch	3	2	LipidSearch; SIRIUS/CANOPUS	True	PE	ok	14.87	ok	-0.025	PE 36:4#1	
+13532	714.50757	14.8633	PE 17:1_17:1	PE	Gold	Q1	LipidSearch	1	2	LipidSearch; MZmine lipid rules	False	PC 32:2	ok	15.37	ok	-0.507	PE 17:1_17:1#0	class_disagreement
+13544	481.42672	14.8742	FA 30:0	FA	Silver	Q2	LipidSearch	3	1	LipidSearch	True	FA 30:0+COOHs	ok		untested		FA 30:0#4	
+13555	716.523	14.8761	PC 32:1	PC	Silver	Q1	LipidSearch	3	1	LipidSearch	True		ok	14.77	ok	0.106	PC 32:1#0	
+13563	339.327	14.8834	FA 22:0	FA	Gold	Q2	MZmine lipid rules	1	2	LipidSearch; MZmine lipid rules	True		ok		untested		FA 22:0#9	
+13595	733.50348	14.9081	PG 16:0_17:1	PG	Gold	Q1	LipidSearch	1	2	LipidSearch; MZmine lipid rules	False	BMP 16:0_17:1	ok	14.63	ok	0.278	PG 16:0_17:1#0	class_disagreement
+13598	776.54573	14.9112	PC 16:0_16:1	PC	Gold	Q1	MZmine lipid rules	1	1	MZmine lipid rules	True		ok	14.77	ok	0.141	PC 16:0_16:1#0	
+13600	772.5231	14.8937	PE	PE	Bronze	Q3	SIRIUS/CANOPUS	4	1	SIRIUS/CANOPUS	True		untested		untested		feature:13600	
+13615	705.50823	14.9345	PG	PG	Bronze	Q3	SIRIUS/CANOPUS	4	1	SIRIUS/CANOPUS	True		untested		untested		feature:13615	
+13649	764.54632	14.9557	PC 15:0_16:0	PC	Gold	Q1	MZmine lipid rules	1	1	MZmine lipid rules	True		ok	15.02	ok	-0.064	PC 15:0_16:0#0	
+13662	807.54006	14.9612	PI O-33:1	PI	Silver	Q1	LipidSearch	3	2	LipidSearch; SIRIUS/CANOPUS	True	PI	ok		untested		PI O-33:1#0	
+13679	693.50843	14.9697	PG	PG	Bronze	Q3	SIRIUS/CANOPUS	4	1	SIRIUS/CANOPUS	True		untested		untested		feature:13679	
+13696	759.52052	14.9907	PG 35:2	PG	Silver	Q1	LipidSearch	3	2	LipidSearch; SIRIUS/CANOPUS	True	PG	ok	15.14	ok	-0.149	PG 35:2#1	
+13709	802.56135	15.0153	PC 16:1_18:1	PC	Gold	Q1	MZmine lipid rules	1	2	LipidSearch; MZmine lipid rules	True		ok	15.25	ok	-0.235	PC 16:1_18:1#0	
+13715	823.5344	15.0193	PI 16:0_17:0	PI	Gold	Q1	LipidSearch	1	1	LipidSearch	True		ok	15.04	ok	-0.021	PI 16:0_17:0#1	
+13751	598.5057	15.0339	Cer d34:1	Cer	Silver	Q1	LipidSearch	3	1	LipidSearch	True	Cer d34:1+Os	ok		untested		Cer d34:1#2	
+13757	728.48591	15.0372	PE	PE	Bronze	Q3	SIRIUS/CANOPUS	4	1	SIRIUS/CANOPUS	True		untested		untested		feature:13757	
+13759	660.4982	15.039	PE O-15:0_16:1	PE	Gold	Q1	LipidSearch	1	2	LipidSearch; MZmine lipid rules	False	PE O-31:1; PC O-29:1	ok		untested		PE O-15:0_16:1#0	class_disagreement
+13783	407.38959	15.0117	FA 27:1	FA	Silver	Q2	LipidSearch	3	1	LipidSearch	True		ok		untested		FA 27:1#0	
+13789	669.45092	15.0339	PA 16:0_18:3	PA	Gold	Q2	LipidSearch	1	1	LipidSearch	True	PA 34:3	ok	14.4	ok	0.634	PA 16:0_18:3#2	
+13797	826.5623	15.0586	PC 16:0_20:4	PC	Gold	Q1	MZmine lipid rules	1	2	LipidSearch; MZmine lipid rules	True	PC 36:4	ok	14.76	ok	0.299	PC 16:0_20:4#0	
+13813	837.54767	15.0836	PI 34:0	PI	Silver	Q1	spectral library	2	1	spectral library	True		ok	15.54	ok	-0.456	PI 34:0#0	
+13850	633.45061	15.12	PA 31:0	PA	Silver	Q2	LipidSearch	3	1	LipidSearch	True		ok	15.57	ok	-0.45	PA 31:0#0	
+13868	835.53528	15.123	PI 16:0_18:1	PI	Gold	Q1	LipidSearch	1	2	LipidSearch; spectral library	True	PI 34:1	ok	14.8	ok	0.323	PI 16:0_18:1#1	
+13870	568.49526	15.1194	Cer	Cer	Bronze	Q3	SIRIUS/CANOPUS	4	1	SIRIUS/CANOPUS	True		untested		untested		feature:13870	
+13905	1213.80818	15.1615	CL O-57:6	CL	Silver	Q2	LipidSearch	3	1	LipidSearch	True		ok		untested		CL O-57:6#0	
+13913	797.54434	15.1695	MGDG	MGDG	Bronze	Q3	SIRIUS/CANOPUS	4	1	SIRIUS/CANOPUS	True		untested		untested		feature:13913	
+13929	610.50577	15.1818	Cer d17:0_18:2+Os	Cer	Gold	Q1	LipidSearch	1	2	LipidSearch; MZmine lipid rules	True	Cer 35:2	ok	15.65	ok	-0.468	Cer d17:0_18:2+Os#0	
+13933	612.52185	15.1835	Cer d35:1	Cer	Silver	Q1	LipidSearch	3	1	LipidSearch	True	Cer d35:1+Os	ok		untested		Cer d35:1#0	
+13939	556.49515	15.1844	Cer d32:0	Cer	Silver	Q1	LipidSearch	3	1	LipidSearch	True		ok		untested		Cer d32:0#0	
+13957	961.61136	15.1967	DGDG 18:1_16:1	DGDG	Gold	Q2	LipidSearch	1	1	LipidSearch	True		ok		untested		DGDG 18:1_16:1#0	
+13958	795.53883	15.2003	PI O-32:0	PI	Silver	Q1	LipidSearch	3	1	LipidSearch	True		ok		untested		PI O-32:0#0	
+13967	473.36365	15.22	FA 30:5	FA	Silver	Q2	LipidSearch	3	1	LipidSearch	True	FA 30:5+2Os	ok		untested		FA 30:5#3	
+13977	736.55084	15.2171	PC O-29:0	PC	Silver	Q1	MZmine lipid rules	3	1	MZmine lipid rules	True		ok		untested		PC O-29:0#0	
+13982	717.47254	15.2297	PG	PG	Bronze	Q3	SIRIUS/CANOPUS	4	1	SIRIUS/CANOPUS	True		untested		untested		feature:13982	
+13986	764.54603	15.2259	PC 15:0_16:0	PC	Gold	Q1	MZmine lipid rules	1	1	MZmine lipid rules	True		ok	15.02	ok	0.206	PC 15:0_16:0#1	
+13988	770.49653	15.2285	PC	PC	Bronze	Q3	SIRIUS/CANOPUS	4	1	SIRIUS/CANOPUS	True		untested		untested		feature:13988	
+13989	693.50816	15.2294	SM	SM	Bronze	Q3	SIRIUS/CANOPUS	4	1	SIRIUS/CANOPUS	True		untested		untested		feature:13989	
+14001	645.45053	15.2664	PA	PA	Bronze	Q3	SIRIUS/CANOPUS	4	1	SIRIUS/CANOPUS	True		untested		untested		feature:14001	
+14006	742.53992	15.2421	PE	PE	Bronze	Q3	SIRIUS/CANOPUS	4	1	SIRIUS/CANOPUS	True		untested		untested		feature:14006	
+14025	688.49296	15.2621	PE 15:0_17:1	PE	Gold	Q1	LipidSearch	1	3	LipidSearch; MZmine lipid rules; spectral library	True	PE 16:0_16:1	ok	14.9	ok	0.362	PE 15:0_17:1#1	
+14031	451.41603	15.2698	FA 29:0	FA	Silver	Q2	LipidSearch	3	1	LipidSearch	True	FA 29:0+CHOs	ok		untested		FA 29:0#6	
+14036	823.53453	15.2631	PI 16:0_17:0	PI	Gold	Q1	LipidSearch	1	1	LipidSearch	True		ok	15.04	ok	0.223	PI 16:0_17:0#2	
+14038	861.55088	15.2678	PI 18:1_18:1	PI	Gold	Q1	LipidSearch	1	1	LipidSearch	True		ok	15.07	ok	0.198	PI 18:1_18:1#0	
+14045	987.62723	15.289	DGDG 36:3	DGDG	Silver	Q2	LipidSearch	3	1	LipidSearch	True		ok		untested		DGDG 36:3#0	
+14046	802.5613	15.2437	PC 17:1_17:1	PC	Gold	Q1	LipidSearch	1	2	LipidSearch; MZmine lipid rules	True	PC 16:0_18:2	ok	15.25	ok	-0.006	PC 17:1_17:1#1	
+14071	676.49263	15.3	PE	PE	Bronze	Q3	SIRIUS/CANOPUS	4	1	SIRIUS/CANOPUS	True		untested		untested		feature:14071	
+14078	760.51498	15.287	PS	PS	Bronze	Q3	SIRIUS/CANOPUS	4	1	SIRIUS/CANOPUS	True		untested		untested		feature:14078	
+14085	790.56167	15.3125	PC 16:1_17:0	PC	Gold	Q1	MZmine lipid rules	1	1	MZmine lipid rules	True		ok	15.5	ok	-0.188	PC 16:1_17:0#0	
+14086	728.52405	15.3084	PE	PE	Bronze	Q3	SIRIUS/CANOPUS	4	1	SIRIUS/CANOPUS	True		untested		untested		feature:14086	
+14094	538.48507	15.3049	Cer	Cer	Bronze	Q3	SIRIUS/CANOPUS	4	1	SIRIUS/CANOPUS	True		untested		untested		feature:14094	
+14105	714.50862	15.3258	PE 16:1_18:1	PE	Gold	Q1	MZmine lipid rules	1	3	LipidSearch; MZmine lipid rules; spectral library	True	PE 34:2	ok	15.37	ok	-0.044	PE 16:1_18:1#0	
+14113	721.50321	15.3333	PG 16:0_16:0	PG	Gold	Q1	LipidSearch	1	3	LipidSearch; MZmine lipid rules; spectral library	False	BMP 16:0_16:0; PG 32:0	ok	14.83	ok	0.503	PG 16:0_16:0#0	class_disagreement
+14117	645.45057	15.3078	PA 16:0_16:1	PA	Gold	Q2	LipidSearch	1	1	LipidSearch	True		ok	15.18	ok	0.128	PA 16:0_16:1#0	
+14118	798.57476	15.3358	Hex1Cer d37:3	Hex1Cer	Silver	Q2	LipidSearch	3	1	LipidSearch	True	Hex1Cer d37:3+Os	ok		untested		Hex1Cer d37:3#0	
+14131	646.4823	15.3439	PE O-30:1	PE	Silver	Q1	MZmine lipid rules	3	2	LipidSearch; MZmine lipid rules	False	PC O-28:1	ok		untested		PE O-30:1#1	class_disagreement
+14159	570.51085	15.3818	Cer d33:0	Cer	Silver	Q1	LipidSearch	3	1	LipidSearch	True		ok		untested		Cer d33:0#0	
+14161	600.52176	15.3696	Cer d34:0	Cer	Silver	Q1	LipidSearch	3	2	LipidSearch; SIRIUS/CANOPUS	True	Cer d34:0+Os; Cer	ok		untested		Cer d34:0#0	
+14183	608.49045	15.3837	Cer	Cer	Bronze	Q3	SIRIUS/CANOPUS	4	1	SIRIUS/CANOPUS	True		untested		untested		feature:14183	
+14187	738.50837	15.3791	PE 16:0_20:4	PE	Gold	Q1	MZmine lipid rules	1	1	MZmine lipid rules	True		ok	14.87	ok	0.509	PE 16:0_20:4#0	
+14192	828.57708	15.391	PC 18:1_18:2	PC	Gold	Q1	MZmine lipid rules	1	2	LipidSearch; MZmine lipid rules	True		ok	15.74	ok	-0.349	PC 18:1_18:2#0	
+14193	759.52003	15.3944	PG 35:2	PG	Silver	Q1	LipidSearch	3	2	LipidSearch; SIRIUS/CANOPUS	True	PG	ok	15.14	ok	0.254	PG 35:2#2	
+14194	732.51858	15.4064	PE	PE	Bronze	Q3	SIRIUS/CANOPUS	4	1	SIRIUS/CANOPUS	True		untested		untested		feature:14194	
+14195	885.55069	15.3935	PI 18:0_20:4	PI	Gold	Q1	MZmine lipid rules	1	2	LipidSearch; MZmine lipid rules	True	PI 38:4	ok	14.61	ok	0.784	PI 18:0_20:4#0	
+14214	758.53403	15.4161	PE	PE	Bronze	Q3	SIRIUS/CANOPUS	4	1	SIRIUS/CANOPUS	True		untested		untested		feature:14214	
+14231	568.49511	15.4332	Cer	Cer	Bronze	Q3	SIRIUS/CANOPUS	4	1	SIRIUS/CANOPUS	True		untested		untested		feature:14231	
+14233	465.43148	15.4365	FA 30:0	FA	Silver	Q2	LipidSearch	3	1	LipidSearch	True	FA 30:0+CHOs	ok		untested		FA 30:0#5	
+14235	815.50683	15.4304	PI	PI	Bronze	Q3	SIRIUS/CANOPUS	4	1	SIRIUS/CANOPUS	True		untested		untested		feature:14235	
+14237	747.5192	15.4242	BMP 16:0_18:1	BMP	Gold	Q2	MZmine lipid rules	1	3	LipidSearch; MZmine lipid rules; spectral library	False	PG 16:0_18:1	untested	15.17	ok	0.254	BMP 16:0_18:1#0	class_disagreement
+14260	734.48703	15.4282	PE	PE	Bronze	Q3	SIRIUS/CANOPUS	4	1	SIRIUS/CANOPUS	True		untested		untested		feature:14260	
+14264	821.55516	15.4575	PI O-34:1	PI	Silver	Q1	LipidSearch	3	1	LipidSearch	True		ok		untested		PI O-34:1#0	
+14283	937.6117	15.4707	DGDG 32:0	DGDG	Silver	Q2	LipidSearch	3	1	LipidSearch	True		ok		untested		DGDG 32:0#0	
+14291	656.54854	15.4743	Cer d37:1	Cer	Silver	Q1	LipidSearch	3	1	LipidSearch	True	Cer d37:1+2Os	ok		untested		Cer d37:1#0	
+14296	580.49508	15.4822	Cer d34:2	Cer	Silver	Q1	LipidSearch	3	2	LipidSearch; SIRIUS/CANOPUS	True	Cer	ok		untested		Cer d34:2#0	
+14309	849.55065	15.4907	PI 16:0_19:1	PI	Gold	Q1	LipidSearch	1	1	LipidSearch	True		ok	15.3	ok	0.191	PI 16:0_19:1#0	
+14314	761.58202	15.4962	SM 34:1	SM	Silver	Q1	MZmine lipid rules	3	1	MZmine lipid rules	True		ok		untested		SM 34:1#0	
+14317	841.52242	15.5032	PI O-36:5	PI	Silver	Q1	MZmine lipid rules	3	1	MZmine lipid rules	True		ok		untested		PI O-36:5#0	
+14323	773.53453	15.509	PG 18:1_18:1	PG	Gold	Q1	LipidSearch	1	3	LipidSearch; MZmine lipid rules; spectral library	False	BMP 18:1_18:1; PG 36:2	ok	15.85	ok	-0.341	PG 18:1_18:1#0	class_disagreement
+14355	633.45087	15.5393	PA 15:0_16:0	PA	Gold	Q2	LipidSearch	1	2	LipidSearch; SIRIUS/CANOPUS	True	PA	ok	15.57	ok	-0.031	PA 15:0_16:0#0	
+14370	833.55468	15.5403	PI O-35:2	PI	Silver	Q1	LipidSearch	3	1	LipidSearch	True		ok		untested		PI O-35:2#0	
+14374	671.46664	15.6011	PA 16:0_18:2	PA	Gold	Q2	LipidSearch	1	1	LipidSearch	True		ok	15.6	ok	0.001	PA 16:0_18:2#0	
+14383	716.52346	15.5534	PE 34:1	PE	Silver	Q1	LipidSearch	3	2	LipidSearch; SIRIUS/CANOPUS	True	PE	ok	16.34	ok	-0.787	PE 34:1#0	
+14390	816.57697	15.581	PC 17:1_18:1	PC	Gold	Q1	MZmine lipid rules	1	2	MZmine lipid rules; SIRIUS/CANOPUS	True	PC	ok	15.98	ok	-0.399	PC 17:1_18:1#0	
+14396	598.50593	15.5544	Cer d17:0_17:1+Os	Cer	Gold	Q1	LipidSearch	1	1	LipidSearch	True		ok	15.19	ok	0.364	Cer d17:0_17:1+Os#0	
+14402	861.55056	15.5359	PI 18:1_18:1	PI	Gold	Q1	LipidSearch	1	1	LipidSearch	True		ok	15.07	ok	0.466	PI 18:1_18:1#1	
+14411	660.49801	15.5164	PE O-31:1	PE	Silver	Q1	LipidSearch	3	1	LipidSearch	False	PC O-29:1	ok		untested		PE O-31:1#1	class_disagreement
+14412	367.3584	15.5575	FA 24:0	FA	Silver	Q2	MZmine lipid rules	1	1	MZmine lipid rules	True		ok		untested		FA 24:0#17	
+14429	676.49274	15.5717	PE 15:0_16:0	PE	Gold	Q1	MZmine lipid rules	1	2	LipidSearch; MZmine lipid rules	True	PE 31:0	ok	15.14	ok	0.432	PE 15:0_16:0#1	
+14431	648.49839	15.5734	PE O-30:0	PE	Silver	Q1	MZmine lipid rules	3	2	LipidSearch; MZmine lipid rules	False	PC O-28:0	ok		untested		PE O-30:0#0	class_disagreement
+14435	662.51369	15.5792	PE O-31:0	PE	Silver	Q1	MZmine lipid rules	3	3	LipidSearch; MZmine lipid rules; SIRIUS/CANOPUS	False	PC O-29:0; PE	ok		untested		PE O-31:0#0	class_disagreement
+14440	809.556	15.5888	PI O-33:0	PI	Silver	Q1	LipidSearch	3	1	LipidSearch	True		ok		untested		PI O-33:0#0	
+14441	714.50868	15.5953	PE 16:0_18:2	PE	Gold	Q1	LipidSearch	1	2	LipidSearch; MZmine lipid rules	True		ok	15.37	ok	0.225	PE 16:0_18:2#0	
+14449	735.51859	15.5916	BMP 16:0_17:0	BMP	Gold	Q2	MZmine lipid rules	1	3	LipidSearch; MZmine lipid rules; SIRIUS/CANOPUS	False	PG 33:0; PG	untested	15.45	ok	0.142	BMP 16:0_17:0#0	class_disagreement
+14454	770.49652	15.6203	PE	PE	Bronze	Q3	SIRIUS/CANOPUS	4	1	SIRIUS/CANOPUS	True		untested		untested		feature:14454	
+14474	702.50874	15.632	PE 16:0_17:1	PE	Gold	Q1	LipidSearch	1	3	LipidSearch; MZmine lipid rules; spectral library	True	PE 16:1_17:0; PE 15:0_18:1	ok	15.62	ok	0.012	PE 16:0_17:1#0	
+14487	697.4831	15.6679	PA	PA	Bronze	Q3	SIRIUS/CANOPUS	4	1	SIRIUS/CANOPUS	True		untested		untested		feature:14487	
+14496	740.52416	15.7061	PE 18:1_18:2	PE	Gold	Q1	MZmine lipid rules	1	2	LipidSearch; MZmine lipid rules	True	PE 36:3	ok	15.84	ok	-0.134	PE 18:1_18:2#0	
+14507	605.45633	15.6529	PA O-30:0	PA	Silver	Q2	LipidSearch	3	2	LipidSearch; SIRIUS/CANOPUS	True	PA	ok		untested		PA O-30:0#0	
+14510	633.45078	15.6317	PA	PA	Bronze	Q3	SIRIUS/CANOPUS	4	1	SIRIUS/CANOPUS	True		untested		untested		feature:14510	
+14514	719.48764	15.6307	PG	PG	Bronze	Q3	SIRIUS/CANOPUS	4	1	SIRIUS/CANOPUS	True		untested		untested		feature:14514	
+14520	778.56132	15.6553	PC 15:0_17:0	PC	Gold	Q1	MZmine lipid rules	1	3	LipidSearch; MZmine lipid rules; SIRIUS/CANOPUS	True	PC	ok	15.75	ok	-0.095	PC 15:0_17:0#0	
+14535	828.57723	15.64	PC 18:1_18:2	PC	Gold	Q1	MZmine lipid rules	1	2	LipidSearch; MZmine lipid rules	True		ok	15.74	ok	-0.1	PC 18:1_18:2#1	
+14544	852.57331	15.6934	PC 18:1_20:4	PC	Gold	Q1	MZmine lipid rules	1	1	MZmine lipid rules	True		ok	15.25	ok	0.443	PC 18:1_20:4#0	
+14566	674.51341	15.6955	PE O-15:0_17:1	PE	Gold	Q1	LipidSearch	1	2	LipidSearch; MZmine lipid rules	False	PE O-32:1; PC O-30:1	ok		untested		PE O-15:0_17:1#0	class_disagreement
+14595	702.50875	15.6988	PE 17:0_16:1	PE	Gold	Q1	LipidSearch	1	3	LipidSearch; MZmine lipid rules; spectral library	True	PE 16:1_17:0; PE 15:0_18:1	ok	15.62	ok	0.079	PE 17:0_16:1#0	
+14598	731.48745	15.7314	PG 33:2	PG	Silver	Q1	LipidSearch	3	1	LipidSearch	True		ok	13.72	outlier	2.011	PG 33:2#0	rt_outlier
+14607	784.51127	15.7328	PE	PE	Bronze	Q3	SIRIUS/CANOPUS	4	1	SIRIUS/CANOPUS	True		untested		untested		feature:14607	
+14616	716.52317	15.7304	PE	PE	Bronze	Q3	SIRIUS/CANOPUS	4	1	SIRIUS/CANOPUS	True		untested		untested		feature:14616	
+14624	739.45419	15.7372	PG	PG	Bronze	Q3	SIRIUS/CANOPUS	4	1	SIRIUS/CANOPUS	True		untested		untested		feature:14624	
+14637	810.56174	15.7494	PC O-35:5	PC	Silver	Q1	MZmine lipid rules	3	1	MZmine lipid rules	True		ok		untested		PC O-35:5#0	
+14641	714.50876	15.7611	PE 17:1_17:1	PE	Gold	Q1	LipidSearch	1	2	LipidSearch; MZmine lipid rules	True		ok	15.37	ok	0.391	PE 17:1_17:1#1	
+14651	837.55058	15.763	PI 16:0_18:0	PI	Gold	Q1	LipidSearch	1	1	LipidSearch	True		ok	15.54	ok	0.223	PI 16:0_18:0#0	
+14652	649.48126	15.7656	PA	PA	Bronze	Q3	SIRIUS/CANOPUS	4	1	SIRIUS/CANOPUS	True		untested		untested		feature:14652	
+14662	671.46664	15.7222	PA 16:0_18:2	PA	Gold	Q2	LipidSearch	1	1	LipidSearch	True		ok	15.6	ok	0.122	PA 16:0_18:2#1	
+14690	686.51352	15.7972	PE	PE	Bronze	Q3	SIRIUS/CANOPUS	4	1	SIRIUS/CANOPUS	True		untested		untested		feature:14690	
+14698	790.56215	15.756	PC 15:0_18:1	PC	Gold	Q1	MZmine lipid rules	1	1	MZmine lipid rules	True		ok	15.5	ok	0.256	PC 15:0_18:1#0	
+14699	624.52165	15.8192	Cer	Cer	Bronze	Q3	SIRIUS/CANOPUS	4	1	SIRIUS/CANOPUS	True		untested		untested		feature:14699	
+14710	697.48245	15.813	PA 18:1_18:2	PA	Gold	Q2	LipidSearch	1	3	LipidSearch; MZmine lipid rules; SIRIUS/CANOPUS	True	PA	ok	16.01	ok	-0.197	PA 18:1_18:2#0	
+14761	749.53367	15.8542	PG 34:0	PG	Silver	Q1	LipidSearch	3	2	LipidSearch; SIRIUS/CANOPUS	True	PG	ok	16.25	ok	-0.396	PG 34:0#0	
+14765	840.57427	15.8465	PC 17:0_20:4	PC	Gold	Q1	MZmine lipid rules	1	1	MZmine lipid rules	True		ok	15.49	ok	0.357	PC 17:0_20:4#0	
+14766	719.48788	15.8795	PG	PG	Bronze	Q3	SIRIUS/CANOPUS	4	1	SIRIUS/CANOPUS	True		untested		untested		feature:14766	
+14783	728.52419	15.8694	PE 17:1_18:1	PE	Gold	Q1	MZmine lipid rules	1	3	LipidSearch; MZmine lipid rules; spectral library	False	PE 35:2; PC 33:2	ok	16.09	ok	-0.221	PE 17:1_18:1#0	class_disagreement
+14807	761.535	15.8803	PG 35:1	PG	Silver	Q1	LipidSearch	3	1	LipidSearch	True		ok	16.05	ok	-0.17	PG 35:1#0	
+14819	473.36384	15.887	FA 30:5	FA	Silver	Q2	LipidSearch	3	1	LipidSearch	True	FA 30:5+2Os	ok		untested		FA 30:5#4	
+14836	821.55543	15.9002	PI O-34:1	PI	Silver	Q1	LipidSearch	3	1	LipidSearch	True		ok		untested		PI O-34:1#1	
+14844	353.34284	15.9056	FA 23:0	FA	Silver	Q2	MZmine lipid rules	1	1	MZmine lipid rules	True		ok		untested		FA 23:0#10	
+14847	740.52428	15.8833	PE 18:1_18:2	PE	Gold	Q1	MZmine lipid rules	1	1	MZmine lipid rules	True		ok	15.84	ok	0.043	PE 18:1_18:2#1	
+14848	849.55012	15.8557	PI 16:0_19:1	PI	Gold	Q1	LipidSearch	1	1	LipidSearch	True		ok	15.3	ok	0.556	PI 16:0_19:1#1	
+14853	624.52163	15.9054	Cer d36:2	Cer	Silver	Q1	LipidSearch	3	2	LipidSearch; SIRIUS/CANOPUS	True	Cer d36:2+Os; Cer	ok		untested		Cer d36:2#0	
+14864	697.48228	15.8895	PA	PA	Bronze	Q3	SIRIUS/CANOPUS	4	1	SIRIUS/CANOPUS	True		untested		untested		feature:14864	
+14888	582.51107	15.9486	Cer d18:1_16:0	Cer	Gold	Q1	LipidSearch	1	1	LipidSearch	True		ok		untested		Cer d18:1_16:0#0	
+14908	594.51112	15.9724	Cer	Cer	Bronze	Q3	SIRIUS/CANOPUS	4	1	SIRIUS/CANOPUS	True		untested		untested		feature:14908	
+14915	816.57741	15.9768	PC 16:1_19:1	PC	Gold	Q1	LipidSearch	1	2	LipidSearch; MZmine lipid rules	True	PC 17:0_18:2	ok	15.98	ok	-0.003	PC 16:1_19:1#0	
+14917	787.54974	15.9918	PG 37:2	PG	Silver	Q1	LipidSearch	3	2	LipidSearch; SIRIUS/CANOPUS	True	PG	ok	16.57	ok	-0.578	PG 37:2#0	
+14919	875.56697	15.9777	PI 18:1_19:1	PI	Gold	Q1	LipidSearch	1	1	LipidSearch	True		ok	15.57	ok	0.408	PI 18:1_19:1#0	
+14930	648.52171	15.9785	Cer	Cer	Bronze	Q3	SIRIUS/CANOPUS	4	1	SIRIUS/CANOPUS	True		untested		untested		feature:14930	
+14937	828.57792	15.9522	PC 36:3	PC	Silver	Q1	LipidSearch	3	1	LipidSearch	True		ok	15.74	ok	0.212	PC 36:3#0	
+14947	786.56685	16.0071	Cer 19:1	Cer	Silver	Q1	MZmine lipid rules	3	1	MZmine lipid rules	True		implausible		untested		Cer 19:1#0	composition_implausible
+14949	809.55442	15.998	PI	PI	Bronze	Q3	SIRIUS/CANOPUS	4	1	SIRIUS/CANOPUS	True		untested		untested		feature:14949	
+14960	762.56594	15.9795	Cer 17:0	Cer	Silver	Q1	MZmine lipid rules	3	1	MZmine lipid rules	True		implausible		untested		Cer 17:0#0	composition_implausible
+14978	500.43273	16.0194	Cer d28:0	Cer	Silver	Q1	LipidSearch	3	1	LipidSearch	True		ok		untested		Cer d28:0#0	
+14982	690.50871	16.0301	PE 15:0_17:0	PE	Gold	Q1	MZmine lipid rules	1	2	LipidSearch; MZmine lipid rules	True		ok	15.87	ok	0.16	PE 15:0_17:0#0	
+14984	847.57231	16.0405	PI O-36:2	PI	Silver	Q1	LipidSearch	3	1	LipidSearch	True		ok		untested		PI O-36:2#0	
+14993	740.52442	16.034	PE 18:1_18:2	PE	Gold	Q1	MZmine lipid rules	1	3	LipidSearch; MZmine lipid rules; SIRIUS/CANOPUS	True	PE 36:3; PE	ok	15.84	ok	0.194	PE 18:1_18:2#2	
+15001	812.58283	16.0438	PC O-35:4	PC	Silver	Q1	MZmine lipid rules	3	1	MZmine lipid rules	True		ok		untested		PC O-35:4#0	
+15020	792.57541	16.0621	PC	PC	Bronze	Q3	SIRIUS/CANOPUS	4	1	SIRIUS/CANOPUS	True		untested		untested		feature:15020	
+15028	734.53445	16.0632	PE	PE	Bronze	Q3	SIRIUS/CANOPUS	4	1	SIRIUS/CANOPUS	True		untested		untested		feature:15028	
+15054	749.53238	16.092	PG 34:0	PG	Silver	Q1	LipidSearch	3	2	LipidSearch; SIRIUS/CANOPUS	True	PG	ok	16.25	ok	-0.158	PG 34:0#1	
+15064	838.59695	16.077	PC O-37:5	PC	Silver	Q1	MZmine lipid rules	3	1	MZmine lipid rules	True		ok		untested		PC O-37:5#0	
+15084	742.53887	16.0689	PC 16:1_18:1	PC	Gold	Q1	LipidSearch	1	1	LipidSearch	True		ok	15.25	ok	0.819	PC 16:1_18:1#1	
+15089	722.5139	16.1279	PE O-36:5	PE	Silver	Q1	MZmine lipid rules	3	1	MZmine lipid rules	True		ok		untested		PE O-36:5#0	
+15105	443.35337	16.1079	FA 29:5	FA	Silver	Q2	LipidSearch	3	1	LipidSearch	True	FA 29:5+Os	ok		untested		FA 29:5#2	
+15135	787.51459	16.1233	PG	PG	Bronze	Q3	SIRIUS/CANOPUS	4	1	SIRIUS/CANOPUS	True		untested		untested		feature:15135	
+15142	688.52894	16.13	PE	PE	Bronze	Q3	SIRIUS/CANOPUS	4	1	SIRIUS/CANOPUS	True		untested		untested		feature:15142	
+15159	875.56678	16.1459	PI 18:1_19:1	PI	Gold	Q1	LipidSearch	1	1	LipidSearch	True		ok	15.57	ok	0.576	PI 18:1_19:1#1	
+15170	854.5887	16.1382	PC 18:1_20:3	PC	Gold	Q1	MZmine lipid rules	1	1	MZmine lipid rules	True		ok	16.22	ok	-0.082	PC 18:1_20:3#0	
+15171	636.5218	16.1634	Cer d37:3	Cer	Silver	Q1	LipidSearch	3	1	LipidSearch	True	Cer d37:3+Os	ok		untested		Cer d37:3#0	
+15180	702.50899	16.1637	PE 16:0_17:1	PE	Gold	Q1	LipidSearch	1	3	LipidSearch; MZmine lipid rules; spectral library	True		ok	15.62	ok	0.544	PE 16:0_17:1#1	
+15188	471.3482	16.1711	FA 30:6	FA	Silver	Q2	LipidSearch	3	1	LipidSearch	True	FA 30:6+2Os	ok		untested		FA 30:6#7	
+15189	770.4965	16.1694	PE	PE	Bronze	Q3	SIRIUS/CANOPUS	4	1	SIRIUS/CANOPUS	True		untested		untested		feature:15189	
+15194	614.53722	16.1792	Cer d35:0	Cer	Silver	Q1	LipidSearch	3	1	LipidSearch	True	Cer d35:0+Os	ok		untested		Cer d35:0#0	
+15201	838.48447	16.1753	PS	PS	Bronze	Q3	SIRIUS/CANOPUS	4	1	SIRIUS/CANOPUS	True		untested		untested		feature:15201	
+15205	600.52282	16.1879	Cer d18:0_16:0+Os	Cer	Gold	Q1	LipidSearch	1	2	LipidSearch; SIRIUS/CANOPUS	True	Cer	ok	15.37	ok	0.818	Cer d18:0_16:0+Os#0	
+15211	554.51584	16.1939	Cer	Cer	Bronze	Q3	SIRIUS/CANOPUS	4	1	SIRIUS/CANOPUS	True		untested		untested		feature:15211	
+15231	582.51091	16.2096	Cer d18:1_16:0	Cer	Gold	Q1	LipidSearch	1	2	LipidSearch; SIRIUS/CANOPUS	True	Cer	ok		untested		Cer d18:1_16:0#1	
+15258	638.5372	16.2338	Cer d37:2	Cer	Silver	Q1	LipidSearch	3	1	LipidSearch	True	Cer d37:2+Os	ok		untested		Cer d37:2#0	
+15260	963.62699	16.2357	DGDG 34:1	DGDG	Silver	Q2	LipidSearch	3	1	LipidSearch	True		ok		untested		DGDG 34:1#0	
+15267	728.52472	16.248	PE 16:1_19:1	PE	Gold	Q1	LipidSearch	1	3	LipidSearch; MZmine lipid rules; spectral library	True	PE 17:1_18:1	ok	16.09	ok	0.158	PE 16:1_19:1#0	
+15272	878.59275	16.2476	PC 18:0_22:6	PC	Gold	Q1	MZmine lipid rules	1	1	MZmine lipid rules	True		ok	15.73	ok	0.518	PC 18:0_22:6#0	
+15275	788.58331	16.2382	Cer 19:1	Cer	Silver	Q1	MZmine lipid rules	3	1	MZmine lipid rules	True		implausible		untested		Cer 19:1#1	composition_implausible
+15297	863.56665	16.2321	PI 36:1	PI	Silver	Q1	LipidSearch	3	1	LipidSearch	True		ok	15.8	ok	0.432	PI 36:1#0	
+15306	659.4665	16.2963	PA 33:1	PA	Silver	Q2	LipidSearch	3	1	LipidSearch	True		ok	15.99	ok	0.306	PA 33:1#0	
+15315	814.59794	16.2937	Cer 19:1	Cer	Silver	Q1	MZmine lipid rules	3	1	MZmine lipid rules	True		implausible		untested		Cer 19:1#1	composition_implausible
+15317	674.51343	16.2717	PE	PE	Bronze	Q3	SIRIUS/CANOPUS	4	1	SIRIUS/CANOPUS	True		untested		untested		feature:15317	
+15319	626.53731	16.2762	Cer d36:1	Cer	Silver	Q1	LipidSearch	3	1	LipidSearch	True	Cer d36:1+Os	ok		untested		Cer d36:1#0	
+15330	775.59808	16.2879	SM 35:1	SM	Silver	Q1	MZmine lipid rules	3	1	MZmine lipid rules	True		ok		untested		SM 35:1#0	
+15332	778.5614	16.2942	PC 15:0_17:0	PC	Gold	Q1	LipidSearch	1	2	LipidSearch; MZmine lipid rules	True	PC 16:0_16:0	ok	15.75	ok	0.544	PC 15:0_17:0#1	
+15337	722.57186	16.3003	LPC O-30:0	LPC	Silver	Q1	LipidSearch	3	1	LipidSearch	True		ok		untested		LPC O-30:0#0	
+15339	761.5345	16.3002	BMP 16:0_19:1	BMP	Gold	Q2	MZmine lipid rules	1	2	LipidSearch; MZmine lipid rules	False	PG 35:1	untested	15.87	ok	0.43	BMP 16:0_19:1#0	class_disagreement
+15363	772.54988	16.3211	PE	PE	Bronze	Q3	SIRIUS/CANOPUS	4	1	SIRIUS/CANOPUS	True		untested		untested		feature:15363	
+15368	989.64293	16.3171	DGDG 36:2	DGDG	Silver	Q2	LipidSearch	3	1	LipidSearch	True		ok		untested		DGDG 36:2#0	
+15382	698.51327	16.3444	PE O-34:3	PE	Silver	Q1	MZmine lipid rules	3	1	MZmine lipid rules	True		ok		untested		PE O-34:3#0	
+15396	816.57696	16.3506	PC 16:1_19:1	PC	Gold	Q1	MZmine lipid rules	1	3	LipidSearch; MZmine lipid rules; SIRIUS/CANOPUS	True	PC	ok	15.98	ok	0.371	PC 16:1_19:1#1	
+15405	659.46638	16.3731	PA 33:1	PA	Silver	Q2	LipidSearch	3	1	LipidSearch	True		ok	15.99	ok	0.383	PA 33:1#0	
+15424	744.55519	16.3986	PE	PE	Bronze	Q3	SIRIUS/CANOPUS	4	1	SIRIUS/CANOPUS	True		untested		untested		feature:15424	
+15430	804.57702	16.3892	PC 16:0_18:1	PC	Gold	Q1	LipidSearch	1	2	LipidSearch; MZmine lipid rules	True		ok	16.23	ok	0.159	PC 16:0_18:1#0	
+15438	685.48201	16.4242	PA 35:2	PA	Silver	Q2	LipidSearch	3	1	LipidSearch	True		ok	16.4	ok	0.024	PA 35:2#0	
+15446	598.50523	16.4051	Cer d17:0_17:1+Os	Cer	Gold	Q1	LipidSearch	1	1	LipidSearch	True		ok	15.19	ok	1.215	Cer d17:0_17:1+Os#1	
+15447	522.48962	16.4016	Cer	Cer	Bronze	Q3	SIRIUS/CANOPUS	4	1	SIRIUS/CANOPUS	True		untested		untested		feature:15447	
+15460	644.54877	16.414	Cer d18:0_18:0+2Os	Cer	Gold	Q1	LipidSearch	1	1	LipidSearch	True		ok	16.66	ok	-0.246	Cer d18:0_18:0+2Os#0	
+15464	598.54195	16.4146	Cer	Cer	Bronze	Q3	SIRIUS/CANOPUS	4	1	SIRIUS/CANOPUS	True		untested		untested		feature:15464	
+15477	851.56585	16.4195	PI 16:0_19:0	PI	Gold	Q1	LipidSearch	1	1	LipidSearch	True		ok	16.04	ok	0.38	PI 16:0_19:0#0	
+15483	662.5136	16.4375	PC O-29:0	PC	Silver	Q1	LipidSearch	3	1	LipidSearch	True		ok		untested		PC O-29:0#1	
+15491	608.52663	16.4549	Cer d36:2	Cer	Silver	Q1	LipidSearch	3	1	LipidSearch	True		ok		untested		Cer d36:2#1	
+15498	582.51103	16.4495	Cer	Cer	Bronze	Q3	SIRIUS/CANOPUS	4	1	SIRIUS/CANOPUS	True		untested		untested		feature:15498	
+15507	865.57921	16.4692	PI 18:0_18:0	PI	Gold	Q1	LipidSearch	1	1	LipidSearch	True		ok	16.54	ok	-0.071	PI 18:0_18:0#0	
+15511	842.59205	16.467	PC 17:0_20:3	PC	Gold	Q1	MZmine lipid rules	1	2	LipidSearch; MZmine lipid rules	True	PC 37:3	ok	16.47	ok	-0.003	PC 17:0_20:3#0	
+15514	763.54744	16.478	PG	PG	Bronze	Q3	SIRIUS/CANOPUS	4	1	SIRIUS/CANOPUS	True		untested		untested		feature:15514	
+15518	830.59274	16.4801	PC 18:1_18:1	PC	Gold	Q1	LipidSearch	1	2	LipidSearch; MZmine lipid rules	True		ok	16.71	ok	-0.23	PC 18:1_18:1#0	
+15532	685.48195	16.4798	PA	PA	Bronze	Q3	SIRIUS/CANOPUS	4	1	SIRIUS/CANOPUS	True		untested		untested		feature:15532	
+15571	431.35311	16.5237	FA 28:4	FA	Silver	Q2	LipidSearch	3	1	LipidSearch	True	FA 28:4+Os	ok		untested		FA 28:4#2	
+15574	688.52915	16.5254	PE O-15:0_18:1	PE	Gold	Q1	LipidSearch	1	1	LipidSearch	False	PC O-31:1	ok		untested		PE O-15:0_18:1#0	class_disagreement
+15575	339.32698	16.548	FA 22:0	FA	Silver	Q2	MZmine lipid rules	1	1	MZmine lipid rules	True		ok		untested		FA 22:0#10	
+15585	626.53766	16.522	Cer	Cer	Bronze	Q3	SIRIUS/CANOPUS	4	1	SIRIUS/CANOPUS	True		untested		untested		feature:15585	
+15589	823.57076	16.5311	PI O-34:0	PI	Silver	Q1	LipidSearch	3	1	LipidSearch	True		ok		untested		PI O-34:0#0	
+15591	770.57082	16.542	PE	PE	Bronze	Q3	SIRIUS/CANOPUS	4	1	SIRIUS/CANOPUS	True		untested		untested		feature:15591	
+15605	792.57724	16.5616	PC 16:0_17:0	PC	Gold	Q1	MZmine lipid rules	1	1	MZmine lipid rules	True		ok	16.47	ok	0.092	PC 16:0_17:0#0	
+15609	863.56646	16.555	PI 18:0_18:1	PI	Gold	Q1	LipidSearch	1	1	LipidSearch	True		ok	15.8	ok	0.755	PI 18:0_18:1#0	
+15621	835.57129	16.5639	PI O-35:1	PI	Silver	Q1	LipidSearch	3	1	LipidSearch	True		ok		untested		PI O-35:1#0	
+15636	801.6132	16.5919	SM 37:2	SM	Silver	Q1	MZmine lipid rules	3	1	MZmine lipid rules	True		ok		untested		SM 37:2#0	
+15652	690.50874	16.5908	PE 15:0_17:0	PE	Gold	Q1	LipidSearch	1	1	LipidSearch	True		ok	15.87	ok	0.721	PE 15:0_17:0#1	
+15656	854.59066	16.5851	PC 18:0_20:4	PC	Gold	Q1	MZmine lipid rules	1	1	MZmine lipid rules	True		ok	16.22	ok	0.365	PC 18:0_20:4#0	
+15663	685.48191	16.5941	PA	PA	Bronze	Q3	SIRIUS/CANOPUS	4	1	SIRIUS/CANOPUS	True		untested		untested		feature:15663	
+15686	650.53718	16.626	Cer d38:3	Cer	Silver	Q1	LipidSearch	3	1	LipidSearch	True	Cer d38:3+Os	ok		untested		Cer d38:3#0	
+15692	749.53352	16.6487	PG 34:0	PG	Silver	Q1	LipidSearch	3	1	LipidSearch	True		ok	16.25	ok	0.399	PG 34:0#2	
+15700	880.6075	16.6324	PC 18:0_22:5	PC	Gold	Q1	MZmine lipid rules	1	1	MZmine lipid rules	True		ok	16.7	ok	-0.068	PC 18:0_22:5#0	
+15703	730.5394	16.6441	PE 35:1	PE	Silver	Q1	spectral library	2	2	SIRIUS/CANOPUS; spectral library	True	PE 17:0_18:1; PE	ok	17.06	ok	-0.416	PE 35:1#0	
+15706	728.52435	16.6458	PE 16:1_19:1	PE	Gold	Q1	LipidSearch	1	3	LipidSearch; MZmine lipid rules; SIRIUS/CANOPUS	True	PE	ok	16.09	ok	0.556	PE 16:1_19:1#1	
+15712	798.52756	16.6401	PE	PE	Bronze	Q3	SIRIUS/CANOPUS	4	1	SIRIUS/CANOPUS	True		untested		untested		feature:15712	
+15716	634.51876	16.655	LPE O-30:0	LPE	Silver	Q1	LipidSearch	3	1	LipidSearch	True		ok		untested		LPE O-30:0#0	
+15732	784.51206	16.6618	PE	PE	Bronze	Q3	SIRIUS/CANOPUS	4	1	SIRIUS/CANOPUS	True		untested		untested		feature:15732	
+15734	716.5244	16.6591	PE 16:0_18:1	PE	Gold	Q1	LipidSearch	1	3	LipidSearch; MZmine lipid rules; spectral library	True	PE 34:1	ok	16.34	ok	0.319	PE 16:0_18:1#0	
+15737	851.56607	16.6649	PI 16:0_19:0	PI	Gold	Q1	LipidSearch	1	1	LipidSearch	True		ok	16.04	ok	0.625	PI 16:0_19:0#1	
+15740	764.58318	16.6682	PC	PC	Bronze	Q3	SIRIUS/CANOPUS	4	1	SIRIUS/CANOPUS	True		untested		untested		feature:15740	
+15745	742.54008	16.6741	PE 18:1_18:1	PE	Gold	Q1	LipidSearch	1	3	LipidSearch; MZmine lipid rules; spectral library	True	PE 36:2	ok	16.81	ok	-0.136	PE 18:1_18:1#0	
+15746	661.48228	16.7061	PA 16:0_17:0	PA	Gold	Q2	LipidSearch	1	1	LipidSearch	True		ok	17.18	ok	-0.474	PA 16:0_17:0#0	
+15753	756.55545	16.6741	PE 18:1_19:1	PE	Gold	Q1	LipidSearch	1	2	LipidSearch; MZmine lipid rules	False	PC 35:2	ok	17.53	ok	-0.856	PE 18:1_19:1#0	class_disagreement
+15756	861.58583	16.7128	PI O-37:2	PI	Silver	Q1	LipidSearch	3	1	LipidSearch	True		ok		untested		PI O-37:2#0	
+15784	631.47307	16.6869	PA O-32:1	PA	Silver	Q2	LipidSearch	3	1	LipidSearch	True		ok		untested		PA O-32:1#0	
+15814	734.53544	16.7312	PE	PE	Bronze	Q3	SIRIUS/CANOPUS	4	1	SIRIUS/CANOPUS	True		untested		untested		feature:15814	
+15828	792.57742	16.6788	PC 16:0_17:0	PC	Gold	Q1	MZmine lipid rules	1	1	MZmine lipid rules	True		ok	16.47	ok	0.209	PC 16:0_17:0#1	
+15840	638.53724	16.7369	Cer d37:2	Cer	Silver	Q1	LipidSearch	3	1	LipidSearch	True	Cer d37:2+Os	ok		untested		Cer d37:2#1	
+15846	584.52625	16.7394	Cer d34:0	Cer	Silver	Q1	LipidSearch	3	1	LipidSearch	True		ok		untested		Cer d34:0#1	
+15852	748.55089	16.7453	HexCer	HexCer	Bronze	Q3	SIRIUS/CANOPUS	4	1	SIRIUS/CANOPUS	True		untested		untested		feature:15852	
+15891	721.54075	16.7783	PG	PG	Bronze	Q3	SIRIUS/CANOPUS	4	1	SIRIUS/CANOPUS	True		untested		untested		feature:15891	
+15899	965.64212	16.7738	DGDG 34:0	DGDG	Silver	Q2	LipidSearch	3	1	LipidSearch	True		ok		untested		DGDG 34:0#0	
+15905	877.58217	16.7805	PI 19:0_18:1	PI	Gold	Q1	LipidSearch	1	1	LipidSearch	True		ok	16.31	ok	0.471	PI 19:0_18:1#0	
+15911	775.55096	16.7827	PG 18:0_18:1	PG	Gold	Q1	LipidSearch	1	4	LipidSearch; MZmine lipid rules; SIRIUS/CANOPUS; spectral library	False	BMP 18:0_18:1; PG 36:1; PG	ok	16.76	ok	0.023	PG 18:0_18:1#0	class_disagreement
+15920	830.59283	16.8282	PC 17:1_19:1	PC	Gold	Q1	LipidSearch	1	3	LipidSearch; MZmine lipid rules; SIRIUS/CANOPUS	False	PC 18:0_18:2; PS	ok	16.71	ok	0.118	PC 17:1_19:1#0	class_disagreement
+15930	806.59194	16.8009	PC 17:0_17:0	PC	Gold	Q1	LipidSearch	1	2	LipidSearch; MZmine lipid rules	True	PC 16:0_17:0	ok	17.2	ok	-0.399	PC 17:0_17:0#0	
+15931	801.5691	16.8002	PG	PG	Bronze	Q3	SIRIUS/CANOPUS	4	1	SIRIUS/CANOPUS	True		untested		untested		feature:15931	
+15938	742.53967	16.8161	PE 18:1_18:1	PE	Gold	Q1	LipidSearch	1	2	LipidSearch; MZmine lipid rules	True		ok	16.81	ok	0.006	PE 18:1_18:1#1	
+15940	818.59292	16.8193	PC 16:0_19:1	PC	Gold	Q1	LipidSearch	1	3	LipidSearch; MZmine lipid rules; SIRIUS/CANOPUS	False	PC 17:0_18:1; PE	ok	16.96	ok	-0.141	PC 16:0_19:1#0	class_disagreement
+15941	842.59152	16.8036	PC 37:3	PC	Silver	Q1	LipidSearch	3	1	LipidSearch	True		ok	16.47	ok	0.334	PC 37:3#0	
+15967	704.52442	16.838	PE 16:0_17:0	PE	Gold	Q1	MZmine lipid rules	1	3	LipidSearch; MZmine lipid rules; spectral library	True	PE 33:0	ok	16.59	ok	0.248	PE 16:0_17:0#0	
+15973	367.35818	16.8447	FA 24:0	FA	Gold	Q2	MZmine lipid rules	1	2	LipidSearch; MZmine lipid rules	True		ok		untested		FA 24:0#18	
+15982	690.54445	16.8539	PE O-33:0	PE	Silver	Q1	LipidSearch	3	2	LipidSearch; SIRIUS/CANOPUS	True	PE	ok		untested		PE O-33:0#0	
+15992	766.53857	16.8576	PE 18:0_20:4	PE	Gold	Q1	MZmine lipid rules	1	1	MZmine lipid rules	True		ok	16.31	ok	0.548	PE 18:0_20:4#0	
+15994	626.57352	16.8662	Cer	Cer	Bronze	Q3	SIRIUS/CANOPUS	4	1	SIRIUS/CANOPUS	True		untested		untested		feature:15994	
+16007	622.5421	16.8689	Cer d37:2	Cer	Silver	Q1	LipidSearch	3	1	LipidSearch	True		ok		untested		Cer d37:2#2	
+16028	673.48189	16.9293	PA 16:0_18:1	PA	Gold	Q2	LipidSearch	1	1	LipidSearch	True		ok	16.79	ok	0.139	PA 16:0_18:1#0	
+16035	865.58185	16.9067	PI 17:0_19:0	PI	Gold	Q1	LipidSearch	1	1	LipidSearch	True		ok	16.54	ok	0.367	PI 17:0_19:0#0	
+16051	793.55924	16.9241	PI	PI	Bronze	Q3	SIRIUS/CANOPUS	4	1	SIRIUS/CANOPUS	True		untested		untested		feature:16051	
+16061	735.55576	16.9053	PG	PG	Bronze	Q3	SIRIUS/CANOPUS	4	1	SIRIUS/CANOPUS	True		untested		untested		feature:16061	
+16065	844.60806	16.932	PC 18:1_19:1	PC	Gold	Q1	LipidSearch	1	2	LipidSearch; MZmine lipid rules	True		ok	17.44	ok	-0.508	PC 18:1_19:1#0	
+16075	628.55366	16.9325	Cer d36:0	Cer	Silver	Q1	LipidSearch	3	1	LipidSearch	True	Cer d36:0+Os	ok		untested		Cer d36:0#0	
+16083	661.48276	16.9279	PA	PA	Bronze	Q3	SIRIUS/CANOPUS	4	1	SIRIUS/CANOPUS	True		untested		untested		feature:16083	
+16100	763.54938	16.9494	BMP 16:0_19:0	BMP	Gold	Q2	MZmine lipid rules	1	3	LipidSearch; MZmine lipid rules; SIRIUS/CANOPUS	False	PG 35:0; PG	untested	16.85	ok	0.099	BMP 16:0_19:0#0	class_disagreement
+16104	782.61617	16.9579	SM	SM	Bronze	Q3	SIRIUS/CANOPUS	4	1	SIRIUS/CANOPUS	True		untested		untested		feature:16104	
+16126	445.36905	16.9714	FA 29:4	FA	Silver	Q2	LipidSearch	3	1	LipidSearch	True	FA 29:4+Os	ok		untested		FA 29:4#3	
+16142	699.49791	17.031	PA 18:1_18:1	PA	Gold	Q2	LipidSearch	1	2	LipidSearch; SIRIUS/CANOPUS	True	PA	ok	17.21	ok	-0.179	PA 18:1_18:1#0	
+16145	640.55335	16.9963	Cer d37:1	Cer	Silver	Q1	LipidSearch	3	1	LipidSearch	True	Cer d37:1+Os	ok		untested		Cer d37:1#1	
+16153	673.48196	16.9778	PA 16:0_18:1	PA	Gold	Q2	LipidSearch	1	1	LipidSearch	True		ok	16.79	ok	0.188	PA 16:0_18:1#0	
+16155	647.46666	16.9614	PA 16:0_16:0	PA	Gold	Q2	LipidSearch	1	1	LipidSearch	True		ok	16.38	ok	0.581	PA 16:0_16:0#0	
+16166	762.56611	16.9963	PC O-31:1	PC	Silver	Q1	MZmine lipid rules	3	1	MZmine lipid rules	True		ok		untested		PC O-31:1#0	
+16178	840.61278	17.0304	PC O-37:4	PC	Silver	Q1	MZmine lipid rules	3	1	MZmine lipid rules	True		ok		untested		PC O-37:4#0	
+16188	798.52793	17.0398	PC	PC	Bronze	Q3	SIRIUS/CANOPUS	4	1	SIRIUS/CANOPUS	True		untested		untested		feature:16188	
+16192	730.54015	17.0448	PE 16:0_19:1	PE	Gold	Q1	LipidSearch	1	2	LipidSearch; spectral library	True	PE 17:1_18:0	ok	17.06	ok	-0.015	PE 16:0_19:1#0	
+16201	744.55576	17.0457	PC 34:1	PC	Silver	Q1	LipidSearch	3	1	LipidSearch	True		ok	16.23	ok	0.816	PC 34:1#0	
+16204	661.48259	17.053	PA 16:0_17:0	PA	Gold	Q2	LipidSearch	1	1	LipidSearch	True	PA 33:0	ok	17.18	ok	-0.127	PA 16:0_17:0#1	
+16209	750.54456	17.0393	PE O-38:5	PE	Silver	Q1	MZmine lipid rules	3	1	MZmine lipid rules	True		ok		untested		PE O-38:5#0	
+16216	718.53986	17.0632	PE 17:0_17:0	PE	Gold	Q1	LipidSearch	1	2	LipidSearch; MZmine lipid rules	False	PC 32:0	ok	17.31	ok	-0.247	PE 17:0_17:0#0	class_disagreement
+16224	759.51938	17.0451	PG	PG	Bronze	Q3	SIRIUS/CANOPUS	4	1	SIRIUS/CANOPUS	True		untested		untested		feature:16224	
+16227	789.5655	17.0988	PG 37:1	PG	Silver	Q1	LipidSearch	3	1	LipidSearch	True		ok	17.47	ok	-0.371	PG 37:1#0	
+16252	818.59351	17.0559	PC 17:0_18:1	PC	Gold	Q1	MZmine lipid rules	1	2	LipidSearch; MZmine lipid rules	True	PC 35:1	ok	16.96	ok	0.096	PC 17:0_18:1#0	
+16275	742.54026	17.1147	PE 18:0_18:2	PE	Gold	Q1	MZmine lipid rules	1	3	LipidSearch; MZmine lipid rules; SIRIUS/CANOPUS	True	PE 18:1_18:1; PE	ok	16.81	ok	0.305	PE 18:0_18:2#0	
+16287	610.54323	17.1322	Cer d19:1_17:0	Cer	Gold	Q1	LipidSearch	1	2	LipidSearch; SIRIUS/CANOPUS	True	Cer	ok		untested		Cer d19:1_17:0#0	
+16296	1015.65901	17.1419	DGDG 38:3	DGDG	Silver	Q2	LipidSearch	3	1	LipidSearch	True		ok		untested		DGDG 38:3#0	
+16304	856.60832	17.1328	PC 18:0_20:3	PC	Gold	Q1	MZmine lipid rules	1	2	LipidSearch; MZmine lipid rules	True	PC 38:3	ok	17.19	ok	-0.057	PC 18:0_20:3#0	
+16305	699.49786	17.1401	PA 18:0_18:2	PA	Gold	Q2	LipidSearch	1	1	LipidSearch	True		ok	17.21	ok	-0.07	PA 18:0_18:2#0	
+16310	806.59228	17.0853	PC 17:0_17:0	PC	Gold	Q1	LipidSearch	1	1	LipidSearch	True		ok	17.2	ok	-0.115	PC 17:0_17:0#1	
+16323	770.57136	17.1548	PC 36:2	PC	Silver	Q1	LipidSearch	3	2	LipidSearch; SIRIUS/CANOPUS	False	PE	ok	16.71	ok	0.445	PC 36:2#0	class_disagreement
+16324	807.57615	17.1581	PI	PI	Bronze	Q3	SIRIUS/CANOPUS	4	1	SIRIUS/CANOPUS	True		untested		untested		feature:16324	
+16344	756.55565	17.1792	PE 18:1_19:1	PE	Gold	Q1	LipidSearch	1	2	LipidSearch; MZmine lipid rules	True		ok	17.53	ok	-0.351	PE 18:1_19:1#1	
+16353	652.55306	17.1835	Cer d38:2	Cer	Silver	Q1	LipidSearch	3	1	LipidSearch	True	Cer d38:2+Os	ok		untested		Cer d38:2#0	
+16365	837.58657	17.1978	PI O-35:0	PI	Silver	Q1	LipidSearch	3	1	LipidSearch	True		ok		untested		PI O-35:0#0	
+16370	747.52022	17.1765	PG	PG	Bronze	Q3	SIRIUS/CANOPUS	4	1	SIRIUS/CANOPUS	True		untested		untested		feature:16370	
+16374	598.5422	17.2103	Cer d35:0	Cer	Silver	Q1	LipidSearch	3	1	LipidSearch	True		ok		untested		Cer d35:0#1	
+16378	880.60307	17.1668	PC 18:0_22:5	PC	Gold	Q1	MZmine lipid rules	1	1	MZmine lipid rules	True		ok	16.7	ok	0.467	PC 18:0_22:5#1	
+16398	786.56614	17.2211	PS	PS	Bronze	Q3	SIRIUS/CANOPUS	4	1	SIRIUS/CANOPUS	True		untested		untested		feature:16398	
+16401	832.60729	17.2203	PC 18:0_18:1	PC	Gold	Q1	LipidSearch	1	1	LipidSearch	True		ok	17.68	ok	-0.46	PC 18:0_18:1#0	
+16427	764.58212	17.2437	PC O-31:0	PC	Silver	Q1	MZmine lipid rules	3	1	MZmine lipid rules	True		ok		untested		PC O-31:0#0	
+16434	818.59373	17.2573	PC 16:0_19:1	PC	Gold	Q1	LipidSearch	1	2	LipidSearch; MZmine lipid rules	True		ok	16.96	ok	0.297	PC 16:0_19:1#1	
+16446	844.60833	17.2844	PC 18:1_19:1	PC	Gold	Q1	LipidSearch	1	3	LipidSearch; MZmine lipid rules; SIRIUS/CANOPUS	False	PE	ok	17.44	ok	-0.156	PC 18:1_19:1#1	class_disagreement
+16461	784.58689	17.2951	PE	PE	Bronze	Q3	SIRIUS/CANOPUS	4	1	SIRIUS/CANOPUS	True		untested		untested		feature:16461	
+16464	851.60215	17.2957	PI O-36:0	PI	Silver	Q1	LipidSearch	3	1	LipidSearch	True		ok		untested		PI O-36:0#0	
+16473	991.65845	17.295	DGDG 36:1	DGDG	Silver	Q2	LipidSearch	3	1	LipidSearch	True		ok		untested		DGDG 36:1#0	
+16480	665.58485	17.31	Cer	Cer	Bronze	Q3	SIRIUS/CANOPUS	4	1	SIRIUS/CANOPUS	True		untested		untested		feature:16480	
+16489	431.35315	17.3026	FA 28:4	FA	Silver	Q2	LipidSearch	3	1	LipidSearch	True	FA 28:4+Os	ok		untested		FA 28:4#3	
+16497	789.57104	17.3444	SM	SM	Bronze	Q3	SIRIUS/CANOPUS	4	1	SIRIUS/CANOPUS	True		untested		untested		feature:16497	
+16504	777.56483	17.3352	BMP 17:0_19:0	BMP	Gold	Q2	MZmine lipid rules	1	3	LipidSearch; MZmine lipid rules; SIRIUS/CANOPUS	False	PG 36:0; PG	untested	17.55	ok	-0.215	BMP 17:0_19:0#0	class_disagreement
+16507	856.60831	17.2964	PC 19:1_19:2	PC	Gold	Q1	MZmine lipid rules	1	2	LipidSearch; MZmine lipid rules	True		ok	17.19	ok	0.106	PC 19:1_19:2#0	
+16542	790.60014	17.3016	PC O-33:1	PC	Silver	Q1	MZmine lipid rules	3	2	MZmine lipid rules; SIRIUS/CANOPUS	True	PC	ok		untested		PC O-33:1#0	
+16589	768.55468	17.3992	PE 18:0_20:3	PE	Gold	Q1	MZmine lipid rules	1	1	MZmine lipid rules	True		ok	17.28	ok	0.119	PE 18:0_20:3#0	
+16615	784.58715	17.4016	PE	PE	Bronze	Q3	SIRIUS/CANOPUS	4	1	SIRIUS/CANOPUS	True		untested		untested		feature:16615	
+16642	726.54471	17.4665	PE O-36:3	PE	Silver	Q1	MZmine lipid rules	3	1	MZmine lipid rules	True		ok		untested		PE O-36:3#0	
+16644	814.59736	17.461	Cer 19:1	Cer	Silver	Q1	MZmine lipid rules	3	1	MZmine lipid rules	True		implausible		untested		Cer 19:1#2	composition_implausible
+16665	844.60813	17.4325	PC 18:1_19:1	PC	Gold	Q1	LipidSearch	1	2	LipidSearch; MZmine lipid rules	True	PC 18:2_19:0	ok	17.44	ok	-0.008	PC 18:1_19:1#2	
+16678	891.59848	17.4961	PI 19:0_19:1	PI	Gold	Q1	LipidSearch	1	1	LipidSearch	True		ok	16.81	ok	0.686	PI 19:0_19:1#0	
+16679	732.55276	17.5135	PE	PE	Bronze	Q3	SIRIUS/CANOPUS	4	1	SIRIUS/CANOPUS	True		untested		untested		feature:16679	
+16693	882.62391	17.5109	PC 18:0_22:4	PC	Gold	Q1	MZmine lipid rules	1	1	MZmine lipid rules	True		ok	17.68	ok	-0.169	PC 18:0_22:4#0	
+16695	879.5975	17.5002	PI 18:0_19:0	PI	Gold	Q1	LipidSearch	1	1	LipidSearch	True		ok	17.04	ok	0.46	PI 18:0_19:0#0	
+16696	624.55812	17.5041	Cer d37:1	Cer	Silver	Q1	LipidSearch	3	1	LipidSearch	True		ok		untested		Cer d37:1#2	
+16697	840.61348	17.5074	PC O-37:4	PC	Silver	Q1	MZmine lipid rules	3	1	MZmine lipid rules	True		ok		untested		PC O-37:4#1	
+16699	744.55684	17.5065	PE 18:0_18:1	PE	Gold	Q1	LipidSearch	1	1	LipidSearch	True		ok	17.78	ok	-0.274	PE 18:0_18:1#0	
+16701	750.54495	17.5063	PE O-38:5	PE	Silver	Q1	MZmine lipid rules	3	1	MZmine lipid rules	True		ok		untested		PE O-38:5#1	
+16715	640.55383	17.5141	Cer	Cer	Bronze	Q3	SIRIUS/CANOPUS	4	1	SIRIUS/CANOPUS	True		untested		untested		feature:16715	
+16716	770.5706	17.5159	PE 38:2	PE	Silver	Q1	LipidSearch	3	2	LipidSearch; SIRIUS/CANOPUS	False	PC 36:2; PE	ok	18.25	ok	-0.734	PE 38:2#0	class_disagreement
+16719	730.54046	17.5159	PE 16:0_19:1	PE	Gold	Q1	LipidSearch	1	2	LipidSearch; MZmine lipid rules	True		ok	17.06	ok	0.456	PE 16:0_19:1#1	
+16732	798.52781	17.5294	PE	PE	Bronze	Q3	SIRIUS/CANOPUS	4	1	SIRIUS/CANOPUS	True		untested		untested		feature:16732	
+16733	1003.65866	17.5217	DGDG 37:2	DGDG	Silver	Q2	LipidSearch	3	1	LipidSearch	True		ok		untested		DGDG 37:2#0	
+16745	838.55747	17.5362	PE	PE	Bronze	Q3	SIRIUS/CANOPUS	4	1	SIRIUS/CANOPUS	True		untested		untested		feature:16745	
+16747	756.55565	17.5342	PE 18:1_19:1	PE	Gold	Q1	MZmine lipid rules	1	2	LipidSearch; MZmine lipid rules	True		ok	17.53	ok	0.004	PE 18:1_19:1#2	
+16757	807.57653	17.5651	PI	PI	Bronze	Q3	SIRIUS/CANOPUS	4	1	SIRIUS/CANOPUS	True		untested		untested		feature:16757	
+16778	687.49749	17.5743	PA	PA	Bronze	Q3	SIRIUS/CANOPUS	4	1	SIRIUS/CANOPUS	True		untested		untested		feature:16778	
+16787	789.56848	17.583	BMP 18:0_19:1	BMP	Gold	Q2	MZmine lipid rules	1	2	LipidSearch; MZmine lipid rules	False	PG 37:1	untested	17.26	ok	0.323	BMP 18:0_19:1#0	class_disagreement
+16816	628.55379	17.626	Cer d36:0	Cer	Silver	Q1	LipidSearch	3	1	LipidSearch	True	Cer d36:0+Os	ok		untested		Cer d36:0#1	
+16849	610.54266	17.6866	Cer d36:1	Cer	Silver	Q1	LipidSearch	3	1	LipidSearch	True		ok		untested		Cer d36:1#1	
+16851	702.54469	17.6737	PE O-34:1	PE	Silver	Q1	LipidSearch	3	1	LipidSearch	True		ok		untested		PE O-34:1#0	
+16866	654.56925	17.6838	Cer d38:1	Cer	Silver	Q1	LipidSearch	3	1	LipidSearch	True	Cer d38:1+Os	ok		untested		Cer d38:1#0	
+16885	687.49745	17.709	PA 35:1	PA	Silver	Q2	LipidSearch	3	2	LipidSearch; SIRIUS/CANOPUS	True	PA	ok	17.6	ok	0.109	PA 35:1#0	
+16889	816.61306	17.7269	Cer 19:1	Cer	Silver	Q1	MZmine lipid rules	3	1	MZmine lipid rules	True		implausible		untested		Cer 19:1#3	composition_implausible
+16904	806.59246	17.7156	PC 16:0_18:0	PC	Gold	Q1	MZmine lipid rules	1	1	MZmine lipid rules	True		ok	17.2	ok	0.516	PC 16:0_18:0#0	
+16923	791.58051	17.7266	BMP 17:0_20:0	BMP	Gold	Q2	MZmine lipid rules	1	3	LipidSearch; MZmine lipid rules; SIRIUS/CANOPUS	False	PG 37:0; PG	untested	18.25	ok	-0.523	BMP 17:0_20:0#0	class_disagreement
+16927	726.54511	17.7381	PE O-36:3	PE	Silver	Q1	MZmine lipid rules	3	1	MZmine lipid rules	True		ok		untested		PE O-36:3#1	
+16964	832.60881	17.7727	PC 18:0_18:1	PC	Gold	Q1	LipidSearch	1	2	LipidSearch; MZmine lipid rules	True		ok	17.68	ok	0.093	PC 18:0_18:1#1	
+16989	858.62402	17.7968	PC 18:1_19:1	PC	Gold	Q1	MZmine lipid rules	1	2	LipidSearch; MZmine lipid rules	True	PC 38:2	ok	17.44	ok	0.357	PC 18:1_19:1#3	
+16992	710.5962	17.8169	Cer d41:2	Cer	Silver	Q1	LipidSearch	3	1	LipidSearch	True	Cer d41:2+2Os	ok		untested		Cer d41:2#0	
+17036	672.58142	17.8401	Cer d38:0	Cer	Silver	Q1	LipidSearch	3	2	LipidSearch; SIRIUS/CANOPUS	True	Cer d38:0+2Os; Cer	ok		untested		Cer d38:0#0	
+17044	855.6605	17.8518	SM 41:3	SM	Silver	Q1	MZmine lipid rules	3	1	MZmine lipid rules	True		ok		untested		SM 41:3#0	
+17078	716.56077	17.8878	PE	PE	Bronze	Q3	SIRIUS/CANOPUS	4	1	SIRIUS/CANOPUS	True		untested		untested		feature:17078	
+17085	687.4975	17.8753	PA	PA	Bronze	Q3	SIRIUS/CANOPUS	4	1	SIRIUS/CANOPUS	True		untested		untested		feature:17085	
+17086	732.55596	17.9095	PE 35:0	PE	Silver	Q1	LipidSearch	3	1	LipidSearch	True		ok	18.03	ok	-0.12	PE 35:0#0	
+17101	684.57984	17.9088	Cer d39:1	Cer	Silver	Q1	LipidSearch	3	1	LipidSearch	True	Cer d39:1+2Os	ok		untested		Cer d39:1#0	
+17105	1017.67434	17.9203	DGDG 38:2	DGDG	Silver	Q2	LipidSearch	3	1	LipidSearch	True		ok		untested		DGDG 38:2#0	
+17107	879.59787	17.9228	PI 17:0_20:0	PI	Gold	Q1	LipidSearch	1	1	LipidSearch	True		ok	17.04	ok	0.883	PI 17:0_20:0#0	
+17112	728.56063	17.9557	PE	PE	Bronze	Q3	SIRIUS/CANOPUS	4	1	SIRIUS/CANOPUS	True		untested		untested		feature:17112	
+17116	770.57137	17.9368	PE 38:2	PE	Silver	Q1	LipidSearch	3	2	LipidSearch; SIRIUS/CANOPUS	False	PC 36:2; PE	ok	18.25	ok	-0.313	PE 38:2#1	class_disagreement
+17121	858.62436	17.8889	PC 18:0_20:2	PC	Gold	Q1	MZmine lipid rules	1	2	LipidSearch; MZmine lipid rules	True	PC 38:2	ok	18.17	ok	-0.281	PC 18:0_20:2#0	
+17122	610.54278	17.9416	Cer	Cer	Bronze	Q3	SIRIUS/CANOPUS	4	1	SIRIUS/CANOPUS	True		untested		untested		feature:17122	
+17147	777.5656	17.9797	PG 36:0	PG	Silver	Q1	LipidSearch	3	2	LipidSearch; SIRIUS/CANOPUS	True	PG	ok	17.67	ok	0.31	PG 36:0#0	
+17156	744.55615	17.986	PE 18:0_18:1	PE	Gold	Q1	LipidSearch	1	3	LipidSearch; MZmine lipid rules; spectral library	True	PE 36:1	ok	17.78	ok	0.206	PE 18:0_18:1#1	
+17157	841.60701	17.978	PG	PG	Bronze	Q3	SIRIUS/CANOPUS	4	1	SIRIUS/CANOPUS	True		untested		untested		feature:17157	
+17169	784.58711	17.9986	PC 37:2	PC	Silver	Q1	LipidSearch	3	2	LipidSearch; SIRIUS/CANOPUS	False	PE	ok	17.44	ok	0.559	PC 37:2#0	class_disagreement
+17197	842.62808	18.0203	Cer 21:2	Cer	Silver	Q1	MZmine lipid rules	3	1	MZmine lipid rules	True		ok		untested		Cer 21:2#0	
+17246	752.56017	18.0708	PE O-38:4	PE	Silver	Q1	MZmine lipid rules	3	1	MZmine lipid rules	True		ok		untested		PE O-38:4#0	
+17256	893.61347	18.0838	PI 19:0_19:0	PI	Gold	Q1	LipidSearch	1	1	LipidSearch	True		ok	17.54	ok	0.544	PI 19:0_19:0#0	
+17258	713.5132	18.1143	PA	PA	Bronze	Q3	SIRIUS/CANOPUS	4	1	SIRIUS/CANOPUS	True		untested		untested		feature:17258	
+17261	367.35843	18.0718	FA 24:0	FA	Silver	Q2	MZmine lipid rules	1	1	MZmine lipid rules	True		ok		untested		FA 24:0#19	
+17285	800.54357	18.1275	PE	PE	Bronze	Q3	SIRIUS/CANOPUS	4	1	SIRIUS/CANOPUS	True		untested		untested		feature:17285	
+17298	732.55563	18.1383	PE 16:0_19:0	PE	Gold	Q1	LipidSearch	1	2	LipidSearch; MZmine lipid rules	True		ok	18.03	ok	0.108	PE 16:0_19:0#0	
+17306	858.62399	18.1331	PC 19:1_19:1	PC	Gold	Q1	LipidSearch	1	2	LipidSearch; MZmine lipid rules	True		ok	18.17	ok	-0.037	PC 19:1_19:1#0	
+17325	758.56995	18.1353	PE	PE	Bronze	Q3	SIRIUS/CANOPUS	4	1	SIRIUS/CANOPUS	True		untested		untested		feature:17325	
+17328	791.58085	18.1579	BMP 18:0_19:0	BMP	Gold	Q2	MZmine lipid rules	1	3	LipidSearch; MZmine lipid rules; SIRIUS/CANOPUS	False	PG 37:0; PG	untested	18.25	ok	-0.092	BMP 18:0_19:0#0	class_disagreement
+17330	638.57411	18.1533	Cer d38:1	Cer	Silver	Q1	LipidSearch	3	1	LipidSearch	True		ok		untested		Cer d38:1#1	
+17385	713.51348	18.2052	PA 18:1_19:1	PA	Gold	Q2	LipidSearch	1	1	LipidSearch	True		ok	18.02	ok	0.185	PA 18:1_19:1#0	
+17399	728.60544	18.2349	HexCer	HexCer	Bronze	Q3	SIRIUS/CANOPUS	4	1	SIRIUS/CANOPUS	True		untested		untested		feature:17399	
+17438	668.58482	18.3064	Cer d39:1	Cer	Silver	Q1	LipidSearch	3	1	LipidSearch	True	Cer d39:1+Os	ok		untested		Cer d39:1#1	
+17440	1017.67445	18.307	DGDG 19:0_19:2	DGDG	Gold	Q2	LipidSearch	1	1	LipidSearch	True		ok		untested		DGDG 19:0_19:2#0	
+17451	805.59715	18.3193	PG 38:0	PG	Silver	Q1	LipidSearch	3	2	LipidSearch; SIRIUS/CANOPUS	True	PG	ok	19.1	ok	-0.781	PG 38:0#0	
+17455	746.57137	18.3288	PE 17:0_19:0	PE	Gold	Q1	MZmine lipid rules	1	1	MZmine lipid rules	True		ok	18.75	ok	-0.421	PE 17:0_19:0#0	
+17467	903.5956	18.3388	PI 39:2	PI	Silver	Q1	LipidSearch	3	1	LipidSearch	True		ok	16.57	ok	1.769	PI 39:2#0	
+17470	784.58736	18.3463	PC 37:2	PC	Silver	Q1	LipidSearch	3	1	LipidSearch	True		ok	17.44	ok	0.906	PC 37:2#1	
+17478	770.57147	18.3496	PE 19:1_19:1	PE	Gold	Q1	MZmine lipid rules	1	2	LipidSearch; MZmine lipid rules	True	PE 38:2	ok	18.25	ok	0.1	PE 19:1_19:1#0	
+17510	724.61088	18.4156	Cer d42:2	Cer	Silver	Q1	LipidSearch	3	2	LipidSearch; SIRIUS/CANOPUS	False	Cer d42:2+2Os; HexCer	ok		untested		Cer d42:2#0	class_disagreement
+17542	872.64076	18.4892	PC 39:2	PC	Silver	Q1	LipidSearch	3	1	LipidSearch	True		ok	18.89	ok	-0.401	PC 39:2#0	
+17567	686.59548	18.5143	Cer d39:0	Cer	Silver	Q1	LipidSearch	3	2	LipidSearch; SIRIUS/CANOPUS	True	Cer d39:0+2Os; Cer	ok		untested		Cer d39:0#0	
+17568	395.38965	18.5164	FA 26:0	FA	Silver	Q2	MZmine lipid rules	1	1	MZmine lipid rules	True		ok		untested		FA 26:0#9	
+17572	817.64541	18.5187	SM 38:1	SM	Silver	Q1	MZmine lipid rules	3	1	MZmine lipid rules	True		ok		untested		SM 38:1#0	
+17578	716.58755	18.5421	SM	SM	Bronze	Q3	SIRIUS/CANOPUS	4	1	SIRIUS/CANOPUS	True		untested		untested		feature:17578	
+17591	846.62485	18.5389	PC 18:0_19:1	PC	Gold	Q1	MZmine lipid rules	1	1	MZmine lipid rules	True		ok	18.41	ok	0.129	PC 18:0_19:1#0	
+17596	652.58955	18.5521	Cer d39:1	Cer	Silver	Q1	LipidSearch	3	1	LipidSearch	True		ok		untested		Cer d39:1#2	
+17600	698.59513	18.5555	Cer d40:1	Cer	Silver	Q1	LipidSearch	3	1	LipidSearch	True	Cer d40:1+2Os	ok		untested		Cer d40:1#0	
+17615	656.58493	18.5696	Cer d38:0	Cer	Silver	Q1	LipidSearch	3	1	LipidSearch	True	Cer d38:0+Os	ok		untested		Cer d38:0#1	
+17669	894.65992	18.6576	PC O-41:5	PC	Silver	Q1	MZmine lipid rules	3	1	MZmine lipid rules	True		ok		untested		PC O-41:5#0	
+17671	701.51353	18.6658	PA 36:1	PA	Silver	Q2	LipidSearch	3	2	LipidSearch; SIRIUS/CANOPUS	True	PA	ok	18.41	ok	0.256	PA 36:1#0	
+17682	728.56092	18.659	PE O-36:2	PE	Silver	Q1	MZmine lipid rules	3	1	MZmine lipid rules	True		ok		untested		PE O-36:2#0	
+17688	843.66053	18.6911	SM 40:2	SM	Silver	Q1	MZmine lipid rules	3	1	MZmine lipid rules	True		ok		untested		SM 40:2#0	
+17715	689.51377	18.73	PA	PA	Bronze	Q3	SIRIUS/CANOPUS	4	1	SIRIUS/CANOPUS	True		untested		untested		feature:17715	
+17717	680.58501	18.7427	Cer d40:2	Cer	Silver	Q1	LipidSearch	3	1	LipidSearch	True	Cer d40:2+Os	ok		untested		Cer d40:2#0	
+17724	758.57178	18.7558	PE 18:0_19:1	PE	Gold	Q1	MZmine lipid rules	1	1	MZmine lipid rules	True		ok	18.5	ok	0.256	PE 18:0_19:1#0	
+17734	772.58726	18.7427	PE 38:1	PE	Silver	Q1	LipidSearch	3	1	LipidSearch	True		ok	19.22	ok	-0.477	PE 38:1#0	
+17735	778.57631	18.7752	PE O-40:5	PE	Silver	Q1	MZmine lipid rules	3	1	MZmine lipid rules	True		ok		untested		PE O-40:5#0	
+17760	920.67536	18.82	PC O-43:6	PC	Silver	Q1	MZmine lipid rules	3	1	MZmine lipid rules	True		ok		untested		PC O-43:6#0	
+17812	706.60036	18.8936	Cer d42:3	Cer	Silver	Q1	LipidSearch	3	1	LipidSearch	True	Cer d42:3+Os	ok		untested		Cer d42:3#0	
+17814	857.67591	18.8796	SM 41:2	SM	Silver	Q1	MZmine lipid rules	3	1	MZmine lipid rules	True		ok		untested		SM 41:2#0	
+17860	701.51377	18.9133	PA	PA	Bronze	Q3	SIRIUS/CANOPUS	4	1	SIRIUS/CANOPUS	True		untested		untested		feature:17860	
+17874	726.62661	18.9684	Cer d42:1	Cer	Silver	Q1	LipidSearch	3	1	LipidSearch	True	Cer d42:1+2Os	ok		untested		Cer d42:1#0	
+17881	754.57593	18.9879	PE O-38:3	PE	Silver	Q1	MZmine lipid rules	3	1	MZmine lipid rules	True		ok		untested		PE O-38:3#0	
+17892	738.62693	19.0091	Cer d43:2	Cer	Silver	Q1	LipidSearch	3	2	LipidSearch; SIRIUS/CANOPUS	False	Cer d43:2+2Os; HexCer	ok		untested		Cer d43:2#0	class_disagreement
+17950	689.51396	19.0725	PA	PA	Bronze	Q3	SIRIUS/CANOPUS	4	1	SIRIUS/CANOPUS	True		untested		untested		feature:17950	
+17962	831.66064	19.0805	SM 39:1	SM	Silver	Q1	MZmine lipid rules	3	1	MZmine lipid rules	True		ok		untested		SM 39:1#0	
+17968	715.5292	19.0937	PA 37:1	PA	Silver	Q2	LipidSearch	3	1	LipidSearch	True		ok	19.22	ok	-0.126	PA 37:1#0	
+17986	700.61065	19.0985	Cer d17:0_23:0+2Os	Cer	Gold	Q1	LipidSearch	1	2	LipidSearch; SIRIUS/CANOPUS	True	Cer	ok	19.23	ok	-0.131	Cer d17:0_23:0+2Os#0	
+18025	712.61085	19.1605	Cer d41:1	Cer	Silver	Q1	LipidSearch	3	2	LipidSearch; SIRIUS/CANOPUS	False	Cer d41:1+2Os; HexCer	ok		untested		Cer d41:1#0	class_disagreement
+18029	666.60543	19.1654	Cer	Cer	Bronze	Q3	SIRIUS/CANOPUS	4	1	SIRIUS/CANOPUS	True		untested		untested		feature:18029	
+18035	727.52955	19.1814	PA 38:2	PA	Silver	Q2	LipidSearch	3	1	LipidSearch	True		ok	18.83	ok	0.351	PA 38:2#0	
+18092	726.59022	19.2926	HexCer	HexCer	Bronze	Q3	SIRIUS/CANOPUS	4	1	SIRIUS/CANOPUS	True		untested		untested		feature:18092	
+18113	727.52978	19.3254	PA 38:2	PA	Silver	Q2	LipidSearch	3	2	LipidSearch; SIRIUS/CANOPUS	True	PA	ok	18.83	ok	0.495	PA 38:2#1	
+18129	640.58977	19.3468	Cer d38:0	Cer	Silver	Q1	LipidSearch	3	1	LipidSearch	True		ok		untested		Cer d38:0#2	
+18161	710.63147	19.3873	Cer d42:1	Cer	Silver	Q1	LipidSearch	3	1	LipidSearch	True	Cer d42:1+Os	ok		untested		Cer d42:1#1	
+18169	703.5298	19.3919	PA 36:0	PA	Silver	Q2	LipidSearch	3	1	LipidSearch	True		ok	19.61	ok	-0.218	PA 36:0#0	
+18178	590.51664	19.4234	Cer	Cer	Bronze	Q3	SIRIUS/CANOPUS	4	1	SIRIUS/CANOPUS	True		untested		untested		feature:18178	
+18189	774.60273	19.4427	PE 19:0_19:0	PE	Gold	Q1	LipidSearch	1	2	LipidSearch; MZmine lipid rules	True		ok	20.19	ok	-0.747	PE 19:0_19:0#0	
+18210	740.64229	19.5087	HexCer	HexCer	Bronze	Q3	SIRIUS/CANOPUS	4	1	SIRIUS/CANOPUS	True		untested		untested		feature:18210	
+18280	845.67497	19.6632	SM 40:1	SM	Silver	Q1	MZmine lipid rules	3	1	MZmine lipid rules	True		ok		untested		SM 40:1#0	
+18295	714.62652	19.682	Cer d41:0	Cer	Silver	Q1	LipidSearch	3	1	LipidSearch	True	Cer d41:0+2Os	ok		untested		Cer d41:0#0	
+18324	726.6265	19.7382	Cer d42:1	Cer	Silver	Q1	LipidSearch	3	1	LipidSearch	True	Cer d42:1+2Os	ok		untested		Cer d42:1#2	
+18360	949.67634	19.8091	PI 42:0	PI	Silver	Q1	LipidSearch	3	1	LipidSearch	True		ok	19.54	ok	0.269	PI 42:0#0	
+18365	922.69164	19.8204	PC O-43:5	PC	Silver	Q1	MZmine lipid rules	3	1	MZmine lipid rules	True		ok		untested		PC O-43:5#0	
+18390	963.69175	19.9206	PI 23:0_20:0	PI	Gold	Q1	LipidSearch	1	1	LipidSearch	True		ok	20.04	ok	-0.119	PI 23:0_20:0#0	
+18436	896.67596	19.999	PC O-41:4	PC	Silver	Q1	MZmine lipid rules	3	1	MZmine lipid rules	True		ok		untested		PC O-41:4#0	
+18492	859.69035	20.2228	SM 41:1	SM	Silver	Q1	MZmine lipid rules	3	1	MZmine lipid rules	True		ok		untested		SM 41:1#0	
+18507	989.70917	20.1876	PI 45:1	PI	Silver	Q1	LipidSearch	3	1	LipidSearch	True		ok	20.31	ok	-0.122	PI 45:1#0	
+18541	728.64203	20.2199	Cer d42:0	Cer	Silver	Q1	LipidSearch	3	2	LipidSearch; SIRIUS/CANOPUS	True	Cer d42:0+2Os; Cer	ok		untested		Cer d42:0#0	
+18548	682.63603	20.2257	Cer	Cer	Bronze	Q3	SIRIUS/CANOPUS	4	1	SIRIUS/CANOPUS	True		untested		untested		feature:18548	
+18615	977.70763	20.3654	PI 21:0_23:0	PI	Gold	Q1	LipidSearch	1	1	LipidSearch	True		ok	20.54	ok	-0.175	PI 21:0_23:0#0	
+18633	738.66309	20.4321	Cer d44:1	Cer	Silver	Q1	LipidSearch	3	2	LipidSearch; SIRIUS/CANOPUS	False	Cer d44:1+Os; HexCer	ok		untested		Cer d44:1#0	class_disagreement
+18700	712.64723	20.6228	Cer d42:0	Cer	Silver	Q1	LipidSearch	3	1	LipidSearch	True	Cer d42:0+Os	ok		untested		Cer d42:0#1	
+18705	1003.72291	20.6349	PI 22:0_24:1	PI	Gold	Q1	LipidSearch	1	1	LipidSearch	True		ok	20.81	ok	-0.175	PI 22:0_24:1#0	
+18728	1017.74208	20.7382	PI 47:1	PI	Silver	Q1	LipidSearch	3	1	LipidSearch	True		ok	21.31	ok	-0.572	PI 47:1#0	
+18731	977.70771	20.7133	PI 22:0_22:0	PI	Gold	Q1	LipidSearch	1	1	LipidSearch	True		ok	20.54	ok	0.173	PI 22:0_22:0#0	
+18738	742.6579	20.7358	Cer d43:0	Cer	Silver	Q1	LipidSearch	3	2	LipidSearch; SIRIUS/CANOPUS	False	Cer d43:0+2Os; HexCer	ok		untested		Cer d43:0#0	class_disagreement
+18759	991.7232	20.8119	PI 22:0_23:0	PI	Gold	Q1	LipidSearch	1	1	LipidSearch	True		ok	21.04	ok	-0.228	PI 22:0_23:0#0	
+18765	1017.74046	20.8375	PI 24:0_23:1	PI	Gold	Q1	LipidSearch	1	1	LipidSearch	True		ok	21.31	ok	-0.473	PI 24:0_23:1#0	
+18829	1343.9026	21.0805	CL 16:1_16:1_16:1_16:1	CL	Gold	Q2	LipidSearch	1	1	LipidSearch	True		ok	21.14	ok	-0.059	CL 16:1_16:1_16:1_16:1#0	
+18870	1293.88739	21.1966	CL 15:1_15:0_15:0_15:0	CL	Gold	Q2	LipidSearch	1	1	LipidSearch	True		ok	21.26	ok	-0.063	CL 15:1_15:0_15:0_15:0#0	
+18875	1005.73869	21.2178	PI 22:0_24:0	PI	Gold	Q1	LipidSearch	1	1	LipidSearch	True		ok	21.54	ok	-0.322	PI 22:0_24:0#0	
+18886	1331.90289	21.2333	CL 63:3	CL	Silver	Q2	LipidSearch	3	1	LipidSearch	True		ok	21.28	ok	-0.047	CL 63:3#0	
+18918	1319.90237	21.4047	CL 15:0_15:0_16:1_16:1	CL	Gold	Q2	LipidSearch	1	1	LipidSearch	True		ok	21.42	ok	-0.015	CL 15:0_15:0_16:1_16:1#0	
+18960	1307.9026	21.573	CL 15:0_15:0_15:0_16:1	CL	Gold	Q2	LipidSearch	1	1	LipidSearch	True	CL 61:1	ok	21.56	ok	0.013	CL 15:0_15:0_15:0_16:1#0	
+18979	1019.75439	21.6293	PI 22:0_25:0	PI	Gold	Q1	LipidSearch	1	1	LipidSearch	True		ok	22.04	ok	-0.411	PI 22:0_25:0#0	
+18983	1333.91839	21.6388	CL 15:0_16:0_16:1_16:1	CL	Gold	Q2	LipidSearch	1	1	LipidSearch	True	CL 63:2	ok	21.72	ok	-0.081	CL 15:0_16:0_16:1_16:1#0	
+18988	1295.90264	21.66	CL 15:0_15:0_15:0_15:0	CL	Gold	Q2	LipidSearch	1	1	LipidSearch	True		ok	21.7	ok	-0.04	CL 15:0_15:0_15:0_15:0#0	
+19003	1345.9177	21.7103	CL 15:0_16:1_16:1_17:1	CL	Gold	Q2	LipidSearch	1	1	LipidSearch	True		ok	21.58	ok	0.13	CL 15:0_16:1_16:1_17:1#0	
+19010	1033.76993	21.7366	PI 23:0_25:0	PI	Gold	Q1	LipidSearch	1	1	LipidSearch	True		ok	22.54	ok	-0.803	PI 23:0_25:0#0	
+19014	1321.91722	21.7489	CL 15:0_15:0_15:0_17:1	CL	Gold	Q2	LipidSearch	1	1	LipidSearch	True		ok	21.86	ok	-0.111	CL 15:0_15:0_15:0_17:1#0	
+19016	1371.9337	21.7586	CL 66:4	CL	Silver	Q2	LipidSearch	3	1	LipidSearch	True		ok	21.74	ok	0.019	CL 66:4#0	
+19020	1347.93223	21.7842	CL 15:0_16:0_16:1_17:1	CL	Gold	Q2	LipidSearch	1	1	LipidSearch	True		ok	22.02	ok	-0.236	CL 15:0_16:0_16:1_17:1#0	
+19051	1359.93355	21.9036	CL 16:0_16:1_16:1_17:1	CL	Gold	Q2	LipidSearch	1	1	LipidSearch	True		ok	21.88	ok	0.024	CL 16:0_16:1_16:1_17:1#0	
+19087	1321.91753	21.9684	CL 15:0_15:0_16:0_16:1	CL	Gold	Q2	LipidSearch	1	1	LipidSearch	True		ok	21.86	ok	0.108	CL 15:0_15:0_16:0_16:1#0	
+19109	1385.95001	22.0783	CL 67:4	CL	Silver	Q2	LipidSearch	3	1	LipidSearch	True		ok	22.04	ok	0.038	CL 67:4#0	
+19110	1309.91786	22.0725	CL 15:0_15:0_15:0_16:0	CL	Gold	Q2	LipidSearch	1	1	LipidSearch	True		ok	22.0	ok	0.073	CL 15:0_15:0_15:0_16:0#0	
+19143	1335.9331	22.1798	CL 15:0_15:0_16:0_17:1	CL	Gold	Q2	LipidSearch	1	1	LipidSearch	True		ok	22.16	ok	0.02	CL 15:0_15:0_16:0_17:1#0	
+19166	1361.94892	22.278	CL 65:2	CL	Silver	Q2	LipidSearch	3	1	LipidSearch	True		ok	22.32	ok	-0.042	CL 65:2#0	
+19171	1347.93297	22.2819	CL 15:0_15:0_16:1_18:1	CL	Gold	Q2	LipidSearch	1	1	LipidSearch	True		ok	22.02	ok	0.262	CL 15:0_15:0_16:1_18:1#0	
+19172	1323.93208	22.2841	CL 15:0_15:0_16:0_16:0	CL	Gold	Q2	LipidSearch	1	1	LipidSearch	True		ok	22.3	ok	-0.016	CL 15:0_15:0_16:0_16:0#0	
+19180	1373.94897	22.3022	CL 16:0_16:1_16:1_18:1	CL	Gold	Q2	LipidSearch	1	1	LipidSearch	True		ok	22.18	ok	0.122	CL 16:0_16:1_16:1_18:1#0	
+19199	1399.96498	22.3418	CL 16:1_16:1_18:1_18:1	CL	Gold	Q2	LipidSearch	1	1	LipidSearch	True		ok	22.34	ok	0.002	CL 16:1_16:1_18:1_18:1#0	
+19210	1349.94661	22.3692	CL 15:0_15:0_17:0_17:1	CL	Gold	Q2	LipidSearch	1	1	LipidSearch	True		ok	22.46	ok	-0.091	CL 15:0_15:0_17:0_17:1#0	
+19235	1387.96515	22.4948	CL 67:3	CL	Silver	Q2	LipidSearch	3	1	LipidSearch	True		ok	22.48	ok	0.015	CL 67:3#0	
+19278	1387.96478	22.5714	CL 67:3	CL	Silver	Q2	LipidSearch	3	1	LipidSearch	True		ok	22.48	ok	0.091	CL 67:3#0	
+19282	1375.96355	22.6087	CL 15:0_16:0_17:1_18:1	CL	Gold	Q2	LipidSearch	1	1	LipidSearch	True		ok	22.62	ok	-0.011	CL 15:0_16:0_17:1_18:1#0	
+19300	1337.94867	22.6448	CL 63:0	CL	Silver	Q2	LipidSearch	3	1	LipidSearch	True		ok	22.6	ok	0.045	CL 63:0#0	
+19307	1413.98195	22.6705	CL 69:4	CL	Silver	Q2	LipidSearch	3	1	LipidSearch	True		ok	22.64	ok	0.03	CL 69:4#0	
+19321	1267.94346	22.7011	CL O-60:0	CL	Silver	Q2	LipidSearch	3	1	LipidSearch	True		ok		untested		CL O-60:0#0	
+19372	1351.96319	22.8502	CL 15:0_15:0_17:0_17:0	CL	Gold	Q2	LipidSearch	1	1	LipidSearch	True		ok	22.9	ok	-0.05	CL 15:0_15:0_17:0_17:0#0	
+19385	1427.99702	22.8858	CL 16:1_18:1_18:1_18:1	CL	Gold	Q2	LipidSearch	1	1	LipidSearch	True		ok	22.94	ok	-0.054	CL 16:1_18:1_18:1_18:1#0	
+19388	1401.98037	22.8918	CL 16:0_16:1_18:1_18:1	CL	Gold	Q2	LipidSearch	1	2	LipidSearch; MZmine lipid rules	True		ok	22.78	ok	0.112	CL 16:0_16:1_18:1_18:1#0	
+19417	1389.9787	22.9436	CL 16:0_17:0_16:1_18:1	CL	Gold	Q2	LipidSearch	1	1	LipidSearch	True		ok	22.92	ok	0.024	CL 16:0_17:0_16:1_18:1#0	
+19459	1415.99685	23.0248	CL 19:0_16:1_16:1_18:1	CL	Gold	Q2	LipidSearch	1	1	LipidSearch	True		ok	23.08	ok	-0.055	CL 19:0_16:1_16:1_18:1#0	
+19471	1379.99227	23.0406	CL 66:0	CL	Silver	Q2	LipidSearch	3	1	LipidSearch	True		ok	23.5	ok	-0.459	CL 66:0#0	
+19624	1456.02766	23.3723	CL 18:1_18:1_18:1_18:1	CL	Gold	Q2	LipidSearch	1	1	LipidSearch	True		ok	23.54	ok	-0.168	CL 18:1_18:1_18:1_18:1#0	
+19631	1430.01225	23.3972	CL 16:0_18:1_18:1_18:1	CL	Gold	Q2	LipidSearch	1	2	LipidSearch; MZmine lipid rules	True		ok	23.38	ok	0.017	CL 16:0_18:1_18:1_18:1#0	
+19634	1403.99487	23.4013	CL 16:0_16:0_18:1_18:1	CL	Gold	Q2	LipidSearch	1	1	LipidSearch	True		ok	23.22	ok	0.181	CL 16:0_16:0_18:1_18:1#0	
+19692	1418.0109	23.5249	CL 16:0_19:0_16:1_18:1	CL	Gold	Q2	LipidSearch	1	1	LipidSearch	True		ok	23.52	ok	0.005	CL 16:0_19:0_16:1_18:1#0	
+19760	1408.02601	23.6865	CL 68:0	CL	Silver	Q2	LipidSearch	3	1	LipidSearch	True		ok	24.1	ok	-0.414	CL 68:0#0	
+19766	1470.04436	23.7287	CL 73:4	CL	Silver	Q2	LipidSearch	3	1	LipidSearch	True		ok	23.84	ok	-0.111	CL 73:4#0	
+19784	1444.02794	23.7331	CL 71:3	CL	Silver	Q2	LipidSearch	3	1	LipidSearch	True		ok	23.68	ok	0.053	CL 71:3#0	
