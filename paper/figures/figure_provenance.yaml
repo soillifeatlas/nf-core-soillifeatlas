@@ -1,6 +1,6 @@
-built: '2026-11-25T12:30:24+00:00'
+built: '2026-11-25T12:36:13+00:00'
 command: python paper/figures/build_all.py
-repo_head: c4e944a
+repo_head: cd726c1
 paper_figures_dirty: true
 gates:
   reconstitution_volume_confirmed: false
@@ -48,7 +48,7 @@ figures:
         script: paper/figures/fig2.py
         sources:
           figures/schematics/source/Fig2_workflow_2026-11-24.png: &id001
-            git_sha: uncommitted+dirty
+            git_sha: cd726c1
             export_sha: null
             sha256: 099562f60ec443d9e22fb625976821e3a30e2a4f97bec573251a2c2ed5cc8c67
       B:
@@ -81,7 +81,7 @@ figures:
             export_sha: f476c4c
             sha256: 5813b856feb136874a9fd5d5c0038ab625abd72c352bb5a7b7765a6c9ca90f78
           figures/rendered/report_pos.png:
-            git_sha: uncommitted+dirty
+            git_sha: cd726c1
             export_sha: null
             sha256: 2e5d5ede07f747228db4760aa8c08eac81e2bb54532013758779c1008134d817
   '3':
@@ -273,7 +273,7 @@ figures:
         script: paper/figures/fig5.py
         sources:
           figures/schematics/source/Fig5_quantification_2026-11-24.png:
-            git_sha: uncommitted+dirty
+            git_sha: cd726c1
             export_sha: null
             sha256: f912117614bc6e9a8b94f2863e6c0422f345e860e138901b01ea7a4ed1148e90
       E:

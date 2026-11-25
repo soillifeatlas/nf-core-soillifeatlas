@@ -1,6 +1,6 @@
 # Figure status (2026-11-25)
 
-Built by `python paper/figures/build_all.py` on branch `paper/figures-2026-11` at `c4e944a` (paper/figures has uncommitted changes).
+Built by `python paper/figures/build_all.py` on branch `paper/figures-2026-11` at `cd726c1` (paper/figures has uncommitted changes).
 Every plotted number is read from a file under `paper/` by the figure script; nothing is typed by hand.
 
 Status: **REAL** = drawn from recorded data · **SCHEMATIC** = cropped from the 2026-11-24 draft, no data · **PENDING** = grey box, waits for the named item · **UNCHANGED** = not rebuilt in this pass.
@@ -12,10 +12,10 @@ Gates (gates.yaml): `reconstitution_volume_confirmed: False`, `stage5_fix_confir
 | Fig | Panel | Status | Source file(s) under paper/ | Data SHA | Note |
 |---|---|---|---|---|---|
 | 1 | A–D | **UNCHANGED** | – | – | not rebuilt in this pass (issue #7) |
-| 2 | A | **SCHEMATIC** | `figures/schematics/source/Fig2_workflow_2026-11-24.png` | uncommitted+dirty | crop of Fig2_workflow_2026-11-24.png; stages 5–7 overlaid dashed ('script, not yet in Nextflow') |
+| 2 | A | **SCHEMATIC** | `figures/schematics/source/Fig2_workflow_2026-11-24.png` | cd726c1 | crop of Fig2_workflow_2026-11-24.png; stages 5–7 overlaid dashed ('script, not yet in Nextflow') |
 | 2 | B | **REAL** | `01_qc/pos/injections.tsv`<br>`09_report/samplesheet_climgrass_pos.csv` | 756333b (export ac355b6)<br>33eebd2 (export f476c4c) | first two calibration rows and the first nine soil-block rows shown |
-| 2 | C | **SCHEMATIC** | `figures/schematics/source/Fig2_workflow_2026-11-24.png` | uncommitted+dirty | crop of Fig2_workflow_2026-11-24.png, unchanged (#10) |
-| 2 | D | **REAL** | `09_report/report_pos.html`<br>`figures/rendered/report_pos.png` | 24f98ec (export f476c4c)<br>uncommitted+dirty | headless-Chrome render of report_pos.html (top section); the 'Lipids with an amount' tile is stage-5 output |
+| 2 | C | **SCHEMATIC** | `figures/schematics/source/Fig2_workflow_2026-11-24.png` | cd726c1 | crop of Fig2_workflow_2026-11-24.png, unchanged (#10) |
+| 2 | D | **REAL** | `09_report/report_pos.html`<br>`figures/rendered/report_pos.png` | 24f98ec (export f476c4c)<br>cd726c1 | headless-Chrome render of report_pos.html (top section); the 'Lipids with an amount' tile is stage-5 output |
 | 3 | A | **REAL** | `01_qc/neg/injections.tsv`<br>`01_qc/pos/injections.tsv` | 756333b (export ac355b6)<br>756333b (export ac355b6) | POS and NEG sequences, both blocks |
 | 3 | B | **REAL** | `01_qc/neg/provenance.yaml`<br>`01_qc/neg/rsd_per_feature.tsv`<br>`01_qc/neg/rsd_summary.tsv`<br>`01_qc/pos/provenance.yaml`<br>`01_qc/pos/rsd_per_feature.tsv`<br>`01_qc/pos/rsd_summary.tsv` | 756333b (export ac355b6)<br>756333b (export ac355b6)<br>756333b (export ac355b6)<br>756333b (export ac355b6)<br>756333b (export ac355b6)<br>756333b (export ac355b6) | ECDF of RSD, x-axis cut at 150 %; n and % ≤ 30 % from rsd_summary.tsv |
 | 3 | C | **REAL** | `01_qc/neg/injections.tsv`<br>`01_qc/neg/is_by_block.tsv`<br>`01_qc/neg/is_per_injection.tsv`<br>`01_qc/neg/provenance.yaml`<br>`01_qc/pos/injections.tsv`<br>`01_qc/pos/is_by_block.tsv`<br>`01_qc/pos/is_per_injection.tsv`<br>`01_qc/pos/provenance.yaml` | 756333b (export ac355b6)<br>756333b (export ac355b6)<br>756333b (export ac355b6)<br>756333b (export ac355b6)<br>756333b (export ac355b6)<br>756333b (export ac355b6)<br>756333b (export ac355b6)<br>756333b (export ac355b6) | detected IS in all injections, RT relative to the recorded block median (is_by_block.tsv); tolerances from provenance.yaml; dates in Europe/Vienna time |
@@ -27,7 +27,7 @@ Gates (gates.yaml): `reconstitution_volume_confirmed: False`, `stage5_fix_confir
 | 5 | A | **REAL** | `03_response/response_by_class_adduct.tsv` | 57fa0ce (export 8012e4c) | axis: RIE relative to LPE (not response per pmol) |
 | 5 | B | **REAL** | `03_response/ie_loco_predictions.tsv`<br>`03_response/ie_model_stats.tsv` | 57fa0ce (export 8012e4c)<br>57fa0ce (export 8012e4c) | R², RMSE from ie_model_stats.tsv (best model) |
 | 5 | C | **PENDING** | `01_qc/neg/is_vs_calibration.tsv`<br>`01_qc/pos/is_vs_calibration.tsv` | 756333b (export ac355b6)<br>756333b (export ac355b6) | gated on reconstitution_volume_confirmed |
-| 5 | D | **SCHEMATIC** | `figures/schematics/source/Fig5_quantification_2026-11-24.png` | uncommitted+dirty | crop of Fig5_quantification_2026-11-24.png, unchanged; Q2 drawn but not used in this run (0 features) |
+| 5 | D | **SCHEMATIC** | `figures/schematics/source/Fig5_quantification_2026-11-24.png` | cd726c1 | crop of Fig5_quantification_2026-11-24.png, unchanged; Q2 drawn but not used in this run (0 features) |
 | 5 | E | **REAL** | `05_nist/neg/nist_comparison.tsv`<br>`05_nist/pos/nist_comparison.tsv` | e5dce35 (export f476c4c)<br>24f98ec (export f476c4c) | Q1 lipids only; Q3 points gated on stage5_fix_confirmed (caption: Q3 pending) |
 | 5 | F | **PENDING** | `04_quant/neg/class_by_sample.tsv`<br>`04_quant/pos/class_by_sample.tsv` | 24f98ec<br>24f98ec | gated on stage5_fix_confirmed |
 | 6 | A | **REAL** | `06_atlas_match/examples/examples.tsv`<br>`06_atlas_match/examples/mirror_21718.tsv` | a288361 (export 24f98ec)<br>a288361 (export 24f98ec) | LPC 18:0; examples proposed, to confirm |

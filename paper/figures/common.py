@@ -171,7 +171,8 @@ def save(fig, number: int, name: str) -> list[Path]:
     paths = []
     for ext in ("pdf", "png"):
         p = stem.with_suffix(f".{ext}")
-        fig.savefig(p, dpi=600, metadata={"Creator": "paper/figures"} if ext == "pdf" else None)
+        fig.savefig(p, dpi=600, metadata={"Creator": "paper/figures", "CreationDate": None}
+                    if ext == "pdf" else None)
         paths.append(p)
     plt.close(fig)
     return paths
