@@ -18,7 +18,7 @@ recomputed value happens to equal an old one (POS 90.6 %), the source is now the
 | §2.6 thresholds, ranking, flagged annotations | Unchanged from the pipeline at `2ed5d70` (see `lib/soillifeatlas/annotate.py`); flagged annotations are kept and marked (`flags` column), confidence is not lowered. | `02_annotation/*/annotations.tsv` |
 | §2.7 recovery, volume factors, calibration fitting | R_app = m_found / m_spiked; m_found from a log–log fit of area on nominal ESTD-1 concentration (EquiSPLASH 10 ng µL⁻¹ at A1, 2-fold to A7), × reconstitution volume (**assumed 100 µL, to confirm**). No post-extraction spikes → matrix effect not separable. | `01_qc/*/is_vs_calibration.tsv` |
 | §2.7 response units, adducts, redundant features, extrapolation | f = RIE(standard) / RIE(analyte), RIE = class mean per adduct from Samrat et al. (2025) Table S10, relative to LPE; [M+NH4]⁺ rows bridged to the LPE scale through PS, [M+HCOO]⁻ through HexCer; f limited to 0.1–10 and flagged when limited. Q3 uses the standard nearest in RT among standards detected in ≥ half of the soils. Adducts of one lipid (same name, RT within 0.1 min) are collapsed to one unique lipid; class sums use one feature per lipid. Only peak-picked areas are quantified. | `lib/soillifeatlas/quantify.py`, `04_quant/*/provenance.yaml` |
-| §2.8 similarity estimator, weighting, unexplained share | Spectral matching implemented (modified cosine, matchms greedy, top 50 peaks). The sample-level similarity/unexplained-share calculation is **not implemented**; keep as planned analysis. | `scripts/atlas_match.py` |
+| §2.8 similarity estimator, weighting, unexplained share | Library: release reprocessing reference spectra (one per reference feature), limited to features detected in ≥ 1 reference sample. Spectral matching implemented (modified cosine, matchms greedy, top 50 peaks). The sample-level similarity/unexplained-share calculation is **not implemented**; keep as planned analysis. | `scripts/atlas_match.py` |
 | §2.10 sample numbers, contrasts, criteria | 12 soils = 2 × 2 (drought × +3 °C/+300 ppm CO₂), 3 plots each (ambient 19, 22, 36; future 35, 40, 52; ambient+drought 28, 44, 49; future+drought 27, 43, 48). NEG: 48 failed (no IS), replaced by 50 (same treatment). Test: two-way ANOVA (type II) on log10 ng g⁻¹ per unique lipid, Benjamini–Hochberg per effect, q < 0.05; lipids quantified in ≥ 2 plots of every treatment. | `00_inputs/climgrass_samples.csv`, `08_application/*/provenance.yaml` |
 | Data and code availability | Repository `soillifeatlas/nf-core-soillifeatlas`; results branch `paper/results-2026-11`. Zenodo DOI, release tag, licences: **open** (see PR). | — |
 
@@ -55,10 +55,12 @@ Report screenshot: `09_report/report_pos.html`. Real sample sheet for Fig. 2B:
 - Matrix effect: not computed (no post-extraction spikes).
 - Routes: POS Q1 916 features (865 unique lipids), Q2 0, Q3 1,776 (1,733), Q4 94,037 (97.2 % of features); NEG Q1 106 (105), Q2 0, Q3 907 (894), Q4 19,267. Q3 response factor hit the 0.1–10 limit for 1,516 of 2,692 POS features (most at 10) and 435 of 1,013 NEG. → `04_quant/*/route_counts.tsv`, `per_lipid.tsv`
 - Class amounts per g dry soil (Fig. 5F), POS, mean of all 12 soils by class: TG 239, DG 66, PC 34, MG 16, PE 9 µg g⁻¹; NEG: FA 35, PC 11, Cer 1.8, DGDG 1.8 µg g⁻¹. → `04_quant/*/class_by_sample.tsv`, `08_application/*/class_profiles.tsv`
-- NIST SRM 1950 (Fig. 5E): estimates exist for 421 POS / 136 NEG Gold–Silver features (`04_quant/*/nist_srm1950_estimates.tsv`); comparison with Bowden et al. (2017) consensus values **pending the reference table** (#5).
+- NIST SRM 1950 (Fig. 5E), three extracts of 50 µL plasma in the ClimGrass sequence, against the consensus MEDM values (nmol/mL, ≥ 5 laboratories; Bowden et al. 2017 / NISTIR 8185): POS 84 lipids compared, Spearman ρ = 0.84 (log scale), median estimate/consensus ratio 0.92, 36 % within 2-fold; Q1 (n = 76) median ratio 1.02, Q3 (n = 8) 0.28. NEG 69 lipids, ρ = 0.69, median ratio 0.34 (67 of 69 by Q3). The most abundant PCs (34:1, 36:2, 36:4, 38:4, 38:6) are 4–5-fold high; SM and LPC within 0.8–1.5-fold. → `05_nist/*/nist_summary.tsv`, `nist_comparison.tsv`
 
 ### §3.6 Interpretation and application
-- Soil-to-Atlas matching: **pending** (job running; fills `06_atlas_match/`).
+- Soil-to-Atlas matching (POS; 10 ppm, modified cosine ≥ 0.7, ≥ 4 fragments, 0.02 Da): 9,618 of 21,982 soil features with MS/MS (43.8 %) match a reference spectrum, hitting 7,597 reference features; library = 149,580 reference spectra detected in ≥ 1 of 162 reference samples (16 phyla) of the release reprocessing. Matched features occur in a median of 3 phyla. 1,773 matched features also carry an annotation (Gold 395, Silver 1,026, Bronze 352). NEG not run. → `06_atlas_match/pos/coverage.tsv`, `best_match.tsv`
+- Examples (proposed, to confirm): broad, **LPC 18:0** (Gold, RT 5.44 min) – cosine 0.999, 20 fragments, reference feature in 13 phyla (e.g. Evosea 5/5, Arthropoda 9/11, Ascomycota 13/27 samples); restricted, **SM 34:3** (Silver, RT 11.92 min) – cosine 0.966, 17 fragments, Arthropoda only (7/11 samples). Mirror spectra and detection per phylum → `06_atlas_match/examples/`
+- Atlas occurrence of the drought-responsive POS lipids: 11 of 15 match a reference spectrum (e.g. PC 30:1, 10 phyla; Cer d18:1_17:0, 5 phyla; Cer d17:0_15:0+Os, 2 phyla). → `06_atlas_match/examples/responsive_atlas_occurrence.tsv`
 - Total lipid amounts (POS, Q1–Q3, µg g⁻¹, mean ± SD of 3 plots): ambient 202 ± 239, future 164 ± 37, ambient+drought 548 ± 138, future+drought 642 ± 133; NEG 51 ± 9, 64 ± 15, 35 ± 31, 54 ± 22 (NEG future+drought includes plot 50, biased high). → `08_application/*/total_by_treatment.tsv`
 - Responsive lipids: of 452 POS and 514 NEG unique lipids tested, 15 per polarity change with drought (q < 0.05); none with future climate or the interaction. → `08_application/*/test_summary.tsv`, `responsive.tsv`
 - Kept separate from the companion paper's kingdom/phylum decomposition (not used here).
@@ -84,13 +86,14 @@ Report screenshot: `09_report/report_pos.html`. Real sample sheet for Fig. 2B:
 | 5B | **REAL** (R² 0.16, not 0.89) | `03_response/ie_model_stats.tsv` |
 | 5C | PARTLY: depends on reconstitution volume | `01_qc/*/is_vs_calibration.tsv` |
 | 5D | SCHEMATIC, now matches the code (option A) | `lib/soillifeatlas/quantify.py` |
-| 5E | PENDING (NIST injections exist; needs Bowden 2017 table) | `04_quant/*/nist_srm1950_estimates.tsv` |
+| 5E | **REAL** (keep the panel) | `05_nist/*/nist_comparison.tsv` |
 | 5F | **REAL** (semi-quantitative, Q3 capped) | `04_quant/*/class_by_sample.tsv` |
-| 6A–C | PENDING (matching job) | `06_atlas_match/` |
+| 6A–C | **REAL** (examples proposed, to confirm) | `06_atlas_match/examples/` |
 | 6D, 1D | unchanged (Explorer screenshots, #7) | — |
 | 7A ClimGrass | REAL (unchanged) | — |
 | 7A drying–rewetting | unchanged (#11, blinded) | — |
 | 7B | **REAL** | `08_application/*/class_profiles.tsv` |
 | 7C | **REAL** | `08_application/*/responsive.tsv` |
-| 7D–E | PENDING (needs matches) | — |
+| 7D | **REAL** | `06_atlas_match/examples/responsive_atlas_occurrence.tsv` |
+| 7E | REAL pieces exist (route, amount, match, occurrence); pick one lipid | `08_application/pos/responsive.tsv` + above |
 | Graphical abstract bars | unchanged | — |
