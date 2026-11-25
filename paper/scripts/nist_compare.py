@@ -28,7 +28,7 @@ import provenance  # noqa: E402
 ROW = re.compile(r"^\s+(?P<name>[A-Za-z][A-Za-z0-9\-]*(?: [A-Za-z]?-?[OPd]?-?\d+:\d+[A-Za-z0-9:/_\-;()]*)?)\s{2,}"
                  r"(?P<n>\d+)\s+nmol/mL\s+(?P<dsl>[\d,.]+)\s+(?P<dsl_u>[\d,.]+)\s+(?P<vr>[\d,.]+)\s+(?P<vr_u>[\d,.]+)"
                  r"\s+(?P<medm>[\d,.]+)\s+(?P<medm_u>[\d,.]+)\s+(?P<cod>[\d,.]+)\s*$")
-NAME_MAP = {"TAG": "TG", "DAG": "DG", "MAG": "MG", "FFA": "FA", "CE": "CE"}
+NAME_MAP = {"TAG": "TG", "DAG": "DG", "MAG": "MG", "FFA": "FA", "CE": "CE", "CER": "Cer"}
 NH4 = {"TG", "DG", "CE", "MG"}
 FORMATE_NEG = {"PC", "SM", "LPC"}
 ADDUCT_MASS = {"H": 1.007276, "NH4": 18.033823, "-H": -1.007276, "HCOO": 44.997654}
@@ -54,6 +54,7 @@ def parse(text: str) -> pd.DataFrame:
 
 def norm_nist(n: str) -> str:
     cls, _, rest = n.partition(" ")
+    rest = re.sub(r"^d(?=\d)", "", rest)      # sphingolipids: 'd34:1' -> '34:1' (our sum names carry no prefix)
     return f"{NAME_MAP.get(cls, cls)} {rest}".strip()
 
 
