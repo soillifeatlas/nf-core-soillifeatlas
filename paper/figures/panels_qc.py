@@ -46,7 +46,13 @@ def panel_A(fig, gs, tag="A"):
         ax.tick_params(axis="y", length=0)
         ax.spines["left"].set_visible(False)
     axes[1].set_xlabel("injection order", labelpad=1)
-    letter(axes[0], tag, x=-0.07, y=1.55, title="Injection sequence and roles")
+    inj0 = read_table("01_qc/pos/injections.tsv")
+    t = pd.to_datetime(inj0.start_time, utc=True)
+    gap_h = (t[inj0.block == 2].min() - t[inj0.block == 1].max()).total_seconds() / 3600
+    n_qc = int((inj0.role == "pooled_qc").sum())
+    letter(axes[0], tag, x=-0.07, y=1.55,
+           title=f"Calibration run first; soils follow {gap_h:.0f} h later, bracketed by "
+                 f"{n_qc} pooled QCs (POS)")
     roles = list(ROLE)
     axes[1].legend([Rectangle((0, 0), 1, 1, facecolor=ROLE[k], edgecolor="#333333", lw=0.3)
                     for k in roles], [ROLE_LABEL[k] for k in roles], ncol=6,
@@ -95,6 +101,7 @@ def panel_B(fig, gs, tag="B", compact=False):
 def panel_C(fig, gs, tag="C"):
     set_panel("3C")
     axes = np.array([[fig.add_subplot(gs[r, c]) for c in range(2)] for r in range(2)])
+    within, rt_ok = [], []
     for c, pol in enumerate(POLS):
         prov = read_yaml(f"01_qc/{pol}/provenance.yaml")["params"]["thresholds_from_run"]
         rt_tol, ppm_tol = prov["rt_tolerance_min"], prov["mass_accuracy_ppm"]
@@ -108,6 +115,8 @@ def panel_C(fig, gs, tag="C"):
         shift = (wide[2] - wide[1]).median()
         spans = block_spans(inj)
         n_is = ipi.compound.nunique()
+        within.append(((ipi.ppm_error.abs() <= ppm_tol).sum(), len(ipi)))
+        rt_ok.append(((ipi.rt_minus_block_median.abs() <= rt_tol).sum(), len(ipi)))
         for r, (col, tol, ylab, lab) in enumerate([
                 ("rt_minus_block_median", rt_tol, "RT − block median (min)",
                  f"±{rt_tol:g} min; block 2 − block 1: {shift:+.3f} min (median, n = {len(wide)} IS)"),
@@ -131,8 +140,12 @@ def panel_C(fig, gs, tag="C"):
                 ax.tick_params(labelbottom=False)
             else:
                 ax.set_xlabel("injection order")
+    pct_rt = sum(a for a, _ in rt_ok) / sum(b for _, b in rt_ok) * 100
+    pct_ppm = sum(a for a, _ in within) / sum(b for _, b in within) * 100
     letter(axes[0, 0], tag, x=-0.13, y=1.12,
-           title="Internal standards: RT and mass accuracy, all injections (shaded = block 1)")
+           title=f"Internal standards: {pct_rt:.0f} % of RT values within ±{rt_tol:g} min of the "
+                 f"block median, {pct_ppm:.0f} % of mass errors within ±{ppm_tol:g} ppm "
+                 "(all injections)")
 
 
 def panel_D(fig, gs, tag="D"):

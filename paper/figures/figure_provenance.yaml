@@ -1,7 +1,7 @@
-built: '2026-11-25T13:04:18+00:00'
+built: '2026-11-25T13:13:15+00:00'
 command: python paper/figures/build_all.py
-repo_head: f12f08c
-paper_figures_dirty: false
+repo_head: d9d81e3
+paper_figures_dirty: true
 gates:
   reconstitution_volume_confirmed: false
   stage5_fix_confirmed: false
@@ -22,13 +22,31 @@ figures:
   GA:
     name: graphical_abstract
     role: main
-    outputs: []
-    script: null
+    outputs:
+    - figures/output/FigGA_graphical_abstract_2026-11-25.pdf
+    - figures/output/FigGA_graphical_abstract_2026-11-25.png
+    script: paper/figures/figures.py
     panels:
       –:
-        status: UNCHANGED
-        note: 'not rebuilt (issue #7)'
-        sources: {}
+        status: REAL
+        note: Atlas group counts from the release export (figures/inputs/); match numbers from 06_atlas_match/pos
+        sources:
+          02_annotation/pos/annotations.tsv: &id001
+            git_sha: 756333b
+            export_sha: 72ba0e8
+            sha256: c79645cc05fe4dff3916b757befc8be7e755ea8f327ea6ac2600d42db78c1631
+          06_atlas_match/pos/best_match.tsv: &id002
+            git_sha: 55e0087
+            export_sha: 72ba0e8
+            sha256: 1fd2fb18b358c08db6343af56651a14ec25944799b90e36e5404a4d1182cdc17
+          06_atlas_match/pos/coverage.tsv: &id003
+            git_sha: 55e0087
+            export_sha: 72ba0e8
+            sha256: b135e8c18b422412a305fbc3ccc4bae5f0c46d47494373c63850d9428988312e
+          figures/inputs/atlas_groups.csv: &id004
+            git_sha: 3e25938
+            export_sha: null
+            sha256: a857cdf6ada3954fd78b59b1b5b17bf24ebf86693ce6c81336098bef3f8e426b
   '1':
     name: atlas
     role: main
@@ -51,55 +69,43 @@ figures:
         status: REAL
         note: POS; modified cosine ≥ 0.7, ≥ 4 shared fragments, precursor ± 10 ppm
         sources:
-          02_annotation/pos/annotations.tsv: &id001
-            git_sha: 756333b
-            export_sha: 72ba0e8
-            sha256: c79645cc05fe4dff3916b757befc8be7e755ea8f327ea6ac2600d42db78c1631
-          02_annotation/pos/confidence.tsv: &id014
+          02_annotation/pos/annotations.tsv: *id001
+          02_annotation/pos/confidence.tsv: &id015
             git_sha: 756333b
             export_sha: 72ba0e8
             sha256: a35127d8a1d75b8c03366f26b5de401896ef89d87b8ae9712a867cffe4d2ad98
-          06_atlas_match/pos/best_match.tsv: &id002
-            git_sha: 55e0087
-            export_sha: 72ba0e8
-            sha256: 1fd2fb18b358c08db6343af56651a14ec25944799b90e36e5404a4d1182cdc17
-          06_atlas_match/pos/coverage.tsv:
-            git_sha: 55e0087
-            export_sha: 72ba0e8
-            sha256: b135e8c18b422412a305fbc3ccc4bae5f0c46d47494373c63850d9428988312e
+          06_atlas_match/pos/best_match.tsv: *id002
+          06_atlas_match/pos/coverage.tsv: *id003
           06_atlas_match/pos/provenance.yaml:
             git_sha: 55e0087
             export_sha: 72ba0e8
             sha256: 0fb9a1f727d28cce519d0c69f2940907e4b7aff1807a635929e568d9d2615e12
-          figures/inputs/atlas_groups.csv: &id003
-            git_sha: 3e25938
-            export_sha: null
-            sha256: a857cdf6ada3954fd78b59b1b5b17bf24ebf86693ce6c81336098bef3f8e426b
+          figures/inputs/atlas_groups.csv: *id004
       B:
         status: REAL
         note: organism groups from the release (figures/inputs/atlas_groups.csv)
         sources:
           02_annotation/pos/annotations.tsv: *id001
           06_atlas_match/pos/best_match.tsv: *id002
-          figures/inputs/atlas_groups.csv: *id003
+          figures/inputs/atlas_groups.csv: *id004
       C:
         status: REAL
         note: '% of matched features; reference samples per group in brackets (matching denominators)'
         sources:
           02_annotation/pos/annotations.tsv: *id001
           06_atlas_match/pos/best_match.tsv: *id002
-          06_atlas_match/pos/phylum_detection.tsv: &id005
+          06_atlas_match/pos/phylum_detection.tsv: &id006
             git_sha: 55e0087
             export_sha: 72ba0e8
             sha256: 83c7362d667399e7695042959e4bc1326f7e6d99692f58a2caf03310188ebfcd
-          figures/inputs/atlas_groups.csv: *id003
+          figures/inputs/atlas_groups.csv: *id004
       D:
         status: REAL
         note: 8 most frequent classes among named matches
         sources:
           02_annotation/pos/annotations.tsv: *id001
           06_atlas_match/pos/best_match.tsv: *id002
-          figures/inputs/atlas_groups.csv: *id003
+          figures/inputs/atlas_groups.csv: *id004
   '3':
     name: workflow
     role: main
@@ -116,27 +122,27 @@ figures:
         status: REAL
         note: pooled-QC RSD per feature; eligibility rule in rsd_summary.tsv
         sources:
-          01_qc/neg/provenance.yaml: &id006
+          01_qc/neg/provenance.yaml: &id007
             git_sha: 756333b
             export_sha: ac355b6
             sha256: 25af58aa23a637afd1703020795c64118b57a9edefd66fc1062e9885b27c18eb
-          01_qc/neg/rsd_per_feature.tsv: &id007
+          01_qc/neg/rsd_per_feature.tsv: &id008
             git_sha: 756333b
             export_sha: ac355b6
             sha256: 317d3d829612b33ac74f4bdd2ec94e9294ba43ed0b6e6539a4dba53b4946e567
-          01_qc/neg/rsd_summary.tsv: &id008
+          01_qc/neg/rsd_summary.tsv: &id009
             git_sha: 756333b
             export_sha: ac355b6
             sha256: 95769c600385950e3643423091fa0327c7ec906ee6dfe1f2887875421a618afb
-          01_qc/pos/provenance.yaml: &id009
+          01_qc/pos/provenance.yaml: &id010
             git_sha: 756333b
             export_sha: ac355b6
             sha256: 67c61b24229b8b8510e62d63bc06f81867d81145baf7e91110ce5a5422d400eb
-          01_qc/pos/rsd_per_feature.tsv: &id010
+          01_qc/pos/rsd_per_feature.tsv: &id011
             git_sha: 756333b
             export_sha: ac355b6
             sha256: ce70c89f96ecd8e781df140c5cfa204378db8aafa193ccea3bfca9fa53702407
-          01_qc/pos/rsd_summary.tsv: &id011
+          01_qc/pos/rsd_summary.tsv: &id012
             git_sha: 756333b
             export_sha: ac355b6
             sha256: 40ba1a96366c7074e1873f5afaa95e75d5d133adec57f7a1d94fe7f621c42637
@@ -164,7 +170,7 @@ figures:
         status: REAL
         note: zoomed to m/z 40–precursor+25; example proposed, to confirm
         sources:
-          06_atlas_match/examples/examples.tsv: &id004
+          06_atlas_match/examples/examples.tsv: &id005
             git_sha: a288361
             export_sha: 24f98ec
             sha256: 7d16c44d603111a4e0ad38471dc02b45e9e31ef23f0ef9e3025e38210495f899
@@ -176,7 +182,7 @@ figures:
         status: REAL
         note: zoomed; one reference peak above the range noted in the panel
         sources:
-          06_atlas_match/examples/examples.tsv: *id004
+          06_atlas_match/examples/examples.tsv: *id005
           06_atlas_match/examples/mirror_41748.tsv:
             git_sha: a288361
             export_sha: 24f98ec
@@ -185,13 +191,13 @@ figures:
         status: REAL
         note: all 16 analysed phyla, grouped by organism group
         sources:
-          06_atlas_match/examples/examples.tsv: *id004
+          06_atlas_match/examples/examples.tsv: *id005
           06_atlas_match/examples/examples_phylum_detection.tsv:
             git_sha: a288361
             export_sha: 24f98ec
             sha256: fd0955752a55454d1aca28c4c91a1669b403e56e8a002bf19e66e28dea988395
-          06_atlas_match/pos/phylum_detection.tsv: *id005
-          figures/inputs/atlas_groups.csv: *id003
+          06_atlas_match/pos/phylum_detection.tsv: *id006
+          figures/inputs/atlas_groups.csv: *id004
   '5':
     name: application
     role: main
@@ -222,11 +228,11 @@ figures:
         status: REAL
         note: POS and NEG sequences, both blocks
         sources:
-          01_qc/neg/injections.tsv: &id012
+          01_qc/neg/injections.tsv: &id013
             git_sha: 756333b
             export_sha: ac355b6
             sha256: edf107b9b5cc2ad05c1e73dc1a07bb9cda3a5ff9ad4c7a1c733b605e5079171a
-          01_qc/pos/injections.tsv: &id013
+          01_qc/pos/injections.tsv: &id014
             git_sha: 756333b
             export_sha: ac355b6
             sha256: 24830590d8f59ad057d9a41a50d8616a1c5ac48a8d3881dcb6471c589deec653
@@ -234,17 +240,17 @@ figures:
         status: REAL
         note: ECDF, x cut at 150 %; n and % ≤ 30 % from rsd_summary.tsv
         sources:
-          01_qc/neg/provenance.yaml: *id006
-          01_qc/neg/rsd_per_feature.tsv: *id007
-          01_qc/neg/rsd_summary.tsv: *id008
-          01_qc/pos/provenance.yaml: *id009
-          01_qc/pos/rsd_per_feature.tsv: *id010
-          01_qc/pos/rsd_summary.tsv: *id011
+          01_qc/neg/provenance.yaml: *id007
+          01_qc/neg/rsd_per_feature.tsv: *id008
+          01_qc/neg/rsd_summary.tsv: *id009
+          01_qc/pos/provenance.yaml: *id010
+          01_qc/pos/rsd_per_feature.tsv: *id011
+          01_qc/pos/rsd_summary.tsv: *id012
       C:
         status: REAL
         note: RT relative to recorded block median; tolerances from provenance.yaml
         sources:
-          01_qc/neg/injections.tsv: *id012
+          01_qc/neg/injections.tsv: *id013
           01_qc/neg/is_by_block.tsv:
             git_sha: 756333b
             export_sha: ac355b6
@@ -253,8 +259,8 @@ figures:
             git_sha: 756333b
             export_sha: ac355b6
             sha256: 40a539879883142be04b542dff056efccaf4a7bfabfa7e3a87ffa7457aa8ad24
-          01_qc/neg/provenance.yaml: *id006
-          01_qc/pos/injections.tsv: *id013
+          01_qc/neg/provenance.yaml: *id007
+          01_qc/pos/injections.tsv: *id014
           01_qc/pos/is_by_block.tsv:
             git_sha: 756333b
             export_sha: ac355b6
@@ -263,7 +269,7 @@ figures:
             git_sha: 756333b
             export_sha: ac355b6
             sha256: acf6ad27bd5f64b067c321c12c53d173555588b64227ce3b0584e49eed02429c
-          01_qc/pos/provenance.yaml: *id009
+          01_qc/pos/provenance.yaml: *id010
   S2:
     name: annotation
     role: supplement
@@ -300,7 +306,7 @@ figures:
             git_sha: 756333b
             export_sha: ac355b6
             sha256: 7a3b11a962a6f77eeaf7b0418ec2da427f75c7b89f6089a669497389ff18c92a
-          02_annotation/pos/confidence.tsv: *id014
+          02_annotation/pos/confidence.tsv: *id015
       C:
         status: REAL
         note: 12 largest classes per polarity
@@ -355,12 +361,8 @@ figures:
             sha256: c9c4838c1c06da3129ce08448e20e3dd227de4513d7df477745e40febb182608
       C:
         status: SCHEMATIC
-        note: crop of the 2026-11-24 draft; Q2 not used in this run
-        sources:
-          figures/schematics/source/Fig5_quantification_2026-11-24.png:
-            git_sha: cd726c1
-            export_sha: null
-            sha256: f912117614bc6e9a8b94f2863e6c0422f345e860e138901b01ea7a4ed1148e90
+        note: drawn natively; Q2 not used in this run
+        sources: {}
       D:
         status: REAL
         note: Q1 only; Q3 waits for stage5_fix_confirmed

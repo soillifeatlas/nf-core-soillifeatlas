@@ -1,6 +1,6 @@
 # Figure status (2026-11-25)
 
-Built by `python paper/figures/build_all.py` on branch `paper/figures-2026-11` at `f12f08c`.
+Built by `python paper/figures/build_all.py` on branch `paper/figures-2026-11` at `d9d81e3` (paper/figures has uncommitted changes).
 Every plotted number is read from a file under `paper/` by the figure script; nothing is typed by hand.
 
 Main text: Fig 1 Atlas, Fig 2 what the Atlas adds to a soil dataset, Fig 3 workflow, Fig 4 interpreting single features, Fig 5 ClimGrass demonstration. Supplement: S1 quality, S2 annotation, S3 response and routes, S4 recovery, S5 amounts.
@@ -13,7 +13,7 @@ Gates (gates.yaml): `reconstitution_volume_confirmed: False`, `stage5_fix_confir
 
 | Fig | Panel | Status | Source file(s) under paper/ | Data SHA | Note |
 |---|---|---|---|---|---|
-| GA graphical_abstract | – | **UNCHANGED** | – | – | not rebuilt (issue #7) |
+| GA graphical_abstract | – | **REAL** | `02_annotation/pos/annotations.tsv`<br>`06_atlas_match/pos/best_match.tsv`<br>`06_atlas_match/pos/coverage.tsv`<br>`figures/inputs/atlas_groups.csv` | 756333b (export 72ba0e8)<br>55e0087 (export 72ba0e8)<br>55e0087 (export 72ba0e8)<br>3e25938 | Atlas group counts from the release export (figures/inputs/); match numbers from 06_atlas_match/pos |
 | 1 atlas | A–D | **UNCHANGED** | – | – | Atlas overview; not rebuilt here (issue #7, release data outside paper/) |
 | 2 atlas_matching | A | **REAL** | `02_annotation/pos/annotations.tsv`<br>`02_annotation/pos/confidence.tsv`<br>`06_atlas_match/pos/best_match.tsv`<br>`06_atlas_match/pos/coverage.tsv`<br>`06_atlas_match/pos/provenance.yaml`<br>`figures/inputs/atlas_groups.csv` | 756333b (export 72ba0e8)<br>756333b (export 72ba0e8)<br>55e0087 (export 72ba0e8)<br>55e0087 (export 72ba0e8)<br>55e0087 (export 72ba0e8)<br>3e25938 | POS; modified cosine ≥ 0.7, ≥ 4 shared fragments, precursor ± 10 ppm |
 |  | B | **REAL** | `02_annotation/pos/annotations.tsv`<br>`06_atlas_match/pos/best_match.tsv`<br>`figures/inputs/atlas_groups.csv` | 756333b (export 72ba0e8)<br>55e0087 (export 72ba0e8)<br>3e25938 | organism groups from the release (figures/inputs/atlas_groups.csv) |
@@ -37,7 +37,7 @@ Gates (gates.yaml): `reconstitution_volume_confirmed: False`, `stage5_fix_confir
 |  | D | **REAL** | `02_annotation/neg/rt_model_PC.tsv`<br>`02_annotation/pos/rt_model_PC.tsv` | 756333b (export ac355b6)<br>90a4383 (export 72ba0e8) | PC; untested lipids counted, not drawn |
 | S3 response_routes | A | **REAL** | `03_response/response_by_class_adduct.tsv` | 57fa0ce (export 8012e4c) | RIE relative to LPE |
 |  | B | **REAL** | `03_response/ie_loco_predictions.tsv`<br>`03_response/ie_model_stats.tsv` | 57fa0ce (export 8012e4c)<br>57fa0ce (export 8012e4c) | leave-one-class-out; statistics from ie_model_stats.tsv |
-|  | C | **SCHEMATIC** | `figures/schematics/source/Fig5_quantification_2026-11-24.png` | cd726c1 | crop of the 2026-11-24 draft; Q2 not used in this run |
+|  | C | **SCHEMATIC** | – | – | drawn natively; Q2 not used in this run |
 |  | D | **REAL** | `05_nist/neg/nist_comparison.tsv`<br>`05_nist/pos/nist_comparison.tsv` | e5dce35 (export f476c4c)<br>24f98ec (export f476c4c) | Q1 only; Q3 waits for stage5_fix_confirmed |
 | S4 recovery | A | **NOT BUILT** | – | – | waits for reconstitution_volume_confirmed |
 |  | B | **NOT BUILT** | – | – | waits for reconstitution_volume_confirmed |
@@ -46,6 +46,7 @@ Gates (gates.yaml): `reconstitution_volume_confirmed: False`, `stage5_fix_confir
 
 Outputs:
 
+- Fig GA: `figures/output/FigGA_graphical_abstract_2026-11-25.pdf`, `figures/output/FigGA_graphical_abstract_2026-11-25.png`
 - Fig 2: `figures/output/Fig2_atlas_matching_2026-11-25.pdf`, `figures/output/Fig2_atlas_matching_2026-11-25.png`
 - Fig 3: `figures/output/Fig3_workflow_2026-11-25.pdf`, `figures/output/Fig3_workflow_2026-11-25.png`
 - Fig 4: `figures/output/Fig4_interpretation_2026-11-25.pdf`, `figures/output/Fig4_interpretation_2026-11-25.png`

@@ -14,6 +14,7 @@ import matplotlib.pyplot as plt
 import panels_annotation as ann
 import panels_application as app
 import panels_atlas as atlas
+import panels_ga as ga
 import panels_interp as interp
 import panels_qc as qc
 import panels_quant as quant
@@ -118,8 +119,8 @@ def figS1_quality():
                              right=0.98, top=0.95, bottom=0.06)
     qc.panel_A(fig, outer[0].subgridspec(2, 1, hspace=1.5), tag="A")
     P.add("A", "REAL", "POS and NEG sequences, both blocks", ["3A"])
-    qc.panel_B(fig, outer[1].subgridspec(1, 2, wspace=0.12), tag="B")
-    P.add("B", "REAL", "ECDF, x cut at 150 %; n and % ≤ 30 % from rsd_summary.tsv", ["3B"])
+    qc.rsd_main(fig, outer[1].subgridspec(1, 2, wspace=0.08), "B")
+    P.add("B", "REAL", "ECDF, x cut at 150 %; n and % ≤ 30 % from rsd_summary.tsv", ["rsd_main"])
     qc.panel_C(fig, outer[2].subgridspec(2, 2, hspace=0.12, wspace=0.15), tag="C")
     P.add("C", "REAL", "RT relative to recorded block median; tolerances from provenance.yaml",
           ["3C"])
@@ -149,21 +150,18 @@ def figS2_annotation():
 def figS3_response():
     P = Panels("S3", "response_routes", "supplement")
     include_q3 = bool(gates()["stage5_fix_confirmed"])
-    fig = plt.figure(figsize=(DOUBLE, 190 * MM))
-    outer = fig.add_gridspec(3, 1, height_ratios=[1.05, 0.62, 1.0], hspace=0.42, left=0.08,
-                             right=0.98, top=0.95, bottom=0.07)
+    fig = plt.figure(figsize=(DOUBLE, 160 * MM))
+    outer = fig.add_gridspec(2, 1, height_ratios=[1.0, 1.0], hspace=0.45, left=0.08,
+                             right=0.98, top=0.95, bottom=0.08)
     r1 = outer[0].subgridspec(1, 2, width_ratios=[1.55, 1], wspace=0.28)
     quant.panel_A(fig.add_subplot(r1[0]), tag="A")
     P.add("A", "REAL", "RIE relative to LPE", ["5A"])
     quant.panel_B(fig.add_subplot(r1[1]), tag="B")
     P.add("B", "REAL", "leave-one-class-out; statistics from ie_model_stats.tsv", ["5B"])
-    set_panel("5D")
-    axC = fig.add_subplot(outer[1])
-    show_image(axC, input_path(quant.SCHEM), quant.CROP_5D)
-    fig_letter(fig, "C", 0.01, axC.get_position().y1 + 0.035, "Quantification route per feature")
-    P.add("C", "SCHEMATIC", "crop of the 2026-11-24 draft; Q2 not used in this run", ["5D"])
-    r3 = outer[2].subgridspec(1, 2, width_ratios=[1, 1.2], wspace=0.3)
-    quant.panel_E(fig.add_subplot(r3[0]), tag="D")
+    r2 = outer[1].subgridspec(1, 2, width_ratios=[1.45, 1], wspace=0.28)
+    quant.route_tree(fig.add_subplot(r2[0]), tag="C")
+    P.add("C", "SCHEMATIC", "drawn natively; Q2 not used in this run", ["route_tree"])
+    quant.panel_E(fig.add_subplot(r2[1]), tag="D")
     P.add("D", "REAL", "Q1 and Q3" if include_q3 else "Q1 only; Q3 waits for "
           "stage5_fix_confirmed", ["5E"])
     return save(fig, "S3", "response_routes"), P.rows
@@ -197,5 +195,15 @@ def figS5_amounts():
     return save(fig, "S5", "amounts"), P.rows
 
 
-FIGURES = [fig2_atlas, fig3_workflow, fig4_interpretation, fig5_application,
+def graphical_abstract():
+    P = Panels("GA", "graphical_abstract")
+    fig = plt.figure(figsize=(DOUBLE, 76 * MM))
+    ax = fig.add_axes([0.0, 0.0, 1.0, 1.0])
+    ga.graphical_abstract(ax)
+    P.add("–", "REAL", "Atlas group counts from the release export (figures/inputs/); match "
+          "numbers from 06_atlas_match/pos", ["ga"])
+    return save(fig, "GA", "graphical_abstract"), P.rows
+
+
+FIGURES = [graphical_abstract, fig2_atlas, fig3_workflow, fig4_interpretation, fig5_application,
            figS1_quality, figS2_annotation, figS3_response, figS4_recovery, figS5_amounts]

@@ -39,9 +39,10 @@ def panel_A(ax, tag="A"):
     ax.set_xlim(-0.7, len(order) - 0.3)
     ax.set_ylabel("RIE relative to LPE (log scale)")
     ax.legend(loc="lower left", ncol=2, handletextpad=0.2, columnspacing=0.8)
+    span = np.log10(d.RIE_LPE.max() / d.RIE_LPE.min())
     letter(ax, tag, x=-0.1, y=1.03,
-           title=f"Response by class and adduct ({len(d)} standard measurements; "
-                 "Samrat et al. 2025, Table S10)")
+           title=f"Response spans {span:.0f} orders of magnitude across classes and adducts "
+                 f"({len(d)} standards)")
 
 
 def panel_B(ax, tag="B"):
@@ -63,7 +64,8 @@ def panel_B(ax, tag="B"):
             f"RMSE = {best.rmse_log10:.2f} log$_{{10}}$ (~{best.fold_error:.0f}-fold)\n"
             f"{int(best.n_standards)} POS standards, {int(best.n_classes)} classes",
             transform=ax.transAxes, va="top", fontsize=6)
-    letter(ax, tag, x=-0.2, y=1.03, title="Measured vs predicted response")
+    letter(ax, tag, x=-0.2, y=1.03,
+           title=f"Response is not predictable across classes (R² = {best.r2:.2f})")
 
 
 def panel_C(ax, tag="C"):
@@ -101,7 +103,7 @@ def panel_E(ax, tag="E"):
         q1 = d[d.routes == "Q1"]
         lab = f"{POL_LABEL[pol]} Q1, n = {len(q1)}"
         if len(q1):
-            lab += (f"; median ratio {np.median(q1.ratio):.2f}; "
+            lab += (f"\nmedian ratio {np.median(q1.ratio):.2f}, "
                     f"{q1.within_2fold.astype(bool).mean() * 100:.0f}% within 2-fold")
         ax.scatter(q1.medm, q1.estimate_nmol_per_ml, s=10, color=POL[pol], lw=0, zorder=3,
                    label=lab)
@@ -128,11 +130,14 @@ def panel_E(ax, tag="E"):
     ax.set_aspect("equal")
     ax.set_xlabel(r"NIST SRM 1950 consensus (nmol mL$^{-1}$)")
     ax.set_ylabel(r"estimate (nmol mL$^{-1}$)")
-    ax.legend(loc="upper left", handletextpad=0.2, fontsize=5.3, borderaxespad=0.2)
-    ax.text(0.97, 0.03, "solid 1:1\ndashed 2-fold", transform=ax.transAxes, ha="right",
-            va="bottom", fontsize=5.5)
+    ax.legend(loc="lower right", handletextpad=0.2, fontsize=5, borderaxespad=0.2)
+    ax.text(0.03, 0.97, "solid 1:1\ndashed 2-fold", transform=ax.transAxes, ha="left",
+            va="top", fontsize=5.5)
+    q1p = read_table("05_nist/pos/nist_comparison.tsv")
+    q1p = q1p[q1p.routes == "Q1"]
     letter(ax, tag, x=-0.2, y=1.03,
-           title="NIST SRM 1950: estimate vs consensus" + ("" if include_q3 else " (Q1 only)"))
+           title=f"Q1 vs NIST: median ratio {np.median(q1p.ratio):.2f}, "
+                 f"{q1p.within_2fold.astype(bool).mean() * 100:.0f} % within 2-fold (POS)")
     if include_q3:
         return "REAL", "Q1 and Q3"
     return "REAL", "Q1 lipids only; Q3 points gated on stage5_fix_confirmed (caption: Q3 pending)"
@@ -166,3 +171,51 @@ def panel_F(ax, top=10, tag="F"):
     return "REAL", "common lipid set; lower bounds of class totals"
 
 
+
+
+def route_tree(ax, tag):
+    """Native Q1-Q4 decision tree in the shared style. Labels follow the implementation
+    (lib/soillifeatlas/quantify.py, option A); Q2 is drawn but not used in this run."""
+    from matplotlib.patches import FancyBboxPatch, Polygon
+
+    from common import SOIL, letter
+    set_panel("route_tree")
+    ax.set_xlim(0, 100)
+    ax.set_ylim(0, 62)
+    ax.set_axis_off()
+    xs = [12, 37, 62, 87]
+    qs = ["Annotated to\na lipid class?", "Class standard\ndetected in soil?",
+          "Lipid-specific\nprediction?", "Class response\navailable?"]
+    yq, yr, dw, dh = 47, 13, 11, 8
+    for text, x in zip(qs, xs):
+        ax.add_patch(Polygon([(x - dw, yq), (x, yq + dh), (x + dw, yq), (x, yq - dh)],
+                             closed=True, facecolor="#EEF1F4", edgecolor=SOIL, lw=0.7))
+        ax.text(x, yq, text, ha="center", va="center", fontsize=5.3, linespacing=1.1)
+    for i, (x0, x1) in enumerate(zip(xs[:-1], xs[1:])):
+        ax.annotate("", xy=(x1 - dw, yq), xytext=(x0 + dw, yq),
+                    arrowprops=dict(arrowstyle="-|>", lw=0.6, color="#777777", mutation_scale=6))
+        ax.text((x0 + x1) / 2, yq + 1.2, "yes" if i == 0 else "no", ha="center", va="bottom",
+                fontsize=5, color="#555555")
+    routes = [("Q4", "relative signal only", "#DADADA", "#333333", "no"),
+              ("Q1", "class-matched standard", SOIL, "white", "yes"),
+              ("Q2", "not used in this run", "#F4F4F4", "#999999", "yes"),
+              ("Q3", "class-level response", "#8A96A3", "white", "yes")]
+    for x, (q, desc, fc, tc, lab) in zip(xs, routes):
+        ax.add_patch(FancyBboxPatch((x - 11, yr - 6), 22, 12,
+                                    boxstyle="round,pad=0,rounding_size=1.5", facecolor=fc,
+                                    edgecolor="#BBBBBB" if q == "Q2" else "none", lw=0.6,
+                                    linestyle=(0, (2, 1.5))))
+        ax.text(x, yr + 2, q, ha="center", va="center", fontsize=6.5, fontweight="bold",
+                color=tc)
+        ax.text(x, yr - 2.5, desc, ha="center", va="center", fontsize=5, color=tc)
+        ax.annotate("", xy=(x, yr + 6.2), xytext=(x, yq - dh),
+                    arrowprops=dict(arrowstyle="-|>", lw=0.6, color="#777777", mutation_scale=6))
+        ax.text(x + 1, (yr + 6 + yq - dh) / 2, lab, fontsize=5, color="#555555", va="center")
+    # last "no" returns to Q4 underneath the boxes
+    ax.plot([xs[-1] + dw, 99.5, 99.5, xs[0]], [yq, yq, 2.5, 2.5], color="#AAAAAA", lw=0.6,
+            ls=(0, (2, 1.5)))
+    ax.annotate("", xy=(xs[0], yr - 6.2), xytext=(xs[0], 2.5),
+                arrowprops=dict(arrowstyle="-|>", lw=0.6, color="#AAAAAA", mutation_scale=6))
+    ax.text(99, yq + 1.2, "no", ha="right", va="bottom", fontsize=5, color="#555555")
+    letter(ax, tag, x=0.0, y=1.0, title="Each feature gets one route; Q1–Q3 give an amount, Q4 "
+           "keeps relative signal")

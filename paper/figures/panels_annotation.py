@@ -54,8 +54,9 @@ def upset(fig, gs, pol, first, tag="A"):
         ax_lab.text(0.04, i, n, va="center", ha="left", fontsize=6,
                     transform=ax_lab.get_yaxis_transform())
     if first:
+        single = inter[inter.n_sources == 1].n_features.sum() / inter.n_features.sum() * 100
         letter(ax_bar, tag, x=-0.62, y=1.2,
-               title="Annotation sources (UpSet; exclusive intersections; left: set sizes)")
+               title=f"{single:.0f} % of annotated POS features are named by a single source")
 
 
 def panel_B(ax, tag="B"):
@@ -84,7 +85,11 @@ def panel_B(ax, tag="B"):
     handles = [plt.Rectangle((0, 0), 1, 1, color=CONF[k]) for k in ("Gold", "Silver", "Bronze")]
     ax.legend(handles, ["Gold", "Silver", "Bronze"], ncol=3, loc="lower right",
               bbox_to_anchor=(1.0, 1.0), handlelength=1, columnspacing=0.8)
-    letter(ax, tag, x=-0.15, y=1.15, title="Confidence (ClimGrass)")
+    cp = read_table("02_annotation/pos/confidence.tsv").set_index("confidence")
+    lv = cp.loc[["Gold", "Silver", "Bronze"], "n_features"]
+    letter(ax, tag, x=-0.15, y=1.15,
+           title=f"Most annotations are {lv.idxmax()} ({lv.max() / lv.sum() * 100:.0f} % of "
+                 "annotated POS features)")
 
 
 def panel_C(fig, gs, top=12, tag="C"):
@@ -103,7 +108,13 @@ def panel_C(fig, gs, top=12, tag="C"):
                      color=POL[pol], pad=2)
         ax.legend(loc="upper right", handlelength=1)
     axes[0].set_ylabel("Gold + Silver + Bronze")
-    letter(axes[0], tag, x=-0.12, y=1.1, title="Classes: features vs unique lipids")
+    cpos = read_table("02_annotation/pos/classes.tsv")
+    tp = cpos.nlargest(3, "n_features").lipid_class
+    tn = read_table("02_annotation/neg/classes.tsv").nlargest(1, "n_features").lipid_class
+    red = (cpos.n_features.sum() - cpos.n_unique_lipids.sum()) / cpos.n_features.sum() * 100
+    letter(axes[0], tag, x=-0.12, y=1.1,
+           title=f"{', '.join(tp)} lead in positive mode, {tn.iloc[0]} in negative mode; "
+                 f"collapsing adducts removes {red:.0f} % of POS features")
 
 
 def panel_D(fig, gs, tag="D"):
@@ -127,6 +138,10 @@ def panel_D(fig, gs, tag="D"):
     ax.legend(loc="upper left", fontsize=5.5, handletextpad=0.2, borderaxespad=0.1)
     ax.text(0.02, 0.5, "untested, not drawn:\n" + ", ".join(notes), transform=ax.transAxes, ha="left",
             fontsize=5.5)
-    letter(ax, tag, x=-0.15, y=1.04, title="PC retention-time model")
+    dp = read_table("02_annotation/pos/rt_model_PC.tsv")
+    n_out = int((dp.rt_check == "outlier").sum())
+    n_tst = int(dp.rt_check.isin(["ok", "outlier"]).sum())
+    letter(ax, tag, x=-0.15, y=1.04,
+           title=f"RT model flags {n_out} of {n_tst} tested PC names (POS)")
 
 

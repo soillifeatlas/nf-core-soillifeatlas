@@ -26,8 +26,6 @@ UNCHANGED = [
     {"figure": "1", "name": "atlas", "role": "main", "panel": "A–D", "status": "UNCHANGED",
      "note": "Atlas overview; not rebuilt here (issue #7, release data outside paper/)",
      "sources": []},
-    {"figure": "GA", "name": "graphical_abstract", "role": "main", "panel": "–",
-     "status": "UNCHANGED", "note": "not rebuilt (issue #7)", "sources": []},
 ]
 ORDER = ["GA", "1", "2", "3", "4", "5", "S1", "S2", "S3", "S4", "S5"]
 
