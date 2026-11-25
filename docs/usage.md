@@ -9,8 +9,12 @@ The pipeline has two modes:
 
 - **Process mode** (`--mode process`) takes raw Orbitrap files to quality-checked
   feature tables: conversion (stage 1), MZmine feature finding (stage 2) and a
-  quality-check report (stage 3). Annotation, quantification with recovery, the
-  report and the Atlas step (stages 4–7) are being added.
+  quality-check report (stage 3) and annotation merging (stage 4). Stage 5
+  (Q1–Q4 amounts per gram dry soil, `lib/soillifeatlas/quantify.py`) is available
+  as a library and is run with `paper/scripts/run_quant.py`; a minimal report
+  (stage 6, `paper/scripts/report.py`) and soil-to-Atlas spectral matching
+  (stage 7, `paper/scripts/atlas_match.py`) exist as scripts. Wiring stages 5–7
+  into the Nextflow workflow is the next step.
 - **Apply mode** (`--mode apply`, the default) compares soil data with the Soil
   Life Atlas reference (see below).
 
@@ -36,7 +40,7 @@ file,polarity,role,group,dry_mass_g,extract_mg,spike_ng,volume_ul
 | `polarity`                                          | yes      | `pos` or `neg`; each polarity is processed separately                                                                                                       |
 | `role`                                              | yes      | `sample`, `pooled_qc`, `blank` (solvent), `extraction_blank`, `nist` (NIST SRM 1950), `standard_cal` (internal standard injected on its own, not extracted) |
 | `group`, `batch`                                    | no       | treatment group and acquisition batch                                                                                                                       |
-| `dry_mass_g`, `extract_mg`, `spike_ng`, `volume_ul` | no       | sample dry mass, dried lipid-fraction mass, internal standard spiked, redissolve volume; used for recovery and amounts per gram (stage 5)                   |
+| `dry_mass_g`, `extract_mg`, `spike_ng`, `volume_ul` | no       | sample dry mass, dried lipid-fraction mass, internal standard spiked, redissolve volume; used for amounts per gram (stage 5)                   |
 
 Injection order is read from the mzML run start times. Convert all files of a
 run the same way: different converters can record the start time with different
@@ -68,7 +72,9 @@ internal-standard peak-area RSD below 20 % in pooled QCs (`--qc_is_rsd`). The
 report also gives the pooled-QC RSD of every feature, the share of sample
 features also present in blanks, and features and total signal per injection in
 run order. Variation of the standards across soils is reported for information:
-it reflects matrix effects and recovery, which stage 5 corrects.
+it reflects matrix effects and recovery. Stage 5 does not apply a separate
+recovery factor: losses shared by analyte and internal standard cancel in the
+area ratio.
 
 ### MZmine
 

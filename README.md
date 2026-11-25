@@ -17,6 +17,13 @@
 
 ## Current status: v0.1-dev
 
+- **Process mode** (`--mode process`): stages 1–4 (conversion, MZmine, QC report,
+  annotation merge) run on real data with `-profile lisc`; reference run: ClimGrass,
+  both polarities, commit 2ed5d70 (`paper/`).
+- Stage 5 (Q1–Q4 amounts), stage 6 (report) and stage 7 (Atlas matching) exist as
+  library code and scripts used for the manuscript (`paper/scripts/`); not yet
+  Nextflow processes.
+
 - End-to-end APPLY workflow runs on tiny fixtures (11/11 nf-tests + 32/32 Python tests green)
 - CI green on every PR + nightly full-demo on GitHub Actions
 - **v0.1.0 release blocked on Zenodo DOI minting for the reference atlas**

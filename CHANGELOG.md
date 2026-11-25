@@ -9,6 +9,12 @@ Initial development version, created with the [nf-core](https://nf-co.re/) templ
 
 ### `Added`
 
+- Stage 5: `soillifeatlas.quantify` — Q1–Q4 routes by response evidence, the
+  internal-standard ratio estimate per gram dry soil (no separate recovery factor),
+  Table S10 responses bridged to one LPE scale, response factor limited to 0.1–10
+  with flags, calibration-range flags.
+- `paper/`: manuscript exports with provenance (QC, annotation, response tables,
+  amounts, Atlas matching, application statistics, minimal report, sample sheets).
 - `-profile test`: apply mode on the bundled tiny fixtures.
 - `--soil_intensity`, `--soil_mgf`, `--sample_metadata`, `--enable_rie` and the
   matching/evaluation tuning parameters in `nextflow_schema.json`.
