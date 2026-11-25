@@ -1,0 +1,9 @@
+source	n_features	pol	order
+LipidSearch	1741	pos	0
+SIRIUS/CANOPUS	801	pos	1
+MZmine lipid rules	487	pos	2
+spectral library	174	pos	3
+LipidSearch	698	neg	0
+SIRIUS/CANOPUS	286	neg	1
+MZmine lipid rules	262	neg	2
+spectral library	27	neg	3

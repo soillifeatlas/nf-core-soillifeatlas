@@ -1,0 +1,33 @@
+role	col	group	phylum	detected	n_detected	n_units	detection_rate
+broad	0	Bacteria	Bacillota	False	0	25	0.0
+broad	1	Bacteria	Actinomycetota	True	1	15	0.0666666666666666
+broad	2	Bacteria	Pseudomonadota	False	0	8	0.0
+broad	3	Archaea	Methanobacteriota	True	1	16	0.0625
+broad	4	Archaea	Thermoproteota	False	0	2	0.0
+broad	5	Fungi	Ascomycota	True	13	27	0.4814814814814814
+broad	6	Fungi	Basidiomycota	True	6	10	0.6
+broad	7	Fungi	Mucoromycota	True	4	7	0.5714285714285714
+broad	8	Protists	Discosea	True	4	7	0.5714285714285714
+broad	9	Protists	Evosea	True	5	5	1.0
+broad	10	Protists	Heterolobosea	True	1	5	0.2
+broad	11	Plants	Streptophyta	True	6	14	0.4285714285714285
+broad	12	Plants	Chlorophyta	True	3	5	0.6
+broad	13	Soil animals	Arthropoda	True	9	11	0.8181818181818182
+broad	14	Soil animals	Nematoda	True	1	3	0.3333333333333333
+broad	15	Soil animals	Mollusca	True	1	1	1.0
+restricted	0	Bacteria	Bacillota	False	0	25	0.0
+restricted	1	Bacteria	Actinomycetota	False	0	15	0.0
+restricted	2	Bacteria	Pseudomonadota	False	0	8	0.0
+restricted	3	Archaea	Methanobacteriota	False	0	16	0.0
+restricted	4	Archaea	Thermoproteota	False	0	2	0.0
+restricted	5	Fungi	Ascomycota	False	0	27	0.0
+restricted	6	Fungi	Basidiomycota	False	0	10	0.0
+restricted	7	Fungi	Mucoromycota	False	0	7	0.0
+restricted	8	Protists	Discosea	False	0	7	0.0
+restricted	9	Protists	Evosea	False	0	5	0.0
+restricted	10	Protists	Heterolobosea	False	0	5	0.0
+restricted	11	Plants	Streptophyta	False	0	14	0.0
+restricted	12	Plants	Chlorophyta	False	0	5	0.0
+restricted	13	Soil animals	Arthropoda	True	7	11	0.6363636363636364
+restricted	14	Soil animals	Nematoda	False	0	3	0.0
+restricted	15	Soil animals	Mollusca	False	0	1	0.0

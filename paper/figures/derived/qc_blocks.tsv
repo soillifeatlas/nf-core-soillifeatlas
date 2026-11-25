@@ -1,0 +1,5 @@
+pol	block	lo	hi	label
+pos	1	1	14	block 1: 27 Mar–28 Mar 2023
+pos	2	15	40	block 2: 29 Mar–31 Mar 2023
+neg	1	1	14	block 1: 27 Mar–28 Mar 2023
+neg	2	15	39	block 2: 29 Mar–31 Mar 2023

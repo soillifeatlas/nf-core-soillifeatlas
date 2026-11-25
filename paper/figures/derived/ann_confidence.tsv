@@ -1,0 +1,7 @@
+pol	level	n_features	n_all_features
+pos	Gold	595	96729
+pos	Silver	1578	96729
+pos	Bronze	519	96729
+neg	Gold	309	20280
+neg	Silver	510	20280
+neg	Bronze	194	20280

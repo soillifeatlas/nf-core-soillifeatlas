@@ -1,0 +1,14 @@
+plot	treatment	warming_co2	drought	used_pos	used_neg
+19	ambient	no	no	yes	yes
+22	ambient	no	no	yes	yes
+36	ambient	no	no	yes	yes
+35	future	yes	no	yes	yes
+40	future	yes	no	yes	yes
+52	future	yes	no	yes	yes
+28	ambient_drought	no	yes	yes	yes
+44	ambient_drought	no	yes	yes	yes
+49	ambient_drought	no	yes	yes	yes
+27	future_drought	yes	yes	yes	yes
+43	future_drought	yes	yes	yes	yes
+48	future_drought	yes	yes	yes	no
+50	future_drought	yes	yes	no	yes

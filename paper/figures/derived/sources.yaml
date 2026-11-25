@@ -1,0 +1,423 @@
+ann_classes_top: []
+ann_confidence:
+- 02_annotation/neg/confidence.tsv
+- 02_annotation/pos/confidence.tsv
+ann_rt_pc: []
+ann_upset_intersections: []
+ann_upset_sets: []
+app_class_profiles: []
+app_design: []
+app_occurrence: []
+app_responsive: []
+app_trace: []
+atlas_breadth: []
+atlas_class_group: []
+atlas_coverage: []
+atlas_per_group: []
+atlas_release_groups: []
+interp_examples: []
+interp_labels_broad: []
+interp_labels_restricted: []
+interp_mirror_broad: []
+interp_mirror_restricted: []
+interp_occurrence: []
+number:ann_adduct_redundancy_pct_pos:
+- 02_annotation/pos/classes.tsv
+number:ann_all_features_pos:
+- 02_annotation/neg/confidence.tsv
+- 02_annotation/pos/confidence.tsv
+number:ann_features_with_source_neg:
+- 02_annotation/neg/upset_intersections.tsv
+- 02_annotation/neg/upset_sets.tsv
+- 02_annotation/pos/upset_intersections.tsv
+- 02_annotation/pos/upset_sets.tsv
+number:ann_features_with_source_pos:
+- 02_annotation/neg/upset_intersections.tsv
+- 02_annotation/neg/upset_sets.tsv
+- 02_annotation/pos/upset_intersections.tsv
+- 02_annotation/pos/upset_sets.tsv
+number:ann_rt_outliers_neg:
+- 02_annotation/neg/rt_model_PC.tsv
+- 02_annotation/pos/rt_model_PC.tsv
+number:ann_rt_outliers_pos:
+- 02_annotation/pos/rt_model_PC.tsv
+number:ann_rt_tested_neg:
+- 02_annotation/neg/rt_model_PC.tsv
+- 02_annotation/pos/rt_model_PC.tsv
+number:ann_rt_tested_pos:
+- 02_annotation/pos/rt_model_PC.tsv
+number:ann_rt_untested_neg:
+- 02_annotation/neg/rt_model_PC.tsv
+- 02_annotation/pos/rt_model_PC.tsv
+number:ann_rt_untested_pos:
+- 02_annotation/pos/rt_model_PC.tsv
+number:ann_single_source_pct_pos:
+- 02_annotation/neg/upset_intersections.tsv
+- 02_annotation/neg/upset_sets.tsv
+- 02_annotation/pos/upset_intersections.tsv
+- 02_annotation/pos/upset_sets.tsv
+number:ann_top3_classes_pos:
+- 02_annotation/pos/classes.tsv
+number:ann_top_class_neg:
+- 02_annotation/neg/classes.tsv
+- 02_annotation/pos/classes.tsv
+number:ann_top_level_pos:
+- 02_annotation/neg/confidence.tsv
+- 02_annotation/pos/confidence.tsv
+number:ann_top_level_share_pos:
+- 02_annotation/neg/confidence.tsv
+- 02_annotation/pos/confidence.tsv
+number:app_n_lipids_tested_pos:
+- 00_inputs/climgrass_samples.csv
+- 08_application/neg/responsive.tsv
+- 08_application/neg/test_summary.tsv
+- 08_application/pos/responsive.tsv
+- 08_application/pos/test_summary.tsv
+number:app_soils_neg:
+- 00_inputs/climgrass_samples.csv
+number:app_soils_pos:
+- 00_inputs/climgrass_samples.csv
+number:atlas_match_min_cosine:
+- 02_annotation/pos/annotations.tsv
+- 02_annotation/pos/confidence.tsv
+- 06_atlas_match/pos/best_match.tsv
+- 06_atlas_match/pos/coverage.tsv
+- 06_atlas_match/pos/phylum_detection.tsv
+- 06_atlas_match/pos/provenance.yaml
+- figures/inputs/atlas_groups.csv
+number:atlas_match_min_peaks:
+- 02_annotation/pos/annotations.tsv
+- 02_annotation/pos/confidence.tsv
+- 06_atlas_match/pos/best_match.tsv
+- 06_atlas_match/pos/coverage.tsv
+- 06_atlas_match/pos/phylum_detection.tsv
+- 06_atlas_match/pos/provenance.yaml
+- figures/inputs/atlas_groups.csv
+number:atlas_match_ppm:
+- 02_annotation/pos/annotations.tsv
+- 02_annotation/pos/confidence.tsv
+- 06_atlas_match/pos/best_match.tsv
+- 06_atlas_match/pos/coverage.tsv
+- 06_atlas_match/pos/phylum_detection.tsv
+- 06_atlas_match/pos/provenance.yaml
+- figures/inputs/atlas_groups.csv
+number:atlas_median_ref_phyla:
+- 02_annotation/pos/annotations.tsv
+- 02_annotation/pos/confidence.tsv
+- 06_atlas_match/pos/best_match.tsv
+- 06_atlas_match/pos/coverage.tsv
+- 06_atlas_match/pos/phylum_detection.tsv
+- 06_atlas_match/pos/provenance.yaml
+- figures/inputs/atlas_groups.csv
+number:atlas_n_features_all:
+- 02_annotation/pos/annotations.tsv
+- 02_annotation/pos/confidence.tsv
+- 06_atlas_match/pos/best_match.tsv
+- 06_atlas_match/pos/coverage.tsv
+- 06_atlas_match/pos/phylum_detection.tsv
+- 06_atlas_match/pos/provenance.yaml
+- figures/inputs/atlas_groups.csv
+number:atlas_n_matched:
+- 02_annotation/pos/annotations.tsv
+- 02_annotation/pos/confidence.tsv
+- 06_atlas_match/pos/best_match.tsv
+- 06_atlas_match/pos/coverage.tsv
+- 06_atlas_match/pos/phylum_detection.tsv
+- 06_atlas_match/pos/provenance.yaml
+- figures/inputs/atlas_groups.csv
+number:atlas_n_matched_named:
+- 02_annotation/pos/annotations.tsv
+- 02_annotation/pos/confidence.tsv
+- 06_atlas_match/pos/best_match.tsv
+- 06_atlas_match/pos/coverage.tsv
+- 06_atlas_match/pos/phylum_detection.tsv
+- 06_atlas_match/pos/provenance.yaml
+- figures/inputs/atlas_groups.csv
+number:atlas_n_matched_unnamed:
+- 02_annotation/pos/annotations.tsv
+- 02_annotation/pos/confidence.tsv
+- 06_atlas_match/pos/best_match.tsv
+- 06_atlas_match/pos/coverage.tsv
+- 06_atlas_match/pos/phylum_detection.tsv
+- 06_atlas_match/pos/provenance.yaml
+- figures/inputs/atlas_groups.csv
+number:atlas_n_ms2:
+- 02_annotation/pos/annotations.tsv
+- 02_annotation/pos/confidence.tsv
+- 06_atlas_match/pos/best_match.tsv
+- 06_atlas_match/pos/coverage.tsv
+- 06_atlas_match/pos/phylum_detection.tsv
+- 06_atlas_match/pos/provenance.yaml
+- figures/inputs/atlas_groups.csv
+number:atlas_n_phyla_matching:
+- 02_annotation/pos/annotations.tsv
+- 02_annotation/pos/confidence.tsv
+- 06_atlas_match/pos/best_match.tsv
+- 06_atlas_match/pos/coverage.tsv
+- 06_atlas_match/pos/phylum_detection.tsv
+- 06_atlas_match/pos/provenance.yaml
+- figures/inputs/atlas_groups.csv
+number:atlas_n_ref_samples_matching:
+- 02_annotation/pos/annotations.tsv
+- 02_annotation/pos/confidence.tsv
+- 06_atlas_match/pos/best_match.tsv
+- 06_atlas_match/pos/coverage.tsv
+- 06_atlas_match/pos/phylum_detection.tsv
+- 06_atlas_match/pos/provenance.yaml
+- figures/inputs/atlas_groups.csv
+number:atlas_pct_matched:
+- 02_annotation/pos/annotations.tsv
+- 02_annotation/pos/confidence.tsv
+- 06_atlas_match/pos/best_match.tsv
+- 06_atlas_match/pos/coverage.tsv
+- 06_atlas_match/pos/phylum_detection.tsv
+- 06_atlas_match/pos/provenance.yaml
+- figures/inputs/atlas_groups.csv
+number:atlas_pct_single_group:
+- 02_annotation/pos/annotations.tsv
+- 02_annotation/pos/confidence.tsv
+- 06_atlas_match/pos/best_match.tsv
+- 06_atlas_match/pos/coverage.tsv
+- 06_atlas_match/pos/phylum_detection.tsv
+- 06_atlas_match/pos/provenance.yaml
+- figures/inputs/atlas_groups.csv
+number:atlas_pct_unnamed_of_matched:
+- 02_annotation/pos/annotations.tsv
+- 02_annotation/pos/confidence.tsv
+- 06_atlas_match/pos/best_match.tsv
+- 06_atlas_match/pos/coverage.tsv
+- 06_atlas_match/pos/phylum_detection.tsv
+- 06_atlas_match/pos/provenance.yaml
+- figures/inputs/atlas_groups.csv
+number:atlas_release_phyla:
+- figures/inputs/atlas_groups.csv
+number:atlas_release_ref_samples:
+- figures/inputs/atlas_groups.csv
+number:interp_groups_broad:
+- 06_atlas_match/examples/examples.tsv
+- 06_atlas_match/examples/examples_phylum_detection.tsv
+- 06_atlas_match/examples/mirror_21718.tsv
+- figures/inputs/atlas_groups.csv
+number:interp_groups_restricted:
+- 06_atlas_match/examples/examples.tsv
+- 06_atlas_match/examples/examples_phylum_detection.tsv
+- 06_atlas_match/examples/mirror_21718.tsv
+- 06_atlas_match/examples/mirror_41748.tsv
+- figures/inputs/atlas_groups.csv
+number:interp_hidden_peaks_broad:
+- 06_atlas_match/examples/examples.tsv
+- 06_atlas_match/examples/examples_phylum_detection.tsv
+- 06_atlas_match/examples/mirror_21718.tsv
+- figures/inputs/atlas_groups.csv
+number:interp_hidden_peaks_restricted:
+- 06_atlas_match/examples/examples.tsv
+- 06_atlas_match/examples/examples_phylum_detection.tsv
+- 06_atlas_match/examples/mirror_21718.tsv
+- 06_atlas_match/examples/mirror_41748.tsv
+- figures/inputs/atlas_groups.csv
+number:interp_xmax_broad:
+- 06_atlas_match/examples/examples.tsv
+- 06_atlas_match/examples/examples_phylum_detection.tsv
+- 06_atlas_match/examples/mirror_21718.tsv
+- figures/inputs/atlas_groups.csv
+number:interp_xmax_restricted:
+- 06_atlas_match/examples/examples.tsv
+- 06_atlas_match/examples/examples_phylum_detection.tsv
+- 06_atlas_match/examples/mirror_21718.tsv
+- 06_atlas_match/examples/mirror_41748.tsv
+- figures/inputs/atlas_groups.csv
+number:nist_q1_median_ratio_neg:
+- 05_nist/neg/nist_comparison.tsv
+- 05_nist/pos/nist_comparison.tsv
+number:nist_q1_median_ratio_pos:
+- 05_nist/pos/nist_comparison.tsv
+number:nist_q1_n_neg:
+- 05_nist/neg/nist_comparison.tsv
+- 05_nist/pos/nist_comparison.tsv
+number:nist_q1_n_pos:
+- 05_nist/pos/nist_comparison.tsv
+number:nist_q1_pct_within_2fold_neg:
+- 05_nist/neg/nist_comparison.tsv
+- 05_nist/pos/nist_comparison.tsv
+number:nist_q1_pct_within_2fold_pos:
+- 05_nist/pos/nist_comparison.tsv
+number:nist_q3_n_neg:
+- 05_nist/neg/nist_comparison.tsv
+- 05_nist/pos/nist_comparison.tsv
+number:nist_q3_n_pos:
+- 05_nist/pos/nist_comparison.tsv
+number:qc_block_gap_h_pos:
+- 01_qc/neg/injections.tsv
+- 01_qc/pos/injections.tsv
+number:qc_gapfill_feature_ratio_pos:
+- 01_qc/neg/provenance.yaml
+- 01_qc/neg/rsd_per_feature.tsv
+- 01_qc/neg/rsd_summary.tsv
+- 01_qc/pos/provenance.yaml
+- 01_qc/pos/rsd_per_feature.tsv
+- 01_qc/pos/rsd_summary.tsv
+number:qc_is_block_shift_min_neg:
+- 01_qc/neg/is_by_block.tsv
+- 01_qc/neg/is_per_injection.tsv
+- 01_qc/neg/provenance.yaml
+- 01_qc/pos/is_by_block.tsv
+- 01_qc/pos/is_per_injection.tsv
+- 01_qc/pos/provenance.yaml
+number:qc_is_block_shift_min_pos:
+- 01_qc/pos/is_by_block.tsv
+- 01_qc/pos/is_per_injection.tsv
+- 01_qc/pos/provenance.yaml
+number:qc_is_detected_neg:
+- 01_qc/neg/is_by_block.tsv
+- 01_qc/neg/is_per_injection.tsv
+- 01_qc/neg/provenance.yaml
+- 01_qc/pos/is_by_block.tsv
+- 01_qc/pos/is_per_injection.tsv
+- 01_qc/pos/provenance.yaml
+number:qc_is_detected_pos:
+- 01_qc/pos/is_by_block.tsv
+- 01_qc/pos/is_per_injection.tsv
+- 01_qc/pos/provenance.yaml
+number:qc_is_pct_ppm_within:
+- 01_qc/neg/is_by_block.tsv
+- 01_qc/neg/is_per_injection.tsv
+- 01_qc/neg/provenance.yaml
+- 01_qc/pos/is_by_block.tsv
+- 01_qc/pos/is_per_injection.tsv
+- 01_qc/pos/provenance.yaml
+number:qc_is_pct_rt_within:
+- 01_qc/neg/is_by_block.tsv
+- 01_qc/neg/is_per_injection.tsv
+- 01_qc/neg/provenance.yaml
+- 01_qc/pos/is_by_block.tsv
+- 01_qc/pos/is_per_injection.tsv
+- 01_qc/pos/provenance.yaml
+number:qc_mass_tolerance_ppm_neg:
+- 01_qc/neg/is_by_block.tsv
+- 01_qc/neg/is_per_injection.tsv
+- 01_qc/neg/provenance.yaml
+- 01_qc/pos/is_by_block.tsv
+- 01_qc/pos/is_per_injection.tsv
+- 01_qc/pos/provenance.yaml
+number:qc_mass_tolerance_ppm_pos:
+- 01_qc/pos/is_by_block.tsv
+- 01_qc/pos/is_per_injection.tsv
+- 01_qc/pos/provenance.yaml
+number:qc_n_injections_neg:
+- 01_qc/neg/injections.tsv
+- 01_qc/pos/injections.tsv
+number:qc_n_injections_pos:
+- 01_qc/neg/injections.tsv
+- 01_qc/pos/injections.tsv
+number:qc_n_pooled_qc_pos:
+- 01_qc/neg/injections.tsv
+- 01_qc/pos/injections.tsv
+number:qc_rsd_n_including_gap_filled_neg:
+- 01_qc/neg/provenance.yaml
+- 01_qc/neg/rsd_per_feature.tsv
+- 01_qc/neg/rsd_summary.tsv
+- 01_qc/pos/provenance.yaml
+- 01_qc/pos/rsd_per_feature.tsv
+- 01_qc/pos/rsd_summary.tsv
+number:qc_rsd_n_including_gap_filled_pos:
+- 01_qc/pos/provenance.yaml
+- 01_qc/pos/rsd_per_feature.tsv
+- 01_qc/pos/rsd_summary.tsv
+number:qc_rsd_n_peak_picked_only_neg:
+- 01_qc/neg/provenance.yaml
+- 01_qc/neg/rsd_per_feature.tsv
+- 01_qc/neg/rsd_summary.tsv
+- 01_qc/pos/provenance.yaml
+- 01_qc/pos/rsd_per_feature.tsv
+- 01_qc/pos/rsd_summary.tsv
+number:qc_rsd_n_peak_picked_only_pos:
+- 01_qc/pos/provenance.yaml
+- 01_qc/pos/rsd_per_feature.tsv
+- 01_qc/pos/rsd_summary.tsv
+number:qc_rsd_pct_le_threshold_including_gap_filled_neg:
+- 01_qc/neg/provenance.yaml
+- 01_qc/neg/rsd_per_feature.tsv
+- 01_qc/neg/rsd_summary.tsv
+- 01_qc/pos/provenance.yaml
+- 01_qc/pos/rsd_per_feature.tsv
+- 01_qc/pos/rsd_summary.tsv
+number:qc_rsd_pct_le_threshold_including_gap_filled_pos:
+- 01_qc/pos/provenance.yaml
+- 01_qc/pos/rsd_per_feature.tsv
+- 01_qc/pos/rsd_summary.tsv
+number:qc_rsd_pct_le_threshold_peak_picked_only_neg:
+- 01_qc/neg/provenance.yaml
+- 01_qc/neg/rsd_per_feature.tsv
+- 01_qc/neg/rsd_summary.tsv
+- 01_qc/pos/provenance.yaml
+- 01_qc/pos/rsd_per_feature.tsv
+- 01_qc/pos/rsd_summary.tsv
+number:qc_rsd_pct_le_threshold_peak_picked_only_pos:
+- 01_qc/pos/provenance.yaml
+- 01_qc/pos/rsd_per_feature.tsv
+- 01_qc/pos/rsd_summary.tsv
+number:qc_rsd_threshold_pct_neg:
+- 01_qc/neg/provenance.yaml
+- 01_qc/neg/rsd_per_feature.tsv
+- 01_qc/neg/rsd_summary.tsv
+- 01_qc/pos/provenance.yaml
+- 01_qc/pos/rsd_per_feature.tsv
+- 01_qc/pos/rsd_summary.tsv
+number:qc_rsd_threshold_pct_pos:
+- 01_qc/pos/provenance.yaml
+- 01_qc/pos/rsd_per_feature.tsv
+- 01_qc/pos/rsd_summary.tsv
+number:qc_rt_tolerance_min_neg:
+- 01_qc/neg/is_by_block.tsv
+- 01_qc/neg/is_per_injection.tsv
+- 01_qc/neg/provenance.yaml
+- 01_qc/pos/is_by_block.tsv
+- 01_qc/pos/is_per_injection.tsv
+- 01_qc/pos/provenance.yaml
+number:qc_rt_tolerance_min_pos:
+- 01_qc/pos/is_by_block.tsv
+- 01_qc/pos/is_per_injection.tsv
+- 01_qc/pos/provenance.yaml
+number:resp_ie_fold_error:
+- 03_response/ie_loco_predictions.tsv
+- 03_response/ie_model_stats.tsv
+number:resp_ie_model:
+- 03_response/ie_loco_predictions.tsv
+- 03_response/ie_model_stats.tsv
+number:resp_ie_n_classes:
+- 03_response/ie_loco_predictions.tsv
+- 03_response/ie_model_stats.tsv
+number:resp_ie_n_standards:
+- 03_response/ie_loco_predictions.tsv
+- 03_response/ie_model_stats.tsv
+number:resp_ie_r2:
+- 03_response/ie_loco_predictions.tsv
+- 03_response/ie_model_stats.tsv
+number:resp_ie_rmse_log10:
+- 03_response/ie_loco_predictions.tsv
+- 03_response/ie_model_stats.tsv
+number:resp_n_standards:
+- 03_response/response_by_class_adduct.tsv
+number:resp_rie_orders:
+- 03_response/response_by_class_adduct.tsv
+qc_blocks: []
+qc_is_info: []
+qc_is_points: []
+qc_is_vs_cal:
+- 01_qc/neg/is_vs_calibration.tsv
+- 01_qc/pos/is_vs_calibration.tsv
+qc_recovery: []
+qc_rsd_summary: []
+qc_rsd_values: []
+qc_sequence:
+- 01_qc/neg/injections.tsv
+- 01_qc/pos/injections.tsv
+quant_class_amounts:
+- 04_quant/neg/class_by_sample.tsv
+- 04_quant/pos/class_by_sample.tsv
+resp_ie_loco: []
+resp_nist:
+- 05_nist/neg/nist_comparison.tsv
+- 05_nist/pos/nist_comparison.tsv
+resp_rie:
+- 03_response/response_by_class_adduct.tsv

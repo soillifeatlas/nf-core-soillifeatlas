@@ -1,0 +1,5 @@
+pol	mode	n_eligible	pct_le_30	min_qc	n_qc	rsd_threshold_pct
+pos	peak_picked_only	6513	90.6	7	9	30.0
+pos	including_gap_filled	66961	16.0	7	9	30.0
+neg	peak_picked_only	2128	92.9	6	8	30.0
+neg	including_gap_filled	8095	37.1	6	8	30.0

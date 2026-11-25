@@ -1,7 +1,10 @@
 #!/usr/bin/env python
-"""Rebuild every manuscript figure, STATUS.md and figure_provenance.yaml.
+"""Rebuild everything: numbers, figures, captions, STATUS.md and figure_provenance.yaml.
 
     python paper/figures/build_all.py
+
+Order: analysis.py (all numbers and plot tables, checked against expected_numbers.csv; a
+mismatch stops the build) -> plots.py (figures, reading only analysis outputs) -> captions.py.
 
 Figures that need an unconfirmed input (Fig 5, S4, S5, the Q3 points in S3) are not drawn
 until the switches in gates.yaml are set. Outputs go to paper/figures/output/ (or
@@ -18,9 +21,10 @@ sys.path.insert(0, str(Path(__file__).resolve().parent))
 
 import yaml  # noqa: E402
 
+import analysis  # noqa: E402
+import captions  # noqa: E402
 import common  # noqa: E402
-import figures  # noqa: E402
-import panels_quant  # noqa: E402
+import plots  # noqa: E402
 
 UNCHANGED = [
     {"figure": "1", "name": "atlas", "role": "main", "panel": "A–D", "status": "UNCHANGED",
@@ -50,20 +54,41 @@ def _export_sha(rel: str) -> str | None:
     return None
 
 
+def _expand(path: str, sources: dict) -> list[str]:
+    """Trace a derived input back to the paper/ files analysis.py read for it."""
+    if path.startswith("figures/derived/numbers.tsv#"):
+        return sources.get("number:" + path.split("#", 1)[1], [])
+    if path.startswith("figures/derived/") and path.endswith(".tsv"):
+        return sources.get(Path(path).stem, [])
+    return [path]
+
+
 def main() -> int:
+    analysis.run()
+    if analysis.EXPECTED.exists():
+        diffs = analysis.check()
+        if diffs:
+            print("analysis check FAILED (numbers differ from expected_numbers.csv):\n  "
+                  + "\n  ".join(diffs))
+            return 1
+        print(f"analysis check passed ({len(analysis.NUMBERS)} numbers)")
+    sources = yaml.safe_load((analysis.DERIVED / "sources.yaml").read_text())
     common.reset_reads()
     common.OUT_DIR.mkdir(exist_ok=True)
     for old in list(common.OUT_DIR.glob("Fig*.png")) + list(common.OUT_DIR.glob("Fig*.pdf")):
         old.unlink()
     rows, outputs = [], {}
-    for build in figures.FIGURES:
+    for build in plots.FIGURES:
         paths, r = build()
+        for row in r:
+            row["sources"] = sorted({s for p in row["sources"] for s in _expand(p, sources)})
         rows += r
         if paths:
             outputs[r[0]["figure"]] = [str(p.relative_to(common.PAPER))
                                        if common.PAPER in p.parents else str(p) for p in paths]
         for p in paths:
             print("wrote", p)
+    captions.main()
     rows += UNCHANGED
     rows.sort(key=lambda r: (ORDER.index(r["figure"]), r["panel"]))
 
@@ -82,14 +107,16 @@ def main() -> int:
              f"Built by `python paper/figures/build_all.py` on branch "
              f"`{_git('rev-parse', '--abbrev-ref', 'HEAD')}` at `{head}`"
              f"{' (paper/figures has uncommitted changes)' if dirty else ''}.",
-             "Every plotted number is read from a file under `paper/` by the figure script; "
-             "nothing is typed by hand.", "",
+             "Every number is made in `analysis.py` from files under `paper/` and checked "
+             "against `expected_numbers.csv`; `plots.py` and `captions.py` only read its "
+             "outputs (`figures/derived/`). Sources below are traced back to the paper/ files.",
+             "",
              "Main text: Fig 1 Atlas, Fig 2 workflow, Fig 3 what the Atlas adds to a soil "
              "dataset, Fig 4 interpreting single features, Fig 5 ClimGrass demonstration. "
              "Supplement: S1 quality, S2 annotation, S3 response and routes, S4 recovery, "
              "S5 amounts.", "",
-             "Status: **REAL** = drawn from recorded data · **SCHEMATIC** = cropped from the "
-             "2026-11-24 draft, no data · **NOT BUILT** = figure not drawn yet, waits for the "
+             "Status: **REAL** = drawn from recorded data · **SCHEMATIC** = drawn from the "
+             "2026-11-24 draft schematic text, no data · **NOT BUILT** = figure not drawn yet, waits for the "
              "named switch in gates.yaml · **UNCHANGED** = not rebuilt in this pass.", "",
              "Data SHA = last commit that changed the file in this repository; "
              "'export' = `export_git_sha` in the folder's provenance.yaml.", "",
@@ -121,18 +148,18 @@ def main() -> int:
             "figures/schematics/source/Fig2_workflow_2026-11-24.png": {
                 "from": "Google Drive folder 1bR_DKLZjM1M0crbp7-Ffwo6EUGxFjwKn, file id "
                         "1NJwtkjVm8F2GWcJSrjEDEgvCo-hli6az",
-                "used_for": "text of the natively drawn Fig 3A (no crop)"},
+                "used_for": "stage, tool and Atlas-layer text of the native Fig 2A"},
             "figures/schematics/source/Fig5_quantification_2026-11-24.png": {
                 "from": "Google Drive folder 1bR_DKLZjM1M0crbp7-Ffwo6EUGxFjwKn, file id "
                         "18CBhsQyLNANSEUddCtcQCL5bdV8XogRk",
-                "crops": {"FigS3C": list(panels_quant.CROP_5D)}},
+                "used_for": "route wording of the native Fig S3C (no crop)"},
         },
         "figures": {},
     }
     for r in rows:
         f = prov["figures"].setdefault(str(r["figure"]), {
             "name": r["name"], "role": r["role"], "outputs": outputs.get(r["figure"], []),
-            "script": "paper/figures/figures.py" if r["figure"] in outputs else None,
+            "script": "paper/figures/plots.py" if r["figure"] in outputs else None,
             "panels": {}})
         f["panels"][r["panel"]] = {
             "status": r["status"], "note": r["note"],

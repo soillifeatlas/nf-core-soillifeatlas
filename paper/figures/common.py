@@ -2,8 +2,8 @@
 
 Rules enforced here:
   * every data file is read through `read_table()` / `read_yaml()`, which refuse paths
-    outside paper/ and record what each panel read (for STATUS.md and provenance);
-  * a panel without final data is drawn with `pending()` - a grey box, no axes, no numbers;
+    outside paper/ and record what each table or panel read (for STATUS.md and provenance);
+  * numbers are made only in analysis.py; plots.py and captions.py read its outputs;
   * style: Elsevier widths (90 / 190 mm), Arial 7 pt, bold 9 pt panel letters,
     Okabe-Ito colour-blind-safe palette, POS/NEG colours fixed for all figures.
 """
@@ -48,7 +48,6 @@ ROLE_LABEL = {
     "nist": "NIST SRM 1950", "blank": "solvent blank", "extraction_blank": "extraction blank",
 }
 CONF = {"Gold": OI["orange"], "Silver": OI["grey"], "Bronze": "#8C510A"}
-PENDING_GREY = "#E6E6E6"
 
 plt.rcParams.update({
     "font.family": "Arial", "font.size": 7, "axes.titlesize": 7, "axes.labelsize": 7,
@@ -143,16 +142,6 @@ def fig_letter(fig, s: str, x: float, y: float, title: str | None = None) -> Non
     fig.text(x, y, s, fontsize=9, fontweight="bold", va="top", ha="left")
     if title:
         fig.text(x + 0.018, y - 0.001, title, fontsize=7, va="top", ha="left")
-
-
-def pending(ax, reason: str) -> None:
-    """Grey placeholder: no axes, no ticks, no numbers that could pass for data."""
-    ax.set_axis_off()
-    ax.add_patch(plt.Rectangle((0, 0), 1, 1, transform=ax.transAxes,
-                               facecolor=PENDING_GREY, edgecolor="#9E9E9E",
-                               linewidth=0.6, linestyle=(0, (3, 2))))
-    ax.text(0.5, 0.5, f"PENDING – {reason}", transform=ax.transAxes, ha="center",
-            va="center", fontsize=7, color="#555555", wrap=True)
 
 
 def show_image(ax, path: Path, crop: tuple[int, int, int, int] | None = None):
