@@ -6,7 +6,8 @@
 # Gates Fig S4 (internal standards vs calibration, apparent recovery).
 reconstitution_volume_confirmed: true   # Rahul, 2026-11-25: 200 uL
 reconstitution_volume_ul: 200            # replaces the 100 uL assumed in the 01_qc export
-is_calibration_date: "2023-03-27"         # Rahul, 2026-11-25: fit S4 on the 27 Mar series only
+is_calibration_date: "2023-03-27"         # Rahul, 2026-11-25: the 5 uL injections (28 Mar "-1" = 1 uL)
+estd_a1_ng_per_ul: 1.0                   # Rahul, 2026-11-25 (as Chapter II); the 01_qc export used 10
 
 # Fig S4 shown in the supplement. Off (Rahul, 2026-11-25): with 200 uL and the 10 ng spike the
 # apparent recovery is above 100 % for every standard, so the calibration is checked first.

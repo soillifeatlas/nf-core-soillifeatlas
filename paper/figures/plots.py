@@ -210,8 +210,10 @@ def qc_recovery(ax, tag):
     ax.set_ylabel("apparent recovery (%), median and range")
     ax.set_ylim(0, None)
     k, n = N("qc_recovery_n_above_100"), N("qc_recovery_n_standards")
-    finding(ax, tag, f"Above 100 % for {'all ' + str(n) if k == n else f'{k} of {n}'} "
-            "standards", x=-0.02, y=1.03)
+    head = (f"Median apparent recovery {N('qc_recovery_median_min_pct'):.0f}–"
+            f"{N('qc_recovery_median_max_pct'):.0f} %" if k == 0 else
+            f"Above 100 % for {'all ' + str(n) if k == n else f'{k} of {n}'} standards")
+    finding(ax, tag, head, x=-0.02, y=1.03)
 
 
 # =========================================================================== annotation panels

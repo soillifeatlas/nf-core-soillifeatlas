@@ -173,7 +173,8 @@ def qc():
     set_panel("qc_is_vs_cal")
     # The calibration was injected as two series (27 and 28 Mar 2023) whose areas differ about
     # 6-fold at every level; the 01_qc export fits both together (r2 0.6-0.8). Rahul chose the
-    # 27 Mar series (2026-11-25), so the fit is redone here from is_per_injection.tsv with the
+    # 27 Mar series (2026-11-25): it was injected at 5 uL like the soils, the 28 Mar '-1' series
+    # at 1 uL (Chapter II ESTD-COMB.xlsx, columns <level>_<uL>). The fit is redone here from is_per_injection.tsv with the
     # export's rules (detected injections only, log10 area ~ log10 ng/uL, soils detected only,
     # below range = estimate under the lowest calibrated level). Volume and spike: gates.yaml
     # and the export provenance.
@@ -186,6 +187,9 @@ def qc():
         prov = read_yaml(f"01_qc/{pol}/provenance.yaml")["params"]
         assumed, spike = float(prov["recon_ul_ASSUMED"]), float(prov["spike_ng"])
         levels = {k: float(v) for k, v in prov["estd1_ng_per_ul"].items()}
+        a1 = g_.get("estd_a1_ng_per_ul")  # confirmed top level; the export assumed 10 ng/uL
+        if a1:
+            levels = {k: v * float(a1) / levels["A1"] for k, v in levels.items()}
         v_ul = float(vol) if vol else assumed
         exp = read_table(f"01_qc/{pol}/is_vs_calibration.tsv").set_index("compound")
         inj = read_table(f"01_qc/{pol}/is_per_injection.tsv")
@@ -215,6 +219,7 @@ def qc():
             rows.append(r)
     d = pd.DataFrame(rows)
     number("qc_is_calibration_date", day or "all", "qc_is_vs_cal")
+    number("qc_estd_a1_ng_per_ul", float(levels["A1"]), "qc_is_vs_cal")
     number("qc_is_cal_r2_min", float(d.r2.min()), "qc_is_vs_cal")
     number("qc_recon_volume_ul", v_ul, "qc_is_vs_cal")
     number("figS4_shown", str(bool(gates().get("figS4_shown", True))), "qc_is_vs_cal")

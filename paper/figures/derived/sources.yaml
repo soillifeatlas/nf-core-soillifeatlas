@@ -408,6 +408,13 @@ number:nist_q3_pct_within_2fold_neg:
 number:qc_block_gap_h_pos:
 - 01_qc/neg/injections.tsv
 - 01_qc/pos/injections.tsv
+number:qc_estd_a1_ng_per_ul:
+- 01_qc/neg/is_per_injection.tsv
+- 01_qc/neg/is_vs_calibration.tsv
+- 01_qc/neg/provenance.yaml
+- 01_qc/pos/is_per_injection.tsv
+- 01_qc/pos/is_vs_calibration.tsv
+- 01_qc/pos/provenance.yaml
 number:qc_gapfill_feature_ratio_pos:
 - 01_qc/neg/provenance.yaml
 - 01_qc/neg/rsd_per_feature.tsv

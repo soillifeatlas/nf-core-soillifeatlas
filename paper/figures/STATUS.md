@@ -1,6 +1,6 @@
 # Figure status (2026-11-25)
 
-Built by `python paper/figures/build_all.py` on branch `paper/figures-2026-11` at `79192e4`.
+Built by `python paper/figures/build_all.py` on branch `paper/figures-2026-11` at `ade2ed6` (paper/figures has uncommitted changes).
 Every number is made in `analysis.py` from files under `paper/` and checked against `expected_numbers.csv`; `plots.py` and `captions.py` only read its outputs (`figures/derived/`). Sources below are traced back to the paper/ files.
 
 Main text: Fig 1 Atlas, Fig 2 workflow, Fig 3 what the Atlas adds to a soil dataset, Fig 4 interpreting single features, Fig 5 ClimGrass demonstration. Supplement: S1 quality, S2 annotation, S3 response and routes, S4 recovery, S5 amounts.
@@ -9,7 +9,7 @@ Status: **REAL** = drawn from recorded data · **SCHEMATIC** = drawn from the 20
 
 Data SHA = last commit that changed the file in this repository; 'export' = `export_git_sha` in the folder's provenance.yaml.
 
-Gates (gates.yaml): `reconstitution_volume_confirmed: True`, `reconstitution_volume_ul: 200`, `is_calibration_date: 2023-03-27`, `figS4_shown: False`, `stage5_fix_confirmed: True`, `fig7E_lipid: PC 30:1`
+Gates (gates.yaml): `reconstitution_volume_confirmed: True`, `reconstitution_volume_ul: 200`, `is_calibration_date: 2023-03-27`, `estd_a1_ng_per_ul: 1.0`, `figS4_shown: False`, `stage5_fix_confirmed: True`, `fig7E_lipid: PC 30:1`
 
 | Fig | Panel | Status | Source file(s) under paper/ | Data SHA | Note |
 |---|---|---|---|---|---|
