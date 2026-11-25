@@ -114,6 +114,10 @@ def main(argv=None):
     rc["pct_of_annotated_features"] = (rc["n_features"] / len(per) * 100).round(1)
     rc.loc["Q4", "pct_of_annotated_features"] = np.nan
     rc.to_csv(out / "route_counts.tsv", sep="\t")
+    # how the standard was chosen: class / family (e.g. LPC standard for PC) / nearest RT
+    per.groupby(["quant_route", "is_match"]).agg(n_features=("feature_id", "size"),
+                                                 n_unique_lipids=("lipid_id", "nunique")).to_csv(
+        out / "route_match_counts.tsv", sep="\t")
 
     # class sums: one feature per unique lipid (the one with the largest median area), Q1-Q3 only
     q = est[est["quant_route"].isin(["Q1", "Q2", "Q3"])].merge(ann[["feature_id", "lipid_id"]], on="feature_id")

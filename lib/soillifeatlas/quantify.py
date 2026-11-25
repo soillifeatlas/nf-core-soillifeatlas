@@ -12,7 +12,9 @@ standard cancel in the ratio.
 Routes follow the response evidence available for each feature (decision
 2026-11-25, option A of paper/04_quant/DESIGN_NOTE.md):
 
-- Q1  a standard of the same lipid class is in the run       -> that standard, f = 1
+- Q1  a standard of the same lipid class (or, failing that, of the same head-group
+      family, e.g. LPC for PC) is in the run                -> that standard, f = 1;
+      ``is_match`` = class / family / nearest_rt records which
 - Q2  no class-matched standard, but a lipid-specific predicted
       response exists (Gold/Silver name with a prediction)    -> nearest standard,
                                                                  f = RIE(standard class) / RIE_pred
@@ -77,23 +79,29 @@ def assign_routes(ann: pd.DataFrame, standards: pd.DataFrame, predicted: pd.Data
     ``standards``: compound, lipid_class, rt (median RT in this run), adduct.
     ``predicted``: optional lipid_name, RIE_pred.
     """
-    std = standards.assign(_c=standards["lipid_class"].map(_cls)).dropna(subset=["rt"])
-    by_class = dict(zip(std["_c"], std["compound"]))
+    std = standards.assign(_c=standards["lipid_class"].map(_cls),
+                           _x=standards["lipid_class"].map(lambda c: str(c).upper())).dropna(subset=["rt"])
+    exact = dict(zip(std["_x"], std["compound"]))
+    by_family = dict(zip(std["_c"], std["compound"]))
     pred = {} if predicted is None else dict(zip(predicted["lipid_name"], predicted["RIE_pred"]))
     rows = []
     for _, r in ann.iterrows():
         c = _cls(r.get("lipid_class"))
         named = r.get("confidence") in ("Gold", "Silver")
         rie_pred = pred.get(r["lipid_name"], np.nan) if named else np.nan
+        x = None if c is None else str(r.get("lipid_class")).upper()
         if c is None:
-            route, k = "Q4", None
-        elif c in by_class:
-            route, k = "Q1", by_class[c]
+            route, k, match = "Q4", None, None
+        elif x in exact:
+            route, k, match = "Q1", exact[x], "class"
+        elif c in by_family:
+            route, k, match = "Q1", by_family[c], "family"
         else:
             route = "Q2" if np.isfinite(rie_pred) else "Q3"
             k = std.iloc[(std["rt"] - r["rt"]).abs().argmin()]["compound"] if len(std) else None
+            match = "nearest_rt" if k is not None else None
         rows.append({"feature_id": r["feature_id"], "lipid_name": r["lipid_name"], "lipid_class": r.get("lipid_class"),
-                     "confidence": r.get("confidence"), "quant_route": route, "is_compound": k,
+                     "confidence": r.get("confidence"), "quant_route": route, "is_compound": k, "is_match": match,
                      "RIE_pred": rie_pred if route == "Q2" else np.nan})
     return pd.DataFrame(rows)
 

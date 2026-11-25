@@ -107,3 +107,25 @@ def test_f_is_capped_and_flagged(standards):
                    pd.DataFrame(columns=["compound", "cal_min_area", "cal_max_area"]), polarity="pos")
     assert out.loc[0, "f"] == 10.0 and bool(out.loc[0, "f_capped"])
     assert out.loc[0, "f_uncapped"] == pytest.approx(100.0)
+
+
+def test_is_match_says_whether_the_standard_is_the_class_its_family_or_nearest():
+    std = pd.DataFrame({"compound": ["LPC_d7", "TG_d7"], "lipid_class": ["LPC", "TG"],
+                        "rt": [4.0, 25.0], "adduct": ["[M+H]+", "[M+NH4]+"]})
+    ann = pd.DataFrame({"feature_id": [1, 2, 3], "lipid_name": ["PC 34:1", "LPC 18:1", "DG 34:1"],
+                        "lipid_class": ["PC", "LPC", "DG"], "confidence": ["Gold", "Gold", "Silver"],
+                        "rt": [16.0, 4.1, 21.0]})
+    r = assign_routes(ann, std, predicted=None).set_index("feature_id")
+    assert r.loc[1, "quant_route"] == "Q1" and r.loc[1, "is_match"] == "family"
+    assert r.loc[2, "is_match"] == "class"
+    assert r.loc[3, "quant_route"] == "Q3" and r.loc[3, "is_match"] == "nearest_rt"
+
+
+def test_an_exact_class_standard_wins_over_a_family_standard():
+    std = pd.DataFrame({"compound": ["PC_d7", "LPC_d7"], "lipid_class": ["PC", "LPC"],
+                        "rt": [16.0, 4.0], "adduct": ["[M+H]+", "[M+H]+"]})
+    ann = pd.DataFrame({"feature_id": [1, 2], "lipid_name": ["PC 34:1", "LPC 18:1"], "lipid_class": ["PC", "LPC"],
+                        "confidence": ["Gold", "Gold"], "rt": [16.0, 4.1]})
+    r = assign_routes(ann, std, predicted=None).set_index("feature_id")
+    assert r.loc[1, "is_compound"] == "PC_d7" and r.loc[1, "is_match"] == "class"
+    assert r.loc[2, "is_compound"] == "LPC_d7" and r.loc[2, "is_match"] == "class"
