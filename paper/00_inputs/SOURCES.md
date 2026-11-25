@@ -14,4 +14,4 @@
 - `rie_table_s10.csv`: Samrat et al. (2025), Soil Biology & Biochemistry, Supplementary Table S10
   (109 standard measurements; class, species, adduct, RT, RIE relative to LPE). Copied from
   `~/Desktop/SoilMass/analysis/analysis/analysis-19/00_inputs/` (sha256 056da89dfa158615…, same as the SLA repo copy).
-  Stage 5 uses unfloored class means per adduct (the 0.20 floor of Table S7 belongs to the decomposition, not to amounts).
+  Stage 5 uses unfloored class means per adduct; [M+NH4]+ rows bridged to the LPE scale via PS, [M+HCOO]- via HexCer; f capped to 0.1–10 and flagged (decision 2026-11-25).

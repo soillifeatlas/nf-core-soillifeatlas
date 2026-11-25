@@ -79,3 +79,31 @@ def test_estimate_applies_the_ratio_formula_without_extra_recovery(standards, ri
     assert out.loc[2, "f"] == pytest.approx(2.0)
     assert out.loc[2, "ng_per_g"] == pytest.approx(20.0)
     assert out.loc[2, "is_range_flag"] == "below"
+
+
+def test_ammonium_responses_are_bridged_to_the_lpe_scale_through_ps():
+    rie = pd.DataFrame({"class": ["PS", "PS", "TG", "LPE"], "adduct": ["M+H", "M+NH4", "M+NH4", "M+H"],
+                        "RIE_LPE": [7.0, 1.0, 13.0, 1.0]})
+    r = class_rie(rie)
+    assert r[("TG", "M+NH4")] == pytest.approx(13.0 * 7.0)
+    assert r[("PS", "M+NH4")] == pytest.approx(7.0)
+    assert r[("LPE", "M+H")] == 1.0
+
+
+def test_formate_responses_are_bridged_through_hexcer():
+    rie = pd.DataFrame({"class": ["HexCer", "HexCer", "PC"], "adduct": ["M-H", "M+HCOO", "M+HCOO"],
+                        "RIE_LPE": [0.25, 1.0, 2.0]})
+    assert class_rie(rie)[("PC", "M+HCOO")] == pytest.approx(0.5)
+
+
+def test_f_is_capped_and_flagged(standards):
+    rie = pd.DataFrame({"class": ["TG", "DG", "PS", "PS"], "adduct": ["M+NH4", "M+NH4", "M+H", "M+NH4"],
+                        "RIE_LPE": [100.0, 1.0, 1.0, 1.0]})
+    routes = pd.DataFrame({"feature_id": [2], "lipid_name": ["DG 34:1"], "lipid_class": ["DG"],
+                           "confidence": ["Silver"], "quant_route": ["Q3"], "is_compound": ["TG_d7"],
+                           "RIE_pred": [np.nan]})
+    out = estimate(routes, pd.DataFrame({"s1": [10.0]}, index=[2]), pd.DataFrame({"s1": [10.0]}, index=["TG_d7"]),
+                   pd.DataFrame({"file_id": ["s1"], "dry_mass_g": [1.0], "spike_ng": [10.0]}), standards, rie,
+                   pd.DataFrame(columns=["compound", "cal_min_area", "cal_max_area"]), polarity="pos")
+    assert out.loc[0, "f"] == 10.0 and bool(out.loc[0, "f_capped"])
+    assert out.loc[0, "f_uncapped"] == pytest.approx(100.0)

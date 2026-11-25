@@ -22,7 +22,9 @@ Routes follow the response evidence available for each feature (decision
 
 Annotation confidence stays a separate column and does not decide the route.
 RIE values are class means per adduct from the response table (Samrat et al.
-2025, Table S10). The standard's measured adduct is used for both classes; if
+2025, Table S10), with [M+NH4]+ and [M+HCOO]- rows bridged onto the LPE scale
+(see BRIDGES). f is limited to [F_MIN, F_MAX]; ``f_capped`` marks limited rows
+and ``f_uncapped`` keeps the raw ratio. The standard's measured adduct is used for both classes; if
 the analyte class has no value for that adduct, its [M+H]+ / [M-H]- value is
 used (``f_source`` says so); with no value at all f = 1 and ``f_default`` is set.
 """
@@ -50,10 +52,23 @@ def _cls(c) -> str | None:
     return class_family(str(c)).upper()
 
 
+# Table S10 normalises [M+NH4]+ to PS = 1 and [M+HCOO]- to HexCer = 1, not to LPE.
+# Bring them onto the LPE scale of the protonated / deprotonated rows through the
+# class measured with both adducts (decision 2026-11-25).
+BRIDGES = {"M+NH4": ("PS", "M+H"), "M+HCOO": ("HEXCER", "M-H")}
+F_MIN, F_MAX = 0.1, 10.0  # decision 2026-11-25: cap the response correction, flag capped rows
+
+
 def class_rie(rie: pd.DataFrame) -> dict[tuple[str, str], float]:
-    """Mean RIE per (class, adduct); class names upper-cased for matching."""
+    """Mean RIE per (class, adduct) on one LPE scale; class names upper-cased for matching."""
     t = rie.assign(_c=rie["class"].map(lambda c: str(c).upper()), _a=rie["adduct"].map(_adduct_key))
-    return t.groupby(["_c", "_a"])["RIE_LPE"].mean().to_dict()
+    m = t.groupby(["_c", "_a"])["RIE_LPE"].mean().to_dict()
+    for adduct, (anchor, base) in BRIDGES.items():
+        if (anchor, adduct) in m and (anchor, base) in m:
+            k = m[(anchor, base)] / m[(anchor, adduct)]
+            for key in [key for key in m if key[1] == adduct]:
+                m[key] = m[key] * k
+    return m
 
 
 def assign_routes(ann: pd.DataFrame, standards: pd.DataFrame, predicted: pd.DataFrame | None) -> pd.DataFrame:
@@ -129,8 +144,10 @@ def estimate(routes: pd.DataFrame, area: pd.DataFrame, is_area: pd.DataFrame, sa
         if r["quant_route"] == "Q4" or r["is_compound"] is None or r["feature_id"] not in area.index:
             continue
         k = r["is_compound"]
-        f, f_src, f_def = _f(r["quant_route"], _cls(r["lipid_class"]), _cls(std.at[k, "lipid_class"]),
-                             std.at[k, "adduct"], r.get("RIE_pred", np.nan), rie_m, polarity)
+        f_raw, f_src, f_def = _f(r["quant_route"], _cls(r["lipid_class"]), _cls(std.at[k, "lipid_class"]),
+                                 std.at[k, "adduct"], r.get("RIE_pred", np.nan), rie_m, polarity)
+        f = float(np.clip(f_raw, F_MIN, F_MAX))
+        f_capped = f != f_raw
         for _, s in samples.iterrows():
             fid = s["file_id"]
             a_j = area.at[r["feature_id"], fid] if fid in area.columns else np.nan
@@ -140,7 +157,8 @@ def estimate(routes: pd.DataFrame, area: pd.DataFrame, is_area: pd.DataFrame, sa
             out.append({
                 "feature_id": r["feature_id"], "lipid_name": r["lipid_name"], "lipid_class": r["lipid_class"],
                 "confidence": r["confidence"], "quant_route": r["quant_route"], "file_id": fid,
-                "is_compound": k, "f": f, "f_source": f_src, "f_default": f_def,
+                "is_compound": k, "f": f, "f_uncapped": f_raw, "f_capped": f_capped,
+                "f_source": f_src, "f_default": f_def,
                 "area": a_j, "is_area": a_k, "ng_per_g": ng_g,
                 "is_range_flag": range_flag(a_k, cal["cal_min_area"].get(k, np.nan),
                                             cal["cal_max_area"].get(k, np.nan)),

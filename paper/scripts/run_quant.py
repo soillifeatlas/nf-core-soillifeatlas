@@ -96,7 +96,8 @@ def main(argv=None):
     per = routes.merge(ann[["feature_id", "mz", "rt", "lipid_id"]], on="feature_id")
     if len(est):
         agg = est.groupby("feature_id").agg(
-            f=("f", "first"), f_source=("f_source", "first"), f_default=("f_default", "first"),
+            f=("f", "first"), f_uncapped=("f_uncapped", "first"), f_capped=("f_capped", "first"),
+            f_source=("f_source", "first"), f_default=("f_default", "first"),
             n_soils_quantified=("ng_per_g", lambda s: int(s.notna().sum())),
             median_ng_per_g=("ng_per_g", "median"),
             is_range_flags=("is_range_flag", lambda s: ";".join(sorted(set(s))))).reset_index()
@@ -146,7 +147,8 @@ def main(argv=None):
 
     provenance.write(out, p, {"polarity": a.polarity, "areas": "peak-picked only",
                               "collapse_rt_min": a.collapse_rt, "q2_predictions": bool(a.predicted),
-                              "routes": "option A (manuscript 2.7), decided 2026-11-25"},
+                              "routes": "option A (manuscript 2.7), decided 2026-11-25",
+                              "f_limits": [qt.F_MIN, qt.F_MAX], "rie_bridges": qt.BRIDGES},
                      notes="Calibration range = min/max neat ESTD-1 areas (sequence OE12-1, 27-28 Mar 2023).",
                      pipeline_run=provenance.read_run_provenance(a.run_provenance))
 
