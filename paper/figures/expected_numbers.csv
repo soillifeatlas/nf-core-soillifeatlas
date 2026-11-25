@@ -43,7 +43,7 @@ qc_is_calibration_date,2023-03-27
 qc_estd_a1_ng_per_ul,1.0
 qc_is_cal_r2_min,0.9987
 qc_recon_volume_ul,200.0
-figS4_shown,False
+figS4_shown,True
 qc_recovery_n_standards,8
 qc_recovery_median_min_pct,9.0
 qc_recovery_median_max_pct,32.0

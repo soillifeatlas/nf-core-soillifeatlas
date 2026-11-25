@@ -1,13 +1,13 @@
-built: '2026-11-25T16:01:34+00:00'
+built: '2026-11-25T16:03:38+00:00'
 command: python paper/figures/build_all.py
-repo_head: 76a06b0
-paper_figures_dirty: false
+repo_head: 372a57e
+paper_figures_dirty: true
 gates:
   reconstitution_volume_confirmed: true
   reconstitution_volume_ul: 200
   is_calibration_date: '2023-03-27'
   estd_a1_ng_per_ul: 1.0
-  figS4_shown: false
+  figS4_shown: true
   stage5_fix_confirmed: true
   fig7E_lipid: PC 30:1
 schematic_sources:
@@ -345,7 +345,7 @@ figures:
             git_sha: 756333b
             export_sha: ac355b6
             sha256: 86015e751845d4b9d8bcc1ef1fa60b9219848506e9ca67284d6d676804df3815
-          01_qc/neg/is_per_injection.tsv:
+          01_qc/neg/is_per_injection.tsv: &id028
             git_sha: 756333b
             export_sha: ac355b6
             sha256: 40a539879883142be04b542dff056efccaf4a7bfabfa7e3a87ffa7457aa8ad24
@@ -355,7 +355,7 @@ figures:
             git_sha: 756333b
             export_sha: ac355b6
             sha256: d0093c848748f5213c33a4674d670b468df618324079e8ffd9633c0c65ad5463
-          01_qc/pos/is_per_injection.tsv:
+          01_qc/pos/is_per_injection.tsv: &id029
             git_sha: 756333b
             export_sha: ac355b6
             sha256: acf6ad27bd5f64b067c321c12c53d173555588b64227ce3b0584e49eed02429c
@@ -468,17 +468,37 @@ figures:
   S4:
     name: recovery
     role: supplement
-    outputs: []
-    script: null
+    outputs:
+    - figures/output/FigS4_recovery_2026-11-25.pdf
+    - figures/output/FigS4_recovery_2026-11-25.png
+    script: paper/figures/plots.py
     panels:
       A:
-        status: NOT BUILT
-        note: 'withheld (figS4_shown: false): recovery > 100 %, calibration under review'
-        sources: {}
+        status: REAL
+        note: soil IS area / fitted area at the lowest level, 5 uL series
+        sources:
+          01_qc/neg/is_per_injection.tsv: *id028
+          01_qc/neg/is_vs_calibration.tsv: &id030
+            git_sha: 756333b
+            export_sha: ac355b6
+            sha256: 089230dd8e3a6ca93cdc1179f9c48fc1fdc999ef59fa6a4ce7393eeac6ee6a8b
+          01_qc/neg/provenance.yaml: *id020
+          01_qc/pos/is_per_injection.tsv: *id029
+          01_qc/pos/is_vs_calibration.tsv: &id031
+            git_sha: 756333b
+            export_sha: ac355b6
+            sha256: 3aeb8607926cc64b562c63c1635835e317e7aff4793aac49e165ba17fff5e5a0
+          01_qc/pos/provenance.yaml: *id023
       B:
-        status: NOT BUILT
-        note: 'withheld (figS4_shown: false): recovery > 100 %, calibration under review'
-        sources: {}
+        status: REAL
+        note: apparent recovery per soil; A1 = 1 ng/uL, 200 uL, 10 ng
+        sources:
+          01_qc/neg/is_per_injection.tsv: *id028
+          01_qc/neg/is_vs_calibration.tsv: *id030
+          01_qc/neg/provenance.yaml: *id020
+          01_qc/pos/is_per_injection.tsv: *id029
+          01_qc/pos/is_vs_calibration.tsv: *id031
+          01_qc/pos/provenance.yaml: *id023
   S5:
     name: amounts
     role: supplement
