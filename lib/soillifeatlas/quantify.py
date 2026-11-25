@@ -65,8 +65,9 @@ F_MIN, F_MAX = 0.1, 10.0  # decision 2026-11-25: cap the response correction, fl
 # Classes not listed are scored at [M+H]+. Negative mode keeps the standard's adduct.
 POS_CLASS_ADDUCT = {"TG": "M+NH4", "DG": "M+NH4", "MG": "M+NH4", "CE": "M+NH4", "PI": "M+NH4", "PG": "M+NH4"}
 # Positive mode: classes with no usable response in Table S10 are relative only (Q4) unless a
-# standard of their own class is in the run (decision 2026-11-25: MG).
-POS_NO_RESPONSE = {"MG"}
+# standard of their own class is in the run (decisions 2026-11-25: MG - no usable response;
+# PI - NIST SRM 1950 contradicts both the [M+H]+ and [M+NH4]+ response until per-feature adducts exist).
+POS_NO_RESPONSE = {"MG", "PI"}
 
 
 def class_rie(rie: pd.DataFrame) -> dict[tuple[str, str], float]:

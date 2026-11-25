@@ -152,3 +152,10 @@ def test_mg_without_its_own_standard_is_relative_only_in_positive_mode(standards
                         "confidence": ["Gold"], "rt": [18.0]})
     r = assign_routes(ann, standards, predicted=None, polarity="pos").iloc[0]
     assert r["quant_route"] == "Q4" and r["is_compound"] is None
+
+
+def test_pi_without_its_own_standard_is_relative_only_in_positive_mode(standards):
+    ann = pd.DataFrame({"feature_id": [1, 2], "lipid_name": ["PI 38:4", "PI 38:4"], "lipid_class": ["PI", "PI"],
+                        "confidence": ["Gold", "Gold"], "rt": [16.0, 16.0]})
+    assert assign_routes(ann.iloc[:1], standards, None, polarity="pos").iloc[0]["quant_route"] == "Q4"
+    assert assign_routes(ann.iloc[:1], standards, None, polarity="neg").iloc[0]["quant_route"] == "Q3"
