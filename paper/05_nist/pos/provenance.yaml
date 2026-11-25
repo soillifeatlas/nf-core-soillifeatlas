@@ -1,0 +1,19 @@
+date: 2026-11-25T11:42:07+00:00
+export_git_sha: 6ed62d26b3835c2b67e13ecbbd69d24bd8b45f8a
+export_git_dirty: False
+command: 'paper/scripts/nist_compare.py --consensus paper/00_inputs/nist_srm1950_consensus_nistir8185.csv --estimates paper/04_quant/pos/nist_srm1950_estimates.tsv --annotations paper/02_annotation/pos/annotations.tsv --polarity pos --out paper/05_nist/pos'
+params:
+  polarity: 'pos'
+  consensus_value: 'MEDM location, nmol/mL, >= 5 laboratories'
+  plasma_ml: 0.05
+  aggregation: 'sum per sum composition, one feature per unique lipid'
+inputs:
+  consensus:
+    path: 'paper/00_inputs/nist_srm1950_consensus_nistir8185.csv'
+    sha256: 362bf8962768b6be222bd34fafe6eb1eaf5de4b04c441f7271aa56cfd52b35f1
+  estimates:
+    path: 'paper/04_quant/pos/nist_srm1950_estimates.tsv'
+    sha256: 9341aea278ee2cd42b06e1b89e023b97c36e12992d6009bb525aebafeb8e11ab
+  annotations:
+    path: 'paper/02_annotation/pos/annotations.tsv'
+    sha256: c79645cc05fe4dff3916b757befc8be7e755ea8f327ea6ac2600d42db78c1631

@@ -15,3 +15,7 @@
   (109 standard measurements; class, species, adduct, RT, RIE relative to LPE). Copied from
   `~/Desktop/SoilMass/analysis/analysis/analysis-19/00_inputs/` (sha256 056da89dfa158615…, same as the SLA repo copy).
   Stage 5 uses unfloored class means per adduct; [M+NH4]+ rows bridged to the LPE scale via PS, [M+HCOO]- via HexCer; f capped to 0.1–10 and flagged (decision 2026-11-25).
+- `nist_srm1950_consensus_nistir8185.csv`: consensus estimates (nmol/mL; DSL, VR, MEDM with uncertainties, COD)
+  for lipids measured by >= 5 laboratories, Tables 2–6 of NISTIR 8185 (Bowden et al. 2017, J Lipid Res 58:2275),
+  parsed from https://nvlpubs.nist.gov/nistpubs/ir/2017/NIST.IR.8185.pdf (downloaded 2026-11-25) with
+  `scripts/nist_compare.py --parse`. 335 rows parsed (the paper reports 339; a few wrapped rows were not parsed).
