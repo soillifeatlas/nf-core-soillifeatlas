@@ -340,8 +340,10 @@ number:atlas_release_phyla:
 number:atlas_release_ref_samples:
 - figures/inputs/atlas_groups.csv
 number:figS4_shown:
+- 01_qc/neg/is_per_injection.tsv
 - 01_qc/neg/is_vs_calibration.tsv
 - 01_qc/neg/provenance.yaml
+- 01_qc/pos/is_per_injection.tsv
 - 01_qc/pos/is_vs_calibration.tsv
 - 01_qc/pos/provenance.yaml
 number:interp_groups_broad:
@@ -424,6 +426,20 @@ number:qc_is_block_shift_min_pos:
 - 01_qc/pos/is_by_block.tsv
 - 01_qc/pos/is_per_injection.tsv
 - 01_qc/pos/provenance.yaml
+number:qc_is_cal_r2_min:
+- 01_qc/neg/is_per_injection.tsv
+- 01_qc/neg/is_vs_calibration.tsv
+- 01_qc/neg/provenance.yaml
+- 01_qc/pos/is_per_injection.tsv
+- 01_qc/pos/is_vs_calibration.tsv
+- 01_qc/pos/provenance.yaml
+number:qc_is_calibration_date:
+- 01_qc/neg/is_per_injection.tsv
+- 01_qc/neg/is_vs_calibration.tsv
+- 01_qc/neg/provenance.yaml
+- 01_qc/pos/is_per_injection.tsv
+- 01_qc/pos/is_vs_calibration.tsv
+- 01_qc/pos/provenance.yaml
 number:qc_is_detected_neg:
 - 01_qc/neg/is_by_block.tsv
 - 01_qc/neg/is_per_injection.tsv
@@ -436,13 +452,17 @@ number:qc_is_detected_pos:
 - 01_qc/pos/is_per_injection.tsv
 - 01_qc/pos/provenance.yaml
 number:qc_is_n_detected:
+- 01_qc/neg/is_per_injection.tsv
 - 01_qc/neg/is_vs_calibration.tsv
 - 01_qc/neg/provenance.yaml
+- 01_qc/pos/is_per_injection.tsv
 - 01_qc/pos/is_vs_calibration.tsv
 - 01_qc/pos/provenance.yaml
 number:qc_is_n_within_cal:
+- 01_qc/neg/is_per_injection.tsv
 - 01_qc/neg/is_vs_calibration.tsv
 - 01_qc/neg/provenance.yaml
+- 01_qc/pos/is_per_injection.tsv
 - 01_qc/pos/is_vs_calibration.tsv
 - 01_qc/pos/provenance.yaml
 number:qc_is_pct_ppm_within:
@@ -480,28 +500,38 @@ number:qc_n_pooled_qc_pos:
 - 01_qc/neg/injections.tsv
 - 01_qc/pos/injections.tsv
 number:qc_recon_volume_ul:
+- 01_qc/neg/is_per_injection.tsv
 - 01_qc/neg/is_vs_calibration.tsv
 - 01_qc/neg/provenance.yaml
+- 01_qc/pos/is_per_injection.tsv
 - 01_qc/pos/is_vs_calibration.tsv
 - 01_qc/pos/provenance.yaml
 number:qc_recovery_median_max_pct:
+- 01_qc/neg/is_per_injection.tsv
 - 01_qc/neg/is_vs_calibration.tsv
 - 01_qc/neg/provenance.yaml
+- 01_qc/pos/is_per_injection.tsv
 - 01_qc/pos/is_vs_calibration.tsv
 - 01_qc/pos/provenance.yaml
 number:qc_recovery_median_min_pct:
+- 01_qc/neg/is_per_injection.tsv
 - 01_qc/neg/is_vs_calibration.tsv
 - 01_qc/neg/provenance.yaml
+- 01_qc/pos/is_per_injection.tsv
 - 01_qc/pos/is_vs_calibration.tsv
 - 01_qc/pos/provenance.yaml
 number:qc_recovery_n_above_100:
+- 01_qc/neg/is_per_injection.tsv
 - 01_qc/neg/is_vs_calibration.tsv
 - 01_qc/neg/provenance.yaml
+- 01_qc/pos/is_per_injection.tsv
 - 01_qc/pos/is_vs_calibration.tsv
 - 01_qc/pos/provenance.yaml
 number:qc_recovery_n_standards:
+- 01_qc/neg/is_per_injection.tsv
 - 01_qc/neg/is_vs_calibration.tsv
 - 01_qc/neg/provenance.yaml
+- 01_qc/pos/is_per_injection.tsv
 - 01_qc/pos/is_vs_calibration.tsv
 - 01_qc/pos/provenance.yaml
 number:qc_rsd_n_including_gap_filled_neg:
@@ -656,13 +686,17 @@ qc_is_points:
 - 01_qc/pos/is_per_injection.tsv
 - 01_qc/pos/provenance.yaml
 qc_is_vs_cal:
+- 01_qc/neg/is_per_injection.tsv
 - 01_qc/neg/is_vs_calibration.tsv
 - 01_qc/neg/provenance.yaml
+- 01_qc/pos/is_per_injection.tsv
 - 01_qc/pos/is_vs_calibration.tsv
 - 01_qc/pos/provenance.yaml
 qc_recovery:
+- 01_qc/neg/is_per_injection.tsv
 - 01_qc/neg/is_vs_calibration.tsv
 - 01_qc/neg/provenance.yaml
+- 01_qc/pos/is_per_injection.tsv
 - 01_qc/pos/is_vs_calibration.tsv
 - 01_qc/pos/provenance.yaml
 qc_rsd_summary:

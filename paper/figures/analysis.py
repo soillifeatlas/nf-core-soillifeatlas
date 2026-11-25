@@ -171,20 +171,52 @@ def qc():
 
     # S4 (gated): internal standards against the neat calibration
     set_panel("qc_is_vs_cal")
-    # m_found = extract concentration x reconstitution volume, so the exported amounts and
-    # R_app scale with the volume; the export assumed recon_ul_ASSUMED, gates.yaml holds the
-    # confirmed volume (Rahul, 2026-11-25: 200 uL).
-    vol = gates().get("reconstitution_volume_ul")
+    # The calibration was injected as two series (27 and 28 Mar 2023) whose areas differ about
+    # 6-fold at every level; the 01_qc export fits both together (r2 0.6-0.8). Rahul chose the
+    # 27 Mar series (2026-11-25), so the fit is redone here from is_per_injection.tsv with the
+    # export's rules (detected injections only, log10 area ~ log10 ng/uL, soils detected only,
+    # below range = estimate under the lowest calibrated level). Volume and spike: gates.yaml
+    # and the export provenance.
+    g_ = gates()
+    vol = g_.get("reconstitution_volume_ul")
+    day = str(g_.get("is_calibration_date") or "")
+    levels = None
     rows = []
     for pol in POLS:
-        d = read_table(f"01_qc/{pol}/is_vs_calibration.tsv")
-        assumed = float(read_yaml(f"01_qc/{pol}/provenance.yaml")["params"]["recon_ul_ASSUMED"])
-        f = float(vol) / assumed if vol else 1.0
-        for col in ("m_found_median_ng", "R_app_median_pct", "R_app_min_pct", "R_app_max_pct"):
-            d[col] = d[col] * f
-        rows.append(d.assign(pol=pol))
-    d = pd.concat(rows)
-    number("qc_recon_volume_ul", float(vol) if vol else assumed, "qc_is_vs_cal")
+        prov = read_yaml(f"01_qc/{pol}/provenance.yaml")["params"]
+        assumed, spike = float(prov["recon_ul_ASSUMED"]), float(prov["spike_ng"])
+        levels = {k: float(v) for k, v in prov["estd1_ng_per_ul"].items()}
+        v_ul = float(vol) if vol else assumed
+        exp = read_table(f"01_qc/{pol}/is_vs_calibration.tsv").set_index("compound")
+        inj = read_table(f"01_qc/{pol}/is_per_injection.tsv")
+        for comp, g in inj.groupby("compound", sort=False):
+            cal = g[(g.role == "standard_cal") & (g.detected.astype(bool))].dropna(subset=["area"])
+            if day:
+                cal = cal[cal.start_time.astype(str).str.startswith(day)]
+            cal = cal.assign(conc=cal.file_id.str.extract(r"ESTD-(A\d)")[0].map(levels))
+            soil = g[(g.role == "sample") & (g.detected.astype(bool))].area.dropna()
+            r = {"compound": comp, "pol": pol, "n_cal_points": len(cal),
+                 "n_samples_detected": len(soil), "n_samples": int(exp.loc[comp, "n_samples"])}
+            if len(cal) >= 3 and len(soil):
+                b, a = np.polyfit(np.log10(cal.conc), np.log10(cal.area), 1)
+                ng = 10 ** ((np.log10(soil) - a) / b)
+                rec_ = ng * v_ul / spike * 100
+                lo, hi = cal.conc.min(), cal.conc.max()
+                nb, na = int((ng < lo).sum()), int((ng > hi).sum())
+                r.update(slope=round(b, 3), r2=round(float(np.corrcoef(np.log10(cal.conc),
+                         np.log10(cal.area))[0, 1] ** 2), 4), cal_min_ng_per_ul=lo,
+                         cal_max_ng_per_ul=hi, soil_median_ng_per_ul=float(np.median(ng)),
+                         n_below_range=nb, n_above_range=na,
+                         status="within" if nb + na == 0 else
+                         ("below" if nb == len(ng) else "partly_below"),
+                         m_found_median_ng=float(np.median(ng)) * v_ul,
+                         R_app_median_pct=float(np.median(rec_)),
+                         R_app_min_pct=float(rec_.min()), R_app_max_pct=float(rec_.max()))
+            rows.append(r)
+    d = pd.DataFrame(rows)
+    number("qc_is_calibration_date", day or "all", "qc_is_vs_cal")
+    number("qc_is_cal_r2_min", float(d.r2.min()), "qc_is_vs_cal")
+    number("qc_recon_volume_ul", v_ul, "qc_is_vs_cal")
     number("figS4_shown", str(bool(gates().get("figS4_shown", True))), "qc_is_vs_cal")
     table("qc_is_vs_cal", d[d.n_samples_detected > 0])
     rec = d.dropna(subset=["R_app_median_pct"])
