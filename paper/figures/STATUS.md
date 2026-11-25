@@ -1,6 +1,6 @@
 # Figure status (2026-11-25)
 
-Built by `python paper/figures/build_all.py` on branch `paper/figures-2026-11` at `1a6b66a` (paper/figures has uncommitted changes).
+Built by `python paper/figures/build_all.py` on branch `paper/figures-2026-11` at `79192e4`.
 Every number is made in `analysis.py` from files under `paper/` and checked against `expected_numbers.csv`; `plots.py` and `captions.py` only read its outputs (`figures/derived/`). Sources below are traced back to the paper/ files.
 
 Main text: Fig 1 Atlas, Fig 2 workflow, Fig 3 what the Atlas adds to a soil dataset, Fig 4 interpreting single features, Fig 5 ClimGrass demonstration. Supplement: S1 quality, S2 annotation, S3 response and routes, S4 recovery, S5 amounts.
