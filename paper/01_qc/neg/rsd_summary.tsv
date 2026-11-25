@@ -1,0 +1,4 @@
+mode	n_features_total	n_pooled_qc	min_qc_values_required	n_eligible	median_rsd_pct	n_rsd_le_30	pct_of_eligible_le_30
+peak_picked_only	20280	8	6	2128	9.88	1977	92.9
+including_gap_filled	20280	8	6	8095	38.23	3002	37.1
+paired_same_features	20280	8	6	2128	9.88 vs 10.78	1977 vs 1847	

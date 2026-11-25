@@ -8,6 +8,7 @@ process DECOMPOSE {
     path simper_atlas
     path sample_phylum_map
     each method
+    val lib_sig  // libSignature(): package code is part of the task hash
 
     output:
     tuple val(method), path("composition_kingdom_${method}.parquet"), emit: kingdom
@@ -31,6 +32,7 @@ process DECOMPOSE {
     "${task.process}":
         python: \$(python3 --version | sed 's/Python //')
         soillifeatlas: \$(python3 -c 'import soillifeatlas; print(soillifeatlas.__version__)')
+        soillifeatlas_code: ${lib_sig}
     END_VERSIONS
     """
 }

@@ -1,0 +1,13 @@
+plot	treatment	ng_current	ng_A	ng_B
+19	ambient	477.26	77.14	56.24
+22	ambient	70.22	49.47	35.04
+27	future_drought	669.46	96.75	57.96
+28	ambient_drought	591.92	105.8	68.46
+35	future	150.61	68.38	44.08
+36	ambient	57.32	40.07	27.84
+40	future	135.03	59.1	39.32
+43	future_drought	497.39	90.93	62.31
+44	ambient_drought	659.41	93.75	61.01
+48	future_drought	760.0	97.8	60.45
+49	ambient_drought	393.3	82.21	56.74
+52	future	205.54	76.04	46.52

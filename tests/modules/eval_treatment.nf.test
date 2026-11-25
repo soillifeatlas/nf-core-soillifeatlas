@@ -13,6 +13,7 @@ nextflow_process {
                 """
                 input[0] = file("${projectDir}/tests/fixtures/tiny/tiny_phylum_composition.parquet")
                 input[1] = file("${projectDir}/tests/fixtures/tiny/tiny_sample_metadata.tsv")
+                input[2] = 'test'  // lib_sig
                 """
             }
         }

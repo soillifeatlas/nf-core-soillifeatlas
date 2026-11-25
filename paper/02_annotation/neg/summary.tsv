@@ -1,0 +1,8 @@
+n_mzmine_features	20280
+n_annotated_features	1013
+n_unique_lipids_gold_silver	805
+n_rt_outlier	7
+n_rt_tested	367
+n_composition_implausible	15
+rt_model_class	PC
+quant_route_in_annotate	{'Q1': 429, 'Q2': 390, 'Q3': 194}

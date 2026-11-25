@@ -1,0 +1,18 @@
+check	threshold	value	status	detail
+Injections with role 'pooled_qc'	>= 3	9	pass	feature reproducibility and drift
+Injections with role 'blank'	>= 1	1	pass	background and carryover
+Injections with role 'extraction_blank'	>= 1	1	pass	contaminants from extraction
+Injections with role 'nist'	>= 1	3	pass	accuracy against reference values (stage 5)
+Injections with role 'standard_cal'	>= 1	14	pass	standard calibration and recovery (stage 5)
+Sequence blocks	information	2	pass	pauses over 12 h split the run; RT and mass accuracy are judged within each block
+Internal standards found	13 of 13	12 of 13	warn	matched by m/z; a secondary adduct is used if the primary is absent
+Internal standard identity confirmed	by expected RT or a standard injection	12 of 12 confirmed	pass	
+Internal standard retention time (QC injections and standards)	±0.1 min from block median	12 of 12 measured within	pass	
+Internal standard mass accuracy (QC injections and standards)	±5.0 ppm	12 of 12 measured within	pass	
+Internal standard peak area RSD	< 20% over pooled QC (needs ≥ 3 detected)	1 of 4 measured within; 8 not measured	warn	Cer_d18_1_15_0_d7, PE_15_0_18_1_d7, SM_d18_1_18_1_d9; not measured: DG_15_0_18_1_d7, LPE_18_1_d7, MG_18_1_d7, PC_15_0_18_1_d7, PG_15_0_18_1_d7, PI_15_0_18_1_d7, PS_15_0_18_1_d7, TG_15_0_18_1_d7_15_0
+Internal standard signal in pooled QCs vs calibration range	at or above the lowest calibration level	4 of 12	warn	below the lowest calibration level: DG_15_0_18_1_d7, PE_15_0_18_1_d7; not detected in pooled QCs: LPE_18_1_d7, MG_18_1_d7, PG_15_0_18_1_d7, PI_15_0_18_1_d7, PS_15_0_18_1_d7, TG_15_0_18_1_d7_15_0; consider a larger spike or a smaller reconstitution volume
+Internal standard variation across samples (information)	reported, not judged	median RSD 27%	pass	soils differ in matrix effects and recovery; stage 5 corrects for this
+Pooled-QC features with RSD < 30%	>= 70% of features	90.6% of 6513	pass	features peak-picked in at least 70% of pooled QCs (gap-filled values not counted); 33236 features peak-picked in at least one pooled QC
+Pooled-QC difference from mean (Bland–Altman, as in Samrat et al. 2025)	information	89.1% within -34.6% to +34.6%	pass	6513 features × pooled QCs
+Pooled-QC signal drift over the run	within ±20%	+14.2%	pass	straight-line fit of summed signal of 4281 features found in every pooled QC; drift can be corrected with the QCs in a later stage
+Sample features also high in blanks (blank > 20% of sample median)	reported, not removed	10408 of 64923 (16%)	pass	listed in qc_features.tsv for filtering in later stages

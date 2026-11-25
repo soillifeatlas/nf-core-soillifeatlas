@@ -1,0 +1,97 @@
+feature_id	lipid_name	confidence	rt_group	carbons	double_bonds	rt	rt_expected	rt_residual_min	rt_check	is_anchor
+4188	PC 36:8	Silver	PC	36.0	8.0	2.3004	10.87	-8.57	outlier	False
+4887	PC	Bronze	PC			2.7686			untested	False
+9946	PC P-37:9	Silver	PC ether	37.0	9.0	10.7935			untested	False
+11579	PC 18:2_18:3	Gold	PC	36.0	5.0	13.0439	13.79	-0.746	ok	True
+11862	PC 14:0_20:4	Gold	PC	34.0	4.0	13.3731	13.31	0.063	ok	True
+11873	PC 15:1_16:1	Gold	PC	31.0	2.0	13.3876	13.07	0.318	ok	True
+11998	PC 16:1_20:4	Gold	PC	36.0	5.0	13.5393	13.79	-0.251	ok	True
+12075	PC 14:0_18:2	Gold	PC	32.0	2.0	13.5892	13.8	-0.211	ok	True
+12137	PC 29:1	Silver	PC	29.0	1.0	13.6776	12.59	1.088	ok	False
+12208	PC 15:1_16:1	Gold	PC	31.0	2.0	13.7311	13.07	0.661	ok	True
+12275	PC 34:3	Silver	PC	34.0	3.0	13.8027	14.28	-0.477	ok	False
+12417	PC 18:2_20:4	Gold	PC	38.0	6.0	13.9182	14.27	-0.352	ok	True
+12485	PC O-29:2	Silver	PC ether	29.0	2.0	13.982			untested	False
+12516	PC 16:1_17:1	Gold	PC	33.0	2.0	14.0088	14.53	-0.521	ok	True
+12535	PC 15:0_15:0	Gold	PC	30.0	0.0	14.0252	14.29	-0.265	ok	True
+12568	PC 16:0_20:5	Gold	PC	36.0	5.0	14.0452	13.79	0.255	ok	True
+12708	PC 18:2_18:2	Gold	PC	36.0	4.0	14.1529	14.76	-0.607	ok	True
+12796	PC 16:1_18:2	Gold	PC	34.0	3.0	14.2348	14.28	-0.045	ok	True
+12890	PC 15:0_17:1	Gold	PC	32.0	1.0	14.3324	14.77	-0.438	ok	True
+13117	PC 17:1_17:1	Gold	PC	34.0	2.0	14.5425	15.25	-0.707	ok	True
+13437	PC O-30:5	Silver	PC ether	30.0	5.0	14.7829			untested	False
+13478	PC 18:1_22:6	Gold	PC	40.0	7.0	14.8156	14.76	0.056	ok	True
+13513	PC 33:2	Silver	PC	33.0	2.0	14.8437	14.53	0.314	ok	False
+13555	PC 32:1	Silver	PC	32.0	1.0	14.8761	14.77	0.106	ok	False
+13598	PC 16:0_16:1	Gold	PC	32.0	1.0	14.9112	14.77	0.141	ok	True
+13649	PC 15:0_16:0	Gold	PC	31.0	0.0	14.9557	15.02	-0.064	ok	True
+13709	PC 16:1_18:1	Gold	PC	34.0	2.0	15.0153	15.25	-0.235	ok	True
+13797	PC 16:0_20:4	Gold	PC	36.0	4.0	15.0586	14.76	0.299	ok	True
+13977	PC O-29:0	Silver	PC ether	29.0	0.0	15.2171			untested	False
+13986	PC 15:0_16:0	Gold	PC	31.0	0.0	15.2259	15.02	0.206	ok	True
+13988	PC	Bronze	PC			15.2285			untested	False
+14046	PC 17:1_17:1	Gold	PC	34.0	2.0	15.2437	15.25	-0.006	ok	True
+14085	PC 16:1_17:0	Gold	PC	33.0	1.0	15.3125	15.5	-0.188	ok	True
+14192	PC 18:1_18:2	Gold	PC	36.0	3.0	15.391	15.74	-0.349	ok	True
+14390	PC 17:1_18:1	Gold	PC	35.0	2.0	15.581	15.98	-0.399	ok	True
+14520	PC 15:0_17:0	Gold	PC	32.0	0.0	15.6553	15.75	-0.095	ok	True
+14535	PC 18:1_18:2	Gold	PC	36.0	3.0	15.64	15.74	-0.1	ok	True
+14544	PC 18:1_20:4	Gold	PC	38.0	5.0	15.6934	15.25	0.443	ok	True
+14637	PC O-35:5	Silver	PC ether	35.0	5.0	15.7494			untested	False
+14698	PC 15:0_18:1	Gold	PC	33.0	1.0	15.756	15.5	0.256	ok	True
+14765	PC 17:0_20:4	Gold	PC	37.0	4.0	15.8465	15.49	0.357	ok	True
+14915	PC 16:1_19:1	Gold	PC	35.0	2.0	15.9768	15.98	-0.003	ok	True
+14937	PC 36:3	Silver	PC	36.0	3.0	15.9522	15.74	0.212	ok	False
+15001	PC O-35:4	Silver	PC ether	35.0	4.0	16.0438			untested	False
+15020	PC	Bronze	PC			16.0621			untested	False
+15064	PC O-37:5	Silver	PC ether	37.0	5.0	16.077			untested	False
+15084	PC 16:1_18:1	Gold	PC	34.0	2.0	16.0689	15.25	0.819	ok	True
+15170	PC 18:1_20:3	Gold	PC	38.0	4.0	16.1382	16.22	-0.082	ok	True
+15272	PC 18:0_22:6	Gold	PC	40.0	6.0	16.2476	15.73	0.518	ok	True
+15332	PC 15:0_17:0	Gold	PC	32.0	0.0	16.2942	15.75	0.544	ok	True
+15396	PC 16:1_19:1	Gold	PC	35.0	2.0	16.3506	15.98	0.371	ok	True
+15430	PC 16:0_18:1	Gold	PC	34.0	1.0	16.3892	16.23	0.159	ok	True
+15483	PC O-29:0	Silver	PC ether	29.0	0.0	16.4375			untested	False
+15511	PC 17:0_20:3	Gold	PC	37.0	3.0	16.467	16.47	-0.003	ok	True
+15518	PC 18:1_18:1	Gold	PC	36.0	2.0	16.4801	16.71	-0.23	ok	True
+15605	PC 16:0_17:0	Gold	PC	33.0	0.0	16.5616	16.47	0.092	ok	True
+15656	PC 18:0_20:4	Gold	PC	38.0	4.0	16.5851	16.22	0.365	ok	True
+15700	PC 18:0_22:5	Gold	PC	40.0	5.0	16.6324	16.7	-0.068	ok	True
+15740	PC	Bronze	PC			16.6682			untested	False
+15828	PC 16:0_17:0	Gold	PC	33.0	0.0	16.6788	16.47	0.209	ok	True
+15920	PC 17:1_19:1	Gold	PC	36.0	2.0	16.8282	16.71	0.118	ok	True
+15930	PC 17:0_17:0	Gold	PC	34.0	0.0	16.8009	17.2	-0.399	ok	True
+15940	PC 16:0_19:1	Gold	PC	35.0	1.0	16.8193	16.96	-0.141	ok	True
+15941	PC 37:3	Silver	PC	37.0	3.0	16.8036	16.47	0.334	ok	False
+16065	PC 18:1_19:1	Gold	PC	37.0	2.0	16.932	17.44	-0.508	ok	True
+16166	PC O-31:1	Silver	PC ether	31.0	1.0	16.9963			untested	False
+16178	PC O-37:4	Silver	PC ether	37.0	4.0	17.0304			untested	False
+16188	PC	Bronze	PC			17.0398			untested	False
+16201	PC 34:1	Silver	PC	34.0	1.0	17.0457	16.23	0.816	ok	False
+16252	PC 17:0_18:1	Gold	PC	35.0	1.0	17.0559	16.96	0.096	ok	True
+16304	PC 18:0_20:3	Gold	PC	38.0	3.0	17.1328	17.19	-0.057	ok	True
+16310	PC 17:0_17:0	Gold	PC	34.0	0.0	17.0853	17.2	-0.115	ok	True
+16323	PC 36:2	Silver	PC	36.0	2.0	17.1548	16.71	0.445	ok	False
+16378	PC 18:0_22:5	Gold	PC	40.0	5.0	17.1668	16.7	0.467	ok	True
+16401	PC 18:0_18:1	Gold	PC	36.0	1.0	17.2203	17.68	-0.46	ok	True
+16427	PC O-31:0	Silver	PC ether	31.0	0.0	17.2437			untested	False
+16434	PC 16:0_19:1	Gold	PC	35.0	1.0	17.2573	16.96	0.297	ok	True
+16446	PC 18:1_19:1	Gold	PC	37.0	2.0	17.2844	17.44	-0.156	ok	True
+16507	PC 19:1_19:2	Gold	PC	38.0	3.0	17.2964	17.19	0.106	ok	True
+16542	PC O-33:1	Silver	PC ether	33.0	1.0	17.3016			untested	False
+16665	PC 18:1_19:1	Gold	PC	37.0	2.0	17.4325	17.44	-0.008	ok	True
+16693	PC 18:0_22:4	Gold	PC	40.0	4.0	17.5109	17.68	-0.169	ok	True
+16697	PC O-37:4	Silver	PC ether	37.0	4.0	17.5074			untested	False
+16904	PC 16:0_18:0	Gold	PC	34.0	0.0	17.7156	17.2	0.516	ok	True
+16964	PC 18:0_18:1	Gold	PC	36.0	1.0	17.7727	17.68	0.093	ok	True
+16989	PC 18:1_19:1	Gold	PC	37.0	2.0	17.7968	17.44	0.357	ok	True
+17121	PC 18:0_20:2	Gold	PC	38.0	2.0	17.8889	18.17	-0.281	ok	True
+17169	PC 37:2	Silver	PC	37.0	2.0	17.9986	17.44	0.559	ok	False
+17306	PC 19:1_19:1	Gold	PC	38.0	2.0	18.1331	18.17	-0.037	ok	True
+17470	PC 37:2	Silver	PC	37.0	2.0	18.3463	17.44	0.906	ok	False
+17542	PC 39:2	Silver	PC	39.0	2.0	18.4892	18.89	-0.401	ok	False
+17591	PC 18:0_19:1	Gold	PC	37.0	1.0	18.5389	18.41	0.129	ok	True
+17669	PC O-41:5	Silver	PC ether	41.0	5.0	18.6576			untested	False
+17760	PC O-43:6	Silver	PC ether	43.0	6.0	18.82			untested	False
+18365	PC O-43:5	Silver	PC ether	43.0	5.0	19.8204			untested	False
+18436	PC O-41:4	Silver	PC ether	41.0	4.0	19.999			untested	False

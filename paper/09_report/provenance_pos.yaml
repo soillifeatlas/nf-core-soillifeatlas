@@ -1,0 +1,34 @@
+date: 2026-11-25T12:18:29+00:00
+export_git_sha: c4e944a1d8d014bad1b5ffdd56d8a23fea6195c3
+export_git_dirty: False
+command: 'paper/scripts/report.py --paper paper --polarity pos --samples paper/00_inputs/climgrass_samples.csv --out paper/09_report'
+params:
+  polarity: 'pos'
+inputs:
+  checks:
+    path: 'paper/01_qc/pos/checks.tsv'
+    sha256: 56ed9177808680bcf7b9260c9894d5aea0417d0717906b86d2200485b819e510
+  rsd:
+    path: 'paper/01_qc/pos/rsd_summary.tsv'
+    sha256: 40ba1a96366c7074e1873f5afaa95e75d5d133adec57f7a1d94fe7f621c42637
+  injections:
+    path: 'paper/01_qc/pos/injections.tsv'
+    sha256: 24830590d8f59ad057d9a41a50d8616a1c5ac48a8d3881dcb6471c589deec653
+  confidence:
+    path: 'paper/02_annotation/pos/confidence.tsv'
+    sha256: a35127d8a1d75b8c03366f26b5de401896ef89d87b8ae9712a867cffe4d2ad98
+  routes:
+    path: 'paper/04_quant/pos/route_counts.tsv'
+    sha256: 0beedc5f0f539345c2f6bfa537a97b3a97e450d257d228554b95df7315c35e0a
+  profiles:
+    path: 'paper/08_application/pos/class_profiles.tsv'
+    sha256: f9f1da545b3a2d59d0b9293ee49c68774a970c9d1e027cc70a333123a282323a
+  responsive:
+    path: 'paper/08_application/pos/responsive.tsv'
+    sha256: db11fb101acda71581213b699144b9216a5373d185cf893caea0a93a5f94657c
+  per_lipid:
+    path: 'paper/04_quant/pos/per_lipid.tsv'
+    sha256: 1ea2fa53c2cfe57803a99811a1b13fb14a03d1d8f230ccbcf7557e427ce6722a
+  samples:
+    path: 'paper/00_inputs/climgrass_samples.csv'
+    sha256: 43854857b224ee660febc61b9419920702cbbb5819bc8aa00a6ee7c5fcdb8afa

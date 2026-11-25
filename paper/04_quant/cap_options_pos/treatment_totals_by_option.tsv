@@ -1,0 +1,7 @@
+	ng_current	ng_current	ng_A	ng_A	ng_B	ng_B
+	mean	std	mean	std	mean	std
+treatment						
+ambient	201.6	238.8	55.6	19.3	39.7	14.8
+ambient_drought	548.2	138.3	93.9	11.8	62.1	5.9
+future	163.7	37.0	67.8	8.5	43.3	3.7
+future_drought	642.3	133.4	95.2	3.7	60.2	2.2

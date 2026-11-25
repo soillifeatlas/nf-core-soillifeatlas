@@ -1,0 +1,14 @@
+plot,treatment,warming_co2,drought,dry_mass_g,spike_ng_per_is,used_pos,used_neg,note
+19,ambient,no,no,2.054,10,yes,yes,
+22,ambient,no,no,1.965,10,yes,yes,
+36,ambient,no,no,2.063,10,yes,yes,
+35,future,yes,no,2.065,10,yes,yes,
+40,future,yes,no,2.032,10,yes,yes,
+52,future,yes,no,2.033,10,yes,yes,
+28,ambient_drought,no,yes,2.048,10,yes,yes,
+44,ambient_drought,no,yes,2.063,10,yes,yes,
+49,ambient_drought,no,yes,2.082,10,yes,yes,
+27,future_drought,yes,yes,2.071,10,yes,yes,
+43,future_drought,yes,yes,2.028,10,yes,yes,
+48,future_drought,yes,yes,2.027,10,yes,no,NEG injection failed (no IS)
+50,future_drought,yes,yes,0.178,10,no,yes,replaces 48 in NEG only; low mass so per-gram values ~2x high (composition only)

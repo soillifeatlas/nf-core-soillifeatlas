@@ -12,6 +12,11 @@ nextflow_process {
                 atlas_sha256  = ''
                 atlas_path    = "${projectDir}/tests/fixtures/tiny/tiny_atlas_bundle"
             }
+            process {
+                """
+                input[0] = 'test'  // lib_sig
+                """
+            }
         }
         then {
             assert process.success

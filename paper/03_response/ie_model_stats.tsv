@@ -1,0 +1,5 @@
+model	n_standards	n_classes	r2	rmse_log10	mae_log10	fold_error	best
+random_forest	57	24	0.1579	1.2651	1.0051	18.4125	True
+rf_mechanistic	57	24	0.0966	1.3362	1.0449	21.6874	False
+ridge_mechanistic	57	24	0.0907	1.4034	1.0469	25.3167	False
+ridge	57	24	0.0804	1.4766	1.1026	29.9618	False

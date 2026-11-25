@@ -1,0 +1,30 @@
+date: 2026-11-25T11:37:50+00:00
+export_git_sha: 72ba0e84723208c048ef1a28db4d035fe62a0333
+export_git_dirty: False
+command: 'paper/scripts/atlas_match.py --soil-mgf /lisc/data/work/ter/samrat/sla_workflow_dev/runs/climgrass_both_2ed5d70/results/mzmine/climgrass_pos.fbmn.mgf --library-mgf /lisc/data/work/ter/rahul/sla_reprocess/t3/mzmine_full/full_ann20_fbmn.mgf --presence /lisc/data/work/ter/rahul/sla_reprocess/t3/analysis_pos/a_presence_long.csv --run-provenance /lisc/data/work/ter/samrat/sla_workflow_dev/runs/climgrass_both_2ed5d70/run_provenance.txt --out /lisc/data/work/ter/samrat/sla_workflow_dev/paper_out/06_atlas_match/pos'
+pipeline_run:
+  commit: '2ed5d705013599b1776f3dd2c5b222fb7c9dc13b'
+  branch: 'feat/couvillion-blinded'
+  uncommitted_changes_in_clone: '0'
+  started: '2026-11-25T11:54:57+01:00'
+  nextflow: 'version 25.10.3'
+  finished: '2026-11-25T12:10:37+01:00 (exit 0)'
+  run_provenance_file: '/lisc/data/work/ter/samrat/sla_workflow_dev/runs/climgrass_both_2ed5d70/run_provenance.txt'
+params:
+  ppm: 10.0
+  fragment_tol_da: 0.02
+  min_cosine: 0.7
+  min_matched_peaks: 4
+  top_n_peaks: 50
+  similarity: 'matchms ModifiedCosineGreedy'
+inputs:
+  soil_mgf:
+    path: '/lisc/data/work/ter/samrat/sla_workflow_dev/runs/climgrass_both_2ed5d70/results/mzmine/climgrass_pos.fbmn.mgf'
+    sha256: 8f65aad40203fa837710ecd73f20ac0b73954e9365de20b791157b31a5caf0e9
+  library_mgf:
+    path: '/lisc/data/work/ter/rahul/sla_reprocess/t3/mzmine_full/full_ann20_fbmn.mgf'
+    sha256: 95e598d14260e5fd22745d161b4c77f3aa8fbf53ea78b3e23348b81971038476
+  presence:
+    path: '/lisc/data/work/ter/rahul/sla_reprocess/t3/analysis_pos/a_presence_long.csv'
+    sha256: 1f603fe207052c926660c5c4ef7550af607c6eac4c2bbae2eb2ac5b98b1a7ffc
+notes: 'Library = release reprocessing sla_reprocess/t3 (mzmine_full/full_ann20_fbmn.mgf) limited to features in analysis_pos/a_presence_long.csv.'

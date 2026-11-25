@@ -1,0 +1,34 @@
+date: 2026-11-25T11:11:04+00:00
+export_git_sha: ac355b6ff87120bf09a7e036551b561f2aecc134
+export_git_dirty: False
+command: 'paper/scripts/export_qc.py --results /lisc/data/work/ter/samrat/sla_workflow_dev/runs/climgrass_both_2ed5d70/results --prefix climgrass_pos --run-provenance /lisc/data/work/ter/samrat/sla_workflow_dev/runs/climgrass_both_2ed5d70/run_provenance.txt --out /lisc/data/work/ter/samrat/sla_workflow_dev/paper_out/01_qc/pos'
+pipeline_run:
+  commit: '2ed5d705013599b1776f3dd2c5b222fb7c9dc13b'
+  branch: 'feat/couvillion-blinded'
+  uncommitted_changes_in_clone: '0'
+  started: '2026-11-25T11:54:57+01:00'
+  nextflow: 'version 25.10.3'
+  finished: '2026-11-25T12:10:37+01:00 (exit 0)'
+  run_provenance_file: '/lisc/data/work/ter/samrat/sla_workflow_dev/runs/climgrass_both_2ed5d70/run_provenance.txt'
+params:
+  recon_ul_ASSUMED: 100.0
+  spike_ng: 10.0
+  estd1_ng_per_ul: {'A1': 10.0, 'A2': 5.0, 'A3': 2.5, 'A4': 1.25, 'A5': 0.625, 'A6': 0.3125, 'A7': 0.15625}
+  thresholds_from_run: {'rt_tolerance_min': 0.1, 'is_area_rsd_pct': 20.0, 'mass_accuracy_ppm': 5.0, 'qc_feature_rsd_pct': 30.0, 'qc_feature_pass_fraction': 0.7, 'qc_min_detect_fraction': 0.7, 'is_min_qc_detected': 3, 'is_min_qc_fraction': 0.5, 'qc_drift_pct': 20.0, 'is_qc_shift_window_min': 0.2, 'block_gap_hours': 12.0, 'blank_ratio': 0.2, 'match_ppm': 10.0, 'match_rt_window_min': 0.3}
+inputs:
+  features_full:
+    path: '/lisc/data/work/ter/samrat/sla_workflow_dev/runs/climgrass_both_2ed5d70/results/mzmine/climgrass_pos.features_full.csv'
+    sha256: 8d38b565d2922ecbf81bc92227d25a118ea31c9686636278de01b2187d6ac38e
+  qc_summary:
+    path: '/lisc/data/work/ter/samrat/sla_workflow_dev/runs/climgrass_both_2ed5d70/results/qc/climgrass_pos.qc_summary.json'
+    sha256: 0464fd864fe3547ee382da4e453d70c0cca0fef0d5491317e7c15c7f8a807c2c
+  qc_injections:
+    path: '/lisc/data/work/ter/samrat/sla_workflow_dev/runs/climgrass_both_2ed5d70/results/qc/climgrass_pos.qc_injections.tsv'
+    sha256: 24830590d8f59ad057d9a41a50d8616a1c5ac48a8d3881dcb6471c589deec653
+  qc_is_per_injection:
+    path: '/lisc/data/work/ter/samrat/sla_workflow_dev/runs/climgrass_both_2ed5d70/results/qc/climgrass_pos.qc_is_per_injection.tsv'
+    sha256: 74198f623281228f165df8de4312ae95a0751acfe18c591dee19500959e2b591
+  qc_features:
+    path: '/lisc/data/work/ter/samrat/sla_workflow_dev/runs/climgrass_both_2ed5d70/results/qc/climgrass_pos.qc_features.tsv'
+    sha256: 0ac3d2d0920cdb0e2cc1d81dbdfb4bfa94e8d86aa72c185577e502de67a71ea9
+notes: 'Calibration (OE12-1) acquired 27-28 Mar 2023, soils (OE12-3) 30-31 Mar 2023.'

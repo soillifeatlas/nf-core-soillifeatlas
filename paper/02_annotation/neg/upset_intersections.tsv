@@ -1,0 +1,13 @@
+intersection	n_features	n_sources
+LipidSearch	488	1
+SIRIUS/CANOPUS	194	1
+MZmine lipid rules	116	1
+LipidSearch; MZmine lipid rules	99	2
+LipidSearch; SIRIUS/CANOPUS	63	2
+LipidSearch; MZmine lipid rules; SIRIUS/CANOPUS	23	3
+LipidSearch; MZmine lipid rules; spectral library	19	3
+LipidSearch; spectral library	4	2
+MZmine lipid rules; SIRIUS/CANOPUS	3	2
+LipidSearch; MZmine lipid rules; SIRIUS/CANOPUS; spectral library	2	4
+spectral library	1	1
+SIRIUS/CANOPUS; spectral library	1	2

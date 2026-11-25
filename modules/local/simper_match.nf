@@ -6,6 +6,7 @@ process SIMPER_MATCH {
     tuple val(meta), path(soil_mgf)
     path atlas_mgf
     path simper_atlas
+    val lib_sig  // libSignature(): package code is part of the task hash
 
     output:
     tuple val(meta), path("${meta.id}_verified_matches.parquet"), emit: matches
@@ -31,6 +32,7 @@ process SIMPER_MATCH {
     "${task.process}":
         python: \$(python3 --version | sed 's/Python //')
         soillifeatlas: \$(python3 -c 'import soillifeatlas; print(soillifeatlas.__version__)')
+        soillifeatlas_code: ${lib_sig}
         matchms: \$(python3 -c 'import matchms; print(matchms.__version__)')
     END_VERSIONS
     """

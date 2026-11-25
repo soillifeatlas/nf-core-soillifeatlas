@@ -1,33 +1,60 @@
 {
     "$schema": "https://json-schema.org/draft/2020-12/schema",
-    "$id": "https://raw.githubusercontent.com/soillifeatlas/soillifeatlas/master/assets/schema_input.json",
-    "title": "soillifeatlas/soillifeatlas pipeline - params.input schema",
-    "description": "Schema for the file provided with params.input",
+    "$id": "https://raw.githubusercontent.com/soillifeatlas/nf-core-soillifeatlas/main/assets/schema_input.json",
+    "title": "soillifeatlas/nf-core-soillifeatlas - sample sheet (process mode)",
+    "description": "One row per raw or mzML file. The role column tells the workflow what each injection is for.",
     "type": "array",
     "items": {
         "type": "object",
         "properties": {
-            "sample": {
-                "type": "string",
-                "pattern": "^\\S+$",
-                "errorMessage": "Sample name must be provided and cannot contain spaces",
-                "meta": ["id"]
-            },
-            "fastq_1": {
+            "file": {
                 "type": "string",
                 "format": "file-path",
                 "exists": true,
-                "pattern": "^([\\S\\s]*\\/)?[^\\s\\/]+\\.f(ast)?q\\.gz$",
-                "errorMessage": "FastQ file for reads 1 must be provided, cannot contain spaces and must have extension '.fq.gz' or '.fastq.gz'"
+                "pattern": "^\\S+\\.([Rr][Aa][Ww]|[Mm][Zz][Mm][Ll])$",
+                "errorMessage": "file must be an existing Thermo .raw or .mzML file without spaces in its path"
             },
-            "fastq_2": {
+            "polarity": {
                 "type": "string",
-                "format": "file-path",
-                "exists": true,
-                "pattern": "^([\\S\\s]*\\/)?[^\\s\\/]+\\.f(ast)?q\\.gz$",
-                "errorMessage": "FastQ file for reads 2 cannot contain spaces and must have extension '.fq.gz' or '.fastq.gz'"
+                "enum": ["pos", "neg"],
+                "errorMessage": "polarity must be 'pos' or 'neg'",
+                "meta": ["polarity"]
+            },
+            "role": {
+                "type": "string",
+                "enum": ["sample", "pooled_qc", "blank", "extraction_blank", "nist", "standard_cal", "conditioning"],
+                "errorMessage": "role must be one of: sample, pooled_qc, blank, extraction_blank, nist, standard_cal, conditioning",
+                "meta": ["role"]
+            },
+            "group": {
+                "type": "string",
+                "meta": ["group"]
+            },
+            "batch": {
+                "type": "string",
+                "meta": ["batch"]
+            },
+            "dry_mass_g": {
+                "type": "number",
+                "minimum": 0,
+                "meta": ["dry_mass_g"]
+            },
+            "extract_mg": {
+                "type": "number",
+                "minimum": 0,
+                "meta": ["extract_mg"]
+            },
+            "spike_ng": {
+                "type": "number",
+                "minimum": 0,
+                "meta": ["spike_ng"]
+            },
+            "volume_ul": {
+                "type": "number",
+                "minimum": 0,
+                "meta": ["volume_ul"]
             }
         },
-        "required": ["sample", "fastq_1"]
+        "required": ["file", "polarity", "role"]
     }
 }

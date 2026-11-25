@@ -1,0 +1,19 @@
+date: 2026-11-25T12:18:28+00:00
+export_git_sha: c4e944a1d8d014bad1b5ffdd56d8a23fea6195c3
+export_git_dirty: False
+command: 'paper/scripts/application.py --quant paper/04_quant/pos --out paper/08_application/pos'
+params:
+  test: 'two-way ANOVA (type II) on log10 ng/g, drought x future climate, n = 3 plots per cell'
+  correction: 'Benjamini-Hochberg per effect'
+  fdr: 0.05
+  inclusion: '>= 2 quantified plots in every treatment; one feature per unique lipid'
+inputs:
+  estimates_long:
+    path: 'paper/04_quant/pos/estimates_long.tsv'
+    sha256: a999d71da40dfca8791303cf049f06611e98e4ddcc7618c400e659e50b736924
+  class_by_sample:
+    path: 'paper/04_quant/pos/class_by_sample.tsv'
+    sha256: 5a1d2dbbc497d95551ef24f617973717aa562e33a5d7af1febf6a009674af304
+  per_lipid:
+    path: 'paper/04_quant/pos/per_lipid.tsv'
+    sha256: 1ea2fa53c2cfe57803a99811a1b13fb14a03d1d8f230ccbcf7557e427ce6722a
