@@ -1,0 +1,3 @@
+soil_feature_id	soil_mz	ref_feature_id	ref_mz	ppm	cosine	matched_peaks	ref_phyla	n_ref_phyla	lipid_name	confidence	rt	role
+21718	524.37012	226620	524.36887	-2.383812411026175	0.9991	20	Actinomycetota;Arthropoda;Ascomycota;Basidiomycota;Chlorophyta;Discosea;Evosea;Heterolobosea;Methanobacteriota;Mollusca;Mucoromycota;Nematoda;Streptophyta	13	LPC 18:0	Gold	5.4375	broad
+41748	699.54471	520293	699.54216	-3.645228051316432	0.9659	17	Arthropoda	1	SM 34:3	Silver	11.9216	restricted

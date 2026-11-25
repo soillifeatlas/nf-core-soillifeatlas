@@ -1,0 +1,26 @@
+date: 2026-11-25T11:40:31+00:00
+export_git_sha: 55e00873c670879f381e865c6539a9454d8a4996
+export_git_dirty: False
+command: 'paper/scripts/export_examples.py --match-dir paper/06_atlas_match/pos --soil-mgf /lisc/data/work/ter/samrat/sla_workflow_dev/runs/climgrass_both_2ed5d70/results/mzmine/climgrass_pos.fbmn.mgf --library-mgf /lisc/data/work/ter/rahul/sla_reprocess/t3/mzmine_full/full_ann20_fbmn.mgf --annotations paper/02_annotation/pos/annotations.tsv --responsive paper/08_application/pos/responsive.tsv --examples 21718,41748 --out /lisc/data/work/ter/samrat/sla_workflow_dev/paper_out/06_atlas_match/examples'
+params:
+  examples: ['21718', '41748']
+  selection: 'Gold, unflagged; broad = most phyla, restricted = one phylum, highest cosine (proposed, to confirm)'
+inputs:
+  best_match:
+    path: 'paper/06_atlas_match/pos/best_match.tsv'
+    sha256: 1fd2fb18b358c08db6343af56651a14ec25944799b90e36e5404a4d1182cdc17
+  phylum_detection:
+    path: 'paper/06_atlas_match/pos/phylum_detection.tsv'
+    sha256: 83c7362d667399e7695042959e4bc1326f7e6d99692f58a2caf03310188ebfcd
+  soil_mgf:
+    path: '/lisc/data/work/ter/samrat/sla_workflow_dev/runs/climgrass_both_2ed5d70/results/mzmine/climgrass_pos.fbmn.mgf'
+    sha256: 8f65aad40203fa837710ecd73f20ac0b73954e9365de20b791157b31a5caf0e9
+  library_mgf:
+    path: '/lisc/data/work/ter/rahul/sla_reprocess/t3/mzmine_full/full_ann20_fbmn.mgf'
+    sha256: 95e598d14260e5fd22745d161b4c77f3aa8fbf53ea78b3e23348b81971038476
+  annotations:
+    path: 'paper/02_annotation/pos/annotations.tsv'
+    sha256: c79645cc05fe4dff3916b757befc8be7e755ea8f327ea6ac2600d42db78c1631
+  responsive:
+    path: 'paper/08_application/pos/responsive.tsv'
+    sha256: c2109ef03a95c20c6ccd470accd5151595928e2dd6b6d599c88d784774eeac11

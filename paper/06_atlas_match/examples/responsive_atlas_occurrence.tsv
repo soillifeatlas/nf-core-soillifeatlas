@@ -1,0 +1,16 @@
+feature_id	lipid_name	lipid_class	confidence	quant_route	log2fc_drought_vs_ambient	q_drought	ref_feature_id	cosine	matched_peaks	n_ref_phyla	ref_phyla
+51630	PC 30:1	PC	Silver	Q1	-0.775566280332767	0.002274804285858305	643259	0.9744	38.0	10.0	Actinomycetota;Arthropoda;Ascomycota;Bacillota;Chlorophyta;Discosea;Heterolobosea;Mucoromycota;Nematoda;Pseudomonadota
+60957	Cer d36:3	Cer	Silver	Q1	-1.1539528960520418	0.002274804285858305	733221	0.8398	32.0	3.0	Arthropoda;Chlorophyta;Streptophyta
+54881	PG 16:0_17:0	PG	Gold	Q3	-1.0149046930213264	0.0038970485452980205	661564	0.8848	33.0	5.0	Actinomycetota;Ascomycota;Bacillota;Mucoromycota;Streptophyta
+49516	PC 29:1	PC	Silver	Q1	-0.7362178917541276	0.012757690149076403					
+11599	LPC 16:0	LPC	Gold	Q1	-1.7625271647978733	0.020726232168921197	82901	0.8633	26.0	4.0	Arthropoda;Ascomycota;Basidiomycota;Methanobacteriota
+19931	TG 4:0_6:0_16:0+OOs	TG	Gold	Q3	1.0217939372198277	0.020726232168921197	204462	0.9005	29.0	4.0	Chlorophyta;Mollusca;Mucoromycota;Streptophyta
+48067	PC 30:2	PC	Silver	Q1	-0.7627528647889431	0.020726232168921197					
+13591	LPC 17:0	LPC	Gold	Q1	-1.7537842908701884	0.028235937528577754	140099	0.9832	24.0	7.0	Actinomycetota;Arthropoda;Discosea;Evosea;Mollusca;Nematoda;Streptophyta
+50995	PC 28:0	PC	Silver	Q1	-0.6043150389731531	0.031626050176276815					
+58345	Cer d18:1_17:0	Cer	Gold	Q1	-0.9082527696347187	0.031626050176276815	703969	0.9918	41.0	5.0	Arthropoda;Ascomycota;Basidiomycota;Heterolobosea;Streptophyta
+26854	TG 28:1	TG	Silver	Q3	1.0980238054520486	0.03560171242194191	255294	0.8188	35.0	3.0	Mollusca;Mucoromycota;Streptophyta
+55712	Cer d18:1_16:0	Cer	Gold	Q1	-1.245289610099371	0.037231080376993124	683141	0.9584	27.0	7.0	Actinomycetota;Arthropoda;Ascomycota;Basidiomycota;Chlorophyta;Mucoromycota;Streptophyta
+48888	Cer d17:0_15:0+Os	Cer	Gold	Q1	-0.7697397144230222	0.03855878210656408	595445	0.9687	34.0	2.0	Basidiomycota;Mucoromycota
+49652	PC 36:4	PC	Silver	Q1	1.072467580438424	0.039178394665446925	566711	0.9999	14.0	10.0	Actinomycetota;Arthropoda;Ascomycota;Bacillota;Basidiomycota;Heterolobosea;Methanobacteriota;Mucoromycota;Pseudomonadota;Streptophyta
+19523	TG	TG	Bronze	Q3	1.103376159634418	0.0490155202212345	203001	0.9256	36.0	4.0	Ascomycota;Basidiomycota;Mucoromycota;Streptophyta
