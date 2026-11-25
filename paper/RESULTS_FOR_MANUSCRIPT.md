@@ -13,7 +13,7 @@ recomputed value happens to equal an old one (POS 90.6 %), the source is now the
 
 | Manuscript item | Value / sentence | Source |
 |---|---|---|
-| §2.1 reference collection, replicates, alignment, consensus spectra | Not settled here (issue #7). Release 0.9 draft counts: 168 POS / 195 NEG reference samples, 19 phyla collected (16 analysed), 106 genera, 6 groups, 6 batches; 11,371 POS / 5,697 NEG Atlas lipids. | `~/Desktop/SoilLifeAtlas/release/release.json` (draft, SLA `fd7e820`) |
+| §2.1 reference collection, replicates, alignment, consensus spectra | Not settled here (issue #7). Release 0.9 draft counts: 168 POS / 195 NEG reference samples, 19 phyla collected (16 analysed), 106 genera, 6 groups, 6 batches; 11,371 POS / 5,697 NEG Atlas lipids. Which count goes where (collected vs analysed vs matching denominators): `06_atlas_match/ATLAS_COUNTS.md`. | `~/Desktop/SoilLifeAtlas/release/release.json` (draft, SLA `fd7e820`) |
 | §2.2 sample mass, spike, volumes | ~2 g freeze-dried soil (1.965–2.082 g; plot 50: 0.178 g); 10 µL of 1 ng µL⁻¹ EquiSPLASH = 10 ng per standard before extraction; NIST SRM 1950: 50 µL plasma per extraction batch. **Reconstitution volume, injection volume, column, gradient, MS settings: still to fill** (not found in Notion E5). | `00_inputs/climgrass_samples.csv`, `00_inputs/SOURCES.md` |
 | §2.6 thresholds, ranking, flagged annotations | Unchanged from the pipeline at `2ed5d70` (see `lib/soillifeatlas/annotate.py`); flagged annotations are kept and marked (`flags` column), confidence is not lowered. | `02_annotation/*/annotations.tsv` |
 | §2.7 recovery, volume factors, calibration fitting | R_app = m_found / m_spiked; m_found from a log–log fit of area on nominal ESTD-1 concentration (EquiSPLASH 10 ng µL⁻¹ at A1, 2-fold to A7), × reconstitution volume (**assumed 100 µL, to confirm**). No post-extraction spikes → matrix effect not separable. | `01_qc/*/is_vs_calibration.tsv` |
@@ -45,7 +45,7 @@ Report screenshot: `09_report/report_pos.html`. Real sample sheet for Fig. 2B:
 - Annotated features: POS 2,692 of 96,729 (Gold 595, Silver 1,578, Bronze 519; 2,079 unique Gold/Silver lipids after collapsing adducts); NEG 1,013 of 20,280 (Gold 309, Silver 510, Bronze 194; 805 unique). → `02_annotation/*/confidence.tsv`, `summary.tsv`
 - Sources (POS set sizes): LipidSearch 1,741, SIRIUS/CANOPUS 801, MZmine lipid rules 487, spectral library 174; largest exclusive intersections LipidSearch only 1,388, SIRIUS only 519, MZmine only 328, LipidSearch + SIRIUS 179. NEG: 698 / 286 / 262 / 27. → `02_annotation/*/upset_sets.tsv`, `upset_intersections.tsv`
 - Classes (POS features / unique lipids): TG 720/696, DG 519/516, PC 478/440, Cer 168/165, PE 122/120, PI 115/111, SM 102/96, MG 97/96. NEG: FA 252/245, PE 143/143, Cer 106/105, PC 96/96, PI 88/87. → `02_annotation/*/classes.tsv`
-- Chemical consistency: RT outliers POS 591 of 1,468 tested (TG alone 258), NEG 7 of 367; implausible compositions POS 191, NEG 15. PC RT model (Fig. 4D): POS 177 within tolerance, 92 outliers, 60 untested (ether PC 149 untested); NEG in `rt_model_PC.tsv`. → `02_annotation/*/rt_model_PC.tsv`
+- Chemical consistency: RT outliers POS 591 of 1,468 tested (TG alone 258; the TG fit itself is adequate — accepted TG R² 0.96, median |residual| 0.18 min — and 243 of the 246 diacyl/triacyl TG outliers elute earlier than predicted, 245 named by LipidSearch, so they mark misassigned names: `02_annotation/pos/rt_model_check.md`), NEG 7 of 367; implausible compositions POS 191, NEG 15. PC RT model (Fig. 4D): POS 177 within tolerance, 92 outliers, 60 untested (ether PC 149 untested); NEG in `rt_model_PC.tsv`. → `02_annotation/*/rt_model_PC.tsv`
 - Atlas matching contribution: see §3.6 (separate from the annotation counts).
 
 ### §3.5 Response, recovery, routes
@@ -54,22 +54,25 @@ Report screenshot: `09_report/report_pos.html`. Real sample sheet for Fig. 2B:
 - Apparent recovery R_app (Fig. 5C), median across soils, **with the assumed 100 µL reconstitution volume**: POS Cer 375 %, LPC 228 %, SM 166 %, PC 153 %, PE 95 %, LPE 75 % (1 soil); NEG Cer 109 %. Values > 100 % point to the volume assumption or to the calibration being run 3 days earlier, not to real gains; do not report until the volume is confirmed. → `01_qc/*/is_vs_calibration.tsv`
 - Matrix effect: not computed (no post-extraction spikes).
 - Routes: POS Q1 916 features (865 unique lipids), Q2 0, Q3 1,776 (1,733), Q4 94,037 (97.2 % of features); NEG Q1 106 (105), Q2 0, Q3 907 (894), Q4 19,267. Q3 response factor hit the 0.1–10 limit for 1,516 of 2,692 POS features (most at 10) and 435 of 1,013 NEG. → `04_quant/*/route_counts.tsv`, `per_lipid.tsv`
+- How Q1 standards were matched (`is_match`): POS Q1 class 428 features (415 unique lipids) + family 488 (450: 478 PC on the LPC standard, 10 LPE on the PE standard; the PC standard was detected in only 4 soils); NEG Q1 all class (106). Q3 always nearest RT. **Open question: should family matches stay Q1?** → `04_quant/*/route_match_counts.tsv`, `per_lipid.tsv` (`is_match`)
+- **Under review (review 2026-11-25, not yet applied):** the Q3 cap is an adduct error — analytes are scored at the standard's adduct ([M+H]⁺), so TG, DG, MG, PI, PG get f ≈ 50–100,000 and 89–98 % are capped at 10 (`04_quant/CAP_DIAGNOSIS.md`). And class sums mix lipids that have an amount in only some soils: the PE standard was detected in all drought soils and plot 19 only, so those soils get ~1,150–1,520 lipids with amounts vs 547–918 elsewhere (`04_quant/PLOT19_CHECK.md`). The class amounts and totals below are therefore provisional; option values are in those two files.
 - Class amounts per g dry soil (Fig. 5F), POS, mean of all 12 soils by class: TG 239, DG 66, PC 34, MG 16, PE 9 µg g⁻¹; NEG: FA 35, PC 11, Cer 1.8, DGDG 1.8 µg g⁻¹. → `04_quant/*/class_by_sample.tsv`, `08_application/*/class_profiles.tsv`
 - NIST SRM 1950 (Fig. 5E), three extracts of 50 µL plasma in the ClimGrass sequence, against the consensus MEDM values (nmol/mL, ≥ 5 laboratories; Bowden et al. 2017 / NISTIR 8185): POS 84 lipids compared, Spearman ρ = 0.84 (log scale), median estimate/consensus ratio 0.92, 36 % within 2-fold; Q1 (n = 76) median ratio 1.02, Q3 (n = 8) 0.28. NEG 69 lipids, ρ = 0.69, median ratio 0.34 (67 of 69 by Q3). The most abundant PCs (34:1, 36:2, 36:4, 38:4, 38:6) are 4–5-fold high; SM and LPC within 0.8–1.5-fold. → `05_nist/*/nist_summary.tsv`, `nist_comparison.tsv`
 
 ### §3.6 Interpretation and application
-- Soil-to-Atlas matching (POS; 10 ppm, modified cosine ≥ 0.7, ≥ 4 fragments, 0.02 Da): 9,618 of 21,982 soil features with MS/MS (43.8 %) match a reference spectrum, hitting 7,597 reference features; library = 149,580 reference spectra detected in ≥ 1 of 162 reference samples (16 phyla) of the release reprocessing. Matched features occur in a median of 3 phyla. 1,773 matched features also carry an annotation (Gold 395, Silver 1,026, Bronze 352). NEG not run. → `06_atlas_match/pos/coverage.tsv`, `best_match.tsv`
+- Soil-to-Atlas matching (POS; 10 ppm, modified cosine ≥ 0.7, ≥ 4 fragments, 0.02 Da): 9,618 of 21,982 soil features with MS/MS (43.8 %) match a reference spectrum, hitting 7,597 reference features; library = 149,580 reference spectra detected in ≥ 1 of 161 reference samples (16 phyla) of the release reprocessing. Matched features occur in a median of 3 phyla. 1,773 matched features also carry an annotation (Gold 395, Silver 1,026, Bronze 352). NEG not run. → `06_atlas_match/pos/coverage.tsv`, `best_match.tsv`
 - Examples (proposed, to confirm): broad, **LPC 18:0** (Gold, RT 5.44 min) – cosine 0.999, 20 fragments, reference feature in 13 phyla (e.g. Evosea 5/5, Arthropoda 9/11, Ascomycota 13/27 samples); restricted, **SM 34:3** (Silver, RT 11.92 min) – cosine 0.966, 17 fragments, Arthropoda only (7/11 samples). Mirror spectra and detection per phylum → `06_atlas_match/examples/`
 - Atlas occurrence of the drought-responsive POS lipids: 12 of 15 match a reference spectrum (e.g. PC 30:1, 10 phyla; Cer d18:1_17:0, 5 phyla; Cer d17:0_15:0+Os, 2 phyla). → `06_atlas_match/examples/responsive_atlas_occurrence.tsv`
-- Total lipid amounts (POS, Q1–Q3, µg g⁻¹, mean ± SD of 3 plots): ambient 202 ± 239, future 164 ± 37, ambient+drought 548 ± 138, future+drought 642 ± 133; NEG 51 ± 9, 64 ± 15, 35 ± 31, 54 ± 22 (NEG future+drought includes plot 50, biased high). → `08_application/*/total_by_treatment.tsv`
-- Responsive lipids: of 452 POS and 514 NEG unique lipids tested, 15 per polarity change with drought (q < 0.05); none with future climate or the interaction. → `08_application/*/test_summary.tsv`, `responsive.tsv`
+- Total lipid amounts (**provisional, see above**; POS, Q1–Q3, µg g⁻¹, mean ± SD of 3 plots): ambient 202 ± 239, future 164 ± 37, ambient+drought 548 ± 138, future+drought 642 ± 133; NEG 51 ± 9, 64 ± 15, 35 ± 31, 54 ± 22 (NEG future+drought includes plot 50, biased high). → `08_application/*/total_by_treatment.tsv`
+- Responsive lipids (**provisional**: amounts depend on the Q3 fix; the per-lipid ANOVA needs ≥ 2 plots per treatment, so lipids on the PE standard enter mainly through drought soils): of 452 POS and 514 NEG unique lipids tested, 15 per polarity change with drought (q < 0.05); none with future climate or the interaction. → `08_application/*/test_summary.tsv`, `responsive.tsv`
 - Kept separate from the companion paper's kingdom/phylum decomposition (not used here).
 
 ## Placeholder register: status after this work
 
 | Figure / panel | Now | Source |
 |---|---|---|
-| 1A, 1B, 1D | unchanged (issue #7, not in this pass) | — |
+| 1A | REAL as before (168 POS samples / 19 phyla collected); counts reconciled — occurrence statements use 16 analysed phyla | `06_atlas_match/ATLAS_COUNTS.md` |
+| 1B, 1D | unchanged (issue #7, not in this pass) | — |
 | 2A | still SHOWN AS BUILT for stages 5–7 in Nextflow; scripts exist | `scripts/` |
 | 2B | **REAL** | `09_report/samplesheet_climgrass_pos.csv` |
 | 2C | unchanged (#10) | — |
@@ -87,13 +90,13 @@ Report screenshot: `09_report/report_pos.html`. Real sample sheet for Fig. 2B:
 | 5C | PARTLY: depends on reconstitution volume | `01_qc/*/is_vs_calibration.tsv` |
 | 5D | SCHEMATIC, now matches the code (option A) | `lib/soillifeatlas/quantify.py` |
 | 5E | **REAL** (keep the panel) | `05_nist/*/nist_comparison.tsv` |
-| 5F | **REAL** (semi-quantitative, Q3 capped) | `04_quant/*/class_by_sample.tsv` |
+| 5F | PROVISIONAL (real run; Q3 adduct error and uneven standard coverage under review) | `04_quant/*/class_by_sample.tsv`, `CAP_DIAGNOSIS.md`, `PLOT19_CHECK.md` |
 | 6A–C | **REAL** (examples proposed, to confirm) | `06_atlas_match/examples/` |
 | 6D, 1D | unchanged (Explorer screenshots, #7) | — |
 | 7A ClimGrass | REAL (unchanged) | — |
 | 7A drying–rewetting | unchanged (#11, blinded) | — |
-| 7B | **REAL** | `08_application/*/class_profiles.tsv` |
-| 7C | **REAL** | `08_application/*/responsive.tsv` |
+| 7B | PROVISIONAL (same reasons as 5F) | `08_application/*/class_profiles.tsv` |
+| 7C | PROVISIONAL (amounts; tests to rerun after the fix) | `08_application/*/responsive.tsv` |
 | 7D | **REAL** | `06_atlas_match/examples/responsive_atlas_occurrence.tsv` |
 | 7E | REAL pieces exist (route, amount, match, occurrence); pick one lipid | `08_application/pos/responsive.tsv` + above |
 | Graphical abstract bars | unchanged | — |
