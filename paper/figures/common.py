@@ -190,3 +190,27 @@ class Panels:
         src = sorted({f for k in (keys or []) for f in r.get(k, [])})
         self.rows.append({"figure": self.figure, "name": self.name, "role": self.role,
                           "panel": panel, "status": status, "sources": src, "note": note})
+
+
+# --------------------------------------------------------------------------- shared vocabulary
+# One meaning per colour in the main figures: soil = slate, Atlas = teal, named/annotated =
+# mid grey, no match = light grey; organism groups use Paul Tol's colour-blind-safe set.
+SOIL = "#3B4A5A"
+ATLAS = "#009988"
+NAMED = "#8C8C8C"
+NOMATCH = "#DADADA"
+GROUP_ORDER = ["Bacteria", "Archaea", "Fungi", "Protists", "Plants", "Soil animals"]
+GROUP_COLOR = {"Bacteria": "#4477AA", "Archaea": "#AA3377", "Fungi": "#CCBB44",
+               "Protists": "#66CCEE", "Plants": "#117733", "Soil animals": "#EE6677"}
+
+
+def atlas_groups() -> pd.DataFrame:
+    """Phylum -> organism group, exported from the release by export_groups.py."""
+    return read_table("figures/inputs/atlas_groups.csv")
+
+
+def finding(ax, tag: str, text: str, x: float = 0.0, y: float = 1.04) -> None:
+    """Panel letter followed by a one-line finding (the take-home message)."""
+    ax.text(x, y, tag, transform=ax.transAxes, fontsize=9, fontweight="bold", va="bottom",
+            ha="right")
+    ax.text(x + 0.012, y, text, transform=ax.transAxes, fontsize=7, va="bottom", ha="left")

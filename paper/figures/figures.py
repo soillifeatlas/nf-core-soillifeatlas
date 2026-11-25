@@ -31,21 +31,19 @@ def _not_built(figure, name, role, why, panels):
 # ------------------------------------------------------------------------------------ main
 def fig2_atlas():
     P = Panels(2, "atlas_matching")
-    fig = plt.figure(figsize=(DOUBLE, 150 * MM))
-    gs = fig.add_gridspec(2, 3, height_ratios=[0.75, 1.3], width_ratios=[1, 1.05, 0.95],
-                          hspace=0.45, wspace=0.75, left=0.17, right=0.98, top=0.93, bottom=0.09)
-    title = atlas.coverage(fig.add_subplot(gs[0, :]))
-    fig_letter(fig, "A", 0.005, 0.985, title)
+    fig = plt.figure(figsize=(DOUBLE, 115 * MM))
+    gs = fig.add_gridspec(2, 3, height_ratios=[0.3, 1], width_ratios=[0.9, 1, 1.1],
+                          hspace=0.55, wspace=0.75, left=0.07, right=0.9, top=0.92, bottom=0.14)
+    atlas.coverage(fig.add_subplot(gs[0, :]), "A")
     P.add("A", "REAL", "POS; " + atlas.match_settings(), ["atlas_coverage"])
     atlas.breadth(fig.add_subplot(gs[1, 0]), "B")
-    P.add("B", "REAL", "occurrence = phyla where the matched reference feature is detected",
+    P.add("B", "REAL", "organism groups from the release (figures/inputs/atlas_groups.csv)",
           ["atlas_breadth"])
-    atlas.per_phylum(fig.add_subplot(gs[1, 1]), "C")
-    P.add("C", "REAL", "raw counts; phyla differ in reference sample numbers (in brackets)",
-          ["atlas_per_phylum"])
-    atlas.class_breadth(fig.add_subplot(gs[1, 2]), "D")
-    P.add("D", "REAL", "10 most frequent classes among annotated matches",
-          ["atlas_class_breadth"])
+    atlas.per_group(fig.add_subplot(gs[1, 1]), "C")
+    P.add("C", "REAL", "% of matched features; reference samples per group in brackets "
+          "(matching denominators)", ["atlas_per_group"])
+    atlas.class_by_group(fig.add_subplot(gs[1, 2]), "D")
+    P.add("D", "REAL", "8 most frequent classes among named matches", ["atlas_class_group"])
     return save(fig, 2, "atlas_matching"), P.rows
 
 
@@ -75,15 +73,19 @@ def fig3_workflow():
 
 def fig4_interpretation():
     P = Panels(4, "interpretation")
-    fig = plt.figure(figsize=(DOUBLE, 120 * MM))
-    gs = fig.add_gridspec(2, 2, width_ratios=[1.3, 1], hspace=0.55, wspace=0.42, left=0.08,
-                          right=0.98, top=0.93, bottom=0.1)
-    interp.mirror(fig.add_subplot(gs[0, 0]), "broad", "A")
-    P.add("A", "REAL", "example proposed, to confirm", ["mirror_broad"])
-    interp.mirror(fig.add_subplot(gs[1, 0]), "restricted", "B")
-    P.add("B", "REAL", "example proposed, to confirm", ["mirror_restricted"])
-    interp.phylum_detection(fig.add_subplot(gs[:, 1]), "C")
-    P.add("C", "REAL", "only phyla where either lipid is detected", ["phylum_detection"])
+    fig = plt.figure(figsize=(DOUBLE, 110 * MM))
+    gs = fig.add_gridspec(2, 2, height_ratios=[1, 0.62], hspace=0.62, wspace=0.25, left=0.1,
+                          right=0.86, top=0.92, bottom=0.18)
+    interp.mirror(fig.add_subplot(gs[0, 0]), "broad", "A",
+                  "{name}: soil spectrum matches a widespread reference ({phyla})")
+    P.add("A", "REAL", "zoomed to m/z 40–precursor+25; example proposed, to confirm",
+          ["mirror_broad"])
+    interp.mirror(fig.add_subplot(gs[0, 1]), "restricted", "B",
+                  "{name}: soil spectrum matches a restricted reference ({phyla})")
+    P.add("B", "REAL", "zoomed; one reference peak above the range noted in the panel",
+          ["mirror_restricted"])
+    interp.occurrence_matrix(fig.add_subplot(gs[1, :]), "C")
+    P.add("C", "REAL", "all 16 analysed phyla, grouped by organism group", ["phylum_detection"])
     return save(fig, 4, "interpretation"), P.rows
 
 

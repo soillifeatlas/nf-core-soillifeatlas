@@ -1,0 +1,20 @@
+group_id,group,phylum,samples_pos,samples_neg,analysed
+bact,Bacteria,Bacillota,25,28,True
+bact,Bacteria,Actinomycetota,15,19,True
+bact,Bacteria,Pseudomonadota,8,8,True
+bact,Bacteria,Cyanobacteriota,2,1,False
+arch,Archaea,Methanobacteriota,16,17,True
+arch,Archaea,Thermoproteota,3,4,True
+fung,Fungi,Ascomycota,27,32,True
+fung,Fungi,Basidiomycota,10,11,True
+fung,Fungi,Mucoromycota,7,7,True
+fung,Fungi,Mortierellomycota,1,1,False
+prot,Protists,Discosea,7,6,True
+prot,Protists,Evosea,5,5,True
+prot,Protists,Heterolobosea,5,2,True
+prot,Protists,Cercozoa,1,1,False
+plant,Plants,Streptophyta,14,16,True
+plant,Plants,Chlorophyta,5,10,True
+faun,Soil animals,Arthropoda,11,22,True
+faun,Soil animals,Nematoda,4,3,True
+faun,Soil animals,Mollusca,2,2,True

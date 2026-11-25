@@ -1,0 +1,19 @@
+exported: '2026-11-25T12:56:46+00:00'
+command: python paper/figures/export_groups.py <release.json>
+source_file: SoilLifeAtlas/release/release.json
+source_sha256: a9173951f14947732966251c823c7e4bfa487b881d83ee56d5f6bf667deb0e72
+release:
+  version: '0.9'
+  status: draft
+  date: '2026-10-19'
+  counts_source: Chapter 4 draft (2026-10-15) and Paper 2 draft (2026-10-05); still
+    changing while the data are reprocessed
+  label: Release 0.9 (draft)
+  sla_commit: fd7e820
+taxonomy:
+  source: NCBI Taxonomy
+  snapshot: '2026-08-04'
+  release: ncbi-phylum-2026-08-04-v1
+  replication_rule: n >= 2 in both polarities
+n_groups: 6
+n_phyla: 19
