@@ -1,7 +1,7 @@
-built: '2026-11-25T13:38:05+00:00'
+built: '2026-11-25T13:38:12+00:00'
 command: python paper/figures/build_all.py
-repo_head: 275fc96
-paper_figures_dirty: true
+repo_head: 7cc2f75
+paper_figures_dirty: false
 gates:
   reconstitution_volume_confirmed: false
   stage5_fix_confirmed: false
