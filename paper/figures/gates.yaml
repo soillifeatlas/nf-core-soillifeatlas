@@ -11,5 +11,5 @@ reconstitution_volume_confirmed: false
 stage5_fix_confirmed: true
 
 # Lipid traced in Fig 5D (lipid_name from 08_application/pos/responsive.tsv), e.g. "PC 30:1".
-# Fig 5 is drawn without panel D until this is set.
-fig7E_lipid: null
+# Fig 5 is drawn without panel D while this is null.
+fig7E_lipid: "PC 30:1"   # Rahul, 2026-11-25

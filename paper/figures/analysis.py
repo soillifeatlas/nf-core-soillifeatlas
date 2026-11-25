@@ -25,7 +25,7 @@ import yaml
 
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 
-from common import (FIG_DIR, GROUP_ORDER, atlas_groups, read_table, read_yaml,  # noqa: E402
+from common import (FIG_DIR, GROUP_ORDER, atlas_groups, gates, read_table, read_yaml,  # noqa: E402
                     reads, reset_reads, set_panel)
 
 DERIVED = FIG_DIR / "derived"
@@ -39,8 +39,11 @@ SOURCES: dict[str, list[str]] = {}
 
 
 def table(name: str, df: pd.DataFrame) -> None:
+    """Record a plot-ready table with the paper/ files read so far in the current section."""
+    import common
     TABLES[name] = df.reset_index(drop=True)
-    SOURCES[name] = reads().get(name, [])
+    SOURCES[name] = sorted(set(reads().get(name, [])) |
+                           set(reads().get(common._current_panel[0], [])))
 
 
 def number(key: str, value, group: str) -> None:
@@ -465,6 +468,21 @@ def application():
           [["feature_id", "lipid_name", "n_ref_phyla", "cosine"]])
     trace = resp["pos"].merge(occ[["feature_id", "cosine", "n_ref_phyla"]], on="feature_id",
                               how="left")
+    # organism groups of the reference phyla of each responsive POS lipid (Fig 5D)
+    grp = atlas_groups()
+    grp = grp[grp.analysed.astype(str) == "True"]
+    n_an = grp.groupby("group").phylum.size()
+    gmap = grp.set_index("phylum").group
+    rows_g = []
+    for _, r in occ.iterrows():
+        ref = set(str(r.ref_phyla).split(";")) if pd.notna(r.ref_phyla) else set()
+        for g in GROUP_ORDER:
+            rows_g.append({"lipid_name": r.lipid_name, "group": g,
+                           "n_phyla_with_ref": sum(gmap.get(x) == g for x in ref),
+                           "n_phyla_analysed": int(n_an.get(g, 0))})
+    table("app_trace_groups", pd.DataFrame(rows_g))
+    lipid = gates().get("fig7E_lipid")  # chosen by Rahul in gates.yaml; drawn as Fig 5D
+    number("app_trace_lipid", lipid or "none", "app")
     table("app_trace", trace[["lipid_name", "confidence", "quant_route", "q_drought", "cosine",
                               "n_ref_phyla", "mean_ng_g_ambient", "mean_ng_g_future",
                               "mean_ng_g_ambient_drought", "mean_ng_g_future_drought"]])

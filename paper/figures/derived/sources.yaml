@@ -1,26 +1,118 @@
-ann_classes_top: []
+ann_classes_top:
+- 02_annotation/neg/classes.tsv
+- 02_annotation/pos/classes.tsv
 ann_confidence:
 - 02_annotation/neg/confidence.tsv
 - 02_annotation/pos/confidence.tsv
-ann_rt_pc: []
-ann_upset_intersections: []
-ann_upset_sets: []
-app_class_profiles: []
-app_design: []
-app_occurrence: []
-app_responsive: []
-app_trace: []
-atlas_breadth: []
-atlas_class_group: []
-atlas_coverage: []
-atlas_per_group: []
-atlas_release_groups: []
-interp_examples: []
-interp_labels_broad: []
-interp_labels_restricted: []
-interp_mirror_broad: []
-interp_mirror_restricted: []
-interp_occurrence: []
+ann_rt_pc:
+- 02_annotation/neg/rt_model_PC.tsv
+- 02_annotation/pos/rt_model_PC.tsv
+ann_upset_intersections:
+- 02_annotation/neg/upset_intersections.tsv
+- 02_annotation/neg/upset_sets.tsv
+- 02_annotation/pos/upset_intersections.tsv
+- 02_annotation/pos/upset_sets.tsv
+ann_upset_sets:
+- 02_annotation/neg/upset_intersections.tsv
+- 02_annotation/neg/upset_sets.tsv
+- 02_annotation/pos/upset_intersections.tsv
+- 02_annotation/pos/upset_sets.tsv
+app_class_profiles:
+- 08_application/pos/class_profiles.tsv
+app_design:
+- 00_inputs/climgrass_samples.csv
+app_occurrence:
+- 00_inputs/climgrass_samples.csv
+- 06_atlas_match/examples/responsive_atlas_occurrence.tsv
+- 08_application/neg/responsive.tsv
+- 08_application/neg/test_summary.tsv
+- 08_application/pos/responsive.tsv
+- 08_application/pos/test_summary.tsv
+app_responsive:
+- 00_inputs/climgrass_samples.csv
+- 08_application/neg/responsive.tsv
+- 08_application/pos/responsive.tsv
+app_trace:
+- 00_inputs/climgrass_samples.csv
+- 06_atlas_match/examples/responsive_atlas_occurrence.tsv
+- 08_application/neg/responsive.tsv
+- 08_application/neg/test_summary.tsv
+- 08_application/pos/responsive.tsv
+- 08_application/pos/test_summary.tsv
+- figures/inputs/atlas_groups.csv
+app_trace_groups:
+- 00_inputs/climgrass_samples.csv
+- 06_atlas_match/examples/responsive_atlas_occurrence.tsv
+- 08_application/neg/responsive.tsv
+- 08_application/neg/test_summary.tsv
+- 08_application/pos/responsive.tsv
+- 08_application/pos/test_summary.tsv
+- figures/inputs/atlas_groups.csv
+atlas_breadth:
+- 02_annotation/pos/annotations.tsv
+- 02_annotation/pos/confidence.tsv
+- 06_atlas_match/pos/best_match.tsv
+- 06_atlas_match/pos/coverage.tsv
+- 06_atlas_match/pos/phylum_detection.tsv
+- 06_atlas_match/pos/provenance.yaml
+- figures/inputs/atlas_groups.csv
+atlas_class_group:
+- 02_annotation/pos/annotations.tsv
+- 02_annotation/pos/confidence.tsv
+- 06_atlas_match/pos/best_match.tsv
+- 06_atlas_match/pos/coverage.tsv
+- 06_atlas_match/pos/phylum_detection.tsv
+- 06_atlas_match/pos/provenance.yaml
+- figures/inputs/atlas_groups.csv
+atlas_coverage:
+- 02_annotation/pos/annotations.tsv
+- 02_annotation/pos/confidence.tsv
+- 06_atlas_match/pos/best_match.tsv
+- 06_atlas_match/pos/coverage.tsv
+- 06_atlas_match/pos/phylum_detection.tsv
+- 06_atlas_match/pos/provenance.yaml
+- figures/inputs/atlas_groups.csv
+atlas_per_group:
+- 02_annotation/pos/annotations.tsv
+- 02_annotation/pos/confidence.tsv
+- 06_atlas_match/pos/best_match.tsv
+- 06_atlas_match/pos/coverage.tsv
+- 06_atlas_match/pos/phylum_detection.tsv
+- 06_atlas_match/pos/provenance.yaml
+- figures/inputs/atlas_groups.csv
+atlas_release_groups:
+- figures/inputs/atlas_groups.csv
+interp_examples:
+- 06_atlas_match/examples/examples.tsv
+interp_labels_broad:
+- 06_atlas_match/examples/examples.tsv
+- 06_atlas_match/examples/examples_phylum_detection.tsv
+- 06_atlas_match/examples/mirror_21718.tsv
+- figures/inputs/atlas_groups.csv
+interp_labels_restricted:
+- 06_atlas_match/examples/examples.tsv
+- 06_atlas_match/examples/examples_phylum_detection.tsv
+- 06_atlas_match/examples/mirror_21718.tsv
+- 06_atlas_match/examples/mirror_41748.tsv
+- figures/inputs/atlas_groups.csv
+interp_mirror_broad:
+- 06_atlas_match/examples/examples.tsv
+- 06_atlas_match/examples/examples_phylum_detection.tsv
+- 06_atlas_match/examples/mirror_21718.tsv
+- figures/inputs/atlas_groups.csv
+interp_mirror_restricted:
+- 06_atlas_match/examples/examples.tsv
+- 06_atlas_match/examples/examples_phylum_detection.tsv
+- 06_atlas_match/examples/mirror_21718.tsv
+- 06_atlas_match/examples/mirror_41748.tsv
+- figures/inputs/atlas_groups.csv
+interp_occurrence:
+- 06_atlas_match/examples/examples.tsv
+- 06_atlas_match/examples/examples_phylum_detection.tsv
+- 06_atlas_match/examples/mirror_21718.tsv
+- 06_atlas_match/examples/mirror_41748.tsv
+- 06_atlas_match/pos/phylum_detection.tsv
+- figures/inputs/atlas_groups.csv
 number:ann_adduct_redundancy_pct_pos:
 - 02_annotation/pos/classes.tsv
 number:ann_all_features_pos:
@@ -123,6 +215,14 @@ number:app_soils_neg:
 - 00_inputs/climgrass_samples.csv
 number:app_soils_pos:
 - 00_inputs/climgrass_samples.csv
+number:app_trace_lipid:
+- 00_inputs/climgrass_samples.csv
+- 06_atlas_match/examples/responsive_atlas_occurrence.tsv
+- 08_application/neg/responsive.tsv
+- 08_application/neg/test_summary.tsv
+- 08_application/pos/responsive.tsv
+- 08_application/pos/test_summary.tsv
+- figures/inputs/atlas_groups.csv
 number:atlas_match_min_cosine:
 - 02_annotation/pos/annotations.tsv
 - 02_annotation/pos/confidence.tsv
@@ -498,24 +598,60 @@ number:resp_n_standards:
 - 03_response/response_by_class_adduct.tsv
 number:resp_rie_orders:
 - 03_response/response_by_class_adduct.tsv
-qc_blocks: []
-qc_is_info: []
-qc_is_points: []
+qc_blocks:
+- 01_qc/neg/injections.tsv
+- 01_qc/pos/injections.tsv
+qc_is_info:
+- 01_qc/neg/is_by_block.tsv
+- 01_qc/neg/is_per_injection.tsv
+- 01_qc/neg/provenance.yaml
+- 01_qc/pos/is_by_block.tsv
+- 01_qc/pos/is_per_injection.tsv
+- 01_qc/pos/provenance.yaml
+qc_is_points:
+- 01_qc/neg/is_by_block.tsv
+- 01_qc/neg/is_per_injection.tsv
+- 01_qc/neg/provenance.yaml
+- 01_qc/pos/is_by_block.tsv
+- 01_qc/pos/is_per_injection.tsv
+- 01_qc/pos/provenance.yaml
 qc_is_vs_cal:
 - 01_qc/neg/is_vs_calibration.tsv
 - 01_qc/pos/is_vs_calibration.tsv
-qc_recovery: []
-qc_rsd_summary: []
-qc_rsd_values: []
+qc_recovery:
+- 01_qc/neg/is_vs_calibration.tsv
+- 01_qc/pos/is_vs_calibration.tsv
+qc_rsd_summary:
+- 01_qc/neg/provenance.yaml
+- 01_qc/neg/rsd_per_feature.tsv
+- 01_qc/neg/rsd_summary.tsv
+- 01_qc/pos/provenance.yaml
+- 01_qc/pos/rsd_per_feature.tsv
+- 01_qc/pos/rsd_summary.tsv
+qc_rsd_values:
+- 01_qc/neg/provenance.yaml
+- 01_qc/neg/rsd_per_feature.tsv
+- 01_qc/neg/rsd_summary.tsv
+- 01_qc/pos/provenance.yaml
+- 01_qc/pos/rsd_per_feature.tsv
+- 01_qc/pos/rsd_summary.tsv
 qc_sequence:
 - 01_qc/neg/injections.tsv
 - 01_qc/pos/injections.tsv
 quant_class_amounts:
 - 04_quant/neg/class_by_sample.tsv
 - 04_quant/pos/class_by_sample.tsv
-release_layers: []
-release_phyla: []
-resp_ie_loco: []
+release_layers:
+- figures/inputs/atlas_feature_layers.csv
+- figures/inputs/atlas_groups.csv
+- figures/inputs/atlas_groups_provenance.yaml
+- figures/inputs/atlas_release_counts.csv
+release_phyla:
+- figures/inputs/atlas_groups.csv
+- figures/inputs/atlas_groups_provenance.yaml
+resp_ie_loco:
+- 03_response/ie_loco_predictions.tsv
+- 03_response/ie_model_stats.tsv
 resp_nist:
 - 05_nist/neg/nist_comparison.tsv
 - 05_nist/pos/nist_comparison.tsv

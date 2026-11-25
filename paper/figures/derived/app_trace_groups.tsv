@@ -1,0 +1,109 @@
+lipid_name	group	n_phyla_with_ref	n_phyla_analysed
+Cer d36:3	Bacteria	0	3
+Cer d36:3	Archaea	0	2
+Cer d36:3	Fungi	0	3
+Cer d36:3	Protists	0	3
+Cer d36:3	Plants	2	2
+Cer d36:3	Soil animals	1	3
+PC 30:1	Bacteria	3	3
+PC 30:1	Archaea	0	2
+PC 30:1	Fungi	2	3
+PC 30:1	Protists	2	3
+PC 30:1	Plants	1	2
+PC 30:1	Soil animals	2	3
+PG 16:0_17:0	Bacteria	2	3
+PG 16:0_17:0	Archaea	0	2
+PG 16:0_17:0	Fungi	2	3
+PG 16:0_17:0	Protists	0	3
+PG 16:0_17:0	Plants	1	2
+PG 16:0_17:0	Soil animals	0	3
+PC 29:1	Bacteria	0	3
+PC 29:1	Archaea	0	2
+PC 29:1	Fungi	0	3
+PC 29:1	Protists	0	3
+PC 29:1	Plants	0	2
+PC 29:1	Soil animals	0	3
+LPC 16:0	Bacteria	0	3
+LPC 16:0	Archaea	1	2
+LPC 16:0	Fungi	2	3
+LPC 16:0	Protists	0	3
+LPC 16:0	Plants	0	2
+LPC 16:0	Soil animals	1	3
+TG 4:0_6:0_16:0+OOs	Bacteria	0	3
+TG 4:0_6:0_16:0+OOs	Archaea	0	2
+TG 4:0_6:0_16:0+OOs	Fungi	1	3
+TG 4:0_6:0_16:0+OOs	Protists	0	3
+TG 4:0_6:0_16:0+OOs	Plants	2	2
+TG 4:0_6:0_16:0+OOs	Soil animals	1	3
+PC 30:2	Bacteria	0	3
+PC 30:2	Archaea	0	2
+PC 30:2	Fungi	0	3
+PC 30:2	Protists	0	3
+PC 30:2	Plants	0	2
+PC 30:2	Soil animals	0	3
+LPC 17:0	Bacteria	1	3
+LPC 17:0	Archaea	0	2
+LPC 17:0	Fungi	0	3
+LPC 17:0	Protists	2	3
+LPC 17:0	Plants	1	2
+LPC 17:0	Soil animals	3	3
+Cer d18:1_17:0	Bacteria	0	3
+Cer d18:1_17:0	Archaea	0	2
+Cer d18:1_17:0	Fungi	2	3
+Cer d18:1_17:0	Protists	1	3
+Cer d18:1_17:0	Plants	1	2
+Cer d18:1_17:0	Soil animals	1	3
+PC 28:0	Bacteria	0	3
+PC 28:0	Archaea	0	2
+PC 28:0	Fungi	0	3
+PC 28:0	Protists	0	3
+PC 28:0	Plants	0	2
+PC 28:0	Soil animals	0	3
+TG 28:1	Bacteria	0	3
+TG 28:1	Archaea	0	2
+TG 28:1	Fungi	1	3
+TG 28:1	Protists	0	3
+TG 28:1	Plants	1	2
+TG 28:1	Soil animals	1	3
+Cer d18:1_16:0	Bacteria	1	3
+Cer d18:1_16:0	Archaea	0	2
+Cer d18:1_16:0	Fungi	3	3
+Cer d18:1_16:0	Protists	0	3
+Cer d18:1_16:0	Plants	2	2
+Cer d18:1_16:0	Soil animals	1	3
+Cer d17:0_15:0+Os	Bacteria	0	3
+Cer d17:0_15:0+Os	Archaea	0	2
+Cer d17:0_15:0+Os	Fungi	2	3
+Cer d17:0_15:0+Os	Protists	0	3
+Cer d17:0_15:0+Os	Plants	0	2
+Cer d17:0_15:0+Os	Soil animals	0	3
+PC 36:4	Bacteria	3	3
+PC 36:4	Archaea	1	2
+PC 36:4	Fungi	3	3
+PC 36:4	Protists	1	3
+PC 36:4	Plants	1	2
+PC 36:4	Soil animals	1	3
+TG	Bacteria	0	3
+TG	Archaea	0	2
+TG	Fungi	3	3
+TG	Protists	0	3
+TG	Plants	1	2
+TG	Soil animals	0	3
+Cer d38:3	Bacteria	0	3
+Cer d38:3	Archaea	0	2
+Cer d38:3	Fungi	0	3
+Cer d38:3	Protists	0	3
+Cer d38:3	Plants	2	2
+Cer d38:3	Soil animals	1	3
+TG 9:0_15:0+Os	Bacteria	1	3
+TG 9:0_15:0+Os	Archaea	0	2
+TG 9:0_15:0+Os	Fungi	3	3
+TG 9:0_15:0+Os	Protists	1	3
+TG 9:0_15:0+Os	Plants	1	2
+TG 9:0_15:0+Os	Soil animals	3	3
+LPC 16:1	Bacteria	0	3
+LPC 16:1	Archaea	1	2
+LPC 16:1	Fungi	1	3
+LPC 16:1	Protists	0	3
+LPC 16:1	Plants	1	2
+LPC 16:1	Soil animals	1	3

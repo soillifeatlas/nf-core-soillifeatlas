@@ -128,7 +128,12 @@ def build() -> dict[str, str]:
         f"{n['app_n_responsive_neg']} of {n['app_n_lipids_tested_neg']} NEG lipids), shown as "
         "log2 fold change, drought vs ambient. (C) Number of phyla in which the matched Atlas reference of each "
         "drought-responsive POS lipid occurs; "
-        f"{n['app_n_responsive_pos_matched']} of {n['app_n_responsive_pos']} have a match.")
+        f"{n['app_n_responsive_pos_matched']} of {n['app_n_responsive_pos']} have a match."
+        + ("" if n["app_trace_lipid"] == "none" else
+           f" (D) {n['app_trace_lipid']} traced from its measured amount to its Atlas occurrence: "
+           "mean amount per treatment (ng per g dry soil, mean of plots; q for drought above) "
+           "and the analysed phyla of each organism group in which its matched reference occurs "
+           "(filled)."))
 
     c["Figure S1"] = (
         "Analytical quality of the ClimGrass run. (A) Injection sequences in positive "

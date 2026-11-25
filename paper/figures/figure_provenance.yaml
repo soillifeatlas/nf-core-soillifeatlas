@@ -1,11 +1,11 @@
-built: '2026-11-25T14:52:18+00:00'
+built: '2026-11-25T15:00:36+00:00'
 command: python paper/figures/build_all.py
-repo_head: 14595c7
+repo_head: 5ee2a10
 paper_figures_dirty: true
 gates:
   reconstitution_volume_confirmed: false
   stage5_fix_confirmed: true
-  fig7E_lipid: null
+  fig7E_lipid: PC 30:1
 schematic_sources:
   figures/schematics/source/Fig2_workflow_2026-11-24.png:
     from: Google Drive folder 1bR_DKLZjM1M0crbp7-Ffwo6EUGxFjwKn, file id 1NJwtkjVm8F2GWcJSrjEDEgvCo-hli6az
@@ -79,6 +79,10 @@ figures:
         status: REAL
         note: Release 0.9 (draft); feature layers of the release
         sources:
+          figures/inputs/atlas_feature_layers.csv:
+            git_sha: 739c22f
+            export_sha: null
+            sha256: f316eafb7e006fb5e51aa414089b776edaa8fb7c0266a830fe2b18a90b407ac3
           figures/inputs/atlas_groups.csv: *id001
           figures/inputs/atlas_groups_provenance.yaml: *id002
           figures/inputs/atlas_release_counts.csv: *id003
@@ -102,27 +106,27 @@ figures:
         status: REAL
         note: pooled-QC RSD per feature; eligibility rule in rsd_summary.tsv
         sources:
-          01_qc/neg/provenance.yaml: &id019
+          01_qc/neg/provenance.yaml: &id020
             git_sha: 756333b
             export_sha: ac355b6
             sha256: 25af58aa23a637afd1703020795c64118b57a9edefd66fc1062e9885b27c18eb
-          01_qc/neg/rsd_per_feature.tsv: &id020
+          01_qc/neg/rsd_per_feature.tsv: &id021
             git_sha: 756333b
             export_sha: ac355b6
             sha256: 317d3d829612b33ac74f4bdd2ec94e9294ba43ed0b6e6539a4dba53b4946e567
-          01_qc/neg/rsd_summary.tsv: &id021
+          01_qc/neg/rsd_summary.tsv: &id022
             git_sha: 756333b
             export_sha: ac355b6
             sha256: 95769c600385950e3643423091fa0327c7ec906ee6dfe1f2887875421a618afb
-          01_qc/pos/provenance.yaml: &id022
+          01_qc/pos/provenance.yaml: &id023
             git_sha: 756333b
             export_sha: ac355b6
             sha256: 67c61b24229b8b8510e62d63bc06f81867d81145baf7e91110ce5a5422d400eb
-          01_qc/pos/rsd_per_feature.tsv: &id023
+          01_qc/pos/rsd_per_feature.tsv: &id024
             git_sha: 756333b
             export_sha: ac355b6
             sha256: ce70c89f96ecd8e781df140c5cfa204378db8aafa193ccea3bfca9fa53702407
-          01_qc/pos/rsd_summary.tsv: &id024
+          01_qc/pos/rsd_summary.tsv: &id025
             git_sha: 756333b
             export_sha: ac355b6
             sha256: 40ba1a96366c7074e1873f5afaa95e75d5d133adec57f7a1d94fe7f621c42637
@@ -171,11 +175,25 @@ figures:
       C:
         status: REAL
         note: '% of matched features; reference samples per group in brackets (matching denominators)'
-        sources: {}
+        sources:
+          02_annotation/pos/annotations.tsv: *id004
+          02_annotation/pos/confidence.tsv: *id005
+          06_atlas_match/pos/best_match.tsv: *id006
+          06_atlas_match/pos/coverage.tsv: *id007
+          06_atlas_match/pos/phylum_detection.tsv: *id008
+          06_atlas_match/pos/provenance.yaml: *id009
+          figures/inputs/atlas_groups.csv: *id001
       D:
         status: REAL
         note: 8 most frequent classes among named matches
-        sources: {}
+        sources:
+          02_annotation/pos/annotations.tsv: *id004
+          02_annotation/pos/confidence.tsv: *id005
+          06_atlas_match/pos/best_match.tsv: *id006
+          06_atlas_match/pos/coverage.tsv: *id007
+          06_atlas_match/pos/phylum_detection.tsv: *id008
+          06_atlas_match/pos/provenance.yaml: *id009
+          figures/inputs/atlas_groups.csv: *id001
   '4':
     name: interpretation
     role: main
@@ -221,6 +239,7 @@ figures:
           06_atlas_match/examples/examples_phylum_detection.tsv: *id011
           06_atlas_match/examples/mirror_21718.tsv: *id012
           06_atlas_match/examples/mirror_41748.tsv: *id013
+          06_atlas_match/pos/phylum_detection.tsv: *id008
           figures/inputs/atlas_groups.csv: *id001
   '5':
     name: application
@@ -264,7 +283,7 @@ figures:
         note: Atlas occurrence of the POS responsive lipids
         sources:
           00_inputs/climgrass_samples.csv: *id014
-          06_atlas_match/examples/responsive_atlas_occurrence.tsv:
+          06_atlas_match/examples/responsive_atlas_occurrence.tsv: &id019
             git_sha: 8405e6b
             export_sha: abeedd0
             sha256: 3d34eaff58c5ec48c01ade75ed2751a709f133c82fcc19340556e4395357aea9
@@ -272,6 +291,17 @@ figures:
           08_application/neg/test_summary.tsv: *id016
           08_application/pos/responsive.tsv: *id017
           08_application/pos/test_summary.tsv: *id018
+      D:
+        status: REAL
+        note: 'traced lipid: PC 30:1'
+        sources:
+          00_inputs/climgrass_samples.csv: *id014
+          06_atlas_match/examples/responsive_atlas_occurrence.tsv: *id019
+          08_application/neg/responsive.tsv: *id015
+          08_application/neg/test_summary.tsv: *id016
+          08_application/pos/responsive.tsv: *id017
+          08_application/pos/test_summary.tsv: *id018
+          figures/inputs/atlas_groups.csv: *id001
   S1:
     name: quality
     role: supplement
@@ -284,11 +314,11 @@ figures:
         status: REAL
         note: POS and NEG sequences, both blocks
         sources:
-          01_qc/neg/injections.tsv: &id025
+          01_qc/neg/injections.tsv: &id026
             git_sha: 756333b
             export_sha: ac355b6
             sha256: edf107b9b5cc2ad05c1e73dc1a07bb9cda3a5ff9ad4c7a1c733b605e5079171a
-          01_qc/pos/injections.tsv: &id026
+          01_qc/pos/injections.tsv: &id027
             git_sha: 756333b
             export_sha: ac355b6
             sha256: 24830590d8f59ad057d9a41a50d8616a1c5ac48a8d3881dcb6471c589deec653
@@ -296,17 +326,17 @@ figures:
         status: REAL
         note: ECDF, x cut at 150 %; n and % ≤ 30 % from rsd_summary.tsv
         sources:
-          01_qc/neg/provenance.yaml: *id019
-          01_qc/neg/rsd_per_feature.tsv: *id020
-          01_qc/neg/rsd_summary.tsv: *id021
-          01_qc/pos/provenance.yaml: *id022
-          01_qc/pos/rsd_per_feature.tsv: *id023
-          01_qc/pos/rsd_summary.tsv: *id024
+          01_qc/neg/provenance.yaml: *id020
+          01_qc/neg/rsd_per_feature.tsv: *id021
+          01_qc/neg/rsd_summary.tsv: *id022
+          01_qc/pos/provenance.yaml: *id023
+          01_qc/pos/rsd_per_feature.tsv: *id024
+          01_qc/pos/rsd_summary.tsv: *id025
       C:
         status: REAL
         note: RT relative to recorded block median; tolerances from provenance.yaml
         sources:
-          01_qc/neg/injections.tsv: *id025
+          01_qc/neg/injections.tsv: *id026
           01_qc/neg/is_by_block.tsv:
             git_sha: 756333b
             export_sha: ac355b6
@@ -315,8 +345,8 @@ figures:
             git_sha: 756333b
             export_sha: ac355b6
             sha256: 40a539879883142be04b542dff056efccaf4a7bfabfa7e3a87ffa7457aa8ad24
-          01_qc/neg/provenance.yaml: *id019
-          01_qc/pos/injections.tsv: *id026
+          01_qc/neg/provenance.yaml: *id020
+          01_qc/pos/injections.tsv: *id027
           01_qc/pos/is_by_block.tsv:
             git_sha: 756333b
             export_sha: ac355b6
@@ -325,7 +355,7 @@ figures:
             git_sha: 756333b
             export_sha: ac355b6
             sha256: acf6ad27bd5f64b067c321c12c53d173555588b64227ce3b0584e49eed02429c
-          01_qc/pos/provenance.yaml: *id022
+          01_qc/pos/provenance.yaml: *id023
   S2:
     name: annotation
     role: supplement
@@ -468,4 +498,8 @@ figures:
       B:
         status: REAL
         note: class amounts by treatment (POS)
-        sources: {}
+        sources:
+          08_application/pos/class_profiles.tsv:
+            git_sha: abeedd0
+            export_sha: c4e944a
+            sha256: f9f1da545b3a2d59d0b9293ee49c68774a970c9d1e027cc70a333123a282323a

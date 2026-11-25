@@ -845,20 +845,35 @@ def app_occurrence(ax, tag):
             "lipids match an Atlas reference", x=-0.3, y=1.02)
 
 
-def app_trace(ax, tag, lipid):
+def app_trace(fig, gs, tag, lipid):
+    """One responsive lipid: amount per treatment (top) and where its reference occurs (bottom)."""
     set_panel("app_trace")
     t = D("app_trace")
     r = t[t.lipid_name == lipid].iloc[0]
+    sub = gs.subgridspec(2, 1, height_ratios=[1, 0.62], hspace=0.9)
+    ax = fig.add_subplot(sub[0])
     vals = [r[f"mean_ng_g_{x}"] for x in TREAT]
-    ax.bar(range(4), vals, color=[TREAT_COLOR[x] for x in TREAT])
-    ax.set_xticks(range(4))
-    ax.set_xticklabels([TREAT_LABEL[x] for x in TREAT], rotation=30, ha="right")
-    ax.set_ylabel(r"ng g$^{-1}$ (mean of plots)")
-    ax.set_ylim(0, max(vals) * 1.6)
-    ax.text(0.02, 0.98, f"{r.lipid_name} ({r.confidence}, route {r.quant_route})\n"
-            f"q(drought) = {r.q_drought:.3g}\nAtlas: cosine {r.cosine:.2f}, "
-            f"{int(r.n_ref_phyla)} phyla", transform=ax.transAxes, va="top", fontsize=5.8)
-    letter(ax, tag, x=-0.2, y=1.03, title="One lipid traced end to end")
+    ax.bar(range(4), vals, color=[TREAT_COLOR[x] for x in TREAT], width=0.7)
+    ax.set_xticks(range(4), [TREAT_LABEL[x].replace(" + ", "\n+ ") for x in TREAT], fontsize=5.5)
+    ax.set_ylabel(r"ng g$^{-1}$ dry soil")
+    ax.set_ylim(0, max(vals) * 1.25)
+    finding(ax, tag, f"{r.lipid_name}: lower under drought (q = {r.q_drought:.3f})", x=-0.02,
+            y=1.06)
+    g = D("app_trace_groups")
+    g = g[g.lipid_name == lipid].set_index("group").reindex(GROUP_ORDER)
+    bx = fig.add_subplot(sub[1])
+    bx.set_axis_off()
+    for k, grp in enumerate(GROUP_ORDER):
+        n, tot = int(g.loc[grp, "n_phyla_with_ref"]), int(g.loc[grp, "n_phyla_analysed"])
+        bx.text(-0.6, -k, grp, ha="right", va="center", fontsize=5.6)
+        for m in range(tot):
+            bx.scatter(m, -k, s=20, color=GROUP_COLOR[grp] if m < n else "white",
+                       edgecolor=GROUP_COLOR[grp], lw=0.6, clip_on=False)
+        bx.text(tot - 0.4, -k, f"{n} of {tot}", va="center", fontsize=5.2, color="#555555")
+    bx.set_xlim(-4.2, 4.5)
+    bx.set_ylim(-len(GROUP_ORDER) + 0.5, 0.5)
+    bx.text(-4.2, 0.9, f"Atlas reference (cosine {r.cosine:.2f}) occurs in "
+            f"{int(r.n_ref_phyla)} phyla", fontsize=6, va="bottom")
 
 
 # =========================================================================== graphical abstract
@@ -1135,7 +1150,7 @@ def fig5_application():
     app_occurrence(fig.add_subplot(gs[:, 2]), "C")
     P.add("C", "REAL", "Atlas occurrence of the POS responsive lipids", ["app_occurrence"])
     if len(panels) == 4:
-        app_trace(fig.add_subplot(gs[1, 0]), "D", g["fig7E_lipid"])
+        app_trace(fig, gs[1, 0], "D", g["fig7E_lipid"])
         P.add("D", "REAL", f"traced lipid: {g['fig7E_lipid']}", ["app_trace"])
     return save(fig, 5, "application"), P.rows
 
