@@ -127,10 +127,15 @@ def main(argv=None):
         best = q.groupby(["lipid_id", "feature_id"])["area"].median().reset_index() \
                 .sort_values("area", ascending=False).drop_duplicates("lipid_id")["feature_id"]
         q = q[q["feature_id"].isin(best)]
+        # soils without any detected standard have no amounts at all; they are left out of the sums
+        soils_q = q.groupby("file_id")["ng_per_g"].apply(lambda s: s.notna().any())
+        dropped = sorted(soils_q[~soils_q].index)
+        q = q[q["file_id"].isin(soils_q[soils_q].index)]
         complete = q.groupby("feature_id")["ng_per_g"].apply(lambda s: s.notna().all())
         per["in_common_set"] = per["feature_id"].isin(complete[complete].index)
         per.to_csv(out / "per_lipid.tsv", sep="\t", index=False)
-        pd.DataFrame([{"n_soils": len(soil_files), "n_unique_lipids_with_amount": int(len(complete)),
+        pd.DataFrame([{"n_soils": len(soil_files), "soils_without_standard": ";".join(dropped),
+                       "n_unique_lipids_with_amount": int(len(complete)),
                        "n_in_common_set": int(complete.sum())}]).to_csv(out / "common_set.tsv", sep="\t", index=False)
         q = q[q["feature_id"].isin(complete[complete].index)]
         cls = q.groupby(["lipid_class", "plot", "treatment"])["ng_per_g"].sum(min_count=1).reset_index()
