@@ -1,15 +1,15 @@
-# Release switches for Pass-2 panels. Only the user flips these.
-# While a switch is false, its panels still read their expected input files (so a missing
-# or renamed file fails the build) but are drawn as PENDING boxes.
+# Release switches for figures that need an unconfirmed input. Only Rahul flips these.
+# While a switch is false, the figures it gates are not drawn (STATUS.md says NOT BUILT);
+# analysis.py still reads their input files, so a missing or renamed file fails the build.
 
 # Reconstitution volume confirmed (01_qc/*/is_vs_calibration.tsv currently assumes 100 uL).
-# Gates 3D and 5C.
+# Gates Fig S4 (internal standards vs calibration, apparent recovery).
 reconstitution_volume_confirmed: false
 
-# Stage-5 quantification fix on paper/results-2026-11 confirmed and paper/ data re-exported.
-# Gates 5E (Q3 points), 5F, 7B, 7C, 7D, 7E.
-stage5_fix_confirmed: false
+# Stage-5 quantification on paper/results-2026-11 confirmed (Rahul, 2026-11-25).
+# Gates Fig 5 (ClimGrass demonstration), Fig S5 (amounts per gram) and the Q3 points in S3D.
+stage5_fix_confirmed: true
 
-# Lipid traced in Fig. 7E (lipid_name from 08_application/pos/responsive.tsv), e.g. "PC 30:1".
-# 7E stays PENDING until this is set, even after the stage-5 switch.
+# Lipid traced in Fig 5D (lipid_name from 08_application/pos/responsive.tsv), e.g. "PC 30:1".
+# Fig 5 is drawn without panel D until this is set.
 fig7E_lipid: null

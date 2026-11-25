@@ -53,6 +53,34 @@ def number(key: str, value, group: str) -> None:
     SOURCES[f"number:{key}"] = reads().get(group, [])
 
 
+# =========================================================================== the Atlas (Fig 1)
+LAYER_CHAIN = ["consensus", "quality_filtered", "enriched", "with_msms", "annotated"]
+
+
+def release():
+    """Fig 1: what the Atlas release holds (exported by export_groups.py into inputs/)."""
+    set_panel("release")
+    prov = read_yaml("figures/inputs/atlas_groups_provenance.yaml")
+    number("release_label", prov["release"]["label"], "release")
+    g = atlas_groups()
+    g["analysed"] = g.analysed.astype(str) == "True"
+    g["group_rank"] = g.group.map({x: i for i, x in enumerate(GROUP_ORDER)})
+    table("release_phyla", g.sort_values(["group_rank", "samples_pos"], ascending=[True, False])
+          [["group", "phylum", "samples_pos", "samples_neg", "analysed"]])
+    c = read_table("figures/inputs/atlas_release_counts.csv").set_index("key").value
+    for k in ("reference_samples_pos", "reference_samples_neg", "phyla_collected",
+              "phyla_analysed", "genera", "groups", "lipids_pos", "lipids_neg"):
+        number(f"release_{k}", int(c[k]), "release")
+    assert int(c.reference_samples_pos) == int(g.samples_pos.sum()), "release counts disagree"
+    assert int(c.phyla_collected) == len(g) and int(c.phyla_analysed) == int(g.analysed.sum())
+    excl, considered = int(c.key_finding_exclusive_features), int(c.key_finding_features_considered)
+    number("release_exclusive_features", excl, "release")
+    number("release_features_considered", considered, "release")
+    number("release_exclusive_pct", round(excl / considered * 100, 1), "release")
+    lay = read_table("figures/inputs/atlas_feature_layers.csv").set_index("id").loc[LAYER_CHAIN]
+    table("release_layers", lay.reset_index()[["id", "label", "pos", "neg"]])
+
+
 # =========================================================================== quality (S1, Fig 2B)
 def qc():
     set_panel("qc_sequence")
@@ -257,6 +285,11 @@ def response():
             number(f"nist_q1_pct_within_2fold_{pol}",
                    q1.within_2fold.astype(bool).mean() * 100, "resp_nist")
         number(f"nist_q3_n_{pol}", int((n.routes != "Q1").sum()), "resp_nist")
+        q3 = n[n.routes != "Q1"]
+        if len(q3):
+            number(f"nist_q3_median_ratio_{pol}", float(np.median(q3.ratio)), "resp_nist")
+            number(f"nist_q3_pct_within_2fold_{pol}",
+                   q3.within_2fold.astype(bool).mean() * 100, "resp_nist")
     table("resp_nist", pd.concat(rows))
 
     # S5 (gated): class amounts per gram, common lipid set
@@ -422,7 +455,10 @@ def application():
     ts = read_table("08_application/pos/test_summary.tsv").iloc[0]
     read_table("08_application/neg/test_summary.tsv")
     number("app_n_lipids_tested_pos", int(ts.n_lipids_tested), "app")
+    for p in POLS:
+        number(f"app_n_responsive_{p}", len(resp[p]), "app")
     occ = read_table("06_atlas_match/examples/responsive_atlas_occurrence.tsv")
+    number("app_n_responsive_pos_matched", int(occ.n_ref_phyla.notna().sum()), "app")
     table("app_occurrence", occ.sort_values("n_ref_phyla", na_position="first")
           [["feature_id", "lipid_name", "n_ref_phyla", "cosine"]])
     trace = resp["pos"].merge(occ[["feature_id", "cosine", "n_ref_phyla"]], on="feature_id",
@@ -439,7 +475,7 @@ def application():
 def run() -> None:
     reset_reads()
     TABLES.clear(), NUMBERS.clear(), SOURCES.clear()
-    for section in (qc, annotation, response, atlas, interpretation, application):
+    for section in (release, qc, annotation, response, atlas, interpretation, application):
         section()
     DERIVED.mkdir(exist_ok=True)
     for old in DERIVED.glob("*.tsv"):

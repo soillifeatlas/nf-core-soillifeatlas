@@ -1,0 +1,20 @@
+group	phylum	samples_pos	samples_neg	analysed
+Bacteria	Bacillota	25	28	True
+Bacteria	Actinomycetota	15	19	True
+Bacteria	Pseudomonadota	8	8	True
+Bacteria	Cyanobacteriota	2	1	False
+Archaea	Methanobacteriota	16	17	True
+Archaea	Thermoproteota	3	4	True
+Fungi	Ascomycota	27	32	True
+Fungi	Basidiomycota	10	11	True
+Fungi	Mucoromycota	7	7	True
+Fungi	Mortierellomycota	1	1	False
+Protists	Discosea	7	6	True
+Protists	Evosea	5	5	True
+Protists	Heterolobosea	5	2	True
+Protists	Cercozoa	1	1	False
+Plants	Streptophyta	14	16	True
+Plants	Chlorophyta	5	10	True
+Soil animals	Arthropoda	11	22	True
+Soil animals	Nematoda	4	3	True
+Soil animals	Mollusca	2	2	True

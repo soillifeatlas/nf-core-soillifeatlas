@@ -43,13 +43,33 @@ def build() -> dict[str, str]:
     elig = (f"≥ {int(pp.min_qc)} of {int(pp.n_qc)} (POS) and ≥ {int(pn.min_qc)} of "
             f"{int(pn.n_qc)} (NEG)")
     thr = n["qc_rsd_threshold_pct_pos"]
+    c["Figure 1"] = (
+        f"The Soil Life Atlas ({n['release_label']}). (A) Reference collection: samples "
+        "measured in positive mode per phylum, grouped by organism group; hatched phyla were "
+        f"collected but are not yet analysed ({n['release_phyla_analysed']} of "
+        f"{n['release_phyla_collected']} phyla analysed; {n['release_genera']} genera; "
+        f"{n['release_reference_samples_neg']} samples in negative mode). (B) From everything "
+        "measured to the curated Atlas: consensus features aligned across batches, the "
+        "quality-filtered matrix, phylum-enriched lipids (shaded; the Atlas), and of these the "
+        "lipids with a usable MS/MS spectrum and with an accepted annotation (Gold, Silver or "
+        "Bronze), in positive (dark) and negative (light) mode; log scale. Of "
+        f"{n['release_features_considered']:,} features detected in at least two samples and "
+        f"two batches, only {n['release_exclusive_features']} "
+        f"({n['release_exclusive_pct']:g} %) occur in a single phylum: phyla are told apart "
+        "mainly by shared lipids present in different amounts. (C) Each Atlas lipid carries an "
+        "identity (m/z, retention time, MS/MS spectrum and name), its occurrence across phyla "
+        "and organism groups, and a class-level ionisation response; the workflow uses these for "
+        "annotation, interpretation and amounts (Fig. 2). Counts are those of the draft release "
+        "and may change while the reference data are reprocessed.")
+
     c["Figure 2"] = (
         "Integrated workflow for soil lipidomics. (A) Seven stages from Thermo raw files to "
         "Atlas-linked lipid profiles; stages 1–4 run as Nextflow processes, stages 5–7 (dashed) "
-        "as library code and scripts in this version. The Soil Life Atlas enters at three "
+        "as library code and scripts in this version (main tools: ThermoRawFileParser, MZmine 4.9, "
+        "LipidSearch, MS-DIAL, GNPS, SIRIUS). The Soil Life Atlas enters at three "
         "stages: reference spectra and names during annotation (when available), class-level "
         "response during concentration estimation, and identity and occurrence during "
-        "interpretation. (B) Pooled-QC relative standard deviation (RSD) per feature in the "
+        "interpretation (solid arrows, used by default; dashed, when available). (B) Pooled-QC relative standard deviation (RSD) per feature in the "
         "ClimGrass run, positive (POS) and negative (NEG) mode, computed from detected peaks only "
         "(dark) and including gap-filled values (grey); a feature is eligible when it has a "
         f"value in {elig} pooled QCs; dotted line, {thr:g} % RSD. Including gap-filled values "
@@ -87,24 +107,28 @@ def build() -> dict[str, str]:
         f"{int(b.n_ref_phyla)} phyla), and a restricted one, {r.lipid_name} (cosine "
         f"{r.cosine:.3f}, {int(r.matched_peaks)} shared fragments; "
         f"{int(r.n_ref_phyla)} phylum). The strongest shared fragments are labelled with their "
-        "m/z; peaks beyond the precursor range are counted in the panel but not drawn. "
+        "m/z; reference peaks beyond the precursor range are not drawn "
+        f"({n['interp_hidden_peaks_broad']} for {b.lipid_name}, "
+        f"{n['interp_hidden_peaks_restricted']} for {r.lipid_name}). "
         f"(C) Detection of the two reference features across the {n['atlas_n_phyla_matching']} "
         "analysed phyla, grouped by organism group; dot area is the share of reference samples "
-        "of a phylum in which the lipid was detected (detected/analysed samples below each dot); "
+        "of a phylum in which the lipid was detected; "
         "open circles, not detected. Occurrence within the reference collection indicates "
         "potential sources, not proof of origin.")
 
     c["Figure 5"] = (
         "Application to the ClimGrass climate and drought experiment. (A) Two-by-two design: "
         "ambient climate or +3 °C and +300 ppm CO₂, each with or without drought, three plots per "
-        "treatment. The independent drying–rewetting validation is pre-registered and blinded and "
-        "is described here only in general terms. (B) Lipids that change with drought "
-        "(two-way ANOVA on log10 amounts per gram dry soil, Benjamini–Hochberg q < 0.05; "
-        f"{n['app_n_lipids_tested_pos']} POS lipids tested), shown as log2 fold change, drought "
-        "vs ambient, for both polarities. (C) Number of phyla in which the matched Atlas "
-        "reference of each drought-responsive POS lipid was detected. (D) One lipid traced from "
-        "its measured response to its Atlas occurrence. [Figure 5 is drawn once the stage-5 "
-        "quantification is confirmed.]")
+        f"treatment and polarity ({n['app_soils_pos']} soils per polarity; in the future + drought "
+        "treatment one plot was measured in positive and another in negative mode). An "
+        "independent drying–rewetting validation is pre-registered and blinded and is not shown. "
+        "(B) Lipids that change with drought (two-way ANOVA on log10 amounts per gram dry soil, "
+        "Benjamini–Hochberg q < 0.05; "
+        f"{n['app_n_responsive_pos']} of {n['app_n_lipids_tested_pos']} POS lipids and "
+        f"{n['app_n_responsive_neg']} NEG lipids), shown as log2 fold change, drought vs "
+        "ambient. (C) Number of phyla in which the matched Atlas reference of each "
+        "drought-responsive POS lipid occurs; "
+        f"{n['app_n_responsive_pos_matched']} of {n['app_n_responsive_pos']} have a match.")
 
     c["Figure S1"] = (
         "Analytical quality of the ClimGrass run. (A) Injection sequences in positive "
@@ -141,13 +165,20 @@ def build() -> dict[str, str]:
         "(lipid-specific predicted response) is not used because cross-class prediction is weak "
         "(B). (D) Q1 estimates for NIST SRM 1950 against consensus values (Bowden et al., 2017); "
         "solid line 1:1, dashed lines 2-fold; POS median estimate/consensus ratio "
-        f"{n['nist_q1_median_ratio_pos']:.2f} (n = {n['nist_q1_n_pos']}). Q3 estimates are added "
-        "once the stage-5 quantification is confirmed.")
+        f"{n['nist_q1_median_ratio_pos']:.2f} (n = {n['nist_q1_n_pos']}). Open circles, Q3 "
+        f"estimates (NEG, n = {n['nist_q3_n_neg']}; median ratio "
+        f"{n['nist_q3_median_ratio_neg']:.2f}, {n['nist_q3_pct_within_2fold_neg']:.0f} % within "
+        f"2-fold; {n['nist_q3_n_pos']} in POS).")
+
+    c["Figure S5"] = (
+        "Lipid amounts in the ClimGrass soils. (A) Amount per lipid class in µg per g dry soil, "
+        "summed over the lipids quantified in every soil (common lipid set), mean ± SD of soils, "
+        "positive and negative mode; log scale. (B) The same per treatment (positive mode), "
+        "mean ± SD of the three plots.")
 
     c["Supplementary note"] = (
-        "[Figures S4 (internal-standard recovery against the neat calibration) and S5 (class "
-        "amounts per gram dry soil) are added once the reconstitution volume and the stage-5 "
-        "quantification are confirmed.]")
+        "[Figure S4 (internal-standard recovery against the neat calibration) is added once the "
+        "reconstitution volume is confirmed.]")
     return c
 
 

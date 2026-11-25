@@ -73,6 +73,25 @@ number:app_n_lipids_tested_pos:
 - 08_application/neg/test_summary.tsv
 - 08_application/pos/responsive.tsv
 - 08_application/pos/test_summary.tsv
+number:app_n_responsive_neg:
+- 00_inputs/climgrass_samples.csv
+- 08_application/neg/responsive.tsv
+- 08_application/neg/test_summary.tsv
+- 08_application/pos/responsive.tsv
+- 08_application/pos/test_summary.tsv
+number:app_n_responsive_pos:
+- 00_inputs/climgrass_samples.csv
+- 08_application/neg/responsive.tsv
+- 08_application/neg/test_summary.tsv
+- 08_application/pos/responsive.tsv
+- 08_application/pos/test_summary.tsv
+number:app_n_responsive_pos_matched:
+- 00_inputs/climgrass_samples.csv
+- 06_atlas_match/examples/responsive_atlas_occurrence.tsv
+- 08_application/neg/responsive.tsv
+- 08_application/neg/test_summary.tsv
+- 08_application/pos/responsive.tsv
+- 08_application/pos/test_summary.tsv
 number:app_soils_neg:
 - 00_inputs/climgrass_samples.csv
 number:app_soils_pos:
@@ -241,10 +260,16 @@ number:nist_q1_pct_within_2fold_neg:
 - 05_nist/pos/nist_comparison.tsv
 number:nist_q1_pct_within_2fold_pos:
 - 05_nist/pos/nist_comparison.tsv
+number:nist_q3_median_ratio_neg:
+- 05_nist/neg/nist_comparison.tsv
+- 05_nist/pos/nist_comparison.tsv
 number:nist_q3_n_neg:
 - 05_nist/neg/nist_comparison.tsv
 - 05_nist/pos/nist_comparison.tsv
 number:nist_q3_n_pos:
+- 05_nist/pos/nist_comparison.tsv
+number:nist_q3_pct_within_2fold_neg:
+- 05_nist/neg/nist_comparison.tsv
 - 05_nist/pos/nist_comparison.tsv
 number:qc_block_gap_h_pos:
 - 01_qc/neg/injections.tsv
@@ -378,6 +403,52 @@ number:qc_rt_tolerance_min_pos:
 - 01_qc/pos/is_by_block.tsv
 - 01_qc/pos/is_per_injection.tsv
 - 01_qc/pos/provenance.yaml
+number:release_exclusive_features:
+- figures/inputs/atlas_groups.csv
+- figures/inputs/atlas_groups_provenance.yaml
+- figures/inputs/atlas_release_counts.csv
+number:release_exclusive_pct:
+- figures/inputs/atlas_groups.csv
+- figures/inputs/atlas_groups_provenance.yaml
+- figures/inputs/atlas_release_counts.csv
+number:release_features_considered:
+- figures/inputs/atlas_groups.csv
+- figures/inputs/atlas_groups_provenance.yaml
+- figures/inputs/atlas_release_counts.csv
+number:release_genera:
+- figures/inputs/atlas_groups.csv
+- figures/inputs/atlas_groups_provenance.yaml
+- figures/inputs/atlas_release_counts.csv
+number:release_groups:
+- figures/inputs/atlas_groups.csv
+- figures/inputs/atlas_groups_provenance.yaml
+- figures/inputs/atlas_release_counts.csv
+number:release_label:
+- figures/inputs/atlas_groups_provenance.yaml
+number:release_lipids_neg:
+- figures/inputs/atlas_groups.csv
+- figures/inputs/atlas_groups_provenance.yaml
+- figures/inputs/atlas_release_counts.csv
+number:release_lipids_pos:
+- figures/inputs/atlas_groups.csv
+- figures/inputs/atlas_groups_provenance.yaml
+- figures/inputs/atlas_release_counts.csv
+number:release_phyla_analysed:
+- figures/inputs/atlas_groups.csv
+- figures/inputs/atlas_groups_provenance.yaml
+- figures/inputs/atlas_release_counts.csv
+number:release_phyla_collected:
+- figures/inputs/atlas_groups.csv
+- figures/inputs/atlas_groups_provenance.yaml
+- figures/inputs/atlas_release_counts.csv
+number:release_reference_samples_neg:
+- figures/inputs/atlas_groups.csv
+- figures/inputs/atlas_groups_provenance.yaml
+- figures/inputs/atlas_release_counts.csv
+number:release_reference_samples_pos:
+- figures/inputs/atlas_groups.csv
+- figures/inputs/atlas_groups_provenance.yaml
+- figures/inputs/atlas_release_counts.csv
 number:resp_ie_fold_error:
 - 03_response/ie_loco_predictions.tsv
 - 03_response/ie_model_stats.tsv
@@ -415,6 +486,8 @@ qc_sequence:
 quant_class_amounts:
 - 04_quant/neg/class_by_sample.tsv
 - 04_quant/pos/class_by_sample.tsv
+release_layers: []
+release_phyla: []
 resp_ie_loco: []
 resp_nist:
 - 05_nist/neg/nist_comparison.tsv

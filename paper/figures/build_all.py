@@ -26,11 +26,7 @@ import captions  # noqa: E402
 import common  # noqa: E402
 import plots  # noqa: E402
 
-UNCHANGED = [
-    {"figure": "1", "name": "atlas", "role": "main", "panel": "A–D", "status": "UNCHANGED",
-     "note": "Atlas overview; not rebuilt here (issue #7, release data outside paper/)",
-     "sources": []},
-]
+UNCHANGED: list[dict] = []  # every figure is now rebuilt from paper/
 ORDER = ["GA", "1", "2", "3", "4", "5", "S1", "S2", "S3", "S4", "S5"]
 
 

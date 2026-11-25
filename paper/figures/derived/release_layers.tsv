@@ -1,0 +1,6 @@
+id	label	pos	neg
+consensus	Consensus features	273248	122571.0
+quality_filtered	Quality-filtered matrix	45525	14896.0
+enriched	Phylum-enriched lipids	11371	5697.0
+with_msms	Enriched lipids with usable MS/MS	10871	5695.0
+annotated	Enriched lipids with an accepted annotation	6360	1889.0

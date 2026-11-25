@@ -1,0 +1,7 @@
+id,label,pos,neg,derived_from,used_for
+consensus,Consensus features,273248,122571,,"Everything measured, aligned across batches"
+quality_filtered,Quality-filtered matrix,45525,14896,consensus,Phylogenetic comparisons
+fingerprint,Fingerprint features,57586,,consensus,Phylum fingerprints and soil profiles
+enriched,Phylum-enriched lipids,11371,5697,quality_filtered,The curated Atlas
+with_msms,Enriched lipids with usable MS/MS,10871,5695,enriched,Spectral matching and the library
+annotated,Enriched lipids with an accepted annotation,6360,1889,enriched,"Gold, Silver or Bronze annotation confidence"

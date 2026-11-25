@@ -109,7 +109,7 @@ def qc_sequence(fig, gs, tag):
                    columnspacing=1.2)
 
 
-def qc_rsd(fig, gs, tag):
+def qc_rsd(fig, gs, tag, compact=False):
     """Peak-picked only (slate) vs including gap-filled values (grey)."""
     set_panel("qc_rsd")
     vals, summ = D("qc_rsd_values"), D("qc_rsd_summary")
@@ -123,7 +123,7 @@ def qc_rsd(fig, gs, tag):
             s = summ[(summ.pol == pol) & (summ["mode"] == mode)].iloc[0]
             n = int(s.n_eligible)
             ax.step(v, np.arange(1, n + 1) / n, where="post", color=colour, lw=1.2,
-                    label=f"{lab}\n{n:,} features, {s.pct_le_30} % ≤ {thr:g} %")
+                    label=lab if compact else f"{lab}\n{n:,} features, {s.pct_le_30} % ≤ {thr:g} %")
         ax.axvline(thr, color="black", lw=0.5, ls=":")
         ax.set_xlim(0, 150)
         ax.set_ylim(0, 1.0)
@@ -576,14 +576,12 @@ def workflow(ax):
                 fontweight="bold", color="white")
         ax.text(x + w / 2, top - 7.2, what, ha="center", va="top", fontsize=5.3,
                 linespacing=1.15)
-        ax.text(x + w / 2, top - h + 1.2, tools, ha="center", va="bottom", fontsize=4.8,
-                color="#666666", style="italic", linespacing=1.1)
         if i:
             ax.annotate("", xy=(x - 0.1, top - h / 2), xytext=(x - gap + 0.1, top - h / 2),
                         arrowprops=dict(arrowstyle="-|>", lw=0.6, color="#777777",
                                         mutation_scale=6))
         if out:
-            ax.text(x + w / 2, top - h + 6.6, f"→ {out}", ha="center", va="bottom",
+            ax.text(x + w / 2, top - h + 2.2, f"→ {out}", ha="center", va="bottom",
                     fontsize=5.2, color=SOIL, fontweight="bold")
     ax.annotate("", xy=(x0 - 0.1, top - h / 2), xytext=(9.0, top - h / 2),
                 arrowprops=dict(arrowstyle="-|>", lw=0.6, color="#777777", mutation_scale=6))
@@ -601,9 +599,6 @@ def workflow(ax):
         ax.add_patch(FancyArrowPatch((cx, band_y + band_h + 0.2), (cx, top - h - 0.3),
                                      arrowstyle="-|>", mutation_scale=7, lw=0.9, color=ATLAS,
                                      linestyle="-" if default else (0, (2, 1.5))))
-    ax.text(x0, band_y - 0.4, "teal arrow solid: used by default · dashed: when available    "
-            "grey dashed box: run as a script, not yet a Nextflow process", ha="left", va="top",
-            fontsize=5, color="#666666")
 
 
 # =========================================================================== Atlas panels
@@ -626,9 +621,6 @@ def atlas_coverage(ax, tag):
     ax.set_xlim(0, n_ms2)
     ax.set_ylim(-0.45, 1.25)
     ax.set_axis_off()
-    ax.text(0, -0.42, f"{n_ms2:,} soil features with an MS/MS spectrum (of "
-            f"{N('atlas_n_features_all'):,} detected); ClimGrass, positive mode", fontsize=6,
-            color="#555555", va="top")
     finding(ax, tag, f"{N('atlas_pct_matched'):.0f} % of soil spectra match an Atlas reference; "
             f"{N('atlas_pct_unnamed_of_matched'):.0f} % of these have no name", x=0.0, y=1.08)
 
@@ -701,7 +693,6 @@ def mirror(ax, role, tag, headline):
     m = D(f"interp_mirror_{role}")
     soil, atl = m[m.side == "soil"], m[m.side == "atlas"]
     xmax = N(f"interp_xmax_{role}")
-    hidden = N(f"interp_hidden_peaks_{role}")
     ax.vlines(soil.mz, 0, soil.rel_intensity, color=SOIL, lw=0.7)  # rel_intensity is % of base
     ax.vlines(atl.mz, 0, -atl.rel_intensity, color=ATLAS, lw=0.7)
     ax.axhline(0, color="black", lw=0.5)
@@ -719,8 +710,6 @@ def mirror(ax, role, tag, headline):
     ax.text(0.99, 0.03, f"Atlas reference  ·  m/z {ex.ref_mz:.3f}", transform=ax.transAxes,
             va="bottom", ha="right", fontsize=6, color=ATLAS, fontweight="bold")
     note = f"cosine {ex.cosine:.3f}\n{int(ex.matched_peaks)} shared fragments"
-    if hidden:
-        note += f"\n{hidden} peak{'s' if hidden > 1 else ''} above m/z {xmax:.0f} not shown"
     ax.text(0.99, 0.36, note, transform=ax.transAxes, va="top", ha="right", fontsize=5.8,
             color="#333333")
     finding(ax, tag, headline.format(name=ex.lipid_name, phyla=_phyla(int(ex.n_ref_phyla))),
@@ -738,8 +727,6 @@ def occurrence_matrix(ax, tag):
             if r.detected:
                 ax.scatter(r.col, i, s=20 + r.detection_rate * 130, color=GROUP_COLOR[r.group],
                            lw=0, zorder=3)
-                ax.text(r.col, i + 0.36, f"{int(r.n_detected)}/{int(r.n_units)}",
-                        ha="center", va="top", fontsize=4.6, color="#444444")
             else:
                 ax.scatter(r.col, i, s=9, facecolor="white", edgecolor="#BBBBBB", lw=0.5,
                            zorder=3)
@@ -797,30 +784,17 @@ def app_design(ax, tag):
             t = cell.treatment.iloc[0]
             ax.add_patch(plt.Rectangle((i + 0.04, 1 - j + 0.04), 0.92, 0.92,
                                        facecolor=TREAT_COLOR[t], alpha=0.35, edgecolor="none"))
-            lines = []
-            for _, r in cell.iterrows():
-                pols = [p for p, c in (("POS", r.used_pos), ("NEG", r.used_neg)) if c == "yes"]
-                lines.append(f"plot {r['plot']}" + ("" if len(pols) == 2 else f" ({pols[0]} only)"))
+            lines = [f"{int((cell.used_pos == 'yes').sum())} plots"]
             ax.text(i + 0.5, 1 - j + 0.8, TREAT_LABEL[t].replace(" + ", "\n+ "), ha="center",
                     va="center", fontweight="bold", fontsize=6)
-            ax.text(i + 0.5, 1 - j + 0.33, "\n".join(lines), ha="center", va="center",
+            ax.text(i + 0.5, 1 - j + 0.3, "\n".join(lines), ha="center", va="center",
                     fontsize=5.5)
     ax.text(0.5, 2.06, "ambient", ha="center", fontsize=6)
     ax.text(1.5, 2.06, "+3 °C, +300 ppm CO$_2$", ha="center", fontsize=6)
     ax.text(-0.04, 1.5, "no drought", ha="right", va="center", fontsize=6, rotation=90)
     ax.text(-0.04, 0.5, "drought", ha="right", va="center", fontsize=6, rotation=90)
-    ax.text(1.0, -0.1, f"{N('app_soils_pos')} soils POS, {N('app_soils_neg')} NEG", ha="center",
-            va="top", fontsize=6)
-    letter(ax, tag, x=-0.1, y=1.08, title="ClimGrass 2 × 2 design")
-
-
-def app_blinded_note(ax):
-    ax.set_axis_off()
-    ax.add_patch(plt.Rectangle((0, 0), 1, 1, transform=ax.transAxes, facecolor="white",
-                               edgecolor="#777777", lw=0.6))
-    ax.text(0.5, 0.5, "Drying–rewetting validation\n\npre-registered and blinded;\n"
-            "design shown only after unblinding\n(issue #11)", transform=ax.transAxes,
-            ha="center", va="center", fontsize=6, color="#333333")
+    finding(ax, tag, f"{N('app_soils_pos')} ClimGrass soils, 2 × 2 design",
+            x=-0.02, y=1.1)
 
 
 def app_class_profiles(ax, tag, top=8):
@@ -852,18 +826,23 @@ def app_responsive(ax, tag):
     ax.set_xlabel(r"log$_2$ fold change, drought vs ambient")
     ax.legend([plt.Rectangle((0, 0), 1, 1, color=POL[p]) for p in POLS],
               [POL_LABEL[p] for p in POLS], loc="lower right", fontsize=5.5)
-    letter(ax, tag, x=-0.45, y=1.03, title="Drought-responsive lipids (q < 0.05)")
+    finding(ax, tag, f"{N('app_n_responsive_pos')} POS and {N('app_n_responsive_neg')} NEG "
+            "lipids change with drought", x=-0.45, y=1.02)
 
 
 def app_occurrence(ax, tag):
     set_panel("app_occurrence")
     d = D("app_occurrence")
     y = np.arange(len(d))
-    ax.barh(y, d.n_ref_phyla.fillna(0), color=OI["green"], height=0.7)
+    ax.barh(y, d.n_ref_phyla.fillna(0), color=ATLAS, height=0.7)
+    for yy in y[d.n_ref_phyla.isna().to_numpy()]:
+        ax.text(0.2, yy, "no Atlas match", va="center", fontsize=5, color="#777777")
     ax.set_yticks(y)
     ax.set_yticklabels(d.lipid_name, fontsize=5)
-    ax.set_xlabel("phyla with the matched reference feature")
-    letter(ax, tag, x=-0.3, y=1.03, title="Atlas occurrence (POS responsive lipids)")
+    ax.xaxis.set_major_locator(plt.MaxNLocator(integer=True))
+    ax.set_xlabel("phyla in which the reference occurs")
+    finding(ax, tag, f"{N('app_n_responsive_pos_matched')} of {N('app_n_responsive_pos')} POS "
+            "lipids match an Atlas reference", x=-0.3, y=1.02)
 
 
 def app_trace(ax, tag, lipid):
@@ -903,7 +882,7 @@ def graphical_abstract_panel(ax):
     _box(ax, 2, 4, 58, 58, ATLAS, alpha=0.10, ec=ATLAS, lw=0.9)
     ax.text(6, 58.5, "Soil Life Atlas", fontsize=8.5, fontweight="bold", color=ATLAS, va="top")
     ax.text(6, 53.5, f"{N('atlas_release_ref_samples')} reference samples in "
-            f"{N('atlas_release_phyla')} phyla\nspectra · response · occurrence", fontsize=5.6,
+            f"{N('atlas_release_phyla')} analysed phyla\nspectra · response · occurrence", fontsize=5.6,
             color="#335", va="top", linespacing=1.3)
     ymax = per_group.max()
     for i, grp in enumerate(GROUP_ORDER):
@@ -928,9 +907,8 @@ def graphical_abstract_panel(ax):
         y = 44 - i * 10.2
         _box(ax, 72, y - 4, 44, 8, "white", ec=SOIL if nf else ATLAS, lw=0.9,
              ls="-" if nf else (0, (3, 2)))
-        ax.text(75, y + 1.4, t, fontsize=6.4, fontweight="bold", va="center",
+        ax.text(75, y, t, fontsize=6.6, fontweight="bold", va="center",
                 color=SOIL if nf else ATLAS)
-        ax.text(75, y - 1.9, d.replace("\n", " "), fontsize=5.2, va="center", color="#555")
         if i:
             ax.annotate("", xy=(94, y + 4.1), xytext=(94, y + 6.1),
                         arrowprops=dict(arrowstyle="-|>", lw=0.6, color="#888",
@@ -971,6 +949,97 @@ def graphical_abstract_panel(ax):
         ax.text(x + 18 + 42 * pct / 100, y, f"{pct:.0f} %", fontsize=5.4, va="center")
 
 
+# =========================================================================== the Atlas (Fig 1)
+LAYER_SHORT = {"consensus": "features measured", "quality_filtered": "quality-filtered",
+               "enriched": "phylum-enriched lipids", "with_msms": "with a usable MS/MS spectrum",
+               "annotated": "with an accepted name"}
+
+
+def release_collection(ax, tag):
+    """Reference samples per phylum, grouped and coloured by organism group."""
+    set_panel("release")
+    ph = D("release_phyla")
+    ph["analysed"] = ph.analysed.astype(str) == "True"
+    y, ticks, labels, gy = 0.0, [], [], []
+    for grp in GROUP_ORDER:
+        sub = ph[ph.group == grp]
+        top = y
+        for _, r in sub.iterrows():
+            c = GROUP_COLOR[grp]
+            ax.barh(y, r.samples_pos, color=c if r.analysed else "white", edgecolor=c,
+                    lw=0.7, height=0.72, hatch=None if r.analysed else "////")
+            ax.text(r.samples_pos + 0.6, y, f"{int(r.samples_pos)}", va="center", fontsize=5.8)
+            ticks.append(y)
+            labels.append(r.phylum)
+            y += 1
+        gy.append((grp, top, y - 1))
+        y += 0.7
+    ax.set_yticks(ticks, labels, fontsize=6)
+    ax.set_ylim(y - 0.4, -0.8)
+    ax.tick_params(axis="y", length=0)
+    for grp, a, b in gy:
+        ax.annotate("", xy=(-0.47, a - 0.35), xytext=(-0.47, b + 0.35),
+                    xycoords=("axes fraction", "data"),
+                    arrowprops=dict(arrowstyle="-", lw=2.2, color=GROUP_COLOR[grp]),
+                    annotation_clip=False)
+        ax.text(-0.5, (a + b) / 2, grp, transform=ax.get_yaxis_transform(), ha="right",
+                va="center", fontsize=6.4, fontweight="bold", color="#333")
+    ax.set_xlabel("reference samples (positive mode)")
+    ax.spines["left"].set_visible(False)
+    ax.text(0.98, 0.02, "hatched: collected, not yet analysed", transform=ax.transAxes,
+            ha="right", va="bottom", fontsize=5.6, color="#555")
+    finding(ax, tag, f"{N('release_reference_samples_pos')} reference samples from "
+            f"{N('release_phyla_collected')} phyla in six organism groups", x=-0.52, y=1.02)
+
+
+def release_layers(ax, tag):
+    """From everything measured to the curated Atlas lipids, both polarities (log scale)."""
+    set_panel("release")
+    L = D("release_layers")
+    ypos = np.arange(len(L))
+    h = 0.36
+    for off, pol, alpha in ((-h / 2, "pos", 1.0), (h / 2, "neg", 0.45)):
+        v = L[pol].astype(float)
+        ax.barh(ypos + off, v, height=h, color=ATLAS, alpha=alpha, lw=0,
+                label=POL_LABEL.get(pol, pol.upper()))
+        for yy, val in zip(ypos + off, v):
+            ax.text(val * 1.15, yy, f"{int(val):,}", va="center", fontsize=5.6)
+    ax.set_xscale("log")
+    ax.set_xlim(1e3, 2e6)
+    ax.set_yticks(ypos, [LAYER_SHORT[i] for i in L["id"]], fontsize=6.2)
+    ax.set_ylim(len(L) - 0.4, -0.6)
+    ax.tick_params(axis="y", length=0)
+    ax.spines["left"].set_visible(False)
+    ax.set_xlabel("features")
+    enr = int(np.flatnonzero(L["id"].to_numpy() == "enriched")[0])
+    ax.axhspan(enr - 0.48, enr + 0.48, color=ATLAS, alpha=0.08, lw=0)
+    ax.legend(loc="lower right", handlelength=1, fontsize=5.8)
+    finding(ax, tag, f"{N('release_lipids_pos'):,} POS and {N('release_lipids_neg'):,} NEG "
+            "lipids make up the Atlas", x=-0.76, y=1.03)
+
+
+def release_record(ax, tag):
+    """What one Atlas record holds, and where the workflow uses it (schematic)."""
+    set_panel("release_record")
+    ax.set_xlim(0, 100)
+    ax.set_ylim(0, 40)
+    ax.set_axis_off()
+    items = [("Identity", "m/z, retention time,\nMS/MS spectrum, name", "annotation"),
+             ("Occurrence", "phyla and organism groups\nin which it was detected",
+              "interpretation"),
+             ("Response", "class-level ionisation\nresponse", "amounts")]
+    for i, (head, body, use) in enumerate(items):
+        x = 1 + i * 33.3
+        _box(ax, x, 13, 31, 23, ATLAS, alpha=0.10, ec=ATLAS, lw=0.8, r=1.2)
+        ax.text(x + 2, 32.5, head, fontsize=7, fontweight="bold", color=ATLAS, va="top")
+        ax.text(x + 2, 26, body, fontsize=5.8, va="top", linespacing=1.25)
+        ax.text(x + 15.5, 7, f"used for {use}", fontsize=5.8, ha="center", va="center",
+                color=SOIL, style="italic")
+    ax.text(0, 42, tag, fontsize=9, fontweight="bold", va="bottom", ha="right")
+    ax.text(1, 42, "Each Atlas lipid is a record that the workflow can use", fontsize=7,
+            va="bottom")
+
+
 # =========================================================================== figures
 def graphical_abstract():
     P = Panels("GA", "graphical_abstract")
@@ -979,6 +1048,18 @@ def graphical_abstract():
     P.add("–", "REAL", "Atlas group counts from the release export (figures/inputs/); match "
           "numbers from 06_atlas_match/pos", ["ga"])
     return save(fig, "GA", "graphical_abstract"), P.rows
+
+
+def fig1_atlas():
+    P = Panels(1, "atlas")
+    fig = plt.figure(figsize=(DOUBLE, 100 * MM))
+    release_collection(fig.add_axes([0.2, 0.1, 0.25, 0.8]), "A")
+    P.add("A", "REAL", f"{N('release_label')}; exported by export_groups.py", ["release"])
+    release_layers(fig.add_axes([0.71, 0.47, 0.25, 0.43]), "B")
+    P.add("B", "REAL", f"{N('release_label')}; feature layers of the release", ["release"])
+    release_record(fig.add_axes([0.52, 0.03, 0.46, 0.3]), "C")
+    P.add("C", "SCHEMATIC", "drawn natively; no data", ["release_record"])
+    return save(fig, 1, "atlas"), P.rows
 
 
 def fig2_workflow():
@@ -990,7 +1071,7 @@ def fig2_workflow():
     P.add("A", "SCHEMATIC", "drawn natively; stage and tool text from the 2026-11-24 draft",
           ["schematic_native"])
     qc_rsd(fig, fig.add_gridspec(1, 2, left=0.07, right=0.56, top=0.43, bottom=0.09,
-                                 wspace=0.08), "B")
+                                 wspace=0.08), "B", compact=True)
     P.add("B", "REAL", "pooled-QC RSD per feature; eligibility rule in rsd_summary.tsv",
           ["qc_rsd"])
     report(fig.add_axes([0.62, 0.05, 0.36, 0.38]))
@@ -1046,10 +1127,8 @@ def fig5_application():
     gs = fig.add_gridspec(2, 3, width_ratios=[1, 1.05, 1.05], height_ratios=[1, 1],
                           hspace=0.45, wspace=0.75, left=0.06, right=0.98, top=0.93,
                           bottom=0.1)
-    top = gs[0, 0].subgridspec(2, 1, height_ratios=[1, 0.42], hspace=0.4)
-    app_design(fig.add_subplot(top[0]), "A")
-    app_blinded_note(fig.add_subplot(top[1]))
-    P.add("A", "REAL", "ClimGrass design; drying–rewetting only as a text box (#11)",
+    app_design(fig.add_subplot(gs[0, 0]), "A")
+    P.add("A", "REAL", "ClimGrass design; drying–rewetting validation only in the caption (#11)",
           ["app_design"])
     app_responsive(fig.add_subplot(gs[:, 1]), "B")
     P.add("B", "REAL", "drought-responsive lipids, q < 0.05", ["app_responsive"])
@@ -1144,7 +1223,7 @@ def figS5_amounts():
     return save(fig, "S5", "amounts"), P.rows
 
 
-FIGURES = [graphical_abstract, fig2_workflow, fig3_atlas, fig4_interpretation, fig5_application,
+FIGURES = [graphical_abstract, fig1_atlas, fig2_workflow, fig3_atlas, fig4_interpretation, fig5_application,
            figS1_quality, figS2_annotation, figS3_response, figS4_recovery, figS5_amounts]
 
 

@@ -1,0 +1,14 @@
+key,value
+reference_samples_pos,168
+reference_samples_neg,195
+analysis_samples_pos,164
+analysis_samples_neg,192
+phyla_collected,19
+phyla_analysed,16
+genera,106
+groups,6
+batches,6
+lipids_pos,11371
+lipids_neg,5697
+key_finding_exclusive_features,747
+key_finding_features_considered,57001

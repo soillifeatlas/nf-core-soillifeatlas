@@ -1,4 +1,4 @@
-exported: '2026-11-25T12:56:46+00:00'
+exported: '2026-11-25T14:38:30+00:00'
 command: python paper/figures/export_groups.py <release.json>
 source_file: SoilLifeAtlas/release/release.json
 source_sha256: a9173951f14947732966251c823c7e4bfa487b881d83ee56d5f6bf667deb0e72
@@ -17,3 +17,14 @@ taxonomy:
   replication_rule: n >= 2 in both polarities
 n_groups: 6
 n_phyla: 19
+key_finding:
+  exclusive_features: 747
+  features_considered: 57001
+  rule: features detected in at least two samples and two acquisition batches
+  statement: Phyla are told apart by lipids they share, present in different amounts.
+    Only a small fraction of lipids belongs to one phylum alone.
+  source: Paper 2 draft (2026-10-05), Results
+files:
+- atlas_groups.csv
+- atlas_release_counts.csv
+- atlas_feature_layers.csv

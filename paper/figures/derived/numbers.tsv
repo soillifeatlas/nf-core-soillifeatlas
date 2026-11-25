@@ -1,4 +1,16 @@
 key	value
+release_label	Release 0.9 (draft)
+release_reference_samples_pos	168
+release_reference_samples_neg	195
+release_phyla_collected	19
+release_phyla_analysed	16
+release_genera	106
+release_groups	6
+release_lipids_pos	11371
+release_lipids_neg	5697
+release_exclusive_features	747
+release_features_considered	57001
+release_exclusive_pct	1.3
 qc_block_gap_h_pos	23.36847291777778
 qc_n_pooled_qc_pos	9
 qc_n_injections_pos	40
@@ -50,11 +62,13 @@ resp_ie_n_classes	24
 nist_q1_n_pos	76
 nist_q1_median_ratio_pos	1.0235568388972722
 nist_q1_pct_within_2fold_pos	36.84210526315789
-nist_q3_n_pos	8
+nist_q3_n_pos	0
 nist_q1_n_neg	2
 nist_q1_median_ratio_neg	1.173438498948968
 nist_q1_pct_within_2fold_neg	100.0
 nist_q3_n_neg	67
+nist_q3_median_ratio_neg	0.3295704344958294
+nist_q3_pct_within_2fold_neg	34.32835820895522
 atlas_n_features_all	96729
 atlas_n_ms2	21982
 atlas_n_matched	9618
@@ -79,4 +93,7 @@ interp_hidden_peaks_restricted	2
 interp_groups_restricted	Soil animals
 app_soils_pos	12
 app_soils_neg	12
-app_n_lipids_tested_pos	404
+app_n_lipids_tested_pos	393
+app_n_responsive_pos	18
+app_n_responsive_neg	15
+app_n_responsive_pos_matched	15

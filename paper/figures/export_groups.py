@@ -1,10 +1,14 @@
 #!/usr/bin/env python
-"""Export the Atlas phylum -> organism-group mapping from a release.json into paper/.
+"""Export what the figures need from an Atlas release.json into paper/.
 
     python paper/figures/export_groups.py <path/to/release.json>
 
-Writes paper/figures/inputs/atlas_groups.csv and atlas_groups_provenance.yaml. The figure
-scripts read only that CSV (inside paper/), never the release itself.
+Writes, under paper/figures/inputs/:
+  atlas_groups.csv          phylum -> organism group, reference samples per phylum
+  atlas_release_counts.csv  headline counts of the release (key, value)
+  atlas_feature_layers.csv  feature layers from consensus features to annotated Atlas lipids
+  atlas_groups_provenance.yaml  release label, source hash, export time
+The figure scripts read only these files (inside paper/), never the release itself.
 """
 from __future__ import annotations
 
@@ -35,6 +39,19 @@ def main(release_json: str) -> int:
         w = csv.DictWriter(fh, fieldnames=list(rows[0]))
         w.writeheader()
         w.writerows(rows)
+    with open(OUT / "atlas_release_counts.csv", "w", newline="") as fh:
+        w = csv.writer(fh)
+        w.writerow(["key", "value"])
+        w.writerows(r["counts"].items())
+        kf = r.get("key_finding", {})
+        for k in ("exclusive_features", "features_considered"):
+            if k in kf:
+                w.writerow([f"key_finding_{k}", kf[k]])
+    with open(OUT / "atlas_feature_layers.csv", "w", newline="") as fh:
+        cols = ["id", "label", "pos", "neg", "derived_from", "used_for"]
+        w = csv.DictWriter(fh, fieldnames=cols, extrasaction="ignore")
+        w.writeheader()
+        w.writerows({c: layer.get(c) for c in cols} for layer in r["feature_layers"])
     (OUT / "atlas_groups_provenance.yaml").write_text(yaml.safe_dump({
         "exported": dt.datetime.now(dt.timezone.utc).isoformat(timespec="seconds"),
         "command": "python paper/figures/export_groups.py <release.json>",
@@ -42,6 +59,8 @@ def main(release_json: str) -> int:
         "source_sha256": hashlib.sha256(raw).hexdigest(),
         "release": r["release"], "taxonomy": r["taxonomy"],
         "n_groups": len(r["groups"]), "n_phyla": len(rows),
+        "key_finding": r.get("key_finding"),
+        "files": ["atlas_groups.csv", "atlas_release_counts.csv", "atlas_feature_layers.csv"],
     }, sort_keys=False, allow_unicode=True))
     print(f"wrote {OUT / 'atlas_groups.csv'} ({len(rows)} phyla)")
     return 0
