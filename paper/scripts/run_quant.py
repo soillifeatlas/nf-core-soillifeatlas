@@ -43,6 +43,7 @@ def main(argv=None):
     ap.add_argument("--run-provenance", required=True)
     ap.add_argument("--out", required=True)
     ap.add_argument("--collapse-rt", type=float, default=0.1)
+    ap.add_argument("--nist-plasma-ml", type=float, default=0.05)
     a = ap.parse_args(argv)
     res, out = Path(a.results), Path(a.out)
     out.mkdir(parents=True, exist_ok=True)
@@ -122,6 +123,21 @@ def main(argv=None):
         cls = q.groupby(["lipid_class", "plot", "treatment"])["ng_per_g"].sum(min_count=1).reset_index()
         cls["ug_per_g"] = cls["ng_per_g"] / 1000
         cls.to_csv(out / "class_by_sample.tsv", sep="\t", index=False)
+
+    # Issue #5: the same estimate for the NIST SRM 1950 extracts (50 uL plasma, same 10 ng spike).
+    # "dry_mass_g" carries mL of plasma here, so ng_per_g reads as ng per mL.
+    nist_files = [f for f in area.columns if re.search(r"SRM\d", f)]
+    nist_is = det[det["role"] == "nist"].pivot_table(index="compound", columns="file_id", values="area")
+    if nist_files and len(nist_is):
+        ns = pd.DataFrame({"file_id": nist_files, "dry_mass_g": a.nist_plasma_ml, "spike_ng": 10.0})
+        ne = qt.estimate(routes, area, nist_is, ns, standards, rie, cal, a.polarity)
+        ne = ne.rename(columns={"ng_per_g": "ng_per_ml_plasma"})
+        ne = ne[ne["confidence"].isin(["Gold", "Silver"])]
+        ne.groupby(["feature_id", "lipid_name", "lipid_class", "confidence", "quant_route", "is_compound", "f"]).agg(
+            n_srm=("ng_per_ml_plasma", lambda s: int(s.notna().sum())),
+            median_ng_per_ml=("ng_per_ml_plasma", "median"),
+            rsd_pct=("ng_per_ml_plasma", lambda s: s.std() / s.mean() * 100 if s.notna().sum() > 1 else np.nan),
+        ).reset_index().to_csv(out / "nist_srm1950_estimates.tsv", sep="\t", index=False)
 
     rng = is_area.reindex(columns=soil_files).stack().rename("is_area").reset_index()
     rng = rng.merge(cal, on="compound", how="left")
