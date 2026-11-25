@@ -1,12 +1,12 @@
 feature_id	lipid_name	lipid_class	confidence	quant_route	is_compound	is_match	RIE_pred	mz	rt	lipid_id	f	f_uncapped	f_capped	f_source	f_default	n_soils_quantified	median_ng_per_g	is_range_flags	in_common_set
-1004	PI	PI	Bronze	Q3	LPC_18_1_d7	nearest_rt		641.3315	1.371	feature:1004	0.6156031170596961	0.6156031170596961	False	RIE(PC,M+H) / RIE(PI,M+NH4)	False	1.0	3.8270490577790985	within	False
+1004	PI	PI	Bronze	Q4				641.3315	1.371	feature:1004									False
 1721	TG 26:4	TG	Silver	Q3	LPC_18_1_d7	nearest_rt		523.32514	1.4412	TG 26:4#0	0.5140022124101055	0.5140022124101055	False	RIE(PC,M+H) / RIE(TG,M+NH4)	False	1.0	9.277549558300773	within	False
 3414	DG 7:0_6:0	DG	Gold	Q3	LPC_18_1_d7	nearest_rt		325.19829	1.5465	DG 7:0_6:0#0	1.6819779814599913	1.6819779814599913	False	RIE(PC,M+H) / RIE(DG,M+NH4)	False	12.0	41.37312331550417	within	True
 3989	TG 50:13	TG	Silver	Q3	LPC_18_1_d7	nearest_rt		858.58712	1.6103	TG 50:13#0	0.5140022124101055	0.5140022124101055	False	RIE(PC,M+H) / RIE(TG,M+NH4)	False	9.0	5.524073358219539	within	False
 4152	DG P-25:4	DG	Silver	Q3	LPC_18_1_d7	nearest_rt		469.3275	1.6386	DG P-25:4#0	1.6819779814599913	1.6819779814599913	False	RIE(PC,M+H) / RIE(DG,M+NH4)	False	2.0	37.08744637415725	within	False
 4421	TG 54:15	TG	Silver	Q3	LPC_18_1_d7	nearest_rt		894.62359	1.6862	TG 54:15#0	0.5140022124101055	0.5140022124101055	False	RIE(PC,M+H) / RIE(TG,M+NH4)	False	11.0	12.325880349234595	within	False
-4698	PI 45:11	PI	Silver	Q3	LPC_18_1_d7	nearest_rt		988.58862	1.7482	PI 45:11#0	0.6156031170596961	0.6156031170596961	False	RIE(PC,M+H) / RIE(PI,M+NH4)	False	7.0	6.435412397418489	within	False
-4936	PI 46:11	PI	Silver	Q3	LPC_18_1_d7	nearest_rt		1002.60491	1.8193	PI 46:11#0	0.6156031170596961	0.6156031170596961	False	RIE(PC,M+H) / RIE(PI,M+NH4)	False	10.0	9.957193539918805	within	False
+4698	PI 45:11	PI	Silver	Q4				988.58862	1.7482	PI 45:11#0									False
+4936	PI 46:11	PI	Silver	Q4				1002.60491	1.8193	PI 46:11#0									False
 4983	PG 39:8	PG	Silver	Q3	LPC_18_1_d7	nearest_rt		822.53094	1.8407	PG 39:8#0	0.3831331169995784	0.3831331169995784	False	RIE(PC,M+H) / RIE(PG,M+NH4)	False	6.0	22.023410460857754	within	False
 5076	PA	PA	Bronze	Q3	LPC_18_1_d7	nearest_rt		707.50439	1.858	feature:5076	1.0	1.0	False	class not in response table; f = 1	True	12.0	47.619052495729704	within	True
 5092	PC O-33:5	PC	Silver	Q1	LPC_18_1_d7	family		724.52996	1.8714	PC O-33:5#0	1.0	1.0	False	class-matched standard (f = 1)	False	4.0	5.90780461966717	within	False
@@ -15,8 +15,8 @@ feature_id	lipid_name	lipid_class	confidence	quant_route	is_compound	is_match	RI
 6263	PC P-32:7	PC	Silver	Q1	LPC_18_1_d7	family		704.46784	2.0557	PC P-32:7#0	1.0	1.0	False	class-matched standard (f = 1)	False	2.0	22.45842422304835	within	False
 6752	PC 29:11	PC	Silver	Q1	LPC_18_1_d7	family		670.35333	2.1392	PC 29:11#0	1.0	1.0	False	class-matched standard (f = 1)	False	0.0		within	False
 6913	DG P-25:3	DG	Silver	Q3	LPC_18_1_d7	nearest_rt		471.34291	2.1841	DG P-25:3#0	1.6819779814599913	1.6819779814599913	False	RIE(PC,M+H) / RIE(DG,M+NH4)	False	1.0	5.916021623961255	within	False
-7242	PI 49:11	PI	Silver	Q3	LPC_18_1_d7	nearest_rt		1044.6519	2.2659	PI 49:11#0	0.6156031170596961	0.6156031170596961	False	RIE(PC,M+H) / RIE(PI,M+NH4)	False	12.0	16.572641103494504	within	True
-7260	PI 24:0	PI	Silver	Q3	LPC_18_1_d7	nearest_rt		716.43213	2.2613	PI 24:0#0	0.6156031170596961	0.6156031170596961	False	RIE(PC,M+H) / RIE(PI,M+NH4)	False	12.0	12.542707820733789	within	True
+7242	PI 49:11	PI	Silver	Q4				1044.6519	2.2659	PI 49:11#0									False
+7260	PI 24:0	PI	Silver	Q4				716.43213	2.2613	PI 24:0#0									False
 7346	PC 32:5	PC	Silver	Q1	LPC_18_1_d7	family		724.49401	2.2897	PC 32:5#0	1.0	1.0	False	class-matched standard (f = 1)	False	8.0	7.452309199382148	within	False
 7353	PC O-38:10	PC	Silver	Q1	LPC_18_1_d7	family		784.52724	2.3009	PC O-38:10#0	1.0	1.0	False	class-matched standard (f = 1)	False	12.0	496.21671649635937	within	True
 7370	PC P-40:12	PC	Silver	Q1	LPC_18_1_d7	family		806.50916	2.3048	PC P-40:12#0	1.0	1.0	False	class-matched standard (f = 1)	False	12.0	48.93446277794465	within	True
@@ -80,7 +80,7 @@ feature_id	lipid_name	lipid_class	confidence	quant_route	is_compound	is_match	RI
 17390	PC	PC	Bronze	Q1	LPC_18_1_d7	family		832.60184	4.4342	feature:17390	1.0	1.0	False	class-matched standard (f = 1)	False	3.0	2.049102842047565	within	False
 17838	PC 38:5	PC	Silver	Q1	LPC_18_1_d7	family		808.58902	4.5501	PC 38:5#0	1.0	1.0	False	class-matched standard (f = 1)	False	2.0	16.903138995321193	within	False
 17964	LPC 19:1	LPC	Silver	Q1	LPC_18_1_d7	class		536.36934	4.5623	LPC 19:1#1	1.0	1.0	False	class-matched standard (f = 1)	False	0.0		within	False
-18110	PI	PI	Bronze	Q3	LPC_18_1_d7	nearest_rt		631.25034	4.6087	feature:18110	0.6156031170596961	0.6156031170596961	False	RIE(PC,M+H) / RIE(PI,M+NH4)	False	12.0	4.649178438317888	within	True
+18110	PI	PI	Bronze	Q4				631.25034	4.6087	feature:18110									False
 18403	DG	DG	Bronze	Q3	LPC_18_1_d7	nearest_rt		497.37995	4.6838	feature:18403	1.6819779814599913	1.6819779814599913	False	RIE(PC,M+H) / RIE(DG,M+NH4)	False	12.0	15.597109401515251	within	True
 18441	PC 41:12	PC	Silver	Q1	LPC_18_1_d7	family		836.5237	4.6955	PC 41:12#0	1.0	1.0	False	class-matched standard (f = 1)	False	1.0	3.1795327943040492	within	False
 18540	LPC 17:1	LPC	Silver	Q1	LPC_18_1_d7	class		508.338	4.6861	LPC 17:1#1	1.0	1.0	False	class-matched standard (f = 1)	False	9.0	2.386352556817728	within	False
@@ -97,7 +97,7 @@ feature_id	lipid_name	lipid_class	confidence	quant_route	is_compound	is_match	RI
 19505	MG 22:3	MG	Silver	Q4				409.32974	4.9425	MG 22:3#0									False
 19523	TG	TG	Bronze	Q3	LPC_18_1_d7	nearest_rt		577.36922	4.9457	feature:19523	0.5140022124101055	0.5140022124101055	False	RIE(PC,M+H) / RIE(TG,M+NH4)	False	12.0	5.024683144439338	within	True
 19544	TG 28:2	TG	Silver	Q3	LPC_18_1_d7	nearest_rt		572.41418	4.948	TG 28:2#0	0.5140022124101055	0.5140022124101055	False	RIE(PC,M+H) / RIE(TG,M+NH4)	False	12.0	3.8394554993020176	within	True
-19563	PI	PI	Bronze	Q3	LPC_18_1_d7	nearest_rt		607.25347	4.9684	feature:19563	0.6156031170596961	0.6156031170596961	False	RIE(PC,M+H) / RIE(PI,M+NH4)	False	11.0	3.7252330154486324	within	False
+19563	PI	PI	Bronze	Q4				607.25347	4.9684	feature:19563									False
 19588	TG P-25:4	TG	Silver	Q3	LPC_18_1_d7	nearest_rt		483.30697	4.9544	TG P-25:4#0	0.5140022124101055	0.5140022124101055	False	RIE(PC,M+H) / RIE(TG,M+NH4)	False	12.0	18.64621619697292	within	True
 19608	SPH d20:0	SPH	Silver	Q3	LPC_18_1_d7	nearest_rt		352.31964	4.947	SPH d20:0#2	1.0	1.0	False	class not in response table; f = 1	True	9.0	41.835382658626415	within	False
 19770	DG P-4:0_17:0	DG	Gold	Q3	LPC_18_1_d7	nearest_rt		421.32763	4.9733	DG P-4:0_17:0#0	1.6819779814599913	1.6819779814599913	False	RIE(PC,M+H) / RIE(DG,M+NH4)	False	12.0	72.30489707503631	within	True
@@ -121,7 +121,7 @@ feature_id	lipid_name	lipid_class	confidence	quant_route	is_compound	is_match	RI
 20933	DG 22:1	DG	Silver	Q3	LPC_18_1_d7	nearest_rt		444.36694	5.2616	DG 22:1#0	1.6819779814599913	1.6819779814599913	False	RIE(PC,M+H) / RIE(DG,M+NH4)	False	12.0	5.170753637469906	within	True
 21049	DG 23:1	DG	Silver	Q3	LPC_18_1_d7	nearest_rt		463.33837	5.2918	DG 23:1#0	1.6819779814599913	1.6819779814599913	False	RIE(PC,M+H) / RIE(DG,M+NH4)	False	11.0	17.19909160923242	within	False
 21449	TG 34:2	TG	Silver	Q3	LPC_18_1_d7	nearest_rt		624.51939	5.3407	TG 34:2#0	0.5140022124101055	0.5140022124101055	False	RIE(PC,M+H) / RIE(TG,M+NH4)	False	8.0	0.9180306137793768	within	False
-21477	PI	PI	Bronze	Q3	LPC_18_1_d7	nearest_rt		645.26682	5.3674	feature:21477	0.6156031170596961	0.6156031170596961	False	RIE(PC,M+H) / RIE(PI,M+NH4)	False	6.0	0.46073718969317945	within	False
+21477	PI	PI	Bronze	Q4				645.26682	5.3674	feature:21477									False
 21527	MG O-25:7	MG	Silver	Q4				429.33533	5.4018	MG O-25:7#0									False
 21575	DG	DG	Bronze	Q3	LPC_18_1_d7	nearest_rt		523.43265	5.3969	feature:21575	1.6819779814599913	1.6819779814599913	False	RIE(PC,M+H) / RIE(DG,M+NH4)	False	8.0	9.570713275335612	within	False
 21718	LPC 18:0	LPC	Gold	Q1	LPC_18_1_d7	class		524.37012	5.4375	LPC 18:0#1	1.0	1.0	False	class-matched standard (f = 1)	False	12.0	6.100053496678326	within	True
@@ -208,7 +208,7 @@ feature_id	lipid_name	lipid_class	confidence	quant_route	is_compound	is_match	RI
 27245	DG O-23:2	DG	Silver	Q3	LPC_18_1_d7	nearest_rt		442.38815	7.0253	DG O-23:2#2	1.6819779814599913	1.6819779814599913	False	RIE(PC,M+H) / RIE(DG,M+NH4)	False	12.0	17.733951366132544	within	True
 27253	MG O-23:4	MG	Silver	Q4				407.35119	7.0285	MG O-23:4#1									False
 27264	MG 23:2	MG	Gold	Q4				425.36178	7.0466	MG 23:2#1									False
-27273	PI	PI	Bronze	Q3	LPC_18_1_d7	nearest_rt		565.2439	7.0364	feature:27273	0.6156031170596961	0.6156031170596961	False	RIE(PC,M+H) / RIE(PI,M+NH4)	False	12.0	14.050919917036552	within	True
+27273	PI	PI	Bronze	Q4				565.2439	7.0364	feature:27273									False
 27376	TG 30:0	TG	Silver	Q3	LPC_18_1_d7	nearest_rt		604.47795	7.0647	TG 30:0#1	0.5140022124101055	0.5140022124101055	False	RIE(PC,M+H) / RIE(TG,M+NH4)	False	12.0	3.4793551531156757	within	True
 27377	TG 29:2	TG	Silver	Q3	LPC_18_1_d7	nearest_rt		554.44121	7.0569	TG 29:2#0	0.5140022124101055	0.5140022124101055	False	RIE(PC,M+H) / RIE(TG,M+NH4)	False	1.0	4.023824514808437	within	False
 27491	DG	DG	Bronze	Q3	LPC_18_1_d7	nearest_rt		521.41811	7.0893	feature:27491	1.6819779814599913	1.6819779814599913	False	RIE(PC,M+H) / RIE(DG,M+NH4)	False	8.0	8.24392219963525	within	False
@@ -248,7 +248,7 @@ feature_id	lipid_name	lipid_class	confidence	quant_route	is_compound	is_match	RI
 29154	TG 9:0_16:0+Os	TG	Gold	Q3	LPC_18_1_d7	nearest_rt		523.36015	7.4987	TG 9:0_16:0+Os#1	0.5140022124101055	0.5140022124101055	False	RIE(PC,M+H) / RIE(TG,M+NH4)	False	12.0	118.40772848511409	within	True
 29175	DG O-24:2	DG	Silver	Q3	LPC_18_1_d7	nearest_rt		456.40364	7.5033	DG O-24:2#0	1.6819779814599913	1.6819779814599913	False	RIE(PC,M+H) / RIE(DG,M+NH4)	False	11.0	11.038717652597256	within	False
 29177	DG P-23:0	DG	Silver	Q3	LPC_18_1_d7	nearest_rt		444.40442	7.4985	DG P-23:0#0	1.6819779814599913	1.6819779814599913	False	RIE(PC,M+H) / RIE(DG,M+NH4)	False	10.0	4.431997468466686	within	False
-29210	PI 42:8	PI	Silver	Q3	LPC_18_1_d7	nearest_rt		935.56515	7.5171	PI 42:8#0	0.6156031170596961	0.6156031170596961	False	RIE(PC,M+H) / RIE(PI,M+NH4)	False	1.0	0.7214352492646173	within	False
+29210	PI 42:8	PI	Silver	Q4				935.56515	7.5171	PI 42:8#0									False
 29240	MG O-24:4	MG	Silver	Q4				421.36696	7.5238	MG O-24:4#0									False
 29275	DG	DG	Bronze	Q3	LPC_18_1_d7	nearest_rt		573.51977	7.5373	feature:29275	1.6819779814599913	1.6819779814599913	False	RIE(PC,M+H) / RIE(DG,M+NH4)	False	12.0	8.277357033056393	within	True
 29311	DG P-29:0	DG	Silver	Q3	LPC_18_1_d7	nearest_rt		511.47197	7.5444	DG P-29:0#0	1.6819779814599913	1.6819779814599913	False	RIE(PC,M+H) / RIE(DG,M+NH4)	False	12.0	7.479769314429272	within	True
@@ -329,7 +329,7 @@ feature_id	lipid_name	lipid_class	confidence	quant_route	is_compound	is_match	RI
 32384	DG O-25:2	DG	Silver	Q3	LPC_18_1_d7	nearest_rt		470.41988	8.6714	DG O-25:2#2	1.6819779814599913	1.6819779814599913	False	RIE(PC,M+H) / RIE(DG,M+NH4)	False	9.0	33.938726213112375	within	False
 32416	DG	DG	Bronze	Q3	LPC_18_1_d7	nearest_rt		519.36399	8.6925	feature:32416	1.6819779814599913	1.6819779814599913	False	RIE(PC,M+H) / RIE(DG,M+NH4)	False	5.0	25.185479928627963	within	False
 32437	DG	DG	Bronze	Q3	LPC_18_1_d7	nearest_rt		643.51428	8.6999	feature:32437	1.6819779814599913	1.6819779814599913	False	RIE(PC,M+H) / RIE(DG,M+NH4)	False	10.0	6.888180735916853	within	False
-32446	PI 21:0	PI	Silver	Q3	LPC_18_1_d7	nearest_rt		674.38701	8.6951	PI 21:0#0	0.6156031170596961	0.6156031170596961	False	RIE(PC,M+H) / RIE(PI,M+NH4)	False	12.0	6.290652640045568	within	True
+32446	PI 21:0	PI	Silver	Q4				674.38701	8.6951	PI 21:0#0									False
 32520	TG 26:0	TG	Silver	Q3	LPC_18_1_d7	nearest_rt		537.3754	8.7353	TG 26:0#2	0.5140022124101055	0.5140022124101055	False	RIE(PC,M+H) / RIE(TG,M+NH4)	False	5.0	1.9019938330821868	within	False
 32527	TG 8:0_18:1	TG	Gold	Q3	LPC_18_1_d7	nearest_rt		514.40986	8.7168	TG 8:0_18:1#2	0.5140022124101055	0.5140022124101055	False	RIE(PC,M+H) / RIE(TG,M+NH4)	False	12.0	4.302287143995021	within	True
 32618	TG 28:1	TG	Silver	Q3	LPC_18_1_d7	nearest_rt		542.4414	8.7203	TG 28:1#4	0.5140022124101055	0.5140022124101055	False	RIE(PC,M+H) / RIE(TG,M+NH4)	False	3.0	6.489926924370018	within	False
@@ -376,7 +376,7 @@ feature_id	lipid_name	lipid_class	confidence	quant_route	is_compound	is_match	RI
 33836	TG O-28:1	TG	Silver	Q3	LPC_18_1_d7	nearest_rt		533.41709	9.1929	TG O-28:1#0	0.5140022124101055	0.5140022124101055	False	RIE(PC,M+H) / RIE(TG,M+NH4)	False	7.0	2.610580616817336	within	False
 33865	DG O-27:3	DG	Silver	Q3	LPC_18_1_d7	nearest_rt		496.43563	9.2472	DG O-27:3#0	1.6819779814599913	1.6819779814599913	False	RIE(PC,M+H) / RIE(DG,M+NH4)	False	12.0	5.862724237480643	within	True
 33906	TG 45:9	TG	Silver	Q3	LPC_18_1_d7	nearest_rt		747.55825	9.2142	TG 45:9#0	0.5140022124101055	0.5140022124101055	False	RIE(PC,M+H) / RIE(TG,M+NH4)	False	12.0	2.986942829573449	within	True
-33921	PI 44:8	PI	Silver	Q3	LPC_18_1_d7	nearest_rt		963.59501	9.2189	PI 44:8#0	0.6156031170596961	0.6156031170596961	False	RIE(PC,M+H) / RIE(PI,M+NH4)	False	12.0	10.851006914192798	within	True
+33921	PI 44:8	PI	Silver	Q4				963.59501	9.2189	PI 44:8#0									False
 33937	PC O-29:1	PC	Silver	Q1	LPC_18_1_d7	family		698.51089	9.2213	PC O-29:1#0	1.0	1.0	False	class-matched standard (f = 1)	False	9.0	2.7955727256426552	within	False
 33981	TG 33:1	TG	Silver	Q3	LPC_18_1_d7	nearest_rt		628.51497	9.2567	TG 33:1#0	0.5140022124101055	0.5140022124101055	False	RIE(PC,M+H) / RIE(TG,M+NH4)	False	5.0	7.742890988209819	within	False
 34021	MG O-25:6	MG	Silver	Q4				431.35091	9.2603	MG O-25:6#1									False
@@ -433,7 +433,7 @@ feature_id	lipid_name	lipid_class	confidence	quant_route	is_compound	is_match	RI
 35962	TG	TG	Bronze	Q3	SM_d18_1_18_1_d9	nearest_rt		563.42842	9.9432	feature:35962	0.33135738521609626	0.33135738521609626	False	RIE(SM,M+H) / RIE(TG,M+NH4)	False	2.0	2.493152473605868	is_not_detected;within	False
 36043	DG	DG	Bronze	Q3	SM_d18_1_18_1_d9	nearest_rt		573.44944	9.9585	feature:36043	1.0843062782051809	1.0843062782051809	False	RIE(SM,M+H) / RIE(DG,M+NH4)	False	0.0		is_not_detected;within	False
 36062	DG O-26:3	DG	Silver	Q3	SM_d18_1_18_1_d9	nearest_rt		465.39332	9.9488	DG O-26:3#0	1.0843062782051809	1.0843062782051809	False	RIE(SM,M+H) / RIE(DG,M+NH4)	False	7.0	7.369192558691025	is_not_detected;within	False
-36092	LPI 29:2	LPI	Silver	Q3	SM_d18_1_18_1_d9	nearest_rt		768.50424	9.9503	LPI 29:2#0	0.39685556652239984	0.39685556652239984	False	RIE(SM,M+H) / RIE(PI,M+NH4)	False	5.0	0.9362003610662317	is_not_detected;within	False
+36092	LPI 29:2	LPI	Silver	Q4				768.50424	9.9503	LPI 29:2#0									False
 36137	DG	DG	Bronze	Q3	SM_d18_1_18_1_d9	nearest_rt		607.45402	9.9622	feature:36137	1.0843062782051809	1.0843062782051809	False	RIE(SM,M+H) / RIE(DG,M+NH4)	False	7.0	19.14670589220827	is_not_detected;within	False
 36161	TG 8:0_8:0_15:1	TG	Gold	Q3	SM_d18_1_18_1_d9	nearest_rt		567.46062	9.9543	TG 8:0_8:0_15:1#0	0.33135738521609626	0.33135738521609626	False	RIE(SM,M+H) / RIE(TG,M+NH4)	False	3.0	1.8857444631232942	is_not_detected;within	False
 36164	DG	DG	Bronze	Q3	SM_d18_1_18_1_d9	nearest_rt		581.47658	9.9601	feature:36164	1.0843062782051809	1.0843062782051809	False	RIE(SM,M+H) / RIE(DG,M+NH4)	False	0.0		is_not_detected;within	False
@@ -539,7 +539,7 @@ feature_id	lipid_name	lipid_class	confidence	quant_route	is_compound	is_match	RI
 39038	Hex2Cer 18:1	Hex2Cer	Silver	Q3	SM_d18_1_18_1_d9	nearest_rt		806.56191	11.0148	Hex2Cer 18:1#0	10.0	21.59812705941107	True	RIE(SM,M+H) / RIE(HEXCER,M+H)	False	0.0		is_not_detected;within	False
 39040	TG 39:3	TG	Silver	Q3	SM_d18_1_18_1_d9	nearest_rt		724.57117	11.009	TG 39:3#0	0.33135738521609626	0.33135738521609626	False	RIE(SM,M+H) / RIE(TG,M+NH4)	False	3.0	5.967388748947993	is_not_detected;within	False
 39041	DG	DG	Bronze	Q3	SM_d18_1_18_1_d9	nearest_rt		519.40205	11.0177	feature:39041	1.0843062782051809	1.0843062782051809	False	RIE(SM,M+H) / RIE(DG,M+NH4)	False	0.0		is_not_detected;within	False
-39110	PI P-11:0_20:1	PI	Gold	Q3	SM_d18_1_18_1_d9	nearest_rt		796.53498	11.062	PI P-11:0_20:1#0	0.39685556652239984	0.39685556652239984	False	RIE(SM,M+H) / RIE(PI,M+NH4)	False	2.0	3.0883033629964975	is_not_detected;within	False
+39110	PI P-11:0_20:1	PI	Gold	Q4				796.53498	11.062	PI P-11:0_20:1#0									False
 39129	TG 32:0	TG	Silver	Q3	SM_d18_1_18_1_d9	nearest_rt		621.47036	11.0374	TG 32:0#0	0.33135738521609626	0.33135738521609626	False	RIE(SM,M+H) / RIE(TG,M+NH4)	False	3.0	6.271158538204395	is_not_detected;within	False
 39148	DG	DG	Bronze	Q3	SM_d18_1_18_1_d9	nearest_rt		669.47057	11.0399	feature:39148	1.0843062782051809	1.0843062782051809	False	RIE(SM,M+H) / RIE(DG,M+NH4)	False	5.0	15.793367239044443	is_not_detected;within	False
 39167	DG	DG	Bronze	Q3	SM_d18_1_18_1_d9	nearest_rt		647.48591	11.0604	feature:39167	1.0843062782051809	1.0843062782051809	False	RIE(SM,M+H) / RIE(DG,M+NH4)	False	3.0	16.611361310590947	is_not_detected;within	False
@@ -606,7 +606,7 @@ feature_id	lipid_name	lipid_class	confidence	quant_route	is_compound	is_match	RI
 41173	TG 44:6	TG	Silver	Q3	SM_d18_1_18_1_d9	nearest_rt		755.58275	11.7476	TG 44:6#0	0.33135738521609626	0.33135738521609626	False	RIE(SM,M+H) / RIE(TG,M+NH4)	False	0.0		is_not_detected;within	False
 41174	PC 30:2	PC	Silver	Q1	LPC_18_1_d7	family		702.50581	11.727	PC 30:2#0	1.0	1.0	False	class-matched standard (f = 1)	False	1.0	0.8055767144472913	within	False
 41185	TG 48:12	TG	Silver	Q3	SM_d18_1_18_1_d9	nearest_rt		821.53005	11.7277	TG 48:12#0	0.33135738521609626	0.33135738521609626	False	RIE(SM,M+H) / RIE(TG,M+NH4)	False	4.0	2.643669546734152	is_not_detected;within	False
-41190	PI O-31:3	PI	Silver	Q3	SM_d18_1_18_1_d9	nearest_rt		794.51866	11.7205	PI O-31:3#0	0.39685556652239984	0.39685556652239984	False	RIE(SM,M+H) / RIE(PI,M+NH4)	False	4.0	1.0447225916226106	is_not_detected;within	False
+41190	PI O-31:3	PI	Silver	Q4				794.51866	11.7205	PI O-31:3#0									False
 41255	DG	DG	Bronze	Q3	SM_d18_1_18_1_d9	nearest_rt		587.46433	11.7533	feature:41255	1.0843062782051809	1.0843062782051809	False	RIE(SM,M+H) / RIE(DG,M+NH4)	False	0.0		is_not_detected;within	False
 41257	PA O-13:1_16:0	PA	Gold	Q3	SM_d18_1_18_1_d9	nearest_rt		608.4648	11.7546	PA O-13:1_16:0#0	1.0	1.0	False	class not in response table; f = 1	True	6.0	3.7534181593187634	is_not_detected;within	False
 41346	TG P-33:1	TG	Silver	Q3	SM_d18_1_18_1_d9	nearest_rt		579.49781	11.7748	TG P-33:1#0	0.33135738521609626	0.33135738521609626	False	RIE(SM,M+H) / RIE(TG,M+NH4)	False	7.0	266.96235723958625	is_not_detected;within	False
@@ -631,10 +631,10 @@ feature_id	lipid_name	lipid_class	confidence	quant_route	is_compound	is_match	RI
 41748	SM 34:3	SM	Silver	Q1	SM_d18_1_18_1_d9	class		699.54471	11.9216	SM 34:3#1	1.0	1.0	False	class-matched standard (f = 1)	False	0.0		is_not_detected;within	False
 41759	PC	PC	Bronze	Q1	LPC_18_1_d7	family		788.57771	11.9368	feature:41759	1.0	1.0	False	class-matched standard (f = 1)	False	2.0	3.723026448462926	within	False
 41833	SM 34:1	SM	Silver	Q1	SM_d18_1_18_1_d9	class		719.57198	11.9771	SM 34:1#0	1.0	1.0	False	class-matched standard (f = 1)	False	0.0		is_not_detected;within	False
-41836	PI 31:0	PI	Silver	Q3	SM_d18_1_18_1_d9	nearest_rt		814.54635	11.9344	PI 31:0#0	0.39685556652239984	0.39685556652239984	False	RIE(SM,M+H) / RIE(PI,M+NH4)	False	1.0	0.8017935860434979	is_not_detected;within	False
+41836	PI 31:0	PI	Silver	Q4				814.54635	11.9344	PI 31:0#0									False
 41883	DG P-27:0	DG	Silver	Q3	SM_d18_1_18_1_d9	nearest_rt		500.46698	11.9691	DG P-27:0#0	1.0843062782051809	1.0843062782051809	False	RIE(SM,M+H) / RIE(DG,M+NH4)	False	4.0	2.3254126211358925	is_not_detected;within	False
 41899	TG 36:2	TG	Silver	Q3	SM_d18_1_18_1_d9	nearest_rt		673.50224	12.004	TG 36:2#0	0.33135738521609626	0.33135738521609626	False	RIE(SM,M+H) / RIE(TG,M+NH4)	False	1.0	0.5551510792749805	is_not_detected;within	False
-41907	PI 32:2	PI	Silver	Q3	SM_d18_1_18_1_d9	nearest_rt		824.52792	11.9746	PI 32:2#0	0.39685556652239984	0.39685556652239984	False	RIE(SM,M+H) / RIE(PI,M+NH4)	False	5.0	1.559555713696366	is_not_detected;within	False
+41907	PI 32:2	PI	Silver	Q4				824.52792	11.9746	PI 32:2#0									False
 41916	DG O-12:0_14:2	DG	Gold	Q3	SM_d18_1_18_1_d9	nearest_rt		484.43543	11.977	DG O-12:0_14:2#0	1.0843062782051809	1.0843062782051809	False	RIE(SM,M+H) / RIE(DG,M+NH4)	False	7.0	9.892816706048079	is_not_detected;within	False
 41966	PE 30:2	PE	Silver	Q1	PE_15_0_18_1_d7	class		660.45945	12.0293	PE 30:2#0	1.0	1.0	False	class-matched standard (f = 1)	False	1.0	0.5825889561249923	below;is_not_detected	False
 41973	SM	SM	Bronze	Q1	SM_d18_1_18_1_d9	class		661.49317	11.966	feature:41973	1.0	1.0	False	class-matched standard (f = 1)	False	1.0	3.254459125783207	is_not_detected;within	False
@@ -642,14 +642,14 @@ feature_id	lipid_name	lipid_class	confidence	quant_route	is_compound	is_match	RI
 41983	DG	DG	Bronze	Q3	SM_d18_1_18_1_d9	nearest_rt		539.46656	12.0102	feature:41983	1.0843062782051809	1.0843062782051809	False	RIE(SM,M+H) / RIE(DG,M+NH4)	False	6.0	7.073655700064994	is_not_detected;within	False
 42003	TG 32:1	TG	Silver	Q3	SM_d18_1_18_1_d9	nearest_rt		598.5067	12.0024	TG 32:1#1	0.33135738521609626	0.33135738521609626	False	RIE(SM,M+H) / RIE(TG,M+NH4)	False	1.0	3.3702857044565864	is_not_detected;within	False
 42114	PC	PC	Bronze	Q1	LPC_18_1_d7	family		774.56264	12.0715	feature:42114	1.0	1.0	False	class-matched standard (f = 1)	False	12.0	44.518728629172955	within	True
-42152	PI O-31:2	PI	Silver	Q3	SM_d18_1_18_1_d9	nearest_rt		796.53615	12.0745	PI O-31:2#0	0.39685556652239984	0.39685556652239984	False	RIE(SM,M+H) / RIE(PI,M+NH4)	False	5.0	2.027072228168967	is_not_detected;within	False
+42152	PI O-31:2	PI	Silver	Q4				796.53615	12.0745	PI O-31:2#0									False
 42171	TG 38:7	TG	Silver	Q3	SM_d18_1_18_1_d9	nearest_rt		670.50267	12.0831	TG 38:7#0	0.33135738521609626	0.33135738521609626	False	RIE(SM,M+H) / RIE(TG,M+NH4)	False	7.0	1.7586122752894824	is_not_detected;within	False
 42173	SM 32:1	SM	Silver	Q1	SM_d18_1_18_1_d9	class		691.5404	12.082	SM 32:1#0	1.0	1.0	False	class-matched standard (f = 1)	False	0.0		is_not_detected;within	False
 42210	DG	DG	Bronze	Q3	SM_d18_1_18_1_d9	nearest_rt		507.40356	12.0983	feature:42210	1.0843062782051809	1.0843062782051809	False	RIE(SM,M+H) / RIE(DG,M+NH4)	False	1.0	12.867178142844718	is_not_detected;within	False
 42229	PC	PC	Bronze	Q1	LPC_18_1_d7	family		790.59214	12.1046	feature:42229	1.0	1.0	False	class-matched standard (f = 1)	False	3.0	7.613168724279836	within	False
 42241	DG	DG	Bronze	Q3	SM_d18_1_18_1_d9	nearest_rt		647.48534	12.1045	feature:42241	1.0843062782051809	1.0843062782051809	False	RIE(SM,M+H) / RIE(DG,M+NH4)	False	6.0	85.82888398494438	is_not_detected;within	False
 42246	DG	DG	Bronze	Q3	SM_d18_1_18_1_d9	nearest_rt		549.4495	12.103	feature:42246	1.0843062782051809	1.0843062782051809	False	RIE(SM,M+H) / RIE(DG,M+NH4)	False	5.0	8.946431810137314	is_not_detected;within	False
-42260	LPI 30:1	LPI	Silver	Q3	SM_d18_1_18_1_d9	nearest_rt		784.53368	12.084	LPI 30:1#0	0.39685556652239984	0.39685556652239984	False	RIE(SM,M+H) / RIE(PI,M+NH4)	False	0.0		is_not_detected;within	False
+42260	LPI 30:1	LPI	Silver	Q4				784.53368	12.084	LPI 30:1#0									False
 42262	PC	PC	Bronze	Q1	LPC_18_1_d7	family		818.58905	12.1027	feature:42262	1.0	1.0	False	class-matched standard (f = 1)	False	12.0	34.595653679680794	within	True
 42292	DG	DG	Bronze	Q3	SM_d18_1_18_1_d9	nearest_rt		561.44952	12.1184	feature:42292	1.0843062782051809	1.0843062782051809	False	RIE(SM,M+H) / RIE(DG,M+NH4)	False	1.0	4.349764169061743	is_not_detected;within	False
 42315	DG 16:1_16:1	DG	Gold	Q3	SM_d18_1_18_1_d9	nearest_rt		587.46598	12.1277	DG 16:1_16:1#0	1.0843062782051809	1.0843062782051809	False	RIE(SM,M+H) / RIE(DG,M+NH4)	False	5.0	6.9018880870932735	is_not_detected;within	False
@@ -683,7 +683,7 @@ feature_id	lipid_name	lipid_class	confidence	quant_route	is_compound	is_match	RI
 43021	TG 18:2_16:0+Os	TG	Gold	Q3	SM_d18_1_18_1_d9	nearest_rt		640.51428	12.3414	TG 18:2_16:0+Os#0	0.33135738521609626	0.33135738521609626	False	RIE(SM,M+H) / RIE(TG,M+NH4)	False	7.0	21.588990971316512	is_not_detected;within	False
 43055	PG P-34:3	PG	Silver	Q3	SM_d18_1_18_1_d9	nearest_rt		746.53218	12.3635	PG P-34:3#0	0.24699113111478313	0.24699113111478313	False	RIE(SM,M+H) / RIE(PG,M+NH4)	False	0.0		is_not_detected;within	False
 43057	DG	DG	Bronze	Q3	SM_d18_1_18_1_d9	nearest_rt		641.51731	12.3431	feature:43057	1.0843062782051809	1.0843062782051809	False	RIE(SM,M+H) / RIE(DG,M+NH4)	False	1.0	32.53794575864424	is_not_detected;within	False
-43075	PI O-32:2	PI	Silver	Q3	SM_d18_1_18_1_d9	nearest_rt		810.54863	12.3605	PI O-32:2#0	0.39685556652239984	0.39685556652239984	False	RIE(SM,M+H) / RIE(PI,M+NH4)	False	6.0	4.684936597136341	is_not_detected;within	False
+43075	PI O-32:2	PI	Silver	Q4				810.54863	12.3605	PI O-32:2#0									False
 43139	PG P-33:3	PG	Silver	Q3	SM_d18_1_18_1_d9	nearest_rt		732.51806	12.3945	PG P-33:3#0	0.24699113111478313	0.24699113111478313	False	RIE(SM,M+H) / RIE(PG,M+NH4)	False	3.0	4.757081860315457	is_not_detected;within	False
 43151	PG P-35:3	PG	Silver	Q3	SM_d18_1_18_1_d9	nearest_rt		760.54802	12.3905	PG P-35:3#0	0.24699113111478313	0.24699113111478313	False	RIE(SM,M+H) / RIE(PG,M+NH4)	False	1.0	0.9240760263527124	is_not_detected;within	False
 43152	PC 32:3	PC	Silver	Q1	LPC_18_1_d7	family		728.52128	12.3896	PC 32:3#0	1.0	1.0	False	class-matched standard (f = 1)	False	4.0	2.4089684470009374	within	False
@@ -724,11 +724,11 @@ feature_id	lipid_name	lipid_class	confidence	quant_route	is_compound	is_match	RI
 44127	DG 35:2	DG	Silver	Q3	SM_d18_1_18_1_d9	nearest_rt		624.55725	12.6646	DG 35:2#0	1.0843062782051809	1.0843062782051809	False	RIE(SM,M+H) / RIE(DG,M+NH4)	False	6.0	7.0529851929841065	is_not_detected;within	False
 44129	PC 34:4	PC	Silver	Q1	LPC_18_1_d7	family		754.53789	12.651	PC 34:4#0	1.0	1.0	False	class-matched standard (f = 1)	False	8.0	10.982031165062565	within	False
 44139	MG O-28:3	MG	Silver	Q4				496.47209	12.6511	MG O-28:3#0									False
-44145	PI O-31:2	PI	Silver	Q3	SM_d18_1_18_1_d9	nearest_rt		796.53343	12.6653	PI O-31:2#1	0.39685556652239984	0.39685556652239984	False	RIE(SM,M+H) / RIE(PI,M+NH4)	False	5.0	3.902465103671647	is_not_detected;within	False
+44145	PI O-31:2	PI	Silver	Q4				796.53343	12.6653	PI O-31:2#1									False
 44179	SM	SM	Bronze	Q1	SM_d18_1_18_1_d9	class		733.58319	12.6646	feature:44179	1.0	1.0	False	class-matched standard (f = 1)	False	4.0	3.9400895169217596	is_not_detected;within	False
 44202	TG 43:6	TG	Silver	Q3	SM_d18_1_18_1_d9	nearest_rt		758.59158	12.6709	TG 43:6#1	0.33135738521609626	0.33135738521609626	False	RIE(SM,M+H) / RIE(TG,M+NH4)	False	7.0	2.715193138429734	is_not_detected;within	False
 44288	TG 41:10	TG	Silver	Q3	SM_d18_1_18_1_d9	nearest_rt		706.50379	12.7004	TG 41:10#0	0.33135738521609626	0.33135738521609626	False	RIE(SM,M+H) / RIE(TG,M+NH4)	False	2.0	1.078565939494744	is_not_detected;within	False
-44310	PI O-29:1	PI	Silver	Q3	SM_d18_1_18_1_d9	nearest_rt		770.51953	12.6606	PI O-29:1#0	0.39685556652239984	0.39685556652239984	False	RIE(SM,M+H) / RIE(PI,M+NH4)	False	1.0	2.378397222965529	is_not_detected;within	False
+44310	PI O-29:1	PI	Silver	Q4				770.51953	12.6606	PI O-29:1#0									False
 44329	TG 35:3	TG	Silver	Q3	SM_d18_1_18_1_d9	nearest_rt		641.47557	12.7219	TG 35:3#2	0.33135738521609626	0.33135738521609626	False	RIE(SM,M+H) / RIE(TG,M+NH4)	False	3.0	0.3569570831097398	is_not_detected;within	False
 44368	TG 45:6	TG	Silver	Q3	SM_d18_1_18_1_d9	nearest_rt		753.60559	12.7305	TG 45:6#0	0.33135738521609626	0.33135738521609626	False	RIE(SM,M+H) / RIE(TG,M+NH4)	False	1.0	4.098602389528369	is_not_detected;within	False
 44389	SM 36:4	SM	Silver	Q1	SM_d18_1_18_1_d9	class		725.56119	12.6704	SM 36:4#1	1.0	1.0	False	class-matched standard (f = 1)	False	1.0	10.806899472891564	is_not_detected;within	False
@@ -744,9 +744,9 @@ feature_id	lipid_name	lipid_class	confidence	quant_route	is_compound	is_match	RI
 44525	TG O-7:0_6:0_18:1	TG	Gold	Q3	SM_d18_1_18_1_d9	nearest_rt		553.48388	12.7522	TG O-7:0_6:0_18:1#0	0.33135738521609626	0.33135738521609626	False	RIE(SM,M+H) / RIE(TG,M+NH4)	False	3.0	2.3831479519003618	is_not_detected;within	False
 44528	DG	DG	Bronze	Q3	SM_d18_1_18_1_d9	nearest_rt		579.49677	12.7683	feature:44528	1.0843062782051809	1.0843062782051809	False	RIE(SM,M+H) / RIE(DG,M+NH4)	False	2.0	8.453628684399728	is_not_detected;within	False
 44551	AEG O-30:2	AEG	Silver	Q3	SM_d18_1_18_1_d9	nearest_rt		523.47181	12.7678	AEG O-30:2#0	1.0	1.0	False	class not in response table; f = 1	True	7.0	60.75973400987659	is_not_detected;within	False
-44568	PI 15:0_15:0	PI	Gold	Q3	SM_d18_1_18_1_d9	nearest_rt		800.52713	12.7766	PI 15:0_15:0#0	0.39685556652239984	0.39685556652239984	False	RIE(SM,M+H) / RIE(PI,M+NH4)	False	7.0	26.13403217961122	is_not_detected;within	False
+44568	PI 15:0_15:0	PI	Gold	Q4				800.52713	12.7766	PI 15:0_15:0#0									False
 44574	TG 41:3	TG	Silver	Q3	SM_d18_1_18_1_d9	nearest_rt		752.60321	12.7844	TG 41:3#0	0.33135738521609626	0.33135738521609626	False	RIE(SM,M+H) / RIE(TG,M+NH4)	False	4.0	7.7350801093968276	is_not_detected;within	False
-44587	PI 32:3	PI	Silver	Q3	SM_d18_1_18_1_d9	nearest_rt		827.46565	12.7741	PI 32:3#0	0.39685556652239984	0.39685556652239984	False	RIE(SM,M+H) / RIE(PI,M+NH4)	False	5.0	2.5846960620680988	is_not_detected;within	False
+44587	PI 32:3	PI	Silver	Q4				827.46565	12.7741	PI 32:3#0									False
 44609	DG 31:1	DG	Silver	Q3	SM_d18_1_18_1_d9	nearest_rt		570.50916	12.7789	DG 31:1#0	1.0843062782051809	1.0843062782051809	False	RIE(SM,M+H) / RIE(DG,M+NH4)	False	2.0	4.666428145169961	is_not_detected;within	False
 44631	Hex1Cer d18:2_24:1+2Os	Hex1Cer	Gold	Q3	SM_d18_1_18_1_d9	nearest_rt		840.65577	12.7931	Hex1Cer d18:2_24:1+2Os#0	10.0	21.59812705941107	True	RIE(SM,M+H) / RIE(HEXCER,M+H)	False	2.0	175.2778480316769	is_not_detected;within	False
 44632	PC 38:7	PC	Silver	Q1	LPC_18_1_d7	family		804.5519	12.7884	PC 38:7#0	1.0	1.0	False	class-matched standard (f = 1)	False	8.0	7.27134729298062	within	False
@@ -757,7 +757,7 @@ feature_id	lipid_name	lipid_class	confidence	quant_route	is_compound	is_match	RI
 44810	PS	PS	Bronze	Q3	SM_d18_1_18_1_d9	nearest_rt		724.5119	12.8351	feature:44810	4.4323971609979305	4.4323971609979305	False	RIE(SM,M+H) / RIE(PS,M+H)	False	4.0	44.92515710910064	is_not_detected;within	False
 44825	TG 32:1	TG	Silver	Q3	SM_d18_1_18_1_d9	nearest_rt		603.45946	12.8762	TG 32:1#2	0.33135738521609626	0.33135738521609626	False	RIE(SM,M+H) / RIE(TG,M+NH4)	False	0.0		is_not_detected;within	False
 44829	SM d39:6	SM	Silver	Q1	SM_d18_1_18_1_d9	class		763.5719	12.8735	SM d39:6#0	1.0	1.0	False	class-matched standard (f = 1)	False	1.0	3.626811935240964	is_not_detected;within	False
-44831	PI 18:2_18:2	PI	Gold	Q3	SM_d18_1_18_1_d9	nearest_rt		876.56	12.8459	PI 18:2_18:2#0	0.39685556652239984	0.39685556652239984	False	RIE(SM,M+H) / RIE(PI,M+NH4)	False	1.0	3.203995963737024	is_not_detected;within	False
+44831	PI 18:2_18:2	PI	Gold	Q4				876.56	12.8459	PI 18:2_18:2#0									False
 44858	TG 16:1_18:1	TG	Gold	Q3	SM_d18_1_18_1_d9	nearest_rt		629.47512	12.847	TG 16:1_18:1#0	0.33135738521609626	0.33135738521609626	False	RIE(SM,M+H) / RIE(TG,M+NH4)	False	7.0	6.359736617961184	is_not_detected;within	False
 44859	Cer 18:1	Cer	Silver	Q1	Cer_d18_1_15_0_d7	class		482.45652	12.8603	Cer 18:1#0	1.0	1.0	False	class-matched standard (f = 1)	False	6.0	0.96560837987242	within	False
 44863	SM	SM	Bronze	Q1	SM_d18_1_18_1_d9	class		652.49085	12.9111	feature:44863	1.0	1.0	False	class-matched standard (f = 1)	False	7.0	7.505507077587297	is_not_detected;within	False
@@ -768,8 +768,8 @@ feature_id	lipid_name	lipid_class	confidence	quant_route	is_compound	is_match	RI
 44926	TG 8:0_8:0_16:0+Os	TG	Gold	Q3	SM_d18_1_18_1_d9	nearest_rt		621.46986	12.8596	TG 8:0_8:0_16:0+Os#0	0.33135738521609626	0.33135738521609626	False	RIE(SM,M+H) / RIE(TG,M+NH4)	False	6.0	4.6027644819256	is_not_detected;within	False
 44997	DG	DG	Bronze	Q3	SM_d18_1_18_1_d9	nearest_rt		575.46519	12.8888	feature:44997	1.0843062782051809	1.0843062782051809	False	RIE(SM,M+H) / RIE(DG,M+NH4)	False	4.0	24.923830176970448	is_not_detected;within	False
 45012	DG P-33:2	DG	Silver	Q3	SM_d18_1_18_1_d9	nearest_rt		580.53037	12.8885	DG P-33:2#0	1.0843062782051809	1.0843062782051809	False	RIE(SM,M+H) / RIE(DG,M+NH4)	False	7.0	33.98823531161232	is_not_detected;within	False
-45024	PI 16:0_16:0	PI	Gold	Q3	SM_d18_1_18_1_d9	nearest_rt		833.51689	12.8968	PI 16:0_16:0#0	0.39685556652239984	0.39685556652239984	False	RIE(SM,M+H) / RIE(PI,M+NH4)	False	3.0	1.806608479150997	is_not_detected;within	False
-45026	PI O-32:2	PI	Silver	Q3	SM_d18_1_18_1_d9	nearest_rt		810.54903	12.8976	PI O-32:2#1	0.39685556652239984	0.39685556652239984	False	RIE(SM,M+H) / RIE(PI,M+NH4)	False	4.0	2.661260490344807	is_not_detected;within	False
+45024	PI 16:0_16:0	PI	Gold	Q4				833.51689	12.8968	PI 16:0_16:0#0									False
+45026	PI O-32:2	PI	Silver	Q4				810.54903	12.8976	PI O-32:2#1									False
 45040	PC	PC	Bronze	Q1	LPC_18_1_d7	family		814.59543	12.9079	feature:45040	1.0	1.0	False	class-matched standard (f = 1)	False	2.0	14.057409634002724	within	False
 45050	DG	DG	Bronze	Q3	SM_d18_1_18_1_d9	nearest_rt		598.5042	12.908	feature:45050	1.0843062782051809	1.0843062782051809	False	RIE(SM,M+H) / RIE(DG,M+NH4)	False	0.0		is_not_detected;within	False
 45142	TG 37:0	TG	Silver	Q3	SM_d18_1_18_1_d9	nearest_rt		669.56643	12.9215	TG 37:0#0	0.33135738521609626	0.33135738521609626	False	RIE(SM,M+H) / RIE(TG,M+NH4)	False	7.0	5.238341254732627	is_not_detected;within	False
@@ -783,7 +783,7 @@ feature_id	lipid_name	lipid_class	confidence	quant_route	is_compound	is_match	RI
 45270	DG	DG	Bronze	Q3	SM_d18_1_18_1_d9	nearest_rt		582.47305	12.9651	feature:45270	1.0843062782051809	1.0843062782051809	False	RIE(SM,M+H) / RIE(DG,M+NH4)	False	7.0	27.48791495286732	is_not_detected;within	False
 45324	Cer d32:0	Cer	Silver	Q1	Cer_d18_1_15_0_d7	class		544.4939	12.9801	Cer d32:0#0	1.0	1.0	False	class-matched standard (f = 1)	False	12.0	4.023354227402116	within	True
 45326	DG 6:0_25:3	DG	Gold	Q3	SM_d18_1_18_1_d9	nearest_rt		566.47757	12.9888	DG 6:0_25:3#0	1.0843062782051809	1.0843062782051809	False	RIE(SM,M+H) / RIE(DG,M+NH4)	False	2.0	28.240217203303104	is_not_detected;within	False
-45339	PI 18:3_16:0	PI	Gold	Q3	SM_d18_1_18_1_d9	nearest_rt		850.5436	12.9123	PI 18:3_16:0#0	0.39685556652239984	0.39685556652239984	False	RIE(SM,M+H) / RIE(PI,M+NH4)	False	3.0	7.064462121921484	is_not_detected;within	False
+45339	PI 18:3_16:0	PI	Gold	Q4				850.5436	12.9123	PI 18:3_16:0#0									False
 45347	DG 16:1_19:1	DG	Gold	Q3	SM_d18_1_18_1_d9	nearest_rt		624.55721	12.9872	DG 16:1_19:1#0	1.0843062782051809	1.0843062782051809	False	RIE(SM,M+H) / RIE(DG,M+NH4)	False	7.0	8.590636188415985	is_not_detected;within	False
 45381	TG 34:0	TG	Silver	Q3	SM_d18_1_18_1_d9	nearest_rt		644.5465	12.9912	TG 34:0#1	0.33135738521609626	0.33135738521609626	False	RIE(SM,M+H) / RIE(TG,M+NH4)	False	4.0	14.935691480588108	is_not_detected;within	False
 45388	PC 28:0	PC	Silver	Q1	LPC_18_1_d7	family		678.50598	12.9783	PC 28:0#0	1.0	1.0	False	class-matched standard (f = 1)	False	0.0		within	False
@@ -853,7 +853,7 @@ feature_id	lipid_name	lipid_class	confidence	quant_route	is_compound	is_match	RI
 46841	DG	DG	Bronze	Q3	SM_d18_1_18_1_d9	nearest_rt		651.51582	13.4025	feature:46841	1.0843062782051809	1.0843062782051809	False	RIE(SM,M+H) / RIE(DG,M+NH4)	False	4.0	6.833069873913274	is_not_detected;within	False
 46875	PE P-29:2	PE	Silver	Q1	PE_15_0_18_1_d7	class		630.45122	13.4047	PE P-29:2#0	1.0	1.0	False	class-matched standard (f = 1)	False	7.0	26.035780303776196	below;is_not_detected	False
 46889	PC 35:4	PC	Silver	Q1	LPC_18_1_d7	family		768.55263	13.4188	PC 35:4#0	1.0	1.0	False	class-matched standard (f = 1)	False	8.0	5.093071657792763	within	False
-46901	PI O-33:2	PI	Silver	Q3	SM_d18_1_18_1_d9	nearest_rt		824.56448	13.4232	PI O-33:2#0	0.39685556652239984	0.39685556652239984	False	RIE(SM,M+H) / RIE(PI,M+NH4)	False	2.0	6.0190865446078785	is_not_detected;within	False
+46901	PI O-33:2	PI	Silver	Q4				824.56448	13.4232	PI O-33:2#0									False
 46907	Cer	Cer	Bronze	Q1	Cer_d18_1_15_0_d7	class		588.51947	13.4168	feature:46907	1.0	1.0	False	class-matched standard (f = 1)	False	9.0	1.3238376524390245	within	False
 46916	DG	DG	Bronze	Q3	SM_d18_1_18_1_d9	nearest_rt		711.61387	13.4152	feature:46916	1.0843062782051809	1.0843062782051809	False	RIE(SM,M+H) / RIE(DG,M+NH4)	False	7.0	11.166280774606014	is_not_detected;within	False
 47066	DG 16:1_19:1	DG	Gold	Q3	SM_d18_1_18_1_d9	nearest_rt		624.55668	13.4622	DG 16:1_19:1#1	1.0843062782051809	1.0843062782051809	False	RIE(SM,M+H) / RIE(DG,M+NH4)	False	7.0	42.98631530639626	is_not_detected;within	False
@@ -867,7 +867,7 @@ feature_id	lipid_name	lipid_class	confidence	quant_route	is_compound	is_match	RI
 47269	PA O-32:3	PA	Silver	Q3	SM_d18_1_18_1_d9	nearest_rt		646.47977	13.4788	PA O-32:3#0	1.0	1.0	False	class not in response table; f = 1	True	1.0	0.5866515854500364	is_not_detected;within	False
 47297	AEG O-30:2	AEG	Silver	Q3	SM_d18_1_18_1_d9	nearest_rt		523.47131	13.5158	AEG O-30:2#2	1.0	1.0	False	class not in response table; f = 1	True	0.0		is_not_detected;within	False
 47317	PC 37:6	PC	Silver	Q1	LPC_18_1_d7	family		792.55462	13.5268	PC 37:6#0	1.0	1.0	False	class-matched standard (f = 1)	False	0.0		within	False
-47389	PI 15:0_16:0	PI	Gold	Q3	SM_d18_1_18_1_d9	nearest_rt		814.54242	13.6217	PI 15:0_16:0#0	0.39685556652239984	0.39685556652239984	False	RIE(SM,M+H) / RIE(PI,M+NH4)	False	4.0	4.354396520535586	is_not_detected;within	False
+47389	PI 15:0_16:0	PI	Gold	Q4				814.54242	13.6217	PI 15:0_16:0#0									False
 47390	PC 36:5	PC	Silver	Q1	LPC_18_1_d7	family		780.55316	13.5519	PC 36:5#1	1.0	1.0	False	class-matched standard (f = 1)	False	9.0	18.854173586057918	within	False
 47443	DG	DG	Bronze	Q3	SM_d18_1_18_1_d9	nearest_rt		671.58168	13.5618	feature:47443	1.0843062782051809	1.0843062782051809	False	RIE(SM,M+H) / RIE(DG,M+NH4)	False	6.0	6.074327674286015	is_not_detected;within	False
 47454	PC 33:3	PC	Silver	Q1	LPC_18_1_d7	family		742.53847	13.5734	PC 33:3#0	1.0	1.0	False	class-matched standard (f = 1)	False	3.0	5.185300570012183	within	False
@@ -905,7 +905,7 @@ feature_id	lipid_name	lipid_class	confidence	quant_route	is_compound	is_match	RI
 47916	HexCer	HexCer	Bronze	Q3	SM_d18_1_18_1_d9	nearest_rt		824.56553	13.7038	feature:47916	10.0	21.59812705941107	True	RIE(SM,M+H) / RIE(HEXCER,M+H)	False	2.0	47.745799329176464	is_not_detected;within	False
 47967	PE O-31:2	PE	Silver	Q1	PE_15_0_18_1_d7	class		660.49573	13.7046	PE O-31:2#0	1.0	1.0	False	class-matched standard (f = 1)	False	7.0	30.921485628764113	below;is_not_detected	False
 47983	Hex1Cer d18:2_16:1	Hex1Cer	Gold	Q3	SM_d18_1_18_1_d9	nearest_rt		696.54038	13.7085	Hex1Cer d18:2_16:1#0	10.0	21.59812705941107	True	RIE(SM,M+H) / RIE(HEXCER,M+H)	False	7.0	425.0913130047174	is_not_detected;within	False
-47987	LPI 30:0	LPI	Gold	Q3	SM_d18_1_18_1_d9	nearest_rt		769.52253	13.684	LPI 30:0#0	0.39685556652239984	0.39685556652239984	False	RIE(SM,M+H) / RIE(PI,M+NH4)	False	7.0	23.267979771978688	is_not_detected;within	False
+47987	LPI 30:0	LPI	Gold	Q4				769.52253	13.684	LPI 30:0#0									False
 47989	TG 36:2	TG	Silver	Q3	SM_d18_1_18_1_d9	nearest_rt		657.50617	13.7182	TG 36:2#1	0.33135738521609626	0.33135738521609626	False	RIE(SM,M+H) / RIE(TG,M+NH4)	False	6.0	6.68192744514011	is_not_detected;within	False
 47990	Hex1Cer d18:2_16:0+Os	Hex1Cer	Gold	Q3	SM_d18_1_18_1_d9	nearest_rt		714.55069	13.7087	Hex1Cer d18:2_16:0+Os#1	10.0	21.59812705941107	True	RIE(SM,M+H) / RIE(HEXCER,M+H)	False	7.0	972.129616654534	is_not_detected;within	False
 47991	PC 31:1	PC	Silver	Q1	LPC_18_1_d7	family		740.51936	13.7521	PC 31:1#0	1.0	1.0	False	class-matched standard (f = 1)	False	12.0	6.243696916592691	within	True
@@ -914,7 +914,7 @@ feature_id	lipid_name	lipid_class	confidence	quant_route	is_compound	is_match	RI
 48043	PG 18:2_16:1	PG	Gold	Q3	SM_d18_1_18_1_d9	nearest_rt		762.5289	13.7276	PG 18:2_16:1#0	0.24699113111478313	0.24699113111478313	False	RIE(SM,M+H) / RIE(PG,M+NH4)	False	2.0	2.2046839089753028	is_not_detected;within	False
 48065	PC 42:9	PC	Silver	Q1	LPC_18_1_d7	family		856.58498	13.7499	PC 42:9#0	1.0	1.0	False	class-matched standard (f = 1)	False	0.0		within	False
 48067	PC 30:2	PC	Silver	Q1	LPC_18_1_d7	family		702.50625	13.7316	PC 30:2#2	1.0	1.0	False	class-matched standard (f = 1)	False	12.0	87.1559810029299	within	True
-48082	PI 34:2	PI	Silver	Q3	SM_d18_1_18_1_d9	nearest_rt		852.55777	13.7261	PI 34:2#0	0.39685556652239984	0.39685556652239984	False	RIE(SM,M+H) / RIE(PI,M+NH4)	False	3.0	1.6762465390971646	is_not_detected;within	False
+48082	PI 34:2	PI	Silver	Q4				852.55777	13.7261	PI 34:2#0									False
 48092	AEG O-32:4	AEG	Silver	Q3	SM_d18_1_18_1_d9	nearest_rt		547.47124	13.7358	AEG O-32:4#2	1.0	1.0	False	class not in response table; f = 1	True	6.0	81.19279295323169	is_not_detected;within	False
 48105	PE 16:1_16:1	PE	Gold	Q1	PE_15_0_18_1_d7	class		688.49086	13.741	PE 16:1_16:1#1	1.0	1.0	False	class-matched standard (f = 1)	False	7.0	307.3968322914574	below;is_not_detected	False
 48124	SM 34:0	SM	Silver	Q1	SM_d18_1_18_1_d9	class		721.5849	13.7722	SM 34:0#0	1.0	1.0	False	class-matched standard (f = 1)	False	0.0		is_not_detected;within	False
@@ -925,7 +925,7 @@ feature_id	lipid_name	lipid_class	confidence	quant_route	is_compound	is_match	RI
 48287	PC 34:3	PC	Silver	Q1	LPC_18_1_d7	family		756.55325	13.7918	PC 34:3#0	1.0	1.0	False	class-matched standard (f = 1)	False	12.0	46.40853104513799	within	True
 48288	PC 38:7	PC	Silver	Q1	LPC_18_1_d7	family		804.5539	13.7886	PC 38:7#2	1.0	1.0	False	class-matched standard (f = 1)	False	0.0		within	False
 48302	PC 34:3	PC	Silver	Q1	LPC_18_1_d7	family		778.53395	13.789	PC 34:3#0	1.0	1.0	False	class-matched standard (f = 1)	False	0.0		within	False
-48303	PI 36:4	PI	Silver	Q3	SM_d18_1_18_1_d9	nearest_rt		881.51441	13.7889	PI 36:4#0	0.39685556652239984	0.39685556652239984	False	RIE(SM,M+H) / RIE(PI,M+NH4)	False	0.0		is_not_detected;within	False
+48303	PI 36:4	PI	Silver	Q4				881.51441	13.7889	PI 36:4#0									False
 48363	Cer	Cer	Bronze	Q1	Cer_d18_1_15_0_d7	class		670.59795	13.8197	feature:48363	1.0	1.0	False	class-matched standard (f = 1)	False	2.0	9.715122845023345	within	False
 48383	DG	DG	Bronze	Q3	SM_d18_1_18_1_d9	nearest_rt		655.49126	13.8301	feature:48383	1.0843062782051809	1.0843062782051809	False	RIE(SM,M+H) / RIE(DG,M+NH4)	False	6.0	18.64124952704418	is_not_detected;within	False
 48385	TG 43:11	TG	Silver	Q3	SM_d18_1_18_1_d9	nearest_rt		764.50705	13.8301	TG 43:11#0	0.33135738521609626	0.33135738521609626	False	RIE(SM,M+H) / RIE(TG,M+NH4)	False	7.0	3.203260443667346	is_not_detected;within	False
@@ -943,7 +943,7 @@ feature_id	lipid_name	lipid_class	confidence	quant_route	is_compound	is_match	RI
 48720	Cer d33:0	Cer	Silver	Q1	Cer_d18_1_15_0_d7	class		558.5086	13.915	Cer d33:0#0	1.0	1.0	False	class-matched standard (f = 1)	False	12.0	5.484815284504194	within	True
 48739	DG O-33:3	DG	Silver	Q3	SM_d18_1_18_1_d9	nearest_rt		580.53055	13.922	DG O-33:3#0	1.0843062782051809	1.0843062782051809	False	RIE(SM,M+H) / RIE(DG,M+NH4)	False	2.0	3.1857795849500707	is_not_detected;within	False
 48759	PC 38:6	PC	Silver	Q1	LPC_18_1_d7	family		828.55385	13.9359	PC 38:6#0	1.0	1.0	False	class-matched standard (f = 1)	False	0.0		within	False
-48806	PI O-32:1	PI	Silver	Q3	SM_d18_1_18_1_d9	nearest_rt		812.56509	13.9316	PI O-32:1#0	0.39685556652239984	0.39685556652239984	False	RIE(SM,M+H) / RIE(PI,M+NH4)	False	4.0	4.603643860781409	is_not_detected;within	False
+48806	PI O-32:1	PI	Silver	Q4				812.56509	13.9316	PI O-32:1#0									False
 48807	PC 35:4	PC	Silver	Q1	LPC_18_1_d7	family		768.55513	13.9239	PC 35:4#1	1.0	1.0	False	class-matched standard (f = 1)	False	3.0	5.172325266016087	within	False
 48810	TG	TG	Bronze	Q3	SM_d18_1_18_1_d9	nearest_rt		709.5975	13.9404	feature:48810	0.33135738521609626	0.33135738521609626	False	RIE(SM,M+H) / RIE(TG,M+NH4)	False	5.0	1.8940448587028744	is_not_detected;within	False
 48819	DG 29:2	DG	Silver	Q3	SM_d18_1_18_1_d9	nearest_rt		540.46288	13.9348	DG 29:2#2	1.0843062782051809	1.0843062782051809	False	RIE(SM,M+H) / RIE(DG,M+NH4)	False	3.0	8.644967076534092	is_not_detected;within	False
@@ -954,11 +954,11 @@ feature_id	lipid_name	lipid_class	confidence	quant_route	is_compound	is_match	RI
 48921	Cer d39:1	Cer	Silver	Q1	Cer_d18_1_15_0_d7	class		640.58719	13.9681	Cer d39:1#0	1.0	1.0	False	class-matched standard (f = 1)	False	12.0	7.771860756485586	within	True
 48931	Cer d34:1	Cer	Silver	Q1	Cer_d18_1_15_0_d7	class		570.50894	13.9711	Cer d34:1#0	1.0	1.0	False	class-matched standard (f = 1)	False	12.0	20.297512938426138	within	True
 48934	PG O-38:6	PG	Silver	Q3	SM_d18_1_18_1_d9	nearest_rt		798.56606	13.9769	PG O-38:6#0	0.24699113111478313	0.24699113111478313	False	RIE(SM,M+H) / RIE(PG,M+NH4)	False	5.0	9.67990789972559	is_not_detected;within	False
-48941	PI 18:2_16:0	PI	Gold	Q3	SM_d18_1_18_1_d9	nearest_rt		852.55932	13.9734	PI 18:2_16:0#0	0.39685556652239984	0.39685556652239984	False	RIE(SM,M+H) / RIE(PI,M+NH4)	False	7.0	24.192958208351186	is_not_detected;within	False
-48943	PI 34:2	PI	Silver	Q3	SM_d18_1_18_1_d9	nearest_rt		857.51489	13.9713	PI 34:2#1	0.39685556652239984	0.39685556652239984	False	RIE(SM,M+H) / RIE(PI,M+NH4)	False	6.0	3.0713265530237637	is_not_detected;within	False
-48948	PI	PI	Bronze	Q3	SM_d18_1_18_1_d9	nearest_rt		835.53208	13.9768	feature:48948	0.39685556652239984	0.39685556652239984	False	RIE(SM,M+H) / RIE(PI,M+NH4)	False	7.0	6.424544614298053	is_not_detected;within	False
+48941	PI 18:2_16:0	PI	Gold	Q4				852.55932	13.9734	PI 18:2_16:0#0									False
+48943	PI 34:2	PI	Silver	Q4				857.51489	13.9713	PI 34:2#1									False
+48948	PI	PI	Bronze	Q4				835.53208	13.9768	feature:48948									False
 48962	PG 15:0_16:0	PG	Gold	Q3	SM_d18_1_18_1_d9	nearest_rt		726.52876	13.9894	PG 15:0_16:0#0	0.24699113111478313	0.24699113111478313	False	RIE(SM,M+H) / RIE(PG,M+NH4)	False	6.0	3.3151573820936115	is_not_detected;within	False
-48980	PI O-32:1	PI	Silver	Q3	SM_d18_1_18_1_d9	nearest_rt		795.53934	13.9847	PI O-32:1#0	0.39685556652239984	0.39685556652239984	False	RIE(SM,M+H) / RIE(PI,M+NH4)	False	1.0	0.6083792487287686	is_not_detected;within	False
+48980	PI O-32:1	PI	Silver	Q4				795.53934	13.9847	PI O-32:1#0									False
 49000	SM 34:1	SM	Silver	Q1	SM_d18_1_18_1_d9	class		719.5715	14.0025	SM 34:1#2	1.0	1.0	False	class-matched standard (f = 1)	False	0.0		is_not_detected;within	False
 49002	PG	PG	Bronze	Q3	SM_d18_1_18_1_d9	nearest_rt		709.50113	13.9895	feature:49002	0.24699113111478313	0.24699113111478313	False	RIE(SM,M+H) / RIE(PG,M+NH4)	False	0.0		is_not_detected;within	False
 49013	PC 33:2	PC	Silver	Q1	LPC_18_1_d7	family		744.55351	14.0023	PC 33:2#0	1.0	1.0	False	class-matched standard (f = 1)	False	11.0	225.09465099205232	within	False
@@ -968,7 +968,7 @@ feature_id	lipid_name	lipid_class	confidence	quant_route	is_compound	is_match	RI
 49096	TG 3:0_16:0_15:2	TG	Gold	Q3	SM_d18_1_18_1_d9	nearest_rt		607.49233	14.0219	TG 3:0_16:0_15:2#1	0.33135738521609626	0.33135738521609626	False	RIE(SM,M+H) / RIE(TG,M+NH4)	False	1.0	24.342085779079706	is_not_detected;within	False
 49110	Cer	Cer	Bronze	Q1	Cer_d18_1_15_0_d7	class		670.59803	14.0133	feature:49110	1.0	1.0	False	class-matched standard (f = 1)	False	10.0	7.629046234312206	within	False
 49123	DG	DG	Bronze	Q3	SM_d18_1_18_1_d9	nearest_rt		629.47486	14.03	feature:49123	1.0843062782051809	1.0843062782051809	False	RIE(SM,M+H) / RIE(DG,M+NH4)	False	1.0	6.9319241303355135	is_not_detected;within	False
-49124	PI 17:0_15:0	PI	Gold	Q3	SM_d18_1_18_1_d9	nearest_rt		828.55569	14.0213	PI 17:0_15:0#0	0.39685556652239984	0.39685556652239984	False	RIE(SM,M+H) / RIE(PI,M+NH4)	False	0.0		is_not_detected;within	False
+49124	PI 17:0_15:0	PI	Gold	Q4				828.55569	14.0213	PI 17:0_15:0#0									False
 49139	PC 40:7	PC	Silver	Q1	LPC_18_1_d7	family		832.58279	14.0235	PC 40:7#0	1.0	1.0	False	class-matched standard (f = 1)	False	0.0		within	False
 49151	MGDG	MGDG	Bronze	Q3	SM_d18_1_18_1_d9	nearest_rt		799.5327	14.0292	feature:49151	10.0	12014.841295097716	True	RIE(SM,M+H) / RIE(MGDG,M+H)	False	6.0	94.88568529092555	is_not_detected;within	False
 49157	AEG O-34:4	AEG	Silver	Q3	SM_d18_1_18_1_d9	nearest_rt		575.50284	14.0337	AEG O-34:4#0	1.0	1.0	False	class not in response table; f = 1	True	7.0	111.01044804216866	is_not_detected;within	False
@@ -978,14 +978,14 @@ feature_id	lipid_name	lipid_class	confidence	quant_route	is_compound	is_match	RI
 49242	PC 36:5	PC	Silver	Q1	LPC_18_1_d7	family		780.55315	14.0532	PC 36:5#2	1.0	1.0	False	class-matched standard (f = 1)	False	12.0	22.60845288163501	within	True
 49243	DG 32:3	DG	Silver	Q3	SM_d18_1_18_1_d9	nearest_rt		580.49398	14.0282	DG 32:3#0	1.0843062782051809	1.0843062782051809	False	RIE(SM,M+H) / RIE(DG,M+NH4)	False	2.0	9.036049371976477	is_not_detected;within	False
 49263	PG 16:1_18:1	PG	Gold	Q3	SM_d18_1_18_1_d9	nearest_rt		764.54289	14.0593	PG 16:1_18:1#0	0.24699113111478313	0.24699113111478313	False	RIE(SM,M+H) / RIE(PG,M+NH4)	False	6.0	13.444963695250859	is_not_detected;within	False
-49277	PI 33:1	PI	Silver	Q3	SM_d18_1_18_1_d9	nearest_rt		840.55866	14.0664	PI 33:1#0	0.39685556652239984	0.39685556652239984	False	RIE(SM,M+H) / RIE(PI,M+NH4)	False	7.0	5.8677397465942205	is_not_detected;within	False
+49277	PI 33:1	PI	Silver	Q4				840.55866	14.0664	PI 33:1#0									False
 49285	SM 35:2	SM	Silver	Q1	SM_d18_1_18_1_d9	class		715.57253	14.0816	SM 35:2#0	1.0	1.0	False	class-matched standard (f = 1)	False	0.0		is_not_detected;within	False
 49287	DG P-31:1	DG	Silver	Q3	SM_d18_1_18_1_d9	nearest_rt		554.51367	14.1131	DG P-31:1#0	1.0843062782051809	1.0843062782051809	False	RIE(SM,M+H) / RIE(DG,M+NH4)	False	6.0	15.252265476949173	is_not_detected;within	False
 49306	PS	PS	Bronze	Q3	SM_d18_1_18_1_d9	nearest_rt		826.58051	14.0799	feature:49306	4.4323971609979305	4.4323971609979305	False	RIE(SM,M+H) / RIE(PS,M+H)	False	3.0	24.535140775855467	is_not_detected;within	False
 49410	PC	PC	Bronze	Q1	LPC_18_1_d7	family		834.58623	14.0953	feature:49410	1.0	1.0	False	class-matched standard (f = 1)	False	5.0	4.258032961394793	within	False
 49420	DG 38:3	DG	Silver	Q3	SM_d18_1_18_1_d9	nearest_rt		664.58763	14.1257	DG 38:3#0	1.0843062782051809	1.0843062782051809	False	RIE(SM,M+H) / RIE(DG,M+NH4)	False	1.0	1.175165454419466	is_not_detected;within	False
 49421	PS 16:0_18:2	PS	Gold	Q3	SM_d18_1_18_1_d9	nearest_rt		760.51321	14.102	PS 16:0_18:2#0	4.4323971609979305	4.4323971609979305	False	RIE(SM,M+H) / RIE(PS,M+H)	False	7.0	77.4438745303314	is_not_detected;within	False
-49422	PI 18:1_18:2	PI	Gold	Q3	SM_d18_1_18_1_d9	nearest_rt		878.57654	14.0981	PI 18:1_18:2#0	0.39685556652239984	0.39685556652239984	False	RIE(SM,M+H) / RIE(PI,M+NH4)	False	4.0	3.5017841197540425	is_not_detected;within	False
+49422	PI 18:1_18:2	PI	Gold	Q4				878.57654	14.0981	PI 18:1_18:2#0									False
 49444	MG O-29:3	MG	Silver	Q4				510.48742	14.1059	MG O-29:3#0									False
 49446	PC 38:6	PC	Silver	Q1	LPC_18_1_d7	family		806.56874	14.0683	PC 38:6#1	1.0	1.0	False	class-matched standard (f = 1)	False	10.0	37.98073166211087	within	False
 49516	PC 29:1	PC	Silver	Q1	LPC_18_1_d7	family		690.50611	14.1265	PC 29:1#0	1.0	1.0	False	class-matched standard (f = 1)	False	12.0	60.73478976465372	within	True
@@ -1003,21 +1003,21 @@ feature_id	lipid_name	lipid_class	confidence	quant_route	is_compound	is_match	RI
 49719	SM 34:2	SM	Silver	Q1	SM_d18_1_18_1_d9	class		701.55925	14.1713	SM 34:2#2	1.0	1.0	False	class-matched standard (f = 1)	False	2.0	4.638510458252575	is_not_detected;within	False
 49749	LPG 30:0	LPG	Silver	Q3	SM_d18_1_18_1_d9	nearest_rt		681.50667	14.1888	LPG 30:0#0	0.24699113111478313	0.24699113111478313	False	RIE(SM,M+H) / RIE(PG,M+NH4)	False	7.0	7.911725273672782	is_not_detected;within	False
 49817	DG	DG	Bronze	Q3	SM_d18_1_18_1_d9	nearest_rt		611.53667	14.2066	feature:49817	1.0843062782051809	1.0843062782051809	False	RIE(SM,M+H) / RIE(DG,M+NH4)	False	3.0	9.494039095438493	is_not_detected;within	False
-49834	PI 19:0_13:1	PI	Gold	Q3	SM_d18_1_18_1_d9	nearest_rt		826.54299	14.2103	PI 19:0_13:1#0	0.39685556652239984	0.39685556652239984	False	RIE(SM,M+H) / RIE(PI,M+NH4)	False	1.0	0.5828492734805768	is_not_detected;within	False
+49834	PI 19:0_13:1	PI	Gold	Q4				826.54299	14.2103	PI 19:0_13:1#0									False
 49839	PC 32:2	PC	Silver	Q1	LPC_18_1_d7	family		730.53774	14.1962	PC 32:2#3	1.0	1.0	False	class-matched standard (f = 1)	False	1.0	52.464456182957214	within	False
 49844	PC 35:4	PC	Silver	Q1	LPC_18_1_d7	family		768.55285	14.2239	PC 35:4#2	1.0	1.0	False	class-matched standard (f = 1)	False	4.0	4.146299937459607	within	False
 49857	PC	PC	Bronze	Q1	LPC_18_1_d7	family		747.60086	14.169	feature:49857	1.0	1.0	False	class-matched standard (f = 1)	False	1.0	9.679690798742888	within	False
 49858	LPC 30:1	LPC	Silver	Q1	LPC_18_1_d7	class		690.54202	14.2216	LPC 30:1#0	1.0	1.0	False	class-matched standard (f = 1)	False	12.0	49.12496821462554	within	True
 49895	PC 34:3	PC	Silver	Q1	LPC_18_1_d7	family		756.55317	14.2329	PC 34:3#1	1.0	1.0	False	class-matched standard (f = 1)	False	12.0	73.14423375101481	within	True
-49896	PI 14:0_18:1	PI	Gold	Q3	SM_d18_1_18_1_d9	nearest_rt		809.51675	14.2416	PI 14:0_18:1#0	0.39685556652239984	0.39685556652239984	False	RIE(SM,M+H) / RIE(PI,M+NH4)	False	4.0	11.30659456843691	is_not_detected;within	False
-49903	PI 38:5	PI	Silver	Q3	SM_d18_1_18_1_d9	nearest_rt		907.53023	14.2162	PI 38:5#0	0.39685556652239984	0.39685556652239984	False	RIE(SM,M+H) / RIE(PI,M+NH4)	False	0.0		is_not_detected;within	False
+49896	PI 14:0_18:1	PI	Gold	Q4				809.51675	14.2416	PI 14:0_18:1#0									False
+49903	PI 38:5	PI	Silver	Q4				907.53023	14.2162	PI 38:5#0									False
 49907	PC 34:3	PC	Silver	Q1	LPC_18_1_d7	family		778.53378	14.2345	PC 34:3#1	1.0	1.0	False	class-matched standard (f = 1)	False	2.0	4.36891139994903	within	False
 49928	PG 16:0_18:2	PG	Gold	Q3	SM_d18_1_18_1_d9	nearest_rt		764.54301	14.2468	PG 16:0_18:2#0	0.24699113111478313	0.24699113111478313	False	RIE(SM,M+H) / RIE(PG,M+NH4)	False	1.0	14.198199329246341	is_not_detected;within	False
 49962	PA 15:0_15:0	PA	Gold	Q3	SM_d18_1_18_1_d9	nearest_rt		638.47543	14.2928	PA 15:0_15:0#0	1.0	1.0	False	class not in response table; f = 1	True	0.0		is_not_detected;within	False
 49966	PC 42:9	PC	Silver	Q1	LPC_18_1_d7	family		856.58544	14.2543	PC 42:9#1	1.0	1.0	False	class-matched standard (f = 1)	False	6.0	1.9798519258407326	within	False
 49978	DG	DG	Bronze	Q3	SM_d18_1_18_1_d9	nearest_rt		697.59759	14.2524	feature:49978	1.0843062782051809	1.0843062782051809	False	RIE(SM,M+H) / RIE(DG,M+NH4)	False	7.0	46.288706949924645	is_not_detected;within	False
 49998	PG 15:0_16:0	PG	Gold	Q3	SM_d18_1_18_1_d9	nearest_rt		726.52835	14.2595	PG 15:0_16:0#1	0.24699113111478313	0.24699113111478313	False	RIE(SM,M+H) / RIE(PG,M+NH4)	False	6.0	5.995504707860206	is_not_detected;within	False
-50005	PI O-34:2	PI	Silver	Q3	SM_d18_1_18_1_d9	nearest_rt		838.57995	14.2555	PI O-34:2#0	0.39685556652239984	0.39685556652239984	False	RIE(SM,M+H) / RIE(PI,M+NH4)	False	7.0	15.03767976924265	is_not_detected;within	False
+50005	PI O-34:2	PI	Silver	Q4				838.57995	14.2555	PI O-34:2#0									False
 50007	PC 35:6	PC	Silver	Q1	LPC_18_1_d7	family		764.52061	14.2585	PC 35:6#0	1.0	1.0	False	class-matched standard (f = 1)	False	0.0		within	False
 50022	TG	TG	Bronze	Q3	SM_d18_1_18_1_d9	nearest_rt		816.61033	14.2571	feature:50022	0.33135738521609626	0.33135738521609626	False	RIE(SM,M+H) / RIE(TG,M+NH4)	False	7.0	3.137556515518803	is_not_detected;within	False
 50053	TG P-38:7	TG	Silver	Q3	SM_d18_1_18_1_d9	nearest_rt		654.50855	14.2793	TG P-38:7#0	0.33135738521609626	0.33135738521609626	False	RIE(SM,M+H) / RIE(TG,M+NH4)	False	5.0	1.2630107092590173	is_not_detected;within	False
@@ -1065,7 +1065,7 @@ feature_id	lipid_name	lipid_class	confidence	quant_route	is_compound	is_match	RI
 50673	Cer d36:4	Cer	Silver	Q1	Cer_d18_1_15_0_d7	class		560.50366	14.481	Cer d36:4#0	1.0	1.0	False	class-matched standard (f = 1)	False	1.0	0.5167526527472343	within	False
 50675	PS 37:4	PS	Silver	Q3	SM_d18_1_18_1_d9	nearest_rt		798.52823	14.4655	PS 37:4#0	4.4323971609979305	4.4323971609979305	False	RIE(SM,M+H) / RIE(PS,M+H)	False	1.0	12.211738189925237	is_not_detected;within	False
 50774	DG 15:2_16:0	DG	Gold	Q3	SM_d18_1_18_1_d9	nearest_rt		568.49487	14.4634	DG 15:2_16:0#0	1.0843062782051809	1.0843062782051809	False	RIE(SM,M+H) / RIE(DG,M+NH4)	False	7.0	35.31114048371429	is_not_detected;within	False
-50776	PI 15:0_17:0	PI	Gold	Q3	SM_d18_1_18_1_d9	nearest_rt		828.55756	14.4689	PI 15:0_17:0#0	0.39685556652239984	0.39685556652239984	False	RIE(SM,M+H) / RIE(PI,M+NH4)	False	7.0	29.48517103141288	is_not_detected;within	False
+50776	PI 15:0_17:0	PI	Gold	Q4				828.55756	14.4689	PI 15:0_17:0#0									False
 50796	DG 38:1	DG	Silver	Q3	SM_d18_1_18_1_d9	nearest_rt		668.61999	14.4613	DG 38:1#0	1.0843062782051809	1.0843062782051809	False	RIE(SM,M+H) / RIE(DG,M+NH4)	False	6.0	6.6221078366473884	is_not_detected;within	False
 50815	AEG O-36:6	AEG	Silver	Q3	SM_d18_1_18_1_d9	nearest_rt		599.50307	14.4807	AEG O-36:6#0	1.0	1.0	False	class not in response table; f = 1	True	1.0	11.663282382099382	is_not_detected;within	False
 50842	PE 33:4	PE	Silver	Q1	PE_15_0_18_1_d7	class		698.47298	14.4637	PE 33:4#0	1.0	1.0	False	class-matched standard (f = 1)	False	2.0	6.1182878672050585	below;is_not_detected	False
@@ -1081,7 +1081,7 @@ feature_id	lipid_name	lipid_class	confidence	quant_route	is_compound	is_match	RI
 51100	DG P-29:2	DG	Silver	Q3	SM_d18_1_18_1_d9	nearest_rt		529.42139	14.5398	DG P-29:2#0	1.0843062782051809	1.0843062782051809	False	RIE(SM,M+H) / RIE(DG,M+NH4)	False	3.0	4.248446203972455	is_not_detected;within	False
 51108	Cer d17:0_16:0+Os	Cer	Gold	Q1	Cer_d18_1_15_0_d7	class		542.51394	14.5416	Cer d17:0_16:0+Os#0	1.0	1.0	False	class-matched standard (f = 1)	False	12.0	12.302150910727237	within	True
 51109	DG	DG	Bronze	Q3	SM_d18_1_18_1_d9	nearest_rt		355.28354	14.5522	feature:51109	1.0843062782051809	1.0843062782051809	False	RIE(SM,M+H) / RIE(DG,M+NH4)	False	5.0	5.324679891913873	is_not_detected;within	False
-51123	PI 33:1	PI	Silver	Q3	SM_d18_1_18_1_d9	nearest_rt		845.51511	14.5269	PI 33:1#1	0.39685556652239984	0.39685556652239984	False	RIE(SM,M+H) / RIE(PI,M+NH4)	False	0.0		is_not_detected;within	False
+51123	PI 33:1	PI	Silver	Q4				845.51511	14.5269	PI 33:1#1									False
 51142	PC 34:2	PC	Silver	Q1	LPC_18_1_d7	family		758.56803	14.556	PC 34:2#0	1.0	1.0	False	class-matched standard (f = 1)	False	12.0	87.04110919520996	within	True
 51150	PC O-36:5	PC	Silver	Q1	LPC_18_1_d7	family		766.57374	14.5707	PC O-36:5#0	1.0	1.0	False	class-matched standard (f = 1)	False	3.0	2.3166809861534303	within	False
 51166	TG 8:0_10:0_10:0	TG	Gold	Q3	SM_d18_1_18_1_d9	nearest_rt		544.45686	14.5692	TG 8:0_10:0_10:0#0	0.33135738521609626	0.33135738521609626	False	RIE(SM,M+H) / RIE(TG,M+NH4)	False	7.0	14.425689769798485	is_not_detected;within	False
@@ -1093,7 +1093,7 @@ feature_id	lipid_name	lipid_class	confidence	quant_route	is_compound	is_match	RI
 51273	SM 34:1	SM	Silver	Q1	SM_d18_1_18_1_d9	class		703.57482	14.6305	SM 34:1#4	1.0	1.0	False	class-matched standard (f = 1)	False	5.0	13.335467680397494	is_not_detected;within	False
 51279	Cer d32:1	Cer	Silver	Q1	Cer_d18_1_15_0_d7	class		492.47693	14.5782	Cer d32:1#2	1.0	1.0	False	class-matched standard (f = 1)	False	12.0	6.915347164184707	within	True
 51280	DG 16:0_18:3	DG	Gold	Q3	SM_d18_1_18_1_d9	nearest_rt		613.48195	14.6164	DG 16:0_18:3#0	1.0843062782051809	1.0843062782051809	False	RIE(SM,M+H) / RIE(DG,M+NH4)	False	4.0	10.840572027062523	is_not_detected;within	False
-51282	PI O-34:2	PI	Silver	Q3	SM_d18_1_18_1_d9	nearest_rt		838.57985	14.5879	PI O-34:2#1	0.39685556652239984	0.39685556652239984	False	RIE(SM,M+H) / RIE(PI,M+NH4)	False	3.0	7.0687245577191655	is_not_detected;within	False
+51282	PI O-34:2	PI	Silver	Q4				838.57985	14.5879	PI O-34:2#1									False
 51289	TG 3:0_16:0_15:1	TG	Gold	Q3	SM_d18_1_18_1_d9	nearest_rt		609.50783	14.6288	TG 3:0_16:0_15:1#1	0.33135738521609626	0.33135738521609626	False	RIE(SM,M+H) / RIE(TG,M+NH4)	False	0.0		is_not_detected;within	False
 51291	PG 18:2_16:0	PG	Gold	Q3	SM_d18_1_18_1_d9	nearest_rt		764.54213	14.618	PG 18:2_16:0#0	0.24699113111478313	0.24699113111478313	False	RIE(SM,M+H) / RIE(PG,M+NH4)	False	2.0	1.0624113388639196	is_not_detected;within	False
 51296	PE 16:1_18:2	PE	Gold	Q1	PE_15_0_18_1_d7	class		714.50597	14.5886	PE 16:1_18:2#1	1.0	1.0	False	class-matched standard (f = 1)	False	7.0	176.96779908988847	below;is_not_detected	False
@@ -1132,7 +1132,7 @@ feature_id	lipid_name	lipid_class	confidence	quant_route	is_compound	is_match	RI
 51673	DG 15:2_16:0	DG	Gold	Q3	SM_d18_1_18_1_d9	nearest_rt		568.49476	14.6853	DG 15:2_16:0#1	1.0843062782051809	1.0843062782051809	False	RIE(SM,M+H) / RIE(DG,M+NH4)	False	0.0		is_not_detected;within	False
 51688	SQDG 32:0	SQDG	Silver	Q3	SM_d18_1_18_1_d9	nearest_rt		812.55529	14.6968	SQDG 32:0#0	10.0	32246.922147680583	True	RIE(SM,M+H) / RIE(SQDG,M+H)	False	6.0	192.56986031463987	is_not_detected;within	False
 51693	PG O-31:2	PG	Silver	Q3	SM_d18_1_18_1_d9	nearest_rt		708.51637	14.7066	PG O-31:2#0	0.24699113111478313	0.24699113111478313	False	RIE(SM,M+H) / RIE(PG,M+NH4)	False	6.0	6.2603824668999	is_not_detected;within	False
-51718	PI 16:0_16:0	PI	Gold	Q3	SM_d18_1_18_1_d9	nearest_rt		811.5326	14.6779	PI 16:0_16:0#1	0.39685556652239984	0.39685556652239984	False	RIE(SM,M+H) / RIE(PI,M+NH4)	False	1.0	0.6132612586468941	is_not_detected;within	False
+51718	PI 16:0_16:0	PI	Gold	Q4				811.5326	14.6779	PI 16:0_16:0#1									False
 51787	TG 41:4	TG	Silver	Q3	SM_d18_1_18_1_d9	nearest_rt		755.541	14.7283	TG 41:4#1	0.33135738521609626	0.33135738521609626	False	RIE(SM,M+H) / RIE(TG,M+NH4)	False	7.0	37.36633428496653	is_not_detected;within	False
 51808	PG 20:4_15:0	PG	Gold	Q3	SM_d18_1_18_1_d9	nearest_rt		774.52795	14.73	PG 20:4_15:0#0	0.24699113111478313	0.24699113111478313	False	RIE(SM,M+H) / RIE(PG,M+NH4)	False	6.0	5.453327293597971	is_not_detected;within	False
 51816	PS 33:1	PS	Silver	Q3	SM_d18_1_18_1_d9	nearest_rt		770.49408	14.7431	PS 33:1#0	4.4323971609979305	4.4323971609979305	False	RIE(SM,M+H) / RIE(PS,M+H)	False	0.0		is_not_detected;within	False
@@ -1152,7 +1152,7 @@ feature_id	lipid_name	lipid_class	confidence	quant_route	is_compound	is_match	RI
 51904	DG	DG	Bronze	Q3	SM_d18_1_18_1_d9	nearest_rt		626.53483	14.7529	feature:51904	1.0843062782051809	1.0843062782051809	False	RIE(SM,M+H) / RIE(DG,M+NH4)	False	3.0	219.3785140866273	is_not_detected;within	False
 51907	PC 38:5	PC	Silver	Q1	LPC_18_1_d7	family		808.58104	14.7343	PC 38:5#1	1.0	1.0	False	class-matched standard (f = 1)	False	1.0	17.294263003863236	within	False
 51925	DG P-38:3	DG	Silver	Q3	SM_d18_1_18_1_d9	nearest_rt		653.54938	14.7751	DG P-38:3#0	1.0843062782051809	1.0843062782051809	False	RIE(SM,M+H) / RIE(DG,M+NH4)	False	4.0	28.884002487758746	is_not_detected;within	False
-51950	PI 16:0_17:0	PI	Gold	Q3	SM_d18_1_18_1_d9	nearest_rt		825.54787	14.7926	PI 16:0_17:0#0	0.39685556652239984	0.39685556652239984	False	RIE(SM,M+H) / RIE(PI,M+NH4)	False	7.0	5.525687360401868	is_not_detected;within	False
+51950	PI 16:0_17:0	PI	Gold	Q4				825.54787	14.7926	PI 16:0_17:0#0									False
 51959	PE O-16:2_16:0	PE	Gold	Q1	PE_15_0_18_1_d7	class		674.51149	14.784	PE O-16:2_16:0#0	1.0	1.0	False	class-matched standard (f = 1)	False	7.0	168.40976838201712	below;is_not_detected	False
 51999	PC O-32:7	PC	Silver	Q1	LPC_18_1_d7	family		706.47958	14.8054	PC O-32:7#0	1.0	1.0	False	class-matched standard (f = 1)	False	3.0	4.206943018131829	within	False
 52017	OL 32:0	OL	Silver	Q3	SM_d18_1_18_1_d9	nearest_rt		625.5515	14.8008	OL 32:0#0	1.0	1.0	False	class not in response table; f = 1	True	7.0	21.236646772656602	is_not_detected;within	False
@@ -1182,7 +1182,7 @@ feature_id	lipid_name	lipid_class	confidence	quant_route	is_compound	is_match	RI
 52282	DG	DG	Bronze	Q3	SM_d18_1_18_1_d9	nearest_rt		577.51736	14.8552	feature:52282	1.0843062782051809	1.0843062782051809	False	RIE(SM,M+H) / RIE(DG,M+NH4)	False	1.0	38.84696897006753	is_not_detected;within	False
 52283	PC O-38:7	PC	Silver	Q1	LPC_18_1_d7	family		790.57109	14.8528	PC O-38:7#1	1.0	1.0	False	class-matched standard (f = 1)	False	0.0		within	False
 52297	PC O-38:6	PC	Silver	Q1	LPC_18_1_d7	family		792.58884	14.8645	PC O-38:6#0	1.0	1.0	False	class-matched standard (f = 1)	False	0.0		within	False
-52305	PI 18:1_16:0	PI	Gold	Q3	SM_d18_1_18_1_d9	nearest_rt		854.5732	14.8658	PI 18:1_16:0#0	0.39685556652239984	0.39685556652239984	False	RIE(SM,M+H) / RIE(PI,M+NH4)	False	5.0	20.20385039964376	is_not_detected;within	False
+52305	PI 18:1_16:0	PI	Gold	Q4				854.5732	14.8658	PI 18:1_16:0#0									False
 52310	PC 35:3	PC	Silver	Q1	LPC_18_1_d7	family		770.56927	14.8437	PC 35:3#2	1.0	1.0	False	class-matched standard (f = 1)	False	2.0	34.58784495275842	within	False
 52314	LPE 29:0	LPE	Silver	Q1	PE_15_0_18_1_d7	family		636.49606	14.8734	LPE 29:0#0	1.0	1.0	False	class-matched standard (f = 1)	False	0.0		below;is_not_detected	False
 52350	TG P-38:8	TG	Silver	Q3	SM_d18_1_18_1_d9	nearest_rt		635.46456	14.8799	TG P-38:8#0	0.33135738521609626	0.33135738521609626	False	RIE(SM,M+H) / RIE(TG,M+NH4)	False	3.0	3.998840002889973	is_not_detected;within	False
@@ -1202,10 +1202,10 @@ feature_id	lipid_name	lipid_class	confidence	quant_route	is_compound	is_match	RI
 52690	SM 36:2	SM	Silver	Q1	SM_d18_1_18_1_d9	class		751.57151	14.979	SM 36:2#1	1.0	1.0	False	class-matched standard (f = 1)	False	0.0		is_not_detected;within	False
 52693	DG	DG	Bronze	Q3	SM_d18_1_18_1_d9	nearest_rt		695.52276	14.9674	feature:52693	1.0843062782051809	1.0843062782051809	False	RIE(SM,M+H) / RIE(DG,M+NH4)	False	3.0	12.089237743121158	is_not_detected;within	False
 52714	PC O-30:1	PC	Silver	Q1	LPC_18_1_d7	family		690.542	14.963	PC O-30:1#0	1.0	1.0	False	class-matched standard (f = 1)	False	12.0	17.213495930959024	within	True
-52716	PI O-33:1	PI	Silver	Q3	SM_d18_1_18_1_d9	nearest_rt		809.55316	14.974	PI O-33:1#0	0.39685556652239984	0.39685556652239984	False	RIE(SM,M+H) / RIE(PI,M+NH4)	False	7.0	7.84940235769054	is_not_detected;within	False
+52716	PI O-33:1	PI	Silver	Q4				809.55316	14.974	PI O-33:1#0									False
 52738	SM 36:2	SM	Silver	Q1	SM_d18_1_18_1_d9	class		729.59069	14.975	SM 36:2#1	1.0	1.0	False	class-matched standard (f = 1)	False	1.0	5.342578455688226	is_not_detected;within	False
 52741	PC 36:5	PC	Silver	Q1	LPC_18_1_d7	family		780.55178	14.9781	PC 36:5#3	1.0	1.0	False	class-matched standard (f = 1)	False	12.0	41.421013666412875	within	True
-52762	PI 32:0	PI	Silver	Q3	SM_d18_1_18_1_d9	nearest_rt		828.55614	14.9581	PI 32:0#0	0.39685556652239984	0.39685556652239984	False	RIE(SM,M+H) / RIE(PI,M+NH4)	False	5.0	2.377139023356657	is_not_detected;within	False
+52762	PI 32:0	PI	Silver	Q4				828.55614	14.9581	PI 32:0#0									False
 52763	PC P-39:10	PC	Silver	Q1	LPC_18_1_d7	family		796.52549	15.0106	PC P-39:10#0	1.0	1.0	False	class-matched standard (f = 1)	False	6.0	3.938595229856401	within	False
 52785	DG	DG	Bronze	Q3	SM_d18_1_18_1_d9	nearest_rt		683.61787	14.9864	feature:52785	1.0843062782051809	1.0843062782051809	False	RIE(SM,M+H) / RIE(DG,M+NH4)	False	7.0	20.264999510284728	is_not_detected;within	False
 52799	PS	PS	Bronze	Q3	SM_d18_1_18_1_d9	nearest_rt		800.58255	14.9919	feature:52799	4.4323971609979305	4.4323971609979305	False	RIE(SM,M+H) / RIE(PS,M+H)	False	0.0		is_not_detected;within	False
@@ -1215,7 +1215,7 @@ feature_id	lipid_name	lipid_class	confidence	quant_route	is_compound	is_match	RI
 52847	PC	PC	Bronze	Q1	LPC_18_1_d7	family		733.5155	15.0033	feature:52847	1.0	1.0	False	class-matched standard (f = 1)	False	12.0	7.414935164531785	within	True
 52872	DG	DG	Bronze	Q3	SM_d18_1_18_1_d9	nearest_rt		569.45416	15.0101	feature:52872	1.0843062782051809	1.0843062782051809	False	RIE(SM,M+H) / RIE(DG,M+NH4)	False	2.0	6.150756798548352	is_not_detected;within	False
 52898	SM 36:2	SM	Silver	Q1	SM_d18_1_18_1_d9	class		751.57101	15.0202	SM 36:2#1	1.0	1.0	False	class-matched standard (f = 1)	False	0.0		is_not_detected;within	False
-52908	PI 16:0_17:0	PI	Gold	Q3	SM_d18_1_18_1_d9	nearest_rt		842.57516	15.0167	PI 16:0_17:0#1	0.39685556652239984	0.39685556652239984	False	RIE(SM,M+H) / RIE(PI,M+NH4)	False	5.0	17.93350949631274	is_not_detected;within	False
+52908	PI 16:0_17:0	PI	Gold	Q4				842.57516	15.0167	PI 16:0_17:0#1									False
 52910	TG	TG	Bronze	Q3	SM_d18_1_18_1_d9	nearest_rt		699.61247	15.0265	feature:52910	0.33135738521609626	0.33135738521609626	False	RIE(SM,M+H) / RIE(TG,M+NH4)	False	6.0	3.736209622558551	is_not_detected;within	False
 52936	PE O-15:0_16:1	PE	Gold	Q1	PE_15_0_18_1_d7	class		662.51165	15.0312	PE O-15:0_16:1#0	1.0	1.0	False	class-matched standard (f = 1)	False	7.0	342.37754802841175	below;is_not_detected	False
 52944	PE O-15:0_14:0	PE	Gold	Q1	PE_15_0_18_1_d7	class		636.49609	15.0298	PE O-15:0_14:0#0	1.0	1.0	False	class-matched standard (f = 1)	False	7.0	25.483363068943945	below;is_not_detected	False
@@ -1224,13 +1224,13 @@ feature_id	lipid_name	lipid_class	confidence	quant_route	is_compound	is_match	RI
 52985	TG O-85:21	TG	Silver	Q3	SM_d18_1_18_1_d9	nearest_rt		1291.99283	15.0565	TG O-85:21#0	0.33135738521609626	0.33135738521609626	False	RIE(SM,M+H) / RIE(TG,M+NH4)	False	2.0	4.4599175321276245	is_not_detected;within	False
 53003	TG	TG	Bronze	Q3	SM_d18_1_18_1_d9	nearest_rt		708.51782	15.0203	feature:53003	0.33135738521609626	0.33135738521609626	False	RIE(SM,M+H) / RIE(TG,M+NH4)	False	0.0		is_not_detected;within	False
 53017	PC O-36:5	PC	Silver	Q1	LPC_18_1_d7	family		766.57456	15.0636	PC O-36:5#1	1.0	1.0	False	class-matched standard (f = 1)	False	1.0	3.0511385968062035	within	False
-53018	PI 40:6	PI	Silver	Q3	SM_d18_1_18_1_d9	nearest_rt		928.59083	15.05	PI 40:6#0	0.39685556652239984	0.39685556652239984	False	RIE(SM,M+H) / RIE(PI,M+NH4)	False	0.0		is_not_detected;within	False
+53018	PI 40:6	PI	Silver	Q4				928.59083	15.05	PI 40:6#0									False
 53032	DG	DG	Bronze	Q3	SM_d18_1_18_1_d9	nearest_rt		589.51863	15.0502	feature:53032	1.0843062782051809	1.0843062782051809	False	RIE(SM,M+H) / RIE(DG,M+NH4)	False	5.0	15.42570863887	is_not_detected;within	False
 53033	PC 36:4	PC	Silver	Q1	LPC_18_1_d7	family		782.56907	15.056	PC 36:4#3	1.0	1.0	False	class-matched standard (f = 1)	False	12.0	54.863591449542255	within	True
-53035	PI O-35:2	PI	Silver	Q3	SM_d18_1_18_1_d9	nearest_rt		852.59571	15.0541	PI O-35:2#0	0.39685556652239984	0.39685556652239984	False	RIE(SM,M+H) / RIE(PI,M+NH4)	False	7.0	19.682382472161954	is_not_detected;within	False
+53035	PI O-35:2	PI	Silver	Q4				852.59571	15.0541	PI O-35:2#0									False
 53037	Cer d39:5	Cer	Silver	Q1	Cer_d18_1_15_0_d7	class		600.53618	15.0363	Cer d39:5#0	1.0	1.0	False	class-matched standard (f = 1)	False	4.0	0.7855158776652558	within	False
 53040	PC 40:7	PC	Silver	Q1	LPC_18_1_d7	family		832.58376	15.0391	PC 40:7#3	1.0	1.0	False	class-matched standard (f = 1)	False	0.0		within	False
-53064	PI 18:0_16:0	PI	Gold	Q3	SM_d18_1_18_1_d9	nearest_rt		856.58875	15.0727	PI 18:0_16:0#0	0.39685556652239984	0.39685556652239984	False	RIE(SM,M+H) / RIE(PI,M+NH4)	False	7.0	9.89896852886529	is_not_detected;within	False
+53064	PI 18:0_16:0	PI	Gold	Q4				856.58875	15.0727	PI 18:0_16:0#0									False
 53070	PC O-45:14	PC	Silver	Q1	LPC_18_1_d7	family		874.57798	15.0699	PC O-45:14#0	1.0	1.0	False	class-matched standard (f = 1)	False	4.0	2.561578915266355	within	False
 53089	LPC 29:1	LPC	Silver	Q1	LPC_18_1_d7	class		676.52649	15.0723	LPC 29:1#0	1.0	1.0	False	class-matched standard (f = 1)	False	12.0	27.639512704445956	within	True
 53107	DG O-33:7	DG	Silver	Q3	SM_d18_1_18_1_d9	nearest_rt		572.46723	15.0777	DG O-33:7#0	1.0843062782051809	1.0843062782051809	False	RIE(SM,M+H) / RIE(DG,M+NH4)	False	7.0	20.98509740034761	is_not_detected;within	False
@@ -1239,9 +1239,9 @@ feature_id	lipid_name	lipid_class	confidence	quant_route	is_compound	is_match	RI
 53186	Cer	Cer	Bronze	Q1	Cer_d18_1_15_0_d7	class		526.51951	15.0841	feature:53186	1.0	1.0	False	class-matched standard (f = 1)	False	8.0	1.3524367494555016	within	False
 53201	MGDG	MGDG	Bronze	Q3	SM_d18_1_18_1_d9	nearest_rt		801.54874	15.0731	feature:53201	10.0	12014.841295097716	True	RIE(SM,M+H) / RIE(MGDG,M+H)	False	6.0	84.21048014872943	is_not_detected;within	False
 53205	MG O-25:3	MG	Silver	Q4				454.42507	15.1117	MG O-25:3#0									False
-53223	PI 16:0_18:1	PI	Gold	Q3	SM_d18_1_18_1_d9	nearest_rt		854.57365	15.1189	PI 16:0_18:1#0	0.39685556652239984	0.39685556652239984	False	RIE(SM,M+H) / RIE(PI,M+NH4)	False	6.0	31.182332307653247	is_not_detected;within	False
+53223	PI 16:0_18:1	PI	Gold	Q4				854.57365	15.1189	PI 16:0_18:1#0									False
 53238	PG 31:1	PG	Silver	Q3	SM_d18_1_18_1_d9	nearest_rt		724.51347	15.1275	PG 31:1#0	0.24699113111478313	0.24699113111478313	False	RIE(SM,M+H) / RIE(PG,M+NH4)	False	4.0	1.4616320835752519	is_not_detected;within	False
-53242	PI 34:1	PI	Silver	Q3	SM_d18_1_18_1_d9	nearest_rt		859.53107	15.126	PI 34:1#0	0.39685556652239984	0.39685556652239984	False	RIE(SM,M+H) / RIE(PI,M+NH4)	False	5.0	3.6406275697098023	is_not_detected;within	False
+53242	PI 34:1	PI	Silver	Q4				859.53107	15.126	PI 34:1#0									False
 53245	TG O-31:1	TG	Silver	Q3	SM_d18_1_18_1_d9	nearest_rt		570.50871	15.1211	TG O-31:1#0	0.33135738521609626	0.33135738521609626	False	RIE(SM,M+H) / RIE(TG,M+NH4)	False	4.0	3.2655911959357824	is_not_detected;within	False
 53260	DG	DG	Bronze	Q3	SM_d18_1_18_1_d9	nearest_rt		643.52825	15.1259	feature:53260	1.0843062782051809	1.0843062782051809	False	RIE(SM,M+H) / RIE(DG,M+NH4)	False	4.0	3.959714828374633	is_not_detected;within	False
 53278	DG 36:2	DG	Silver	Q3	SM_d18_1_18_1_d9	nearest_rt		638.57199	15.1308	DG 36:2#0	1.0843062782051809	1.0843062782051809	False	RIE(SM,M+H) / RIE(DG,M+NH4)	False	7.0	92.61054826416563	is_not_detected;within	False
@@ -1256,7 +1256,7 @@ feature_id	lipid_name	lipid_class	confidence	quant_route	is_compound	is_match	RI
 53337	DG	DG	Bronze	Q3	SM_d18_1_18_1_d9	nearest_rt		577.51774	15.1468	feature:53337	1.0843062782051809	1.0843062782051809	False	RIE(SM,M+H) / RIE(DG,M+NH4)	False	0.0		is_not_detected;within	False
 53402	PC 39:6	PC	Silver	Q1	LPC_18_1_d7	family		820.5861	15.1783	PC 39:6#0	1.0	1.0	False	class-matched standard (f = 1)	False	1.0	1.8087051105898435	within	False
 53405	AEG O-30:2	AEG	Silver	Q3	SM_d18_1_18_1_d9	nearest_rt		523.47147	15.1923	AEG O-30:2#4	1.0	1.0	False	class not in response table; f = 1	True	1.0	36.900741706649725	is_not_detected;within	False
-53431	PI	PI	Bronze	Q3	SM_d18_1_18_1_d9	nearest_rt		797.55482	15.1966	feature:53431	0.39685556652239984	0.39685556652239984	False	RIE(SM,M+H) / RIE(PI,M+NH4)	False	0.0		is_not_detected;within	False
+53431	PI	PI	Bronze	Q4				797.55482	15.1966	feature:53431									False
 53455	TG 67:15	TG	Silver	Q3	SM_d18_1_18_1_d9	nearest_rt		1092.82544	15.1893	TG 67:15#0	0.33135738521609626	0.33135738521609626	False	RIE(SM,M+H) / RIE(TG,M+NH4)	False	7.0	6.8080858661239665	is_not_detected;within	False
 53478	Cer d18:0_14:0	Cer	Gold	Q1	Cer_d18_1_15_0_d7	class		512.50346	15.1892	Cer d18:0_14:0#0	1.0	1.0	False	class-matched standard (f = 1)	False	12.0	13.537185879059786	within	True
 53492	DG P-32:1	DG	Silver	Q3	SM_d18_1_18_1_d9	nearest_rt		568.5298	15.193	DG P-32:1#0	1.0843062782051809	1.0843062782051809	False	RIE(SM,M+H) / RIE(DG,M+NH4)	False	6.0	33.33814128703661	is_not_detected;within	False
@@ -1272,12 +1272,12 @@ feature_id	lipid_name	lipid_class	confidence	quant_route	is_compound	is_match	RI
 53646	PC 30:1	PC	Silver	Q1	LPC_18_1_d7	family		704.52223	15.2356	PC 30:1#4	1.0	1.0	False	class-matched standard (f = 1)	False	12.0	220.42442345689955	within	True
 53673	SM	SM	Bronze	Q1	SM_d18_1_18_1_d9	class		634.51686	15.2481	feature:53673	1.0	1.0	False	class-matched standard (f = 1)	False	7.0	34.64272512449124	is_not_detected;within	False
 53687	AEG O-32:3	AEG	Silver	Q3	Cer_d18_1_15_0_d7	nearest_rt		549.48589	15.2526	AEG O-32:3#2	1.0	1.0	False	class not in response table; f = 1	True	12.0	49.64954519941388	within	True
-53691	PI 16:0_17:0	PI	Gold	Q3	Cer_d18_1_15_0_d7	nearest_rt		842.57506	15.2535	PI 16:0_17:0#2	1.0	1.0	False	class not in response table; f = 1	True	5.0	19.153583130707492	within	False
+53691	PI 16:0_17:0	PI	Gold	Q4				842.57506	15.2535	PI 16:0_17:0#2									False
 53713	PE 16:0_16:1	PE	Gold	Q1	PE_15_0_18_1_d7	class		690.50661	15.2629	PE 16:0_16:1#0	1.0	1.0	False	class-matched standard (f = 1)	False	7.0	434.6630367433346	below;is_not_detected	False
 53723	PS	PS	Bronze	Q3	Cer_d18_1_15_0_d7	nearest_rt		818.55474	15.3477	feature:53723	1.0	1.0	False	class not in response table; f = 1	True	12.0	12.759231540043817	within	True
 53727	PC 34:2	PC	Silver	Q1	LPC_18_1_d7	family		780.55182	15.2421	PC 34:2#1	1.0	1.0	False	class-matched standard (f = 1)	False	0.0		within	False
 53739	PC 34:2	PC	Silver	Q1	LPC_18_1_d7	family		758.56909	15.2429	PC 34:2#1	1.0	1.0	False	class-matched standard (f = 1)	False	0.0		within	False
-53744	PI 18:1_18:1	PI	Gold	Q3	Cer_d18_1_15_0_d7	nearest_rt		880.5901	15.2715	PI 18:1_18:1#0	1.0	1.0	False	class not in response table; f = 1	True	12.0	16.391934525706034	within	True
+53744	PI 18:1_18:1	PI	Gold	Q4				880.5901	15.2715	PI 18:1_18:1#0									False
 53770	SM 34:0	SM	Silver	Q1	SM_d18_1_18_1_d9	class		705.58863	15.2878	SM 34:0#1	1.0	1.0	False	class-matched standard (f = 1)	False	0.0		is_not_detected;within	False
 53774	PG O-33:2	PG	Silver	Q3	Cer_d18_1_15_0_d7	nearest_rt		736.54661	15.2738	PG O-33:2#0	1.0	1.0	False	class not in response table; f = 1	True	11.0	5.617222797911179	within	False
 53775	DG	DG	Bronze	Q3	Cer_d18_1_15_0_d7	nearest_rt		531.43822	15.278	feature:53775	1.0	1.0	False	class not in response table; f = 1	True	10.0	5.285930510086006	within	False
@@ -1301,7 +1301,7 @@ feature_id	lipid_name	lipid_class	confidence	quant_route	is_compound	is_match	RI
 53983	PE O-30:1	PE	Silver	Q1	PE_15_0_18_1_d7	class		648.49628	15.3492	PE O-30:1#0	1.0	1.0	False	class-matched standard (f = 1)	False	7.0	20.91134582484349	below;is_not_detected	False
 54003	PC 40:6	PC	Silver	Q1	LPC_18_1_d7	family		834.60019	15.3679	PC 40:6#1	1.0	1.0	False	class-matched standard (f = 1)	False	9.0	4.161892828608975	within	False
 54012	PC O-38:7	PC	Silver	Q1	LPC_18_1_d7	family		790.57303	15.3645	PC O-38:7#2	1.0	1.0	False	class-matched standard (f = 1)	False	0.0		within	False
-54023	PI O-35:2	PI	Silver	Q3	Cer_d18_1_15_0_d7	nearest_rt		852.59615	15.3381	PI O-35:2#1	1.0	1.0	False	class not in response table; f = 1	True	1.0	4.440059200789343	within	False
+54023	PI O-35:2	PI	Silver	Q4				852.59615	15.3381	PI O-35:2#1									False
 54050	Cer d17:0_16:0	Cer	Gold	Q1	Cer_d18_1_15_0_d7	class		526.51909	15.3735	Cer d17:0_16:0#0	1.0	1.0	False	class-matched standard (f = 1)	False	12.0	13.270409144309301	within	True
 54053	Cer d18:0_16:0+Os	Cer	Gold	Q1	Cer_d18_1_15_0_d7	class		556.52965	15.3727	Cer d18:0_16:0+Os#0	1.0	1.0	False	class-matched standard (f = 1)	False	12.0	28.9843577815127	within	True
 54082	DG O-32:4	DG	Silver	Q3	Cer_d18_1_15_0_d7	nearest_rt		564.49899	15.3792	DG O-32:4#0	1.0	1.0	False	class not in response table; f = 1	True	11.0	12.555219564147976	within	False
@@ -1311,7 +1311,7 @@ feature_id	lipid_name	lipid_class	confidence	quant_route	is_compound	is_match	RI
 54164	Cer d17:0_16:0+Os	Cer	Gold	Q1	Cer_d18_1_15_0_d7	class		542.51422	15.4033	Cer d17:0_16:0+Os#1	1.0	1.0	False	class-matched standard (f = 1)	False	12.0	3.641439823430127	within	True
 54208	TG P-31:0	TG	Silver	Q3	Cer_d18_1_15_0_d7	nearest_rt		570.50842	15.4284	TG P-31:0#0	1.0	1.0	False	class not in response table; f = 1	True	12.0	4.505632068851657	within	True
 54218	TG O-29:8_4:0_4:0	TG	Gold	Q3	Cer_d18_1_15_0_d7	nearest_rt		640.49315	15.4018	TG O-29:8_4:0_4:0#0	1.0	1.0	False	class not in response table; f = 1	True	9.0	11.268931428404974	within	False
-54257	PI 38:4	PI	Silver	Q3	Cer_d18_1_15_0_d7	nearest_rt		909.54685	15.4064	PI 38:4#0	1.0	1.0	False	class not in response table; f = 1	True	0.0		within	False
+54257	PI 38:4	PI	Silver	Q4				909.54685	15.4064	PI 38:4#0									False
 54282	SM 42:7	SM	Silver	Q1	SM_d18_1_18_1_d9	class		803.60283	15.4156	SM 42:7#0	1.0	1.0	False	class-matched standard (f = 1)	False	0.0		is_not_detected;within	False
 54286	PG 16:0_18:1	PG	Gold	Q3	Cer_d18_1_15_0_d7	nearest_rt		766.55891	15.4364	PG 16:0_18:1#0	1.0	1.0	False	class not in response table; f = 1	True	12.0	177.27383428736994	within	True
 54287	PC	PC	Bronze	Q1	LPC_18_1_d7	family		702.58297	15.4324	feature:54287	1.0	1.0	False	class-matched standard (f = 1)	False	12.0	12.306604182180784	within	True
@@ -1319,7 +1319,7 @@ feature_id	lipid_name	lipid_class	confidence	quant_route	is_compound	is_match	RI
 54306	Cer d37:5	Cer	Silver	Q1	Cer_d18_1_15_0_d7	class		572.50474	15.4527	Cer d37:5#1	1.0	1.0	False	class-matched standard (f = 1)	False	1.0	2.9726928014764336	within	False
 54368	PC O-40:8	PC	Silver	Q1	LPC_18_1_d7	family		816.58889	15.455	PC O-40:8#0	1.0	1.0	False	class-matched standard (f = 1)	False	0.0		within	False
 54401	DG 34:4	DG	Silver	Q3	Cer_d18_1_15_0_d7	nearest_rt		606.50915	15.4688	DG 34:4#1	1.0	1.0	False	class not in response table; f = 1	True	12.0	16.809074597471085	within	True
-54408	PI O-34:1	PI	Silver	Q3	Cer_d18_1_15_0_d7	nearest_rt		823.57019	15.4874	PI O-34:1#0	1.0	1.0	False	class not in response table; f = 1	True	1.0	2.176966879332402	within	False
+54408	PI O-34:1	PI	Silver	Q4				823.57019	15.4874	PI O-34:1#0									False
 54442	TG P-36:6	TG	Silver	Q3	Cer_d18_1_15_0_d7	nearest_rt		611.46453	15.4618	TG P-36:6#0	1.0	1.0	False	class not in response table; f = 1	True	7.0	4.703452543209051	within	False
 54452	TG 39:1	TG	Silver	Q3	Cer_d18_1_15_0_d7	nearest_rt		733.55647	15.449	TG 39:1#0	1.0	1.0	False	class not in response table; f = 1	True	2.0	41.10530608849555	within	False
 54474	Cer d33:1	Cer	Silver	Q1	Cer_d18_1_15_0_d7	class		506.49309	15.4797	Cer d33:1#1	1.0	1.0	False	class-matched standard (f = 1)	False	12.0	4.287846276854875	within	True
@@ -1329,11 +1329,11 @@ feature_id	lipid_name	lipid_class	confidence	quant_route	is_compound	is_match	RI
 54554	PC O-39:11	PC	Silver	Q1	LPC_18_1_d7	family		796.52579	15.4645	PC O-39:11#0	1.0	1.0	False	class-matched standard (f = 1)	False	0.0		within	False
 54555	PC O-31:0	PC	Silver	Q1	LPC_18_1_d7	family		706.5726	15.4925	PC O-31:0#0	1.0	1.0	False	class-matched standard (f = 1)	False	10.0	13.378228787083685	within	False
 54557	PC 39:6	PC	Silver	Q1	LPC_18_1_d7	family		820.58666	15.4877	PC 39:6#1	1.0	1.0	False	class-matched standard (f = 1)	False	0.0		within	False
-54575	PI 19:0_16:1	PI	Gold	Q3	Cer_d18_1_15_0_d7	nearest_rt		868.59051	15.5004	PI 19:0_16:1#0	1.0	1.0	False	class not in response table; f = 1	True	12.0	27.421930489963408	within	True
+54575	PI 19:0_16:1	PI	Gold	Q4				868.59051	15.5004	PI 19:0_16:1#0									False
 54585	PG 18:1_18:1	PG	Gold	Q3	Cer_d18_1_15_0_d7	nearest_rt		792.57391	15.5126	PG 18:1_18:1#0	1.0	1.0	False	class not in response table; f = 1	True	12.0	94.7358965595462	within	True
 54587	PC	PC	Bronze	Q1	LPC_18_1_d7	family		780.58852	15.5202	feature:54587	1.0	1.0	False	class-matched standard (f = 1)	False	4.0	9.138449200706834	within	False
 54588	PA O-14:0_16:0	PA	Gold	Q3	Cer_d18_1_15_0_d7	nearest_rt		624.49683	15.5252	PA O-14:0_16:0#0	1.0	1.0	False	class not in response table; f = 1	True	5.0	2.761071033374688	within	False
-54590	PI 35:1	PI	Silver	Q3	Cer_d18_1_15_0_d7	nearest_rt		873.54616	15.5043	PI 35:1#0	1.0	1.0	False	class not in response table; f = 1	True	3.0	2.4370837246879455	within	False
+54590	PI 35:1	PI	Silver	Q4				873.54616	15.5043	PI 35:1#0									False
 54600	AEG O-34:4	AEG	Silver	Q3	Cer_d18_1_15_0_d7	nearest_rt		575.5031	15.5627	AEG O-34:4#2	1.0	1.0	False	class not in response table; f = 1	True	1.0	78.9284023923239	within	False
 54630	PE	PE	Bronze	Q1	PE_15_0_18_1_d7	class		652.49106	15.5342	feature:54630	1.0	1.0	False	class-matched standard (f = 1)	False	3.0	27.47761274659345	below;is_not_detected	False
 54631	TG 42:9	TG	Silver	Q3	Cer_d18_1_15_0_d7	nearest_rt		722.5324	15.5366	TG 42:9#0	1.0	1.0	False	class not in response table; f = 1	True	2.0	5.861637200911415	within	False
@@ -1345,12 +1345,12 @@ feature_id	lipid_name	lipid_class	confidence	quant_route	is_compound	is_match	RI
 54741	MG O-27:3	MG	Silver	Q4				482.45647	15.5513	MG O-27:3#0									False
 54744	Cer d34:1	Cer	Silver	Q1	Cer_d18_1_15_0_d7	class		554.51414	15.5441	Cer d34:1#2	1.0	1.0	False	class-matched standard (f = 1)	False	11.0	10.837032136419758	within	False
 54747	DG O-32:1	DG	Silver	Q3	Cer_d18_1_15_0_d7	nearest_rt		570.54569	15.5533	DG O-32:1#0	1.0	1.0	False	class not in response table; f = 1	True	3.0	2.257887877090451	within	False
-54773	PI 36:2	PI	Silver	Q3	Cer_d18_1_15_0_d7	nearest_rt		880.5907	15.5334	PI 36:2#0	1.0	1.0	False	class not in response table; f = 1	True	1.0	1.3540391902210682	within	False
+54773	PI 36:2	PI	Silver	Q4				880.5907	15.5334	PI 36:2#0									False
 54793	Cer d41:2	Cer	Silver	Q1	Cer_d18_1_15_0_d7	class		666.60344	15.5572	Cer d41:2#0	1.0	1.0	False	class-matched standard (f = 1)	False	11.0	4.626377877379651	within	False
 54796	Cer 18:1	Cer	Silver	Q1	Cer_d18_1_15_0_d7	class		524.50373	15.5271	Cer 18:1#1	1.0	1.0	False	class-matched standard (f = 1)	False	0.0		within	False
 54807	PC 40:6	PC	Silver	Q1	LPC_18_1_d7	family		834.59869	15.5845	PC 40:6#2	1.0	1.0	False	class-matched standard (f = 1)	False	0.0		within	False
 54825	PC 37:4	PC	Silver	Q1	LPC_18_1_d7	family		796.58487	15.5717	PC 37:4#1	1.0	1.0	False	class-matched standard (f = 1)	False	10.0	23.382023668385703	within	False
-54828	PI O-33:0	PI	Silver	Q3	Cer_d18_1_15_0_d7	nearest_rt		811.56851	15.5857	PI O-33:0#0	1.0	1.0	False	class not in response table; f = 1	True	3.0	2.9387385670731705	within	False
+54828	PI O-33:0	PI	Silver	Q4				811.56851	15.5857	PI O-33:0#0									False
 54832	PE 15:0_16:0	PE	Gold	Q1	PE_15_0_18_1_d7	class		678.506	15.5698	PE 15:0_16:0#1	1.0	1.0	False	class-matched standard (f = 1)	False	7.0	301.0711747920741	below;is_not_detected	False
 54836	PS	PS	Bronze	Q3	Cer_d18_1_15_0_d7	nearest_rt		840.59732	15.5816	feature:54836	1.0	1.0	False	class not in response table; f = 1	True	2.0	3.5623012573541972	within	False
 54841	PC 39:5	PC	Silver	Q1	LPC_18_1_d7	family		822.5997	15.5912	PC 39:5#0	1.0	1.0	False	class-matched standard (f = 1)	False	1.0	3.9284379897810147	within	False
@@ -1386,11 +1386,11 @@ feature_id	lipid_name	lipid_class	confidence	quant_route	is_compound	is_match	RI
 55144	PE O-15:0_17:1	PE	Gold	Q1	PE_15_0_18_1_d7	class		676.52661	15.6868	PE O-15:0_17:1#0	1.0	1.0	False	class-matched standard (f = 1)	False	0.0		below;is_not_detected	False
 55149	PG 33:2	PG	Silver	Q3	Cer_d18_1_15_0_d7	nearest_rt		750.52495	15.7303	PG 33:2#0	1.0	1.0	False	class not in response table; f = 1	True	5.0	12.234803495649844	within	False
 55167	PE 16:1_18:1	PE	Gold	Q1	PE_15_0_18_1_d7	class		716.52164	15.7519	PE 16:1_18:1#1	1.0	1.0	False	class-matched standard (f = 1)	False	1.0	360.4118665720027	below;is_not_detected	False
-55202	PI 17:0_17:0	PI	Gold	Q3	Cer_d18_1_15_0_d7	nearest_rt		856.58961	15.7628	PI 17:0_17:0#0	1.0	1.0	False	class not in response table; f = 1	True	10.0	15.768661847041578	within	False
+55202	PI 17:0_17:0	PI	Gold	Q4				856.58961	15.7628	PI 17:0_17:0#0									False
 55211	DG	DG	Bronze	Q3	Cer_d18_1_15_0_d7	nearest_rt		563.50219	15.7675	feature:55211	1.0	1.0	False	class not in response table; f = 1	True	3.0	9.628929684109346	within	False
 55216	SM 41:3	SM	Silver	Q1	SM_d18_1_18_1_d9	class		797.65113	15.7668	SM 41:3#0	1.0	1.0	False	class-matched standard (f = 1)	False	0.0		is_not_detected;within	False
 55223	AEG O-34:4	AEG	Silver	Q3	Cer_d18_1_15_0_d7	nearest_rt		575.50288	15.7604	AEG O-34:4#3	1.0	1.0	False	class not in response table; f = 1	True	2.0	34.943011138814086	within	False
-55252	PI O-36:2	PI	Silver	Q3	Cer_d18_1_15_0_d7	nearest_rt		866.61121	15.7881	PI O-36:2#0	1.0	1.0	False	class not in response table; f = 1	True	6.0	13.413528475912468	within	False
+55252	PI O-36:2	PI	Silver	Q4				866.61121	15.7881	PI O-36:2#0									False
 55257	PC O-30:0	PC	Silver	Q1	LPC_18_1_d7	family		692.55696	15.7909	PC O-30:0#0	1.0	1.0	False	class-matched standard (f = 1)	False	3.0	7.9449714932022255	within	False
 55259	PC 33:1	PC	Silver	Q1	LPC_18_1_d7	family		768.54923	15.8191	PC 33:1#2	1.0	1.0	False	class-matched standard (f = 1)	False	0.0		within	False
 55261	PE 18:1_18:2	PE	Gold	Q1	PE_15_0_18_1_d7	class		742.53745	15.7709	PE 18:1_18:2#1	1.0	1.0	False	class-matched standard (f = 1)	False	1.0	17.848078443144008	below;is_not_detected	False
@@ -1419,9 +1419,9 @@ feature_id	lipid_name	lipid_class	confidence	quant_route	is_compound	is_match	RI
 55477	PE 17:1_18:1	PE	Gold	Q1	PE_15_0_18_1_d7	class		730.53763	15.876	PE 17:1_18:1#0	1.0	1.0	False	class-matched standard (f = 1)	False	7.0	98.86423058891414	below;is_not_detected	False
 55485	TG	TG	Bronze	Q3	PE_15_0_18_1_d7	nearest_rt		815.63708	15.8746	feature:55485	0.14019780590570993	0.14019780590570993	False	RIE(PE,M+H) / RIE(TG,M+NH4)	False	4.0	3.5495281357357875	below;is_not_detected	False
 55504	PG 18:1_18:1	PG	Gold	Q3	PE_15_0_18_1_d7	nearest_rt		792.57399	15.864	PG 18:1_18:1#1	0.10450231745364469	0.10450231745364469	False	RIE(PE,M+H) / RIE(PG,M+NH4)	False	1.0	1.5865100834485832	below;is_not_detected	False
-55531	PI O-34:1	PI	Silver	Q3	PE_15_0_18_1_d7	nearest_rt		823.56922	15.8878	PI O-34:1#1	0.167910184502522	0.167910184502522	False	RIE(PE,M+H) / RIE(PI,M+NH4)	False	5.0	4.3910764590923606	below;is_not_detected	False
+55531	PI O-34:1	PI	Silver	Q4				823.56922	15.8878	PI O-34:1#1									False
 55537	PC O-42:8	PC	Silver	Q1	LPC_18_1_d7	family		844.61832	15.904	PC O-42:8#0	1.0	1.0	False	class-matched standard (f = 1)	False	0.0		within	False
-55538	PI	PI	Bronze	Q3	PE_15_0_18_1_d7	nearest_rt		837.54508	15.8768	feature:55538	0.167910184502522	0.167910184502522	False	RIE(PE,M+H) / RIE(PI,M+NH4)	False	1.0	3.1560800300972893	below;is_not_detected	False
+55538	PI	PI	Bronze	Q4				837.54508	15.8768	feature:55538									False
 55552	AEG O-32:3	AEG	Silver	Q3	PE_15_0_18_1_d7	nearest_rt		549.48555	15.9073	AEG O-32:3#3	1.0	1.0	False	class not in response table; f = 1	True	5.0	66.45884266623031	below;is_not_detected	False
 55555	TG 36:0	TG	Silver	Q3	PE_15_0_18_1_d7	nearest_rt		693.52514	15.9498	TG 36:0#0	0.14019780590570993	0.14019780590570993	False	RIE(PE,M+H) / RIE(TG,M+NH4)	False	0.0		below;is_not_detected	False
 55564	PC 39:5	PC	Silver	Q1	LPC_18_1_d7	family		822.60143	15.8902	PC 39:5#1	1.0	1.0	False	class-matched standard (f = 1)	False	0.0		within	False
@@ -1439,7 +1439,7 @@ feature_id	lipid_name	lipid_class	confidence	quant_route	is_compound	is_match	RI
 55877	PC 37:5	PC	Silver	Q1	LPC_18_1_d7	family		794.56609	15.967	PC 37:5#3	1.0	1.0	False	class-matched standard (f = 1)	False	11.0	12.342853151232068	within	False
 55883	DG 17:2_18:2	DG	Gold	Q3	PE_15_0_18_1_d7	nearest_rt		620.52529	15.9758	DG 17:2_18:2#0	0.4587716101001155	0.4587716101001155	False	RIE(PE,M+H) / RIE(DG,M+NH4)	False	2.0	2.4078924541829707	below;is_not_detected	False
 55899	PC O-34:3	PC	Silver	Q1	LPC_18_1_d7	family		742.57316	16.007	PC O-34:3#0	1.0	1.0	False	class-matched standard (f = 1)	False	0.0		within	False
-55914	PI O-33:0	PI	Silver	Q3	PE_15_0_18_1_d7	nearest_rt		811.5703	16.0122	PI O-33:0#1	0.167910184502522	0.167910184502522	False	RIE(PE,M+H) / RIE(PI,M+NH4)	False	1.0	0.5972611253517133	below;is_not_detected	False
+55914	PI O-33:0	PI	Silver	Q4				811.5703	16.0122	PI O-33:0#1									False
 55915	DG	DG	Bronze	Q3	PE_15_0_18_1_d7	nearest_rt		637.4803	15.9995	feature:55915	0.4587716101001155	0.4587716101001155	False	RIE(PE,M+H) / RIE(DG,M+NH4)	False	6.0	4.581321449396004	below;is_not_detected	False
 56039	PC O-32:1	PC	Silver	Q1	LPC_18_1_d7	family		718.57442	15.9782	PC O-32:1#2	1.0	1.0	False	class-matched standard (f = 1)	False	0.0		within	False
 56070	PC O-36:4	PC	Silver	Q1	LPC_18_1_d7	family		768.59024	16.0411	PC O-36:4#0	1.0	1.0	False	class-matched standard (f = 1)	False	9.0	12.791680852118068	within	False
@@ -1467,7 +1467,7 @@ feature_id	lipid_name	lipid_class	confidence	quant_route	is_compound	is_match	RI
 56615	TG O-37:2	TG	Silver	Q3	PE_15_0_18_1_d7	nearest_rt		652.58861	16.1289	TG O-37:2#0	0.14019780590570993	0.14019780590570993	False	RIE(PE,M+H) / RIE(TG,M+NH4)	False	5.0	2.2359217332382606	below;is_not_detected	False
 56665	TG 35:1	TG	Silver	Q3	PE_15_0_18_1_d7	nearest_rt		672.54055	16.1332	TG 35:1#0	0.14019780590570993	0.14019780590570993	False	RIE(PE,M+H) / RIE(TG,M+NH4)	False	7.0	1.6988315698953902	below;is_not_detected	False
 56696	PC 39:5	PC	Silver	Q1	LPC_18_1_d7	family		822.59999	16.146	PC 39:5#2	1.0	1.0	False	class-matched standard (f = 1)	False	9.0	7.56180319922443	within	False
-56705	PI O-34:0	PI	Silver	Q3	PE_15_0_18_1_d7	nearest_rt		825.58422	16.1459	PI O-34:0#0	0.167910184502522	0.167910184502522	False	RIE(PE,M+H) / RIE(PI,M+NH4)	False	6.0	3.0428321322583787	below;is_not_detected	False
+56705	PI O-34:0	PI	Silver	Q4				825.58422	16.1459	PI O-34:0#0									False
 56729	PE 16:0_17:1	PE	Gold	Q1	PE_15_0_18_1_d7	class		704.52218	16.1541	PE 16:0_17:1#0	1.0	1.0	False	class-matched standard (f = 1)	False	7.0	513.7337554856251	below;is_not_detected	False
 56741	PS	PS	Bronze	Q3	PE_15_0_18_1_d7	nearest_rt		832.5708	16.1504	feature:56741	1.875353876508142	1.875353876508142	False	RIE(PE,M+H) / RIE(PS,M+H)	False	5.0	12.237269853925755	below;is_not_detected	False
 56770	PC 37:3	PC	Silver	Q1	LPC_18_1_d7	family		798.60126	16.179	PC 37:3#0	1.0	1.0	False	class-matched standard (f = 1)	False	0.0		within	False
@@ -1480,7 +1480,7 @@ feature_id	lipid_name	lipid_class	confidence	quant_route	is_compound	is_match	RI
 56923	Cer 34:1	Cer	Silver	Q1	Cer_d18_1_15_0_d7	class		538.5192	16.1934	Cer 34:1#1	1.0	1.0	False	class-matched standard (f = 1)	False	12.0	20.878389179531794	within	True
 56939	TG	TG	Bronze	Q3	PE_15_0_18_1_d7	nearest_rt		793.66883	16.1883	feature:56939	0.14019780590570993	0.14019780590570993	False	RIE(PE,M+H) / RIE(TG,M+NH4)	False	0.0		below;is_not_detected	False
 56945	DG	DG	Bronze	Q3	PE_15_0_18_1_d7	nearest_rt		605.54944	16.19	feature:56945	0.4587716101001155	0.4587716101001155	False	RIE(PE,M+H) / RIE(DG,M+NH4)	False	7.0	5.2586447348823135	below;is_not_detected	False
-56952	PI 19:0_16:0	PI	Gold	Q3	PE_15_0_18_1_d7	nearest_rt		870.60601	16.1929	PI 19:0_16:0#0	0.167910184502522	0.167910184502522	False	RIE(PE,M+H) / RIE(PI,M+NH4)	False	7.0	4.208586219568723	below;is_not_detected	False
+56952	PI 19:0_16:0	PI	Gold	Q4				870.60601	16.1929	PI 19:0_16:0#0									False
 56967	Cer d18:1_16:0	Cer	Gold	Q1	Cer_d18_1_15_0_d7	class		520.50885	16.2004	Cer d18:1_16:0#1	1.0	1.0	False	class-matched standard (f = 1)	False	12.0	24.061657171342613	within	True
 56974	PC O-37:5	PC	Silver	Q1	LPC_18_1_d7	family		780.58906	16.1823	PC O-37:5#0	1.0	1.0	False	class-matched standard (f = 1)	False	0.0		within	False
 56987	DG	DG	Bronze	Q3	PE_15_0_18_1_d7	nearest_rt		593.55123	16.2031	feature:56987	0.4587716101001155	0.4587716101001155	False	RIE(PE,M+H) / RIE(DG,M+NH4)	False	3.0	15.728258478716837	below;is_not_detected	False
@@ -1532,7 +1532,7 @@ feature_id	lipid_name	lipid_class	confidence	quant_route	is_compound	is_match	RI
 57681	PC	PC	Bronze	Q1	LPC_18_1_d7	family		734.53326	16.4102	feature:57681	1.0	1.0	False	class-matched standard (f = 1)	False	12.0	29.37825980622268	within	True
 57685	Cer d18:1_17:0	Cer	Gold	Q1	Cer_d18_1_15_0_d7	class		534.52408	16.4582	Cer d18:1_17:0#0	1.0	1.0	False	class-matched standard (f = 1)	False	2.0	2.7007579991044013	within	False
 57713	DG O-32:2	DG	Silver	Q3	PE_15_0_18_1_d7	nearest_rt		568.52911	16.4456	DG O-32:2#1	0.4587716101001155	0.4587716101001155	False	RIE(PE,M+H) / RIE(DG,M+NH4)	False	1.0	0.9749619586095952	below;is_not_detected	False
-57716	PI 16:0_19:0	PI	Gold	Q3	PE_15_0_18_1_d7	nearest_rt		870.6052	16.4323	PI 16:0_19:0#0	0.167910184502522	0.167910184502522	False	RIE(PE,M+H) / RIE(PI,M+NH4)	False	6.0	3.851700616888859	below;is_not_detected	False
+57716	PI 16:0_19:0	PI	Gold	Q4				870.6052	16.4323	PI 16:0_19:0#0									False
 57724	PC O-35:3	PC	Silver	Q1	LPC_18_1_d7	family		756.5908	16.4358	PC O-35:3#0	1.0	1.0	False	class-matched standard (f = 1)	False	0.0		within	False
 57746	PA	PA	Bronze	Q3	PE_15_0_18_1_d7	nearest_rt		739.48815	16.4315	feature:57746	1.0	1.0	False	class not in response table; f = 1	True	3.0	5.755937293274506	below;is_not_detected	False
 57751	DG O-40:9	DG	Silver	Q3	PE_15_0_18_1_d7	nearest_rt		666.54258	16.4479	DG O-40:9#0	0.4587716101001155	0.4587716101001155	False	RIE(PE,M+H) / RIE(DG,M+NH4)	False	7.0	20.777167743650732	below;is_not_detected	False
@@ -1551,9 +1551,9 @@ feature_id	lipid_name	lipid_class	confidence	quant_route	is_compound	is_match	RI
 57874	Cer d34:0	Cer	Silver	Q1	Cer_d18_1_15_0_d7	class		540.53493	16.4867	Cer d34:0#1	1.0	1.0	False	class-matched standard (f = 1)	False	9.0	6.528777656499858	within	False
 57877	DG 16:0_20:5	DG	Gold	Q3	PE_15_0_18_1_d7	nearest_rt		632.52397	16.4567	DG 16:0_20:5#0	0.4587716101001155	0.4587716101001155	False	RIE(PE,M+H) / RIE(DG,M+NH4)	False	7.0	13.079753722312176	below;is_not_detected	False
 57886	Cer d36:1	Cer	Silver	Q1	Cer_d18_1_15_0_d7	class		582.54534	16.5047	Cer d36:1#2	1.0	1.0	False	class-matched standard (f = 1)	False	2.0	9.736976013951303	within	False
-57913	PI 20:0_16:0	PI	Gold	Q3	PE_15_0_18_1_d7	nearest_rt		884.62146	16.4811	PI 20:0_16:0#0	0.167910184502522	0.167910184502522	False	RIE(PE,M+H) / RIE(PI,M+NH4)	False	2.0	0.7344718653309171	below;is_not_detected	False
+57913	PI 20:0_16:0	PI	Gold	Q4				884.62146	16.4811	PI 20:0_16:0#0									False
 57942	PE 36:4	PE	Silver	Q1	PE_15_0_18_1_d7	class		740.52017	16.56	PE 36:4#1	1.0	1.0	False	class-matched standard (f = 1)	False	0.0		below;is_not_detected	False
-57950	PI 36:1	PI	Silver	Q3	PE_15_0_18_1_d7	nearest_rt		882.60672	16.563	PI 36:1#0	0.167910184502522	0.167910184502522	False	RIE(PE,M+H) / RIE(PI,M+NH4)	False	4.0	2.7896137258478424	below;is_not_detected	False
+57950	PI 36:1	PI	Silver	Q4				882.60672	16.563	PI 36:1#0									False
 57958	PE O-31:0	PE	Silver	Q1	PE_15_0_18_1_d7	class		664.52645	16.4472	PE O-31:0#0	1.0	1.0	False	class-matched standard (f = 1)	False	7.0	34.538177496440916	below;is_not_detected	False
 57960	PE O-15:0_18:1	PE	Gold	Q1	PE_15_0_18_1_d7	class		690.54233	16.5229	PE O-15:0_18:1#0	1.0	1.0	False	class-matched standard (f = 1)	False	7.0	66.01776998169616	below;is_not_detected	False
 57961	PC O-38:5	PC	Silver	Q1	LPC_18_1_d7	family		794.60507	16.4828	PC O-38:5#2	1.0	1.0	False	class-matched standard (f = 1)	False	9.0	9.478197719086277	within	False
@@ -1565,9 +1565,9 @@ feature_id	lipid_name	lipid_class	confidence	quant_route	is_compound	is_match	RI
 58016	MG O-29:3	MG	Silver	Q4				510.48749	16.5491	MG O-29:3#1									False
 58018	DG O-38:2	DG	Silver	Q3	PE_15_0_18_1_d7	nearest_rt		652.62373	16.5482	DG O-38:2#0	0.4587716101001155	0.4587716101001155	False	RIE(PE,M+H) / RIE(DG,M+NH4)	False	6.0	7.3473314741979525	below;is_not_detected	False
 58022	PC 29:1	PC	Silver	Q1	LPC_18_1_d7	family		690.50732	16.5134	PC 29:1#1	1.0	1.0	False	class-matched standard (f = 1)	False	2.0	2.5742999372664612	within	False
-58029	PI O-34:0	PI	Silver	Q3	PE_15_0_18_1_d7	nearest_rt		825.58743	16.5513	PI O-34:0#1	0.167910184502522	0.167910184502522	False	RIE(PE,M+H) / RIE(PI,M+NH4)	False	5.0	3.1166551642820037	below;is_not_detected	False
+58029	PI O-34:0	PI	Silver	Q4				825.58743	16.5513	PI O-34:0#1									False
 58059	PC 17:0_16:0	PC	Gold	Q1	LPC_18_1_d7	family		748.58477	16.5699	PC 17:0_16:0#0	1.0	1.0	False	class-matched standard (f = 1)	False	10.0	565.9667833958849	within	False
-58061	PI O-35:1	PI	Silver	Q3	PE_15_0_18_1_d7	nearest_rt		837.58317	16.56	PI O-35:1#0	0.167910184502522	0.167910184502522	False	RIE(PE,M+H) / RIE(PI,M+NH4)	False	7.0	3.102972914206229	below;is_not_detected	False
+58061	PI O-35:1	PI	Silver	Q4				837.58317	16.56	PI O-35:1#0									False
 58063	PC	PC	Bronze	Q1	LPC_18_1_d7	family		816.61557	16.5836	feature:58063	1.0	1.0	False	class-matched standard (f = 1)	False	2.0	10.662404037514099	within	False
 58080	TG O-42:10	TG	Silver	Q3	PE_15_0_18_1_d7	nearest_rt		706.53719	16.5839	TG O-42:10#0	0.14019780590570993	0.14019780590570993	False	RIE(PE,M+H) / RIE(TG,M+NH4)	False	2.0	7.313772033761856	below;is_not_detected	False
 58089	PC 39:4	PC	Silver	Q1	LPC_18_1_d7	family		824.61803	16.6012	PC 39:4#0	1.0	1.0	False	class-matched standard (f = 1)	False	0.0		within	False
@@ -1600,10 +1600,10 @@ feature_id	lipid_name	lipid_class	confidence	quant_route	is_compound	is_match	RI
 58352	PE 18:1_18:1	PE	Gold	Q1	PE_15_0_18_1_d7	class		744.55339	16.6733	PE 18:1_18:1#0	1.0	1.0	False	class-matched standard (f = 1)	False	7.0	488.7240288428305	below;is_not_detected	False
 58354	TG 39:1	TG	Silver	Q3	PE_15_0_18_1_d7	nearest_rt		712.60874	16.6674	TG 39:1#2	0.14019780590570993	0.14019780590570993	False	RIE(PE,M+H) / RIE(TG,M+NH4)	False	2.0	3.620376553573729	below;is_not_detected	False
 58357	TG 5:0_10:0_22:1	TG	Gold	Q3	PE_15_0_18_1_d7	nearest_rt		668.5825	16.6633	TG 5:0_10:0_22:1#0	0.14019780590570993	0.14019780590570993	False	RIE(PE,M+H) / RIE(TG,M+NH4)	False	7.0	4.666755697269395	below;is_not_detected	False
-58367	PI 35:0	PI	Silver	Q3	PE_15_0_18_1_d7	nearest_rt		875.562	16.6642	PI 35:0#0	0.167910184502522	0.167910184502522	False	RIE(PE,M+H) / RIE(PI,M+NH4)	False	6.0	2.2355725743028643	below;is_not_detected	False
-58368	PI 16:0_19:0	PI	Gold	Q3	PE_15_0_18_1_d7	nearest_rt		870.60596	16.665	PI 16:0_19:0#1	0.167910184502522	0.167910184502522	False	RIE(PE,M+H) / RIE(PI,M+NH4)	False	7.0	12.447296400752288	below;is_not_detected	False
+58367	PI 35:0	PI	Silver	Q4				875.562	16.6642	PI 35:0#0									False
+58368	PI 16:0_19:0	PI	Gold	Q4				870.60596	16.665	PI 16:0_19:0#1									False
 58373	DG O-35:2	DG	Silver	Q3	PE_15_0_18_1_d7	nearest_rt		593.54977	16.6666	DG O-35:2#0	0.4587716101001155	0.4587716101001155	False	RIE(PE,M+H) / RIE(DG,M+NH4)	False	7.0	39.29536724967003	below;is_not_detected	False
-58385	PI 16:0_19:0	PI	Gold	Q3	PE_15_0_18_1_d7	nearest_rt		853.57842	16.6698	PI 16:0_19:0#1	0.167910184502522	0.167910184502522	False	RIE(PE,M+H) / RIE(PI,M+NH4)	False	7.0	5.123572228347041	below;is_not_detected	False
+58385	PI 16:0_19:0	PI	Gold	Q4				853.57842	16.6698	PI 16:0_19:0#1									False
 58396	TG 37:2	TG	Silver	Q3	PE_15_0_18_1_d7	nearest_rt		698.55575	16.6705	TG 37:2#0	0.14019780590570993	0.14019780590570993	False	RIE(PE,M+H) / RIE(TG,M+NH4)	False	3.0	1.0942617662455414	below;is_not_detected	False
 58416	TG 40:2	TG	Silver	Q3	PE_15_0_18_1_d7	nearest_rt		745.55675	16.6703	TG 40:2#1	0.14019780590570993	0.14019780590570993	False	RIE(PE,M+H) / RIE(TG,M+NH4)	False	3.0	30.4154191955183	below;is_not_detected	False
 58417	PC 34:2	PC	Silver	Q1	LPC_18_1_d7	family		758.56991	16.6708	PC 34:2#4	1.0	1.0	False	class-matched standard (f = 1)	False	12.0	153.60364273573765	within	True
@@ -1626,7 +1626,7 @@ feature_id	lipid_name	lipid_class	confidence	quant_route	is_compound	is_match	RI
 58645	PC O-37:4	PC	Silver	Q1	LPC_18_1_d7	family		782.60287	16.7635	PC O-37:4#0	1.0	1.0	False	class-matched standard (f = 1)	False	0.0		within	False
 58671	DG 16:0_18:3	DG	Gold	Q3	PE_15_0_18_1_d7	nearest_rt		608.52496	16.7626	DG 16:0_18:3#1	0.4587716101001155	0.4587716101001155	False	RIE(PE,M+H) / RIE(DG,M+NH4)	False	7.0	44.77357842861313	below;is_not_detected	False
 58673	TG O-36:6	TG	Silver	Q3	PE_15_0_18_1_d7	nearest_rt		613.48064	16.7632	TG O-36:6#1	0.14019780590570993	0.14019780590570993	False	RIE(PE,M+H) / RIE(TG,M+NH4)	False	7.0	4.6103578677410395	below;is_not_detected	False
-58687	PI 19:0_18:1	PI	Gold	Q3	PE_15_0_18_1_d7	nearest_rt		896.62254	16.7671	PI 19:0_18:1#0	0.167910184502522	0.167910184502522	False	RIE(PE,M+H) / RIE(PI,M+NH4)	False	7.0	6.476287193662804	below;is_not_detected	False
+58687	PI 19:0_18:1	PI	Gold	Q4				896.62254	16.7671	PI 19:0_18:1#0									False
 58720	DG	DG	Bronze	Q3	PE_15_0_18_1_d7	nearest_rt		619.56557	16.7775	feature:58720	0.4587716101001155	0.4587716101001155	False	RIE(PE,M+H) / RIE(DG,M+NH4)	False	7.0	9.58088543295803	below;is_not_detected	False
 58731	DG O-36:3	DG	Silver	Q3	PE_15_0_18_1_d7	nearest_rt		605.54899	16.781	DG O-36:3#0	0.4587716101001155	0.4587716101001155	False	RIE(PE,M+H) / RIE(DG,M+NH4)	False	7.0	27.721315925349757	below;is_not_detected	False
 58739	TG O-35:1	TG	Silver	Q3	PE_15_0_18_1_d7	nearest_rt		626.57198	16.7891	TG O-35:1#1	0.14019780590570993	0.14019780590570993	False	RIE(PE,M+H) / RIE(TG,M+NH4)	False	6.0	1.1552863015670969	below;is_not_detected	False
@@ -1658,7 +1658,7 @@ feature_id	lipid_name	lipid_class	confidence	quant_route	is_compound	is_match	RI
 59094	DG O-13:0_16:1	DG	Gold	Q3	PE_15_0_18_1_d7	nearest_rt		528.49886	16.8908	DG O-13:0_16:1#0	0.4587716101001155	0.4587716101001155	False	RIE(PE,M+H) / RIE(DG,M+NH4)	False	0.0		below;is_not_detected	False
 59119	PC 37:2	PC	Silver	Q1	LPC_18_1_d7	family		822.59786	16.9166	PC 37:2#0	1.0	1.0	False	class-matched standard (f = 1)	False	12.0	33.420820661328335	within	False
 59136	TG 48:3	TG	Silver	Q3	PE_15_0_18_1_d7	nearest_rt		850.71384	16.956	TG 48:3#0	0.14019780590570993	0.14019780590570993	False	RIE(PE,M+H) / RIE(TG,M+NH4)	False	0.0		below;is_not_detected	False
-59140	PI 17:0_19:0	PI	Gold	Q3	PE_15_0_18_1_d7	nearest_rt		884.62219	16.9148	PI 17:0_19:0#0	0.167910184502522	0.167910184502522	False	RIE(PE,M+H) / RIE(PI,M+NH4)	False	7.0	5.013953550809488	below;is_not_detected	False
+59140	PI 17:0_19:0	PI	Gold	Q4				884.62219	16.9148	PI 17:0_19:0#0									False
 59151	TG 7:0_16:0_15:2+OOs	TG	Gold	Q3	PE_15_0_18_1_d7	nearest_rt		712.57306	16.919	TG 7:0_16:0_15:2+OOs#0	0.14019780590570993	0.14019780590570993	False	RIE(PE,M+H) / RIE(TG,M+NH4)	False	5.0	0.5963708959716515	below;is_not_detected	False
 59152	PC 37:2	PC	Silver	Q1	LPC_18_1_d7	family		800.61584	16.9275	PC 37:2#0	1.0	1.0	False	class-matched standard (f = 1)	False	12.0	1002.3584456385978	within	True
 59154	Cer d35:0	Cer	Silver	Q1	Cer_d18_1_15_0_d7	class		554.55058	16.9234	Cer d35:0#0	1.0	1.0	False	class-matched standard (f = 1)	False	12.0	6.368847088450627	within	True
@@ -1719,8 +1719,8 @@ feature_id	lipid_name	lipid_class	confidence	quant_route	is_compound	is_match	RI
 60220	SM 41:3	SM	Silver	Q1	SM_d18_1_18_1_d9	class		797.65579	17.2071	SM 41:3#1	1.0	1.0	False	class-matched standard (f = 1)	False	0.0		is_not_detected;within	False
 60237	PG 19:1_19:1	PG	Gold	Q3	PE_15_0_18_1_d7	nearest_rt		820.60487	17.1897	PG 19:1_19:1#1	0.10450231745364469	0.10450231745364469	False	RIE(PE,M+H) / RIE(PG,M+NH4)	False	7.0	3.6217726755669495	below;is_not_detected	False
 60253	Cer d38:3	Cer	Silver	Q1	Cer_d18_1_15_0_d7	class		590.55034	17.1936	Cer d38:3#0	1.0	1.0	False	class-matched standard (f = 1)	False	12.0	8.688377636111678	within	True
-60262	PI O-35:0	PI	Silver	Q3	PE_15_0_18_1_d7	nearest_rt		839.59948	17.1882	PI O-35:0#0	0.167910184502522	0.167910184502522	False	RIE(PE,M+H) / RIE(PI,M+NH4)	False	5.0	1.4460622340982894	below;is_not_detected	False
-60341	PI 37:0	PI	Silver	Q3	PE_15_0_18_1_d7	nearest_rt		898.63724	17.2102	PI 37:0#0	0.167910184502522	0.167910184502522	False	RIE(PE,M+H) / RIE(PI,M+NH4)	False	6.0	1.2129042625071285	below;is_not_detected	False
+60262	PI O-35:0	PI	Silver	Q4				839.59948	17.1882	PI O-35:0#0									False
+60341	PI 37:0	PI	Silver	Q4				898.63724	17.2102	PI 37:0#0									False
 60343	Cer d35:0	Cer	Silver	Q1	Cer_d18_1_15_0_d7	class		554.55018	17.2167	Cer d35:0#1	1.0	1.0	False	class-matched standard (f = 1)	False	12.0	14.107244434626896	within	True
 60352	TG P-86:22	TG	Silver	Q3	PE_15_0_18_1_d7	nearest_rt		1301.98386	17.2175	TG P-86:22#0	0.14019780590570993	0.14019780590570993	False	RIE(PE,M+H) / RIE(TG,M+NH4)	False	7.0	2.6415261219237816	below;is_not_detected	False
 60353	DG 35:1	DG	Silver	Q3	PE_15_0_18_1_d7	nearest_rt		626.57166	17.2153	DG 35:1#0	0.4587716101001155	0.4587716101001155	False	RIE(PE,M+H) / RIE(DG,M+NH4)	False	7.0	7.774777857658597	below;is_not_detected	False
@@ -1742,7 +1742,7 @@ feature_id	lipid_name	lipid_class	confidence	quant_route	is_compound	is_match	RI
 60630	PG O-34:3	PG	Silver	Q3	PE_15_0_18_1_d7	nearest_rt		748.54871	17.2926	PG O-34:3#0	0.10450231745364469	0.10450231745364469	False	RIE(PE,M+H) / RIE(PG,M+NH4)	False	7.0	40.95518330820728	below;is_not_detected	False
 60653	PG P-36:5	PG	Silver	Q3	PE_15_0_18_1_d7	nearest_rt		753.50419	17.2996	PG P-36:5#0	0.10450231745364469	0.10450231745364469	False	RIE(PE,M+H) / RIE(PG,M+NH4)	False	7.0	11.702598329608398	below;is_not_detected	False
 60654	PA 17:0_17:0	PA	Gold	Q3	PE_15_0_18_1_d7	nearest_rt		694.5379	17.3097	PA 17:0_17:0#0	1.0	1.0	False	class not in response table; f = 1	True	6.0	81.83030234110149	below;is_not_detected	False
-60659	PI O-36:0	PI	Silver	Q3	PE_15_0_18_1_d7	nearest_rt		853.61548	17.298	PI O-36:0#0	0.167910184502522	0.167910184502522	False	RIE(PE,M+H) / RIE(PI,M+NH4)	False	7.0	2.0109171873216636	below;is_not_detected	False
+60659	PI O-36:0	PI	Silver	Q4				853.61548	17.298	PI O-36:0#0									False
 60668	PC O-34:1	PC	Silver	Q1	LPC_18_1_d7	family		746.60523	17.3086	PC O-34:1#0	1.0	1.0	False	class-matched standard (f = 1)	False	11.0	154.16297933989551	within	False
 60676	AEG O-36:4	AEG	Silver	Q3	PE_15_0_18_1_d7	nearest_rt		603.53411	17.2997	AEG O-36:4#2	1.0	1.0	False	class not in response table; f = 1	True	7.0	85.36865736232826	below;is_not_detected	False
 60696	TG 37:0	TG	Silver	Q3	PE_15_0_18_1_d7	nearest_rt		670.59736	17.3066	TG 37:0#1	0.14019780590570993	0.14019780590570993	False	RIE(PE,M+H) / RIE(TG,M+NH4)	False	3.0	0.3879810276928732	below;is_not_detected	False
@@ -1785,7 +1785,7 @@ feature_id	lipid_name	lipid_class	confidence	quant_route	is_compound	is_match	RI
 61510	PC 40:4	PC	Silver	Q1	LPC_18_1_d7	family		838.63224	17.4793	PC 40:4#0	1.0	1.0	False	class-matched standard (f = 1)	False	0.0		within	False
 61517	Cer d37:1	Cer	Silver	Q1	Cer_d18_1_15_0_d7	class		580.56625	17.496	Cer d37:1#1	1.0	1.0	False	class-matched standard (f = 1)	False	12.0	14.847769506325395	within	True
 61544	PE 36:1	PE	Silver	Q1	PE_15_0_18_1_d7	class		746.56907	17.5014	PE 36:1#0	1.0	1.0	False	class-matched standard (f = 1)	False	7.0	84.59813850960883	below;is_not_detected	False
-61550	PI 37:0	PI	Silver	Q3	PE_15_0_18_1_d7	nearest_rt		898.63746	17.5057	PI 37:0#1	0.167910184502522	0.167910184502522	False	RIE(PE,M+H) / RIE(PI,M+NH4)	False	7.0	1.3414451718078595	below;is_not_detected	False
+61550	PI 37:0	PI	Silver	Q4				898.63746	17.5057	PI 37:0#1									False
 61635	PE 16:0_19:1	PE	Gold	Q1	PE_15_0_18_1_d7	class		732.55391	17.5124	PE 16:0_19:1#0	1.0	1.0	False	class-matched standard (f = 1)	False	7.0	101.41402052003318	below;is_not_detected	False
 61661	TG 44:2	TG	Silver	Q3	PE_15_0_18_1_d7	nearest_rt		796.665	17.5183	TG 44:2#1	0.14019780590570993	0.14019780590570993	False	RIE(PE,M+H) / RIE(TG,M+NH4)	False	7.0	1.4335188522574385	below;is_not_detected	False
 61669	DG	DG	Bronze	Q3	PE_15_0_18_1_d7	nearest_rt		619.46971	17.5396	feature:61669	0.4587716101001155	0.4587716101001155	False	RIE(PE,M+H) / RIE(DG,M+NH4)	False	5.0	2.5274207917286597	below;is_not_detected	False
@@ -1864,7 +1864,7 @@ feature_id	lipid_name	lipid_class	confidence	quant_route	is_compound	is_match	RI
 63393	DG	DG	Bronze	Q3	PE_15_0_18_1_d7	nearest_rt		649.5167	17.9092	feature:63393	0.4587716101001155	0.4587716101001155	False	RIE(PE,M+H) / RIE(DG,M+NH4)	False	7.0	4.733494990415308	below;is_not_detected	False
 63401	PC 34:0	PC	Silver	Q1	LPC_18_1_d7	family		762.59904	17.86	PC 34:0#2	1.0	1.0	False	class-matched standard (f = 1)	False	0.0		within	False
 63406	DG	DG	Bronze	Q3	PE_15_0_18_1_d7	nearest_rt		671.49877	17.9125	feature:63406	0.4587716101001155	0.4587716101001155	False	RIE(PE,M+H) / RIE(DG,M+NH4)	False	4.0	1.6775630703058906	below;is_not_detected	False
-63430	PI 37:0	PI	Silver	Q3	PE_15_0_18_1_d7	nearest_rt		898.63732	17.9148	PI 37:0#2	0.167910184502522	0.167910184502522	False	RIE(PE,M+H) / RIE(PI,M+NH4)	False	7.0	2.9591036349108646	below;is_not_detected	False
+63430	PI 37:0	PI	Silver	Q4				898.63732	17.9148	PI 37:0#2									False
 63439	TG O-36:1	TG	Silver	Q3	PE_15_0_18_1_d7	nearest_rt		640.58642	17.9156	TG O-36:1#0	0.14019780590570993	0.14019780590570993	False	RIE(PE,M+H) / RIE(TG,M+NH4)	False	6.0	2.0214721845781845	below;is_not_detected	False
 63454	PC 35:0	PC	Silver	Q1	LPC_18_1_d7	family		776.61527	17.9236	PC 35:0#0	1.0	1.0	False	class-matched standard (f = 1)	False	9.0	116.87725622722222	within	False
 63491	TG 18:2_18:2_18:2+OOs	TG	Gold	Q3	PE_15_0_18_1_d7	nearest_rt		928.76227	17.921	TG 18:2_18:2_18:2+OOs#0	0.14019780590570993	0.14019780590570993	False	RIE(PE,M+H) / RIE(TG,M+NH4)	False	1.0	0.5103572051710455	below;is_not_detected	False
@@ -1896,7 +1896,7 @@ feature_id	lipid_name	lipid_class	confidence	quant_route	is_compound	is_match	RI
 64167	PE	PE	Bronze	Q1	PE_15_0_18_1_d7	class		702.54463	18.078	feature:64167	1.0	1.0	False	class-matched standard (f = 1)	False	5.0	17.911877261807856	below;is_not_detected	False
 64168	PC	PC	Bronze	Q1	LPC_18_1_d7	family		828.64807	18.0993	feature:64168	1.0	1.0	False	class-matched standard (f = 1)	False	1.0	14.9096579218107	within	False
 64170	Cer d38:0	Cer	Silver	Q1	Cer_d18_1_15_0_d7	class		612.59179	18.0898	Cer d38:0#0	1.0	1.0	False	class-matched standard (f = 1)	False	3.0	1.1417892351559036	within	False
-64181	PI 19:0_19:0	PI	Gold	Q3	PE_15_0_18_1_d7	nearest_rt		912.65128	18.0875	PI 19:0_19:0#0	0.167910184502522	0.167910184502522	False	RIE(PE,M+H) / RIE(PI,M+NH4)	False	7.0	3.191455635600053	below;is_not_detected	False
+64181	PI 19:0_19:0	PI	Gold	Q4				912.65128	18.0875	PI 19:0_19:0#0									False
 64184	Cer d19:1_18:0	Cer	Gold	Q1	Cer_d18_1_15_0_d7	class		580.56626	18.0839	Cer d19:1_18:0#0	1.0	1.0	False	class-matched standard (f = 1)	False	12.0	4.116992124447711	within	True
 64210	DG	DG	Bronze	Q3	PE_15_0_18_1_d7	nearest_rt		635.59727	18.0884	feature:64210	0.4587716101001155	0.4587716101001155	False	RIE(PE,M+H) / RIE(DG,M+NH4)	False	7.0	5.298416432967279	below;is_not_detected	False
 64233	DG 16:0_18:2	DG	Gold	Q3	PE_15_0_18_1_d7	nearest_rt		610.54014	18.0676	DG 16:0_18:2#1	0.4587716101001155	0.4587716101001155	False	RIE(PE,M+H) / RIE(DG,M+NH4)	False	0.0		below;is_not_detected	False
@@ -1936,7 +1936,7 @@ feature_id	lipid_name	lipid_class	confidence	quant_route	is_compound	is_match	RI
 64976	DG	DG	Bronze	Q3	PE_15_0_18_1_d7	nearest_rt		561.48511	18.2522	feature:64976	0.4587716101001155	0.4587716101001155	False	RIE(PE,M+H) / RIE(DG,M+NH4)	False	3.0	5.767907085173633	below;is_not_detected	False
 65010	PC 39:2	PC	Silver	Q1	LPC_18_1_d7	family		828.65071	18.3014	PC 39:2#1	1.0	1.0	False	class-matched standard (f = 1)	False	0.0		within	False
 65011	PC O-46:9	PC	Silver	Q1	LPC_18_1_d7	family		898.67051	18.3008	PC O-46:9#0	1.0	1.0	False	class-matched standard (f = 1)	False	0.0		within	False
-65027	PI 40:8	PI	Silver	Q3	PE_15_0_18_1_d7	nearest_rt		907.53417	18.2628	PI 40:8#0	0.167910184502522	0.167910184502522	False	RIE(PE,M+H) / RIE(PI,M+NH4)	False	7.0	7.387091827804905	below;is_not_detected	False
+65027	PI 40:8	PI	Silver	Q4				907.53417	18.2628	PI 40:8#0									False
 65056	PC 37:2	PC	Silver	Q1	LPC_18_1_d7	family		800.61585	18.2737	PC 37:2#2	1.0	1.0	False	class-matched standard (f = 1)	False	7.0	75.06405373589087	within	False
 65070	Hex1Cer d42:1	Hex1Cer	Silver	Q3	PE_15_0_18_1_d7	nearest_rt		844.68729	18.2735	Hex1Cer d42:1#0	9.138199902885654	9.138199902885654	False	RIE(PE,M+H) / RIE(HEXCER,M+H)	False	6.0	57.23553576548183	below;is_not_detected	False
 65088	Hex1Cer d43:2	Hex1Cer	Silver	Q3	PE_15_0_18_1_d7	nearest_rt		856.68518	18.2645	Hex1Cer d43:2#0	9.138199902885654	9.138199902885654	False	RIE(PE,M+H) / RIE(HEXCER,M+H)	False	5.0	35.387060499815135	below;is_not_detected	False
@@ -2093,7 +2093,7 @@ feature_id	lipid_name	lipid_class	confidence	quant_route	is_compound	is_match	RI
 69216	TG 18:2_18:2_18:3+OOs	TG	Gold	Q3	PE_15_0_18_1_d7	nearest_rt		926.74465	19.1648	TG 18:2_18:2_18:3+OOs#0	0.14019780590570993	0.14019780590570993	False	RIE(PE,M+H) / RIE(TG,M+NH4)	False	7.0	2.7238566900435153	below;is_not_detected	False
 69223	TG 55:5	TG	Silver	Q3	PE_15_0_18_1_d7	nearest_rt		928.80019	19.167	TG 55:5#0	0.14019780590570993	0.14019780590570993	False	RIE(PE,M+H) / RIE(TG,M+NH4)	False	6.0	2.3060007303197745	below;is_not_detected	False
 69224	DEG 31:1	DEG	Silver	Q3	PE_15_0_18_1_d7	nearest_rt		525.5242	19.1663	DEG 31:1#0	1.0	1.0	False	class not in response table; f = 1	True	7.0	29.233921587908288	below;is_not_detected	False
-69227	PI 38:5	PI	Silver	Q3	PE_15_0_18_1_d7	nearest_rt		885.55234	19.1678	PI 38:5#1	0.167910184502522	0.167910184502522	False	RIE(PE,M+H) / RIE(PI,M+NH4)	False	7.0	6.191747671658737	below;is_not_detected	False
+69227	PI 38:5	PI	Silver	Q4				885.55234	19.1678	PI 38:5#1									False
 69240	DG O-38:3	DG	Silver	Q3	PE_15_0_18_1_d7	nearest_rt		650.60925	19.1726	DG O-38:3#0	0.4587716101001155	0.4587716101001155	False	RIE(PE,M+H) / RIE(DG,M+NH4)	False	6.0	2.489627571202444	below;is_not_detected	False
 69241	PC 38:1	PC	Silver	Q1	LPC_18_1_d7	family		816.64554	19.1071	PC 38:1#1	1.0	1.0	False	class-matched standard (f = 1)	False	0.0		within	False
 69264	SM 45:5	SM	Silver	Q1	SM_d18_1_18_1_d9	class		849.68392	19.177	SM 45:5#0	1.0	1.0	False	class-matched standard (f = 1)	False	0.0		is_not_detected;within	False
@@ -2187,11 +2187,11 @@ feature_id	lipid_name	lipid_class	confidence	quant_route	is_compound	is_match	RI
 71665	TG 48:3	TG	Silver	Q3	PE_15_0_18_1_d7	nearest_rt		850.71189	19.7517	TG 48:3#2	0.14019780590570993	0.14019780590570993	False	RIE(PE,M+H) / RIE(TG,M+NH4)	False	1.0	1.6592415880157536	below;is_not_detected	False
 71687	DG O-39:2	DG	Silver	Q3	PE_15_0_18_1_d7	nearest_rt		666.6375	19.7138	DG O-39:2#1	0.4587716101001155	0.4587716101001155	False	RIE(PE,M+H) / RIE(DG,M+NH4)	False	0.0		below;is_not_detected	False
 71715	Cer 18:2	Cer	Silver	Q1	Cer_d18_1_15_0_d7	class		634.61477	19.7638	Cer 18:2#2	1.0	1.0	False	class-matched standard (f = 1)	False	3.0	0.22189971672778125	within	False
-71778	PI 44:1	PI	Silver	Q3	PE_15_0_18_1_d7	nearest_rt		994.73196	19.7542	PI 44:1#0	0.167910184502522	0.167910184502522	False	RIE(PE,M+H) / RIE(PI,M+NH4)	False	1.0	0.30497243247191735	below;is_not_detected	False
+71778	PI 44:1	PI	Silver	Q4				994.73196	19.7542	PI 44:1#0									False
 71804	Hex1Cer d42:2	Hex1Cer	Silver	Q3	PE_15_0_18_1_d7	nearest_rt		810.6825	19.784	Hex1Cer d42:2#0	9.138199902885654	9.138199902885654	False	RIE(PE,M+H) / RIE(HEXCER,M+H)	False	1.0	25.656285508925542	below;is_not_detected	False
 71831	DG 18:0_18:1	DG	Gold	Q3	PE_15_0_18_1_d7	nearest_rt		640.58762	19.7809	DG 18:0_18:1#1	0.4587716101001155	0.4587716101001155	False	RIE(PE,M+H) / RIE(DG,M+NH4)	False	7.0	15.284769675498902	below;is_not_detected	False
 71838	PC O-38:1	PC	Silver	Q1	LPC_18_1_d7	family		802.66636	19.8053	PC O-38:1#0	1.0	1.0	False	class-matched standard (f = 1)	False	5.0	2.233433720013643	within	False
-71843	PI 42:0	PI	Silver	Q3	PE_15_0_18_1_d7	nearest_rt		968.71466	19.7812	PI 42:0#0	0.167910184502522	0.167910184502522	False	RIE(PE,M+H) / RIE(PI,M+NH4)	False	4.0	0.34770353364129114	below;is_not_detected	False
+71843	PI 42:0	PI	Silver	Q4				968.71466	19.7812	PI 42:0#0									False
 71881	TG 18:2_18:2_18:2+Os	TG	Gold	Q3	PE_15_0_18_1_d7	nearest_rt		912.76567	19.8096	TG 18:2_18:2_18:2+Os#0	0.14019780590570993	0.14019780590570993	False	RIE(PE,M+H) / RIE(TG,M+NH4)	False	0.0		below;is_not_detected	False
 71893	DG 16:0_18:0	DG	Gold	Q3	PE_15_0_18_1_d7	nearest_rt		614.57197	19.8	DG 16:0_18:0#0	0.4587716101001155	0.4587716101001155	False	RIE(PE,M+H) / RIE(DG,M+NH4)	False	7.0	15.49785311942254	below;is_not_detected	False
 71956	PC O-44:5	PC	Silver	Q1	LPC_18_1_d7	family		878.69864	19.8095	PC O-44:5#0	1.0	1.0	False	class-matched standard (f = 1)	False	0.0		within	False
@@ -2203,7 +2203,7 @@ feature_id	lipid_name	lipid_class	confidence	quant_route	is_compound	is_match	RI
 72169	Cer d18:1_23:2+Os	Cer	Gold	Q1	Cer_d18_1_15_0_d7	class		648.59459	19.8654	Cer d18:1_23:2+Os#0	1.0	1.0	False	class-matched standard (f = 1)	False	7.0	1.067026578164079	within	False
 72240	AcHexSiE 18:3	AcHexSiE	Silver	Q3	PE_15_0_18_1_d7	nearest_rt		854.69014	19.9012	AcHexSiE 18:3#0	1.0	1.0	False	class not in response table; f = 1	True	7.0	12.561589400988135	below;is_not_detected	False
 72248	SM 43:2	SM	Silver	Q1	SM_d18_1_18_1_d9	class		827.70399	19.8799	SM 43:2#1	1.0	1.0	False	class-matched standard (f = 1)	False	0.0		is_not_detected;within	False
-72279	PI 43:0	PI	Silver	Q3	PE_15_0_18_1_d7	nearest_rt		982.73021	19.9238	PI 43:0#0	0.167910184502522	0.167910184502522	False	RIE(PE,M+H) / RIE(PI,M+NH4)	False	4.0	0.5211038419369715	below;is_not_detected	False
+72279	PI 43:0	PI	Silver	Q4				982.73021	19.9238	PI 43:0#0									False
 72301	DG 16:0_18:0	DG	Gold	Q3	PE_15_0_18_1_d7	nearest_rt		614.57193	19.8862	DG 16:0_18:0#0	0.4587716101001155	0.4587716101001155	False	RIE(PE,M+H) / RIE(DG,M+NH4)	False	0.0		below;is_not_detected	False
 72308	Hex2Cer 18:1	Hex2Cer	Silver	Q3	PE_15_0_18_1_d7	nearest_rt		974.75049	19.9024	Hex2Cer 18:1#5	9.138199902885654	9.138199902885654	False	RIE(PE,M+H) / RIE(HEXCER,M+H)	False	0.0		below;is_not_detected	False
 72322	Cer	Cer	Bronze	Q1	Cer_d18_1_15_0_d7	class		680.65499	19.9147	feature:72322	1.0	1.0	False	class-matched standard (f = 1)	False	11.0	6.041765271144386	within	False
@@ -2219,7 +2219,7 @@ feature_id	lipid_name	lipid_class	confidence	quant_route	is_compound	is_match	RI
 72568	SM 44:2	SM	Silver	Q1	SM_d18_1_18_1_d9	class		841.71764	19.9936	SM 44:2#0	1.0	1.0	False	class-matched standard (f = 1)	False	0.0		is_not_detected;within	False
 72592	PC O-34:2	PC	Silver	Q1	LPC_18_1_d7	family		744.5918	19.9863	PC O-34:2#0	1.0	1.0	False	class-matched standard (f = 1)	False	12.0	19.19201770537932	within	True
 72615	TG 16:1_16:1_16:2+Os	TG	Gold	Q3	PE_15_0_18_1_d7	nearest_rt		832.70342	19.994	TG 16:1_16:1_16:2+Os#1	0.14019780590570993	0.14019780590570993	False	RIE(PE,M+H) / RIE(TG,M+NH4)	False	6.0	2.863143303144648	below;is_not_detected	False
-72626	PI 45:1	PI	Silver	Q3	PE_15_0_18_1_d7	nearest_rt		1008.74695	20.0457	PI 45:1#0	0.167910184502522	0.167910184502522	False	RIE(PE,M+H) / RIE(PI,M+NH4)	False	1.0	0.26623947574766377	below;is_not_detected	False
+72626	PI 45:1	PI	Silver	Q4				1008.74695	20.0457	PI 45:1#0									False
 72634	TG 52:5	TG	Silver	Q3	PE_15_0_18_1_d7	nearest_rt		902.74391	19.9695	TG 52:5#0	0.14019780590570993	0.14019780590570993	False	RIE(PE,M+H) / RIE(TG,M+NH4)	False	3.0	9.73627254052003	below;is_not_detected	False
 72646	TG 47:3	TG	Silver	Q3	PE_15_0_18_1_d7	nearest_rt		820.70314	20.0284	TG 47:3#0	0.14019780590570993	0.14019780590570993	False	RIE(PE,M+H) / RIE(TG,M+NH4)	False	0.0		below;is_not_detected	False
 72662	TG	TG	Bronze	Q3	PE_15_0_18_1_d7	nearest_rt		839.67428	20.0092	feature:72662	0.14019780590570993	0.14019780590570993	False	RIE(PE,M+H) / RIE(TG,M+NH4)	False	3.0	0.7545653466842848	below;is_not_detected	False
@@ -2261,8 +2261,8 @@ feature_id	lipid_name	lipid_class	confidence	quant_route	is_compound	is_match	RI
 73389	TG 18:1_18:1_18:2+OOs	TG	Gold	Q3	PE_15_0_18_1_d7	nearest_rt		932.7907	20.2435	TG 18:1_18:1_18:2+OOs#0	0.14019780590570993	0.14019780590570993	False	RIE(PE,M+H) / RIE(TG,M+NH4)	False	0.0		below;is_not_detected	False
 73395	TG 12:1_14:1_16:1	TG	Gold	Q3	PE_15_0_18_1_d7	nearest_rt		734.63	20.2223	TG 12:1_14:1_16:1#0	0.14019780590570993	0.14019780590570993	False	RIE(PE,M+H) / RIE(TG,M+NH4)	False	4.0	4.275878478975479	below;is_not_detected	False
 73404	PC O-44:4	PC	Silver	Q1	LPC_18_1_d7	family		880.71325	20.2784	PC O-44:4#0	1.0	1.0	False	class-matched standard (f = 1)	False	0.0		within	False
-73438	PI 43:0	PI	Silver	Q3	PE_15_0_18_1_d7	nearest_rt		982.73038	20.252	PI 43:0#1	0.167910184502522	0.167910184502522	False	RIE(PE,M+H) / RIE(PI,M+NH4)	False	5.0	0.4334552220822719	below;is_not_detected	False
-73501	PI 47:2	PI	Silver	Q3	PE_15_0_18_1_d7	nearest_rt		1034.75809	20.2986	PI 47:2#0	0.167910184502522	0.167910184502522	False	RIE(PE,M+H) / RIE(PI,M+NH4)	False	0.0		below;is_not_detected	False
+73438	PI 43:0	PI	Silver	Q4				982.73038	20.252	PI 43:0#1									False
+73501	PI 47:2	PI	Silver	Q4				1034.75809	20.2986	PI 47:2#0									False
 73515	DEG 31:0	DEG	Silver	Q3	PE_15_0_18_1_d7	nearest_rt		527.53967	20.2759	DEG 31:0#2	1.0	1.0	False	class not in response table; f = 1	True	6.0	3.6127967971492825	below;is_not_detected	False
 73534	TG	TG	Bronze	Q3	PE_15_0_18_1_d7	nearest_rt		718.63335	20.2866	feature:73534	0.14019780590570993	0.14019780590570993	False	RIE(PE,M+H) / RIE(TG,M+NH4)	False	6.0	1.0216654722181266	below;is_not_detected	False
 73536	TG 50:3	TG	Silver	Q3	PE_15_0_18_1_d7	nearest_rt		862.74849	20.2935	TG 50:3#0	0.14019780590570993	0.14019780590570993	False	RIE(PE,M+H) / RIE(TG,M+NH4)	False	7.0	8.604491564220153	below;is_not_detected	False
@@ -2277,11 +2277,11 @@ feature_id	lipid_name	lipid_class	confidence	quant_route	is_compound	is_match	RI
 73670	Cer d42:1	Cer	Silver	Q1	Cer_d18_1_15_0_d7	class		650.6442	20.3234	Cer d42:1#0	1.0	1.0	False	class-matched standard (f = 1)	False	12.0	4.762619385325269	within	True
 73716	Cer 18:2	Cer	Silver	Q1	Cer_d18_1_15_0_d7	class		648.6297	20.3166	Cer 18:2#3	1.0	1.0	False	class-matched standard (f = 1)	False	0.0		within	False
 73727	TG 39:1	TG	Silver	Q3	PE_15_0_18_1_d7	nearest_rt		696.61391	20.3503	TG 39:1#3	0.14019780590570993	0.14019780590570993	False	RIE(PE,M+H) / RIE(TG,M+NH4)	False	4.0	3.6014075263933116	below;is_not_detected	False
-73837	PI 44:0	PI	Silver	Q3	PE_15_0_18_1_d7	nearest_rt		996.74689	20.3672	PI 44:0#0	0.167910184502522	0.167910184502522	False	RIE(PE,M+H) / RIE(PI,M+NH4)	False	7.0	1.3347754630605237	below;is_not_detected	False
+73837	PI 44:0	PI	Silver	Q4				996.74689	20.3672	PI 44:0#0									False
 73861	TG 50:3	TG	Silver	Q3	PE_15_0_18_1_d7	nearest_rt		878.74376	20.3219	TG 50:3#0	0.14019780590570993	0.14019780590570993	False	RIE(PE,M+H) / RIE(TG,M+NH4)	False	0.0		below;is_not_detected	False
 73879	TG 18:2_18:2_18:3+Os	TG	Gold	Q3	PE_15_0_18_1_d7	nearest_rt		910.7506	20.3677	TG 18:2_18:2_18:3+Os#0	0.14019780590570993	0.14019780590570993	False	RIE(PE,M+H) / RIE(TG,M+NH4)	False	5.0	2.686180237764189	below;is_not_detected	False
 73904	TG 8:0_14:0_15:0	TG	Gold	Q3	PE_15_0_18_1_d7	nearest_rt		670.59761	20.3867	TG 8:0_14:0_15:0#0	0.14019780590570993	0.14019780590570993	False	RIE(PE,M+H) / RIE(TG,M+NH4)	False	5.0	1.6118701559418527	below;is_not_detected	False
-73916	PI 44:0	PI	Silver	Q3	PE_15_0_18_1_d7	nearest_rt		1001.70273	20.3759	PI 44:0#0	0.167910184502522	0.167910184502522	False	RIE(PE,M+H) / RIE(PI,M+NH4)	False	5.0	0.43499533050368344	below;is_not_detected	False
+73916	PI 44:0	PI	Silver	Q4				1001.70273	20.3759	PI 44:0#0									False
 73924	PE	PE	Bronze	Q1	PE_15_0_18_1_d7	class		752.59683	20.3982	feature:73924	1.0	1.0	False	class-matched standard (f = 1)	False	2.0	4.7819065386056545	below;is_not_detected	False
 73925	TG 48:5	TG	Silver	Q3	PE_15_0_18_1_d7	nearest_rt		830.68715	20.3866	TG 48:5#0	0.14019780590570993	0.14019780590570993	False	RIE(PE,M+H) / RIE(TG,M+NH4)	False	4.0	0.550549896629239	below;is_not_detected	False
 73936	TG 16:1_18:1_16:2+Os	TG	Gold	Q3	PE_15_0_18_1_d7	nearest_rt		860.7348	20.3907	TG 16:1_18:1_16:2+Os#0	0.14019780590570993	0.14019780590570993	False	RIE(PE,M+H) / RIE(TG,M+NH4)	False	6.0	8.822948172872318	below;is_not_detected	False
@@ -2310,7 +2310,7 @@ feature_id	lipid_name	lipid_class	confidence	quant_route	is_compound	is_match	RI
 74537	TG 50:3	TG	Silver	Q3	PE_15_0_18_1_d7	nearest_rt		862.74665	20.5575	TG 50:3#1	0.14019780590570993	0.14019780590570993	False	RIE(PE,M+H) / RIE(TG,M+NH4)	False	0.0		below;is_not_detected	False
 74611	DG O-37:6	DG	Silver	Q3	PE_15_0_18_1_d7	nearest_rt		630.54874	20.616	DG O-37:6#0	0.4587716101001155	0.4587716101001155	False	RIE(PE,M+H) / RIE(DG,M+NH4)	False	7.0	15.478464645962045	below;is_not_detected	False
 74627	TG 44:1	TG	Silver	Q3	PE_15_0_18_1_d7	nearest_rt		798.68258	20.6206	TG 44:1#0	0.14019780590570993	0.14019780590570993	False	RIE(PE,M+H) / RIE(TG,M+NH4)	False	3.0	0.5012776189805802	below;is_not_detected	False
-74696	PI 46:1	PI	Silver	Q3	PE_15_0_18_1_d7	nearest_rt		1022.76173	20.6326	PI 46:1#0	0.167910184502522	0.167910184502522	False	RIE(PE,M+H) / RIE(PI,M+NH4)	False	6.0	1.1529396738615976	below;is_not_detected	False
+74696	PI 46:1	PI	Silver	Q4				1022.76173	20.6326	PI 46:1#0									False
 74711	PC 42:1	PC	Silver	Q1	LPC_18_1_d7	family		872.70757	20.6257	PC 42:1#0	1.0	1.0	False	class-matched standard (f = 1)	False	9.0	8.307514911073923	within	False
 74722	MGDG	MGDG	Bronze	Q3	PE_15_0_18_1_d7	nearest_rt		830.68701	20.6445	feature:74722	10.0	5083.4973446555105	True	RIE(PE,M+H) / RIE(MGDG,M+H)	False	3.0	33.31827809684093	below;is_not_detected	False
 74727	TG O-58:10	TG	Silver	Q3	PE_15_0_18_1_d7	nearest_rt		913.76649	20.655	TG O-58:10#0	0.14019780590570993	0.14019780590570993	False	RIE(PE,M+H) / RIE(TG,M+NH4)	False	1.0	0.2203380653413328	below;is_not_detected	False
@@ -2320,7 +2320,7 @@ feature_id	lipid_name	lipid_class	confidence	quant_route	is_compound	is_match	RI
 74845	Cer 18:1	Cer	Silver	Q1	Cer_d18_1_15_0_d7	class		636.63017	20.6612	Cer 18:1#4	1.0	1.0	False	class-matched standard (f = 1)	False	0.0		within	False
 74869	TG 46:5	TG	Silver	Q3	PE_15_0_18_1_d7	nearest_rt		786.66124	20.6885	TG 46:5#0	0.14019780590570993	0.14019780590570993	False	RIE(PE,M+H) / RIE(TG,M+NH4)	False	6.0	1.6655087229511412	below;is_not_detected	False
 74872	DG O-37:3	DG	Silver	Q3	PE_15_0_18_1_d7	nearest_rt		636.59426	20.6775	DG O-37:3#0	0.4587716101001155	0.4587716101001155	False	RIE(PE,M+H) / RIE(DG,M+NH4)	False	0.0		below;is_not_detected	False
-74976	PI 44:0	PI	Silver	Q3	PE_15_0_18_1_d7	nearest_rt		979.71987	20.7046	PI 44:0#1	0.167910184502522	0.167910184502522	False	RIE(PE,M+H) / RIE(PI,M+NH4)	False	2.0	0.29806129741260756	below;is_not_detected	False
+74976	PI 44:0	PI	Silver	Q4				979.71987	20.7046	PI 44:0#1									False
 74994	CE	CE	Bronze	Q3	PE_15_0_18_1_d7	nearest_rt		707.66997	20.7221	feature:74994	10.0	124.8006211241276	True	RIE(PE,M+H) / RIE(CE,M+H) [adduct fallback]	False	5.0	50.928568661040224	below;is_not_detected	False
 75069	DG 20:0_20:0	DG	Gold	Q3	PE_15_0_18_1_d7	nearest_rt		698.66532	20.7535	DG 20:0_20:0#0	0.4587716101001155	0.4587716101001155	False	RIE(PE,M+H) / RIE(DG,M+NH4)	False	7.0	9.012698910474779	below;is_not_detected	False
 75093	TG	TG	Bronze	Q3	PE_15_0_18_1_d7	nearest_rt		817.62843	20.7591	feature:75093	0.14019780590570993	0.14019780590570993	False	RIE(PE,M+H) / RIE(TG,M+NH4)	False	1.0	1.699027671888914	below;is_not_detected	False
@@ -2328,9 +2328,9 @@ feature_id	lipid_name	lipid_class	confidence	quant_route	is_compound	is_match	RI
 75106	DG 22:0_18:2	DG	Gold	Q3	PE_15_0_18_1_d7	nearest_rt		694.63429	20.757	DG 22:0_18:2#0	0.4587716101001155	0.4587716101001155	False	RIE(PE,M+H) / RIE(DG,M+NH4)	False	7.0	3.015349518898962	below;is_not_detected	False
 75148	TG 12:0_12:0_14:0	TG	Gold	Q3	PE_15_0_18_1_d7	nearest_rt		684.6132	20.7933	TG 12:0_12:0_14:0#0	0.14019780590570993	0.14019780590570993	False	RIE(PE,M+H) / RIE(TG,M+NH4)	False	7.0	13.343098277905359	below;is_not_detected	False
 75187	Cer d41:0	Cer	Silver	Q1	Cer_d18_1_15_0_d7	class		638.64572	20.7791	Cer d41:0#0	1.0	1.0	False	class-matched standard (f = 1)	False	12.0	2.4652434552872586	within	True
-75248	PI 22:0_23:0	PI	Gold	Q3	PE_15_0_18_1_d7	nearest_rt		1010.76281	20.8007	PI 22:0_23:0#0	0.167910184502522	0.167910184502522	False	RIE(PE,M+H) / RIE(PI,M+NH4)	False	7.0	4.4353563169781305	below;is_not_detected	False
+75248	PI 22:0_23:0	PI	Gold	Q4				1010.76281	20.8007	PI 22:0_23:0#0									False
 75250	TG 16:1_18:1_16:2+Os	TG	Gold	Q3	PE_15_0_18_1_d7	nearest_rt		860.73434	20.7958	TG 16:1_18:1_16:2+Os#1	0.14019780590570993	0.14019780590570993	False	RIE(PE,M+H) / RIE(TG,M+NH4)	False	1.0	8.636673885328616	below;is_not_detected	False
-75275	PI 45:0	PI	Silver	Q3	PE_15_0_18_1_d7	nearest_rt		1015.71795	20.8103	PI 45:0#0	0.167910184502522	0.167910184502522	False	RIE(PE,M+H) / RIE(PI,M+NH4)	False	7.0	1.2368627423620233	below;is_not_detected	False
+75275	PI 45:0	PI	Silver	Q4				1015.71795	20.8103	PI 45:0#0									False
 75293	PC O-46:6	PC	Silver	Q1	LPC_18_1_d7	family		904.71538	20.818	PC O-46:6#0	1.0	1.0	False	class-matched standard (f = 1)	False	0.0		within	False
 75305	DG O-43:9	DG	Silver	Q3	PE_15_0_18_1_d7	nearest_rt		713.54793	20.8375	DG O-43:9#0	0.4587716101001155	0.4587716101001155	False	RIE(PE,M+H) / RIE(DG,M+NH4)	False	2.0	1.766248300263292	below;is_not_detected	False
 75308	TG 56:6	TG	Silver	Q3	PE_15_0_18_1_d7	nearest_rt		956.79002	20.8301	TG 56:6#0	0.14019780590570993	0.14019780590570993	False	RIE(PE,M+H) / RIE(TG,M+NH4)	False	0.0		below;is_not_detected	False
@@ -2379,9 +2379,9 @@ feature_id	lipid_name	lipid_class	confidence	quant_route	is_compound	is_match	RI
 76369	TG 46:4	TG	Silver	Q3	PE_15_0_18_1_d7	nearest_rt		788.67578	21.2086	TG 46:4#1	0.14019780590570993	0.14019780590570993	False	RIE(PE,M+H) / RIE(TG,M+NH4)	False	0.0		below;is_not_detected	False
 76493	TG 58:12	TG	Silver	Q3	PE_15_0_18_1_d7	nearest_rt		940.73764	21.2142	TG 58:12#0	0.14019780590570993	0.14019780590570993	False	RIE(PE,M+H) / RIE(TG,M+NH4)	False	7.0	2.35222469641582	below;is_not_detected	False
 76498	TG	TG	Bronze	Q3	PE_15_0_18_1_d7	nearest_rt		845.72223	21.2332	feature:76498	0.14019780590570993	0.14019780590570993	False	RIE(PE,M+H) / RIE(TG,M+NH4)	False	3.0	0.4074999425421472	below;is_not_detected	False
-76505	PI 46:0	PI	Silver	Q3	PE_15_0_18_1_d7	nearest_rt		1029.73372	21.2149	PI 46:0#0	0.167910184502522	0.167910184502522	False	RIE(PE,M+H) / RIE(PI,M+NH4)	False	5.0	0.8694991197403368	below;is_not_detected	False
+76505	PI 46:0	PI	Silver	Q4				1029.73372	21.2149	PI 46:0#0									False
 76541	DG 16:0_18:0	DG	Gold	Q3	PE_15_0_18_1_d7	nearest_rt		614.57223	21.2508	DG 16:0_18:0#2	0.4587716101001155	0.4587716101001155	False	RIE(PE,M+H) / RIE(DG,M+NH4)	False	0.0		below;is_not_detected	False
-76544	PI 22:0_24:0	PI	Gold	Q3	PE_15_0_18_1_d7	nearest_rt		1024.77789	21.2293	PI 22:0_24:0#0	0.167910184502522	0.167910184502522	False	RIE(PE,M+H) / RIE(PI,M+NH4)	False	7.0	4.918910201159957	below;is_not_detected	False
+76544	PI 22:0_24:0	PI	Gold	Q4				1024.77789	21.2293	PI 22:0_24:0#0									False
 76553	TG	TG	Bronze	Q3	PE_15_0_18_1_d7	nearest_rt		747.72204	21.234	feature:76553	0.14019780590570993	0.14019780590570993	False	RIE(PE,M+H) / RIE(TG,M+NH4)	False	7.0	1.6139763286252626	below;is_not_detected	False
 76555	TG 16:1_16:1_18:1+Os	TG	Gold	Q3	PE_15_0_18_1_d7	nearest_rt		862.74914	21.2194	TG 16:1_16:1_18:1+Os#0	0.14019780590570993	0.14019780590570993	False	RIE(PE,M+H) / RIE(TG,M+NH4)	False	7.0	19.17101012869916	below;is_not_detected	False
 76572	TG P-54:6	TG	Silver	Q3	PE_15_0_18_1_d7	nearest_rt		863.75212	21.2297	TG P-54:6#0	0.14019780590570993	0.14019780590570993	False	RIE(PE,M+H) / RIE(TG,M+NH4)	False	3.0	6.584219834905708	below;is_not_detected	False
@@ -2402,7 +2402,7 @@ feature_id	lipid_name	lipid_class	confidence	quant_route	is_compound	is_match	RI
 76827	TG	TG	Bronze	Q3	PE_15_0_18_1_d7	nearest_rt		838.65961	21.311	feature:76827	0.14019780590570993	0.14019780590570993	False	RIE(PE,M+H) / RIE(TG,M+NH4)	False	4.0	0.8615493128538719	below;is_not_detected	False
 76831	TG 12:1_16:1_18:2	TG	Gold	Q3	PE_15_0_18_1_d7	nearest_rt		788.67566	21.28	TG 12:1_16:1_18:2#0	0.14019780590570993	0.14019780590570993	False	RIE(PE,M+H) / RIE(TG,M+NH4)	False	6.0	5.303374204814427	below;is_not_detected	False
 76844	TG 14:1_15:1_16:1	TG	Gold	Q3	PE_15_0_18_1_d7	nearest_rt		776.67547	21.3692	TG 14:1_15:1_16:1#0	0.14019780590570993	0.14019780590570993	False	RIE(PE,M+H) / RIE(TG,M+NH4)	False	1.0	4.744542306493042	below;is_not_detected	False
-76852	PI 47:0	PI	Silver	Q3	PE_15_0_18_1_d7	nearest_rt		1038.79088	21.3265	PI 47:0#0	0.167910184502522	0.167910184502522	False	RIE(PE,M+H) / RIE(PI,M+NH4)	False	1.0	0.877924416283808	below;is_not_detected	False
+76852	PI 47:0	PI	Silver	Q4				1038.79088	21.3265	PI 47:0#0									False
 76872	TG	TG	Bronze	Q3	PE_15_0_18_1_d7	nearest_rt		819.64636	21.3403	feature:76872	0.14019780590570993	0.14019780590570993	False	RIE(PE,M+H) / RIE(TG,M+NH4)	False	2.0	1.0433358606248218	below;is_not_detected	False
 76909	TG 18:1_18:1_18:2+Os	TG	Gold	Q3	PE_15_0_18_1_d7	nearest_rt		916.79393	21.3382	TG 18:1_18:1_18:2+Os#0	0.14019780590570993	0.14019780590570993	False	RIE(PE,M+H) / RIE(TG,M+NH4)	False	2.0	2.292356072848251	below;is_not_detected	False
 76927	TG P-44:7	TG	Silver	Q3	PE_15_0_18_1_d7	nearest_rt		721.57697	21.3193	TG P-44:7#0	0.14019780590570993	0.14019780590570993	False	RIE(PE,M+H) / RIE(TG,M+NH4)	False	0.0		below;is_not_detected	False
@@ -2411,7 +2411,7 @@ feature_id	lipid_name	lipid_class	confidence	quant_route	is_compound	is_match	RI
 77027	Cer	Cer	Bronze	Q1	Cer_d18_1_15_0_d7	class		664.66165	21.4064	feature:77027	1.0	1.0	False	class-matched standard (f = 1)	False	4.0	0.7050842054766118	within	False
 77071	TG 43:2	TG	Silver	Q3	PE_15_0_18_1_d7	nearest_rt		750.66033	21.4193	TG 43:2#5	0.14019780590570993	0.14019780590570993	False	RIE(PE,M+H) / RIE(TG,M+NH4)	False	2.0	6.914723458894584	below;is_not_detected	False
 77083	CL 62:2	CL	Silver	Q3	PE_15_0_18_1_d7	nearest_rt		1343.89838	21.403	CL 62:2#0	1.0	1.0	False	class not in response table; f = 1	True	3.0	3.5673525875613454	below;is_not_detected	False
-77119	PI 48:1	PI	Silver	Q3	PE_15_0_18_1_d7	nearest_rt		1050.7933	21.4311	PI 48:1#0	0.167910184502522	0.167910184502522	False	RIE(PE,M+H) / RIE(PI,M+NH4)	False	5.0	0.24505446568886138	below;is_not_detected	False
+77119	PI 48:1	PI	Silver	Q4				1050.7933	21.4311	PI 48:1#0									False
 77171	PG O-48:6	PG	Silver	Q3	PE_15_0_18_1_d7	nearest_rt		921.69454	21.4734	PG O-48:6#0	0.10450231745364469	0.10450231745364469	False	RIE(PE,M+H) / RIE(PG,M+NH4)	False	5.0	0.9530077931826559	below;is_not_detected	False
 77196	TG 18:2_18:3_20:5	TG	Gold	Q3	PE_15_0_18_1_d7	nearest_rt		916.73894	21.4789	TG 18:2_18:3_20:5#0	0.14019780590570993	0.14019780590570993	False	RIE(PE,M+H) / RIE(TG,M+NH4)	False	7.0	13.356923276121066	below;is_not_detected	False
 77201	TG 49:2	TG	Silver	Q3	PE_15_0_18_1_d7	nearest_rt		850.74896	21.4836	TG 49:2#0	0.14019780590570993	0.14019780590570993	False	RIE(PE,M+H) / RIE(TG,M+NH4)	False	4.0	1.6284185253440397	below;is_not_detected	False
@@ -2427,8 +2427,8 @@ feature_id	lipid_name	lipid_class	confidence	quant_route	is_compound	is_match	RI
 77570	TG 48:3	TG	Silver	Q3	PE_15_0_18_1_d7	nearest_rt		834.71745	21.6176	TG 48:3#4	0.14019780590570993	0.14019780590570993	False	RIE(PE,M+H) / RIE(TG,M+NH4)	False	4.0	0.6544874289238852	below;is_not_detected	False
 77594	DG 23:0_18:2	DG	Gold	Q3	PE_15_0_18_1_d7	nearest_rt		708.64714	21.6121	DG 23:0_18:2#0	0.4587716101001155	0.4587716101001155	False	RIE(PE,M+H) / RIE(DG,M+NH4)	False	4.0	0.9876069574135347	below;is_not_detected	False
 77617	TG	TG	Bronze	Q3	PE_15_0_18_1_d7	nearest_rt		761.73739	21.6282	feature:77617	0.14019780590570993	0.14019780590570993	False	RIE(PE,M+H) / RIE(TG,M+NH4)	False	7.0	1.7542100771358708	below;is_not_detected	False
-77621	PI 22:0_25:0	PI	Gold	Q3	PE_15_0_18_1_d7	nearest_rt		1038.79394	21.6266	PI 22:0_25:0#0	0.167910184502522	0.167910184502522	False	RIE(PE,M+H) / RIE(PI,M+NH4)	False	7.0	4.028504083390663	below;is_not_detected	False
-77631	PI 47:0	PI	Silver	Q3	PE_15_0_18_1_d7	nearest_rt		1043.74935	21.6297	PI 47:0#1	0.167910184502522	0.167910184502522	False	RIE(PE,M+H) / RIE(PI,M+NH4)	False	7.0	1.048814190023563	below;is_not_detected	False
+77621	PI 22:0_25:0	PI	Gold	Q4				1038.79394	21.6266	PI 22:0_25:0#0									False
+77631	PI 47:0	PI	Silver	Q4				1043.74935	21.6297	PI 47:0#1									False
 77641	CL 63:2	CL	Silver	Q3	PE_15_0_18_1_d7	nearest_rt		1352.95965	21.6345	CL 63:2#0	1.0	1.0	False	class not in response table; f = 1	True	7.0	27.62656980882652	below;is_not_detected	False
 77644	CL 63:2	CL	Silver	Q3	PE_15_0_18_1_d7	nearest_rt		1357.91595	21.6313	CL 63:2#0	1.0	1.0	False	class not in response table; f = 1	True	3.0	5.988345030366987	below;is_not_detected	False
 77649	Cer 18:1	Cer	Silver	Q1	Cer_d18_1_15_0_d7	class		664.66123	21.6394	Cer 18:1#5	1.0	1.0	False	class-matched standard (f = 1)	False	5.0	0.3528695695824907	within	False
@@ -2439,8 +2439,8 @@ feature_id	lipid_name	lipid_class	confidence	quant_route	is_compound	is_match	RI
 77836	TG 16:0_16:0_16:2+Os	TG	Gold	Q3	PE_15_0_18_1_d7	nearest_rt		836.73335	21.677	TG 16:0_16:0_16:2+Os#0	0.14019780590570993	0.14019780590570993	False	RIE(PE,M+H) / RIE(TG,M+NH4)	False	0.0		below;is_not_detected	False
 77869	TG	TG	Bronze	Q3	PE_15_0_18_1_d7	nearest_rt		769.63146	21.7258	feature:77869	0.14019780590570993	0.14019780590570993	False	RIE(PE,M+H) / RIE(TG,M+NH4)	False	5.0	1.3499021980382684	below;is_not_detected	False
 77876	CL 64:3	CL	Silver	Q3	PE_15_0_18_1_d7	nearest_rt		1369.91349	21.7054	CL 64:3#0	1.0	1.0	False	class not in response table; f = 1	True	6.0	4.347770905331734	below;is_not_detected	False
-77882	PI 49:1	PI	Silver	Q3	PE_15_0_18_1_d7	nearest_rt		1064.80875	21.6845	PI 49:1#0	0.167910184502522	0.167910184502522	False	RIE(PE,M+H) / RIE(PI,M+NH4)	False	0.0		below;is_not_detected	False
-77889	PI 48:0	PI	Silver	Q3	PE_15_0_18_1_d7	nearest_rt		1052.81006	21.7165	PI 48:0#0	0.167910184502522	0.167910184502522	False	RIE(PE,M+H) / RIE(PI,M+NH4)	False	4.0	1.3110491758277325	below;is_not_detected	False
+77882	PI 49:1	PI	Silver	Q4				1064.80875	21.6845	PI 49:1#0									False
+77889	PI 48:0	PI	Silver	Q4				1052.81006	21.7165	PI 48:0#0									False
 77929	Cer d43:1	Cer	Silver	Q1	Cer_d18_1_15_0_d7	class		646.64879	21.7228	Cer d43:1#0	1.0	1.0	False	class-matched standard (f = 1)	False	0.0		within	False
 77957	Cer 18:1	Cer	Silver	Q1	Cer_d18_1_15_0_d7	class		664.66112	21.7227	Cer 18:1#5	1.0	1.0	False	class-matched standard (f = 1)	False	1.0	0.2089371193153116	within	False
 77996	TG 47:0	TG	Silver	Q3	PE_15_0_18_1_d7	nearest_rt		810.75382	21.7352	TG 47:0#0	0.14019780590570993	0.14019780590570993	False	RIE(PE,M+H) / RIE(TG,M+NH4)	False	3.0	0.18281878098461155	below;is_not_detected	False
@@ -2455,7 +2455,7 @@ feature_id	lipid_name	lipid_class	confidence	quant_route	is_compound	is_match	RI
 78100	TG 10:0_14:0_18:1	TG	Gold	Q3	PE_15_0_18_1_d7	nearest_rt		738.66039	21.7869	TG 10:0_14:0_18:1#0	0.14019780590570993	0.14019780590570993	False	RIE(PE,M+H) / RIE(TG,M+NH4)	False	7.0	15.162908938077278	below;is_not_detected	False
 78104	TG 43:2	TG	Silver	Q3	PE_15_0_18_1_d7	nearest_rt		750.66031	21.7285	TG 43:2#6	0.14019780590570993	0.14019780590570993	False	RIE(PE,M+H) / RIE(TG,M+NH4)	False	0.0		below;is_not_detected	False
 78107	CL 66:4	CL	Silver	Q3	PE_15_0_18_1_d7	nearest_rt		1395.92942	21.7728	CL 66:4#0	1.0	1.0	False	class not in response table; f = 1	True	3.0	2.9402600475654928	below;is_not_detected	False
-78157	PI 48:0	PI	Silver	Q3	PE_15_0_18_1_d7	nearest_rt		1052.81023	21.7612	PI 48:0#0	0.167910184502522	0.167910184502522	False	RIE(PE,M+H) / RIE(PI,M+NH4)	False	2.0	2.4956247195614205	below;is_not_detected	False
+78157	PI 48:0	PI	Silver	Q4				1052.81023	21.7612	PI 48:0#0									False
 78184	TG 58:11	TG	Silver	Q3	PE_15_0_18_1_d7	nearest_rt		942.75417	21.7928	TG 58:11#0	0.14019780590570993	0.14019780590570993	False	RIE(PE,M+H) / RIE(TG,M+NH4)	False	7.0	6.450349167501316	below;is_not_detected	False
 78186	TG 47:4	TG	Silver	Q3	PE_15_0_18_1_d7	nearest_rt		802.69206	21.7662	TG 47:4#0	0.14019780590570993	0.14019780590570993	False	RIE(PE,M+H) / RIE(TG,M+NH4)	False	0.0		below;is_not_detected	False
 78243	TG 65:15	TG	Silver	Q3	PE_15_0_18_1_d7	nearest_rt		1015.77781	21.815	TG 65:15#0	0.14019780590570993	0.14019780590570993	False	RIE(PE,M+H) / RIE(TG,M+NH4)	False	5.0	0.422206616381995	below;is_not_detected	False
@@ -2496,7 +2496,7 @@ feature_id	lipid_name	lipid_class	confidence	quant_route	is_compound	is_match	RI
 79198	TG 18:0_18:2_18:2+Os	TG	Gold	Q3	PE_15_0_18_1_d7	nearest_rt		916.79625	22.0718	TG 18:0_18:2_18:2+Os#0	0.14019780590570993	0.14019780590570993	False	RIE(PE,M+H) / RIE(TG,M+NH4)	False	0.0		below;is_not_detected	False
 79215	TG 16:0_16:0_16:1+Os	TG	Gold	Q3	PE_15_0_18_1_d7	nearest_rt		838.7495	22.1205	TG 16:0_16:0_16:1+Os#0	0.14019780590570993	0.14019780590570993	False	RIE(PE,M+H) / RIE(TG,M+NH4)	False	3.0	1.8842144852350737	below;is_not_detected	False
 79272	DG 15:0_24:0	DG	Gold	Q3	PE_15_0_18_1_d7	nearest_rt		684.64966	22.1409	DG 15:0_24:0#0	0.4587716101001155	0.4587716101001155	False	RIE(PE,M+H) / RIE(DG,M+NH4)	False	2.0	0.8910118332005729	below;is_not_detected	False
-79329	PI 49:0	PI	Silver	Q3	PE_15_0_18_1_d7	nearest_rt		1066.82594	22.137	PI 49:0#0	0.167910184502522	0.167910184502522	False	RIE(PE,M+H) / RIE(PI,M+NH4)	False	2.0	0.23040937684537968	below;is_not_detected	False
+79329	PI 49:0	PI	Silver	Q4				1066.82594	22.137	PI 49:0#0									False
 79373	CL O-60:1	CL	Silver	Q3	PE_15_0_18_1_d7	nearest_rt		1289.92633	22.1967	CL O-60:1#0	1.0	1.0	False	class not in response table; f = 1	True	0.0		below;is_not_detected	False
 79393	AcHexSiE 18:0	AcHexSiE	Silver	Q3	PE_15_0_18_1_d7	nearest_rt		860.73487	22.1883	AcHexSiE 18:0#0	1.0	1.0	False	class not in response table; f = 1	True	7.0	2.323327452512711	below;is_not_detected	False
 79437	TG 16:1_16:1_16:2	TG	Gold	Q3	PE_15_0_18_1_d7	nearest_rt		816.7074	22.1785	TG 16:1_16:1_16:2#0	0.14019780590570993	0.14019780590570993	False	RIE(PE,M+H) / RIE(TG,M+NH4)	False	1.0	23.11929553250602	below;is_not_detected	False
@@ -2511,10 +2511,10 @@ feature_id	lipid_name	lipid_class	confidence	quant_route	is_compound	is_match	RI
 79899	CL 68:4	CL	Silver	Q3	PE_15_0_18_1_d7	nearest_rt		1423.96082	22.3522	CL 68:4#0	1.0	1.0	False	class not in response table; f = 1	True	5.0	8.700576585400508	below;is_not_detected	False
 79926	CL 68:4	CL	Silver	Q3	PE_15_0_18_1_d7	nearest_rt		1419.00657	22.3578	CL 68:4#0	1.0	1.0	False	class not in response table; f = 1	True	7.0	31.492737693358027	below;is_not_detected	False
 79990	TG 52:3	TG	Silver	Q3	PE_15_0_18_1_d7	nearest_rt		890.78005	22.3406	TG 52:3#1	0.14019780590570993	0.14019780590570993	False	RIE(PE,M+H) / RIE(TG,M+NH4)	False	1.0	0.33326132382876583	below;is_not_detected	False
-80052	PI 50:0	PI	Silver	Q3	PE_15_0_18_1_d7	nearest_rt		1080.84381	22.4191	PI 50:0#0	0.167910184502522	0.167910184502522	False	RIE(PE,M+H) / RIE(PI,M+NH4)	False	1.0	0.14037669121618732	below;is_not_detected	False
+80052	PI 50:0	PI	Silver	Q4				1080.84381	22.4191	PI 50:0#0									False
 80085	TG 20:6_16:0_18:3	TG	Gold	Q3	PE_15_0_18_1_d7	nearest_rt		873.69348	22.4116	TG 20:6_16:0_18:3#0	0.14019780590570993	0.14019780590570993	False	RIE(PE,M+H) / RIE(TG,M+NH4)	False	4.0	3.9662125316359873	below;is_not_detected	False
 80089	CL 65:2	CL	Silver	Q3	PE_15_0_18_1_d7	nearest_rt		1385.94554	22.419	CL 65:2#1	1.0	1.0	False	class not in response table; f = 1	True	5.0	8.790687118101442	below;is_not_detected	False
-80112	PI 49:0	PI	Silver	Q3	PE_15_0_18_1_d7	nearest_rt		1066.82684	22.4319	PI 49:0#1	0.167910184502522	0.167910184502522	False	RIE(PE,M+H) / RIE(PI,M+NH4)	False	1.0	1.2756363297109106	below;is_not_detected	False
+80112	PI 49:0	PI	Silver	Q4				1066.82684	22.4319	PI 49:0#1									False
 80124	TG 16:1_18:2_18:3	TG	Gold	Q3	PE_15_0_18_1_d7	nearest_rt		868.73809	22.4218	TG 16:1_18:2_18:3#0	0.14019780590570993	0.14019780590570993	False	RIE(PE,M+H) / RIE(TG,M+NH4)	False	2.0	73.44638367141542	below;is_not_detected	False
 80134	TG 13:0_14:0_16:0	TG	Gold	Q3	PE_15_0_18_1_d7	nearest_rt		754.69064	22.4527	TG 13:0_14:0_16:0#0	0.14019780590570993	0.14019780590570993	False	RIE(PE,M+H) / RIE(TG,M+NH4)	False	1.0	2.1593490711410595	below;is_not_detected	False
 80179	CL 67:3	CL	Silver	Q3	PE_15_0_18_1_d7	nearest_rt		1411.95942	22.4523	CL 67:3#0	1.0	1.0	False	class not in response table; f = 1	True	3.0	4.130140204618868	below;is_not_detected	False
