@@ -11,3 +11,7 @@
 - Calibration (ESTD1 A1–A7 and duplicates) was acquired 27–28 Mar 2023 in sequence OE12-1;
   soils, pooled QCs and SRM on 30–31 Mar 2023 in sequence OE12-3 (raw-file creation dates).
 - Raw files: LiSC `/lisc/data/work/ter/rahul/4-LC-HRMS-Orbitrap/Orbitrap-data/`.
+- `rie_table_s10.csv`: Samrat et al. (2025), Soil Biology & Biochemistry, Supplementary Table S10
+  (109 standard measurements; class, species, adduct, RT, RIE relative to LPE). Copied from
+  `~/Desktop/SoilMass/analysis/analysis/analysis-19/00_inputs/` (sha256 056da89dfa158615…, same as the SLA repo copy).
+  Stage 5 uses unfloored class means per adduct (the 0.20 floor of Table S7 belongs to the decomposition, not to amounts).
