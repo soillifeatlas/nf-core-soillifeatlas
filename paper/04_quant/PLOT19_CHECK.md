@@ -46,3 +46,10 @@ Treatment means (µg g⁻¹, mean ± SD of 3 plots) over the 326 lipids with an 
 
 With a common lipid set, drought raises totals by ~1.1–1.2×, not ~3×. Class sums and Fig. 7B
 should use a common lipid set (or impute missing standards) — a definition change, not applied.
+
+## Applied (decision 2026-11-25: common lipid set, with A + MG→Q4)
+
+POS sums now use the 287 lipids with an amount in all 12 soils. Plot 19 = 34.1 µg g⁻¹ vs 32.5
+(plot 22) and 26.8 (plot 36): no longer an outlier. Treatment means: ambient 31.1 ± 3.8, future
+33.7 ± 2.2, ambient + drought 35.5 ± 5.7, future + drought 35.1 ± 9.7. NEG uses 177 lipids over
+11 soils (plot 49 has no detected standard in negative mode).

@@ -59,3 +59,14 @@ demoted to Q4 (call this A + MG→Q4).
 Drought still raises totals under both options (≈ 1.4–1.7×, not 3×).
 
 Recommendation: **A + MG→Q4** (keeps TG/DG/PI/PG as estimates on the response their real adduct has; MG has no usable response). Per-feature adducts from LipidSearch would be the proper follow-up.
+
+## Applied (decision 2026-11-25: A + MG→Q4)
+
+`quantify.POS_CLASS_ADDUCT` and `POS_NO_RESPONSE` (commit 5a5e410), re-run in `pos/`. Q3 features:
+1,679 (MG's 97 moved to Q4); median f TG 0.14, DG 1.08, PI 0.40, PG 0.25; none capped.
+
+**NIST caveat:** the only positive-mode Q3 lipids that NIST SRM 1950 can check are 8 PIs.
+Scored at [M+NH4]⁺ they are 4–180-fold below consensus (median ratio 0.015); scored at [M+H]⁺
+without the cap they would be ~4-fold above (×297). So the adduct choice for PI is not settled
+by NIST, and TG/DG cannot be checked (see `../05_nist/pos/nist_comparison.tsv`). Per-feature
+adducts (LipidSearch main ion) remain the proper fix.
