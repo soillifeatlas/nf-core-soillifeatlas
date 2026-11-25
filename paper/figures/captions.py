@@ -181,19 +181,20 @@ def build() -> dict[str, str]:
         "positive and negative mode; log scale. (B) The same per treatment (positive mode), "
         "mean ± SD of the three plots.")
 
-    c["Figure S4"] = (
-        "Internal standards in soil extracts against the neat calibration (ClimGrass). (A) Median "
-        "concentration in the soil extracts of each internal standard detected in soils "
-        "(points; detected/analysed soils in brackets), read from a log–log calibration of the "
-        "neat EquiSPLASH dilution series, against the calibration range (grey); "
-        f"{n['qc_is_n_within_cal']} of {n['qc_is_n_detected']} "
-        f"{'lies' if n['qc_is_n_within_cal'] == 1 else 'lie'} within the range. "
-        "(B) Apparent recovery, the amount found (extract concentration × "
-        f"{n['qc_recon_volume_ul']:g} µL reconstitution volume) relative to the 10 ng spiked "
-        "before extraction, median and range over soils; dashed line, 100 %. Median values range "
-        f"from {n['qc_recovery_median_min_pct']:.0f} % to {n['qc_recovery_median_max_pct']:.0f} %. "
-        "Without post-extraction spikes, losses during extraction and matrix effects on the "
-        "signal cannot be separated.")
+    if n["figS4_shown"] == "True":
+        c["Figure S4"] = (
+            "Internal standards in soil extracts against the neat calibration (ClimGrass). (A) Median "
+            "concentration in the soil extracts of each internal standard detected in soils "
+            "(points; detected/analysed soils in brackets), read from a log–log calibration of the "
+            "neat EquiSPLASH dilution series, against the calibration range (grey); "
+            f"{n['qc_is_n_within_cal']} of {n['qc_is_n_detected']} "
+            f"{'lies' if n['qc_is_n_within_cal'] == 1 else 'lie'} within the range. "
+            "(B) Apparent recovery, the amount found (extract concentration × "
+            f"{n['qc_recon_volume_ul']:g} µL reconstitution volume) relative to the 10 ng spiked "
+            "before extraction, median and range over soils; dashed line, 100 %. Median values range "
+            f"from {n['qc_recovery_median_min_pct']:.0f} % to {n['qc_recovery_median_max_pct']:.0f} %. "
+            "Without post-extraction spikes, losses during extraction and matrix effects on the "
+            "signal cannot be separated.")
     return c
 
 

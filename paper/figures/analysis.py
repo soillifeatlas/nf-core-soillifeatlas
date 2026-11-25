@@ -185,6 +185,7 @@ def qc():
         rows.append(d.assign(pol=pol))
     d = pd.concat(rows)
     number("qc_recon_volume_ul", float(vol) if vol else assumed, "qc_is_vs_cal")
+    number("figS4_shown", str(bool(gates().get("figS4_shown", True))), "qc_is_vs_cal")
     table("qc_is_vs_cal", d[d.n_samples_detected > 0])
     rec = d.dropna(subset=["R_app_median_pct"])
     table("qc_recovery", rec)

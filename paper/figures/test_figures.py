@@ -92,7 +92,8 @@ def test_build_with_all_gates_open():
     with tempfile.TemporaryDirectory() as d:
         gf = Path(d) / "gates.yaml"
         gf.write_text(yaml.safe_dump({"reconstitution_volume_confirmed": True,
-                                      "stage5_fix_confirmed": True, "fig7E_lipid": lipid}))
+                                      "stage5_fix_confirmed": True, "fig7E_lipid": lipid,
+                                      "reconstitution_volume_ul": 200, "figS4_shown": True}))
         rows, _ = _build_figures(Path(d), gf)
     status = {f"{r['figure']}{r['panel']}": r["status"] for r in rows}
     for k in GATED:

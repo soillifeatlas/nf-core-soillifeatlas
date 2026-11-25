@@ -37,6 +37,7 @@ qc_mass_tolerance_ppm_neg,5.0
 qc_is_pct_rt_within,100.0
 qc_is_pct_ppm_within,95.83333333333334
 qc_recon_volume_ul,200.0
+figS4_shown,False
 qc_recovery_n_standards,8
 qc_recovery_median_min_pct,151.0
 qc_recovery_median_max_pct,751.0

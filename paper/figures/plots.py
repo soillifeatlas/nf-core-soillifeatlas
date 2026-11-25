@@ -1216,9 +1216,14 @@ def figS3_response():
 
 
 def figS4_recovery():
-    if not gates()["reconstitution_volume_confirmed"]:
+    g = gates()
+    if not g["reconstitution_volume_confirmed"]:
         return _not_built("S4", "recovery", "supplement",
                           "waits for reconstitution_volume_confirmed", ["A", "B"])
+    if not g.get("figS4_shown", True):
+        return _not_built("S4", "recovery", "supplement",
+                          "withheld (figS4_shown: false): recovery > 100 %, calibration under "
+                          "review", ["A", "B"])
     P = Panels("S4", "recovery", "supplement")
     fig = plt.figure(figsize=(DOUBLE, 85 * MM))
     gs = fig.add_gridspec(1, 2, wspace=0.5, left=0.15, right=0.98, top=0.88, bottom=0.25)

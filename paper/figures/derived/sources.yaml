@@ -339,6 +339,11 @@ number:atlas_release_phyla:
 - figures/inputs/atlas_groups.csv
 number:atlas_release_ref_samples:
 - figures/inputs/atlas_groups.csv
+number:figS4_shown:
+- 01_qc/neg/is_vs_calibration.tsv
+- 01_qc/neg/provenance.yaml
+- 01_qc/pos/is_vs_calibration.tsv
+- 01_qc/pos/provenance.yaml
 number:interp_groups_broad:
 - 06_atlas_match/examples/examples.tsv
 - 06_atlas_match/examples/examples_phylum_detection.tsv

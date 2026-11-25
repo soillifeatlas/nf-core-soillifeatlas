@@ -1,10 +1,11 @@
-built: '2026-11-25T15:06:59+00:00'
+built: '2026-11-25T15:35:46+00:00'
 command: python paper/figures/build_all.py
-repo_head: 25c3f75
-paper_figures_dirty: false
+repo_head: 557d58c
+paper_figures_dirty: true
 gates:
   reconstitution_volume_confirmed: true
   reconstitution_volume_ul: 200
+  figS4_shown: false
   stage5_fix_confirmed: true
   fig7E_lipid: PC 30:1
 schematic_sources:
@@ -465,33 +466,17 @@ figures:
   S4:
     name: recovery
     role: supplement
-    outputs:
-    - figures/output/FigS4_recovery_2026-11-25.pdf
-    - figures/output/FigS4_recovery_2026-11-25.png
-    script: paper/figures/plots.py
+    outputs: []
+    script: null
     panels:
       A:
-        status: REAL
-        note: IS in soil vs calibration range
-        sources:
-          01_qc/neg/is_vs_calibration.tsv: &id028
-            git_sha: 756333b
-            export_sha: ac355b6
-            sha256: 089230dd8e3a6ca93cdc1179f9c48fc1fdc999ef59fa6a4ce7393eeac6ee6a8b
-          01_qc/neg/provenance.yaml: *id020
-          01_qc/pos/is_vs_calibration.tsv: &id029
-            git_sha: 756333b
-            export_sha: ac355b6
-            sha256: 3aeb8607926cc64b562c63c1635835e317e7aff4793aac49e165ba17fff5e5a0
-          01_qc/pos/provenance.yaml: *id023
+        status: NOT BUILT
+        note: 'withheld (figS4_shown: false): recovery > 100 %, calibration under review'
+        sources: {}
       B:
-        status: REAL
-        note: apparent recovery
-        sources:
-          01_qc/neg/is_vs_calibration.tsv: *id028
-          01_qc/neg/provenance.yaml: *id020
-          01_qc/pos/is_vs_calibration.tsv: *id029
-          01_qc/pos/provenance.yaml: *id023
+        status: NOT BUILT
+        note: 'withheld (figS4_shown: false): recovery > 100 %, calibration under review'
+        sources: {}
   S5:
     name: amounts
     role: supplement
